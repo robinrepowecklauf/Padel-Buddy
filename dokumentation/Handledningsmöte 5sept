@@ -15,15 +15,30 @@ Supervisor: Agnes Mårdh.
 -Första möte med handledare. 
 
 ## Discussion items (35 min)
+Frågor från handledare:
+- Ambitionsnivå?
+  - Samtliga gruppmedlemmar har samma ambitionsnivå.
+
+
 - Presentera projektidén. 
+  - Idén godkänd. 
 - Bolla idéer angående omfång av projektet, lagom omfattande? För stort? För litet?
+  - Bra omfång på projekt. Går att bygga vidare på för allt lägga till ytterligare funtkioner. 
+-User Stories:
+  - Exempel på första User story: Jag vill kunna se en annons där två spelare söker motståndare eftersom jag vill hitta några att spela mot. 
 - Requirements and Analysis Document (RAD).
 - System Design Document (SDD).
 - UML?
 - Saker som ska göras innan koden börjar skrivas.
-- Maven/ Gradle.
+  - Skapa en tylig gemensam bild av projektet. 
+  - Uppgifter kan utföras parallellt, koden kan inte vänta för länge. 
+  - 
+- Maven/Gradle.
 - Serverbaserat?
 - Android Studios.
+
+- Seminarie lv3:
+  - Domänmodell visas upp.  
 
 ## Outcomes and assignments (5 min)
 
