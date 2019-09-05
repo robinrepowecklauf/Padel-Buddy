@@ -48,4 +48,4 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Carl-Johan
 - Diskutera GUI
 - Diskutera Android Studios samt Gradle
 - Prototyp?
-- Möte 6/9-19 kl 10.00-11.45
+- Möte 5/9-19 kl 10.00-11.45
