@@ -20,24 +20,30 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Carl-Johan
 
 ## Discussion items (35 min)
  - Start av Sprint 1.
- - Mål med sprinten, vad ska göras under denna vecka?
-    - Samtliga behöver få ordning på mjukvaran och få projektet fungera.
-      - Android Studio.
-      - Gradle.
-      - GitHub.
-    - Påbörja en MVC-struktur i koden. 
-    - Skapa en tydlig första domänmodell. 
-    - Kunna se en "annons" i programmet. 
+ - Mål med sprinten, vad ska göras under denna vecka?  
  - Uppdelning av arbete.
-  - Till att börja med behöver samtliga arbeta tillsammans för att komma igång kodmässigt. 
-    Uppdelning av arbete skjuts därför upp ett par arbetsdagar.
- 
   
  
 ## Outcomes and assignments (5 min)
+ Outcomes:
+ - Samtliga behöver få ordning på mjukvaran och få projektet fungera så att vi kan komma igång.
+      - Android Studio.
+      - Gradle.
+      - GitHub.
+ - Påbörja en MVC-struktur i koden för att redan från start ha en tydlig och bra struktur. 
+ - Skapa en tydlig första domänmodell för att ha en överblick på hela projektet. 
+ - Kunna se en "annons" i programmet för att ha ett tydligt kodmässigt mål med sprinten. 
+ - Till att börja med behöver samtliga arbeta tillsammans för att komma igång kodmässigt. Uppdelning av arbete skjuts 
+   därför upp ett par arbetsdagar.
+  
+ Assignments:
+ - Fredrik ska på egen hand under ons-fre fördjupa sig i utvecklingsverktygen då han är bortrest.
+ - Marcus ska skapa en första skiss över programmet. 
+ - Robin ska påbörja RAD.
+ - En gemensam genomgång med Android Studios & GitHub. 
+ - Samtliga ska tillsammans sätta upp projektet på enskild dator. 
 
 
 ## Wrap up
-
-
-- Nästa möte 5/9-19 kl 15.15-1
+- Boka in King-off.
+- Nästa möte 12/9-19 kl 8.15-9:15
