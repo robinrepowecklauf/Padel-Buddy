@@ -9,22 +9,31 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Carl-Johan
 
 
 ## Reports (15 min) from previous meeting
-- Implementation
-- Koddesign
-- Domänmodell
-- Samtliga ska skriva exempel på User stories, med tillhörande tasks.
+ - Implementation
+ - Koddesign
+ - Domänmodell
+    - Samtliga ska skriva exempel på User stories, med tillhörande tasks.
   - Robin har skapat ett par User stories. Diskuterades även gemensamt under handledningsmöte 1.
-- Brainstorming angående funktionallitet fär Padel Buddy. 
+    - Brainstorming angående funktionallitet fär Padel Buddy. 
   - Efter mötet 5/9 hade vi en brainstorm angående funktionalliteten för Padel buddy, där samtliga idéer sammanställdes i en product 
     backlog. Fredrik har även skrivit ner många idéer på egen hand. 
 
 ## Discussion items (35 min)
  - Start av Sprint 1.
- - Mål med sprinten.
+ - Mål med sprinten, vad ska göras under denna vecka?
+    - Samtliga behöver få ordning på mjukvaran och få projektet fungera.
+      - Android Studio.
+      - Gradle.
+      - GitHub.
+    - Påbörja en MVC-struktur i koden. 
+    - Skapa en tydlig första domänmodell. 
+    - Kunna se en "annons" i programmet. 
  - Uppdelning av arbete.
+  - Till att börja med behöver samtliga arbeta tillsammans för att komma igång kodmässigt. 
+    Uppdelning av arbete skjuts därför upp ett par arbetsdagar.
  
-
-
+  
+ 
 ## Outcomes and assignments (5 min)
 
 
