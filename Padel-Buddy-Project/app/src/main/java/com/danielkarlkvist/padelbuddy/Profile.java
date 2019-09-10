@@ -5,22 +5,22 @@ public class Profile {
     private String firstName, lastName, mail, biography;
     private int phone, age, skillRating, profileRating;
 
-    public Profile (String firstname, String lastname, int phonenumber, int age){
-        this.firstName = firstname;
-        this.lastName = lastname;
+    public Profile (String firstName, String lastName, int phone, int age){
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.phone = phone;
         this.age = age;
     }
 
-    public void setFirstname(String firstname){
-        this.firstName = firstname;
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastName = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setPhonenumber(int phonenumber){
+    public void setPhone(int phone){
         this.phone = phone;
     }
 
