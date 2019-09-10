@@ -2,28 +2,26 @@ package com.danielkarlkvist.padelbuddy;
 
 public class Profile {
 
-    private String firstname;
-    private String lastname;
-    private int phonenumber;
-    private int age;
+    private String firstName, lastName, mail, biography;
+    private int phone, age, skillRating, profileRating;
 
     public Profile (String firstname, String lastname, int phonenumber, int age){
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.phonenumber = phonenumber;
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.phone = phone;
         this.age = age;
     }
 
     public void setFirstname(String firstname){
-        this.firstname = firstname;
+        this.firstName = firstname;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastname;
     }
 
     public void setPhonenumber(int phonenumber){
-        this.phonenumber = phonenumber;
+        this.phone = phone;
     }
 
     public void setAge(int age){
