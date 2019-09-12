@@ -4,11 +4,11 @@ class User {
     private String name;
     private Profile profile;
 
-    private void createAd(){
+    private void createAd() {
 
     }
 
-    private void acceptAd(){
+    private void acceptAd() {
 
     }
 }

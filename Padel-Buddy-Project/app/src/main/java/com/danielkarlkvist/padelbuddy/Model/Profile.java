@@ -11,14 +11,14 @@ public class Profile {
     private int skillRating;
     private int profileRating;
 
-    public Profile (String firstName, String lastName, int phone, int age){
+    public Profile(String firstName, String lastName, int phone, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.age = age;
     }
 
-    public void setFirstName(String firstName){
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -26,11 +26,11 @@ public class Profile {
         this.lastName = lastName;
     }
 
-    public void setPhone(int phone){
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
-    public void setAge(int age){
+    public void setAge(int age) {
         this.age = age;
     }
 }
