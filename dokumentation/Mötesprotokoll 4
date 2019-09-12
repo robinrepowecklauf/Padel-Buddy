@@ -9,11 +9,12 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist och Carl-Jo
 - MVC
 - Klasstruktur
 
+
 ## Reports (15 min) from previous meeting
 - MVC
  - Flera vyer och diverse klasser bestämdes.
 - Domänmodell
- - En domänmodell skapades, men behöver utvecklas (ny flik "Games och turnering tills vidare) 
+ - En domänmodell skapades, men behöver utvecklas (ny flik "Games" och turnering tills vidare) 
    inför seminarie nästa tisdag 17/9-19.
 - Första skiss
  - Första skiss skapades av Marcus. Tydlig och väl genomtänkt vilket ger en bra vägledning för hur applikationen ska formas.
@@ -33,8 +34,8 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist och Carl-Jo
 
 ## Outcomes and assignments (5 min)
 - Presentation, utvecklad domänmodell och förklara idén i 2 minuter. Domänmodell utvecklas imorgon fredag 13/9-19.
-- 
--
+- Sätts upp idag torsdagb 12/9-19 så att man kan jobba parallellt imorgon. Robin har möte PR DatE-IT, kan inte vara med på förmiddagen.
+- Composition over Inheritance.
 - Dev-branch ska användas.
 - Börjar med att skriva krav för User Stories, utefter detta bestäms DoD.
 
