@@ -3,6 +3,10 @@ package com.danielkarlkvist.padelbuddy.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * User is a class that represent an user in the application
+ */
+
 class User {
     private String username;
     private String password;
