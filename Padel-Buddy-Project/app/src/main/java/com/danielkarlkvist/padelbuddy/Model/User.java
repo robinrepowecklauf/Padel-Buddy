@@ -5,11 +5,11 @@ class User {
     private Profile profile;
 
 
-    private void createAd(){
-
+    private void createAd() {
+        new GameAd();
     }
 
-    private void acceptAd(){
+    private void acceptAd() {
 
     }
 }
