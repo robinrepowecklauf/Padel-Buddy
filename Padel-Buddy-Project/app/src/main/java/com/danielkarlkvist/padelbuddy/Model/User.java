@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy;
+package com.danielkarlkvist.padelbuddy.Model;
 
 class User {
     private String name;

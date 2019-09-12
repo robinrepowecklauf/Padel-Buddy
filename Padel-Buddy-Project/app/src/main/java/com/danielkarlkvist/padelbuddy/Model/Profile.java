@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy;
+package com.danielkarlkvist.padelbuddy.Model;
 
 public class Profile {
 
