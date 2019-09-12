@@ -1,7 +1,8 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
 class User {
-    private String name;
+    private String username;
+    private String password;
     private Profile profile;
 
 
