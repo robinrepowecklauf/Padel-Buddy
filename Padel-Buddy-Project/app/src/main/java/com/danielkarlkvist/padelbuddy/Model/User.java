@@ -4,10 +4,11 @@ class User {
     private String username;
     private String password;
     private Profile profile;
+    private GameAd gameAd;
 
 
     private void createAd() {
-        new GameAd();
+        gameAd = new GameAd();
     }
 
     private void acceptAd() {
