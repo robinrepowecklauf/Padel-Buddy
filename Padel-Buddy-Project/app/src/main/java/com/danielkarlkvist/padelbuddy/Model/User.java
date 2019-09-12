@@ -1,5 +1,9 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
+/**
+ * User is a class that represent an user in the application
+ */
+
 class User {
     private String username;
     private String password;

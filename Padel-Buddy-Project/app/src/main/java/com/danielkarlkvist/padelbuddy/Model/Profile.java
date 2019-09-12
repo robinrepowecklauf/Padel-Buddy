@@ -1,5 +1,9 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
+/**
+ * Profile is a class that represents a profile from each user
+ */
+
 public class Profile {
 
     private String firstName;
