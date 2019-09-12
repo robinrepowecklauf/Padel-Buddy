@@ -2,8 +2,14 @@ package com.danielkarlkvist.padelbuddy;
 
 public class Profile {
 
-    private String firstName, lastName, mail, biography;
-    private int phone, age, skillRating, profileRating;
+    private String firstName;
+    private String lastName;
+    private String mail;
+    private String biography;
+    private int phone;
+    private int age;
+    private int skillRating;
+    private int profileRating;
 
     public Profile (String firstName, String lastName, int phone, int age){
         this.firstName = firstName;
