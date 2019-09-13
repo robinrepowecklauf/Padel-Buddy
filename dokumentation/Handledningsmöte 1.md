@@ -2,7 +2,8 @@
 Group: Padel Buddy  
 Date: 5/9-19 13:15-14:15  
 Chair: Carl-Johan Björnson 
-Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Carl-Johan Björnson och Fredrik Lilliecreutz.  Supervisor: Agnes Mårdh.
+Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Carl-Johan Björnson och Fredrik Lilliecreutz  
+Supervisor: Agnes Mårdh
 
 ## Objectives (5 min) 
 - User Stories - bra exempel på en första Story?
