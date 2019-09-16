@@ -3,7 +3,7 @@ package com.danielkarlkvist.padelbuddy.Model;
 import java.util.ArrayList;
 import java.util.List;
 
-class User {
+class Player {
     private String username;
     private String password;
     private Profile profile;
