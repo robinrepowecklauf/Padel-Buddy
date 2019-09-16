@@ -11,6 +11,40 @@ public class Profile {
     private int skillRating;
     private int profileRating;
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getSkillRating() {
+        return skillRating;
+    }
+
+    public int getProfileRating() {
+        return profileRating;
+    }
+
+
+
     public Profile(String firstName, String lastName, int phone, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
