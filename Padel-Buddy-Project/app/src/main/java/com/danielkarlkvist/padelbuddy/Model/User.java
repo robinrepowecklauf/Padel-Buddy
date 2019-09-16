@@ -10,12 +10,15 @@ class Player {
     private List<GameAd> gameAds = new ArrayList<>();
 
     private void createAd() {
-        GameAd newGameAd = new GameAd();
+       /* GameAd newGameAd = new GameAd();
 
         gameAds.add(newGameAd);
+
+        */
     }
 
     private void acceptAd() {
 
     }
+
 }
