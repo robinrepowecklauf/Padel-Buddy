@@ -1,19 +1,15 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class GameAd {
-    private Profile[] profiles = new Profile[4];
+    private Player[] players = new Player[4];
     private String description;
     private Date time;
-    private double skillevel;
 
-    public GameAd(Profile[] profiles, String description, Date time, double skillevel) {
-        this.profiles = profiles;
+    public GameAd(Player[] players, String description, Date time) {
+        this.players = players;
         this.description = description;
         this.time = time;
-        this.skillevel = skillevel;
     }
 }
