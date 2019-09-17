@@ -1,5 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
+import android.location.Location;
+
 import java.util.ArrayList;
 import java.util.List;
 
