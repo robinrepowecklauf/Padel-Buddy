@@ -16,10 +16,17 @@ public class PadelBuddy {
         this.player = player;
     }
 
-    //TODO Command query????
+    //TODO Command query?
     void createAd(Location location, Date date) {
         GameAd gameAd = new GameAd(location, date);
         gameAd.getPlayers()[0] = player;
         gameAds.add(gameAd);
+    }
+
+    void deleteAd(GameAd gameAd) {
+        if (finishedGames.contains(gameAd)) {
+            finishedGames.remove(gameAd);
+        }
+        // TODO Error message?
     }
 }
