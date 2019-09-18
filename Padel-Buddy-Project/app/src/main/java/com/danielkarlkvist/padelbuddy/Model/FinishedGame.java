@@ -6,7 +6,7 @@ import java.util.Date;
 
 class FinishedGame extends Game {
 
-    FinishedGame(Player[] players, Location location, Date date) {
-        super(players, location, date);
+    FinishedGame(Location location, Date date) {
+        super(location, date);
     }
 }

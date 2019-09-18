@@ -5,12 +5,11 @@ import android.location.Location;
 import java.util.Date;
 
 abstract class Game {
-    private Player[] players;
+    private Player[] players = new Player[4];
     private Location location;
     private Date date;
 
-    Game(Player[] players, Location location, Date date) {
-        this.players = players;
+    Game(Location location, Date date) {
         this.location = location;
         this.date = date;
     }
