@@ -11,7 +11,7 @@ class Player {
     private double skillLevel;
     private double profileRating;
 
-    public Player(String firstname, String lastname, String mail, String phone, int age, double skillLevel) {
+    Player(String firstname, String lastname, String mail, String phone, int age, double skillLevel) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
