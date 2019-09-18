@@ -2,8 +2,8 @@ package com.danielkarlkvist.padelbuddy.Model;
 
 class Tuple<X, Y> {
 
-    final X x;
-    final Y y;
+    private final X x;
+    private final Y y;
 
     Tuple(X x, Y y) {
         this.x = x;
