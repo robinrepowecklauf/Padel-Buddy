@@ -1,7 +1,5 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import java.util.ArrayList;
-import java.util.List;
 
 class Player {
 
