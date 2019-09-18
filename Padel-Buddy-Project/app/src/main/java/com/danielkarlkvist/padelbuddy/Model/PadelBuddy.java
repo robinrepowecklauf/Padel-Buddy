@@ -17,9 +17,9 @@ public class PadelBuddy {
     }
 
     //TODO Command query????
-    GameAd createAd(Location location, Date date) {
+    void createAd(Location location, Date date) {
         GameAd gameAd = new GameAd(location, date);
         gameAd.getPlayers()[0] = player;
-        return gameAd;
+        gameAds.add(gameAd);
     }
 }
