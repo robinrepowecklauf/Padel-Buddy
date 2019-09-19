@@ -17,7 +17,7 @@ abstract class Game {
     // TODO decide return type
     private void getAvgSkillLevel() {
 
-    }
+     }
 
     // TODO decide return type
     private void getAvgProfileRating() {
