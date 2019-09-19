@@ -25,7 +25,8 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Fredrik Li
 ## Outcomes and assignments (5 min)
 
 - Hur ligger vi till?
-  - 
+sdalfkjaösldfkjalkdj
+
   
 ## Wrap up
 Nästa möte: Onsdag 18/9-19 kl 10:00-11:00.
