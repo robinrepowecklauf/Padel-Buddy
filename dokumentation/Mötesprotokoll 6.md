@@ -24,9 +24,9 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Fredrik Li
 
 ## Outcomes and assignments (5 min)
 
-Hur ligger vi till?
+- Hur ligger vi till?
  - Känns allmänt bra! Skissen för hur applikationen ska se ut är bra och omfattande. Implementering av designmodell har påbörjats. Vi har fått förståelse om hur man arbetar med User Stories och kommer så småningom kunna börja arbeta parallellt. 
- Vad ska göras inför nästa möte?
+- Vad ska göras inför nästa möte?
  - Inför nästa möte ska ....
 
   
