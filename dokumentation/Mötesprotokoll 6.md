@@ -20,15 +20,27 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Fredrik Li
 - Domän- och Designmodell. 
 - Vad ska tas upp under handledarmötet?
 - Arbetsgång under implementering.
-- Acceptence Cirteria & Definition of Done. 
+- Acceptance Cirteria & Definition of Done. 
 
 ## Outcomes and assignments (5 min)
 
-- Hur ligger vi till?
+Hur ligger vi till?
  - Känns allmänt bra! Skissen för hur applikationen ska se ut är bra och omfattande. Implementering av designmodell har påbörjats. Vi har fått förståelse om hur man arbetar med User Stories och kommer så småningom kunna börja arbeta parallellt. 
-- Vad ska göras inför nästa möte?
- - Inför nästa möte ska ....
 
-  
+Vad ska tas upp under handledningsmötet?
+ - Input till design- och domänmodell. 
+ 
+Arbetsgång under implemntering
+ - Väljer en User Story.
+ - Se hur detta stämmer överrens med design- samt domänmodell, Planera implementationen.
+ - Implementera.
+ - Kolla Acceptance Criteria & Definition of Done. 
+ - Utöka UML. 
+
+Vad ska göras inför nästa möte?
+ - Skissen för applikationen ska förtsätta utvecklas.
+ - Acceptence Criteria & Definition of Done ska undersökas. 
+ 
+ 
 ## Wrap up
-Nästa möte: Onsdag 18/9-19 kl 10:00-11:00.
+Nästa möte: Måndag 23/9-19 kl 8:15-9:15.
