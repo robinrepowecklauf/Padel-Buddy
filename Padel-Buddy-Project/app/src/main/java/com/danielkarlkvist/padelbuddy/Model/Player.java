@@ -1,24 +1,23 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import java.util.ArrayList;
-import java.util.List;
 
 class Player {
-    private String username;
-    private String password;
-    private Profile profile;
-    private List<GameAd> gameAds = new ArrayList<>();
 
-    private void createAd() {
-       /* GameAd newGameAd = new GameAd();
+    private String firstname;
+    private String lastname;
+    private String mail;
+    private String phone;
+    private int age;
+    private double skillLevel;
+    private double profileRating;
 
-        gameAds.add(newGameAd);
-
-        */
+    Player(String firstname, String lastname, String mail, String phone, int age, double skillLevel) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.mail = mail;
+        this.phone = phone;
+        this.age = age;
+        this.skillLevel = skillLevel;
+        this.profileRating = 0;
     }
-
-    private void acceptAd() {
-
-    }
-
 }
