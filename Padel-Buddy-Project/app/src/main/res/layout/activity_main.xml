@@ -8,7 +8,6 @@
     android:background="@color/colorAccent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- lägg till komponenter här -->
