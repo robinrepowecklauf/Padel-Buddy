@@ -4,11 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 
 import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
@@ -17,28 +15,16 @@ import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    HomeFragmentController homeFragmentController;
-    CreateAdFragmentController createAdFragmentController;
-    GamesFragmentController gamesFragmentController;
-    ProfileFragmentController profileFragmentController;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    // har flikarnas controllers som instansvariabler för att informationen ska sparas
+    private HomeFragmentController homeFragmentController;
+    private CreateAdFragmentController createAdFragmentController;
+    private GamesFragmentController gamesFragmentController;
+    private ProfileFragmentController profileFragmentController;
 
-        setContentView(R.layout.activity_main);
-
-        homeFragmentController = new HomeFragmentController();
-        createAdFragmentController = new CreateAdFragmentController();
-        gamesFragmentController = new GamesFragmentController();
-        profileFragmentController = new ProfileFragmentController();
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavigationViewListener);
-        bottomNavigationView.setSelectedItemId(R.id.nav_home); // måste finnas för att startsidan inte ska bli activity_mains fragment_container utan home
-    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
+            // region bottomNavigationViewListener
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -66,4 +52,29 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
+            // endregion bottomNavigationViewListener
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        initializeBottomNavigationViewControllers();
+        initializeBottomNavigationView();
+    }
+
+    private void initializeBottomNavigationViewControllers() {
+        homeFragmentController = new HomeFragmentController();
+        createAdFragmentController = new CreateAdFragmentController();
+        gamesFragmentController = new GamesFragmentController();
+        profileFragmentController = new ProfileFragmentController();
+    }
+
+    private void initializeBottomNavigationView() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavigationViewListener);
+        // finns för att home-fliken ska få rätt fragment-container
+        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+    }
 }
