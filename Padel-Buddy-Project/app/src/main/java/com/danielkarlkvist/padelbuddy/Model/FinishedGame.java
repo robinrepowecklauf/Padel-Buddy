@@ -4,10 +4,9 @@ import android.location.Location;
 
 import java.util.Date;
 
-class GameAd extends Game {
+class FinishedGame extends Game {
 
-
-    GameAd(Location location, Date date) {
+    FinishedGame(Location location, Date date) {
         super(location, date);
     }
 }
