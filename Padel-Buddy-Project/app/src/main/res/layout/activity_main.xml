@@ -5,12 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
+    android:background="@color/colorAccent"
     tools:context=".MainActivity"
     android:orientation="vertical"
+    android:
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- lägg till komponenter här -->
@@ -18,10 +16,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/design_default_color_primary_dark"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_navigation" />
-
+    <!--android:background="?android:attr/windowBackground"-->
 
 </FrameLayout>
 
