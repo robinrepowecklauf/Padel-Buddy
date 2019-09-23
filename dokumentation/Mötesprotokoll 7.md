@@ -42,8 +42,15 @@ Acceptance Criteria & Definition of Done.
 Skiss.
 - Marcus har redovisat nuvarande skiss och delat denna med samtliga gruppmedlemmar.
 
-UML-Diagram.
-- 
+UML-Diagram, vad gäller?
+- UML-Diagrammet ska vara intakt och representera Master-Branch. 
+- Vid varje merge till master-branch har den som pushar till master ansvar över att även uppdatera UML-diagrammet. 
+- UML-diagrammet ska finnas tillgänglig för samtliga att redigera via Google Drive.
+- Fundering: Ska ett UML-diagram finnas med i Repository?
  
+Bedömningskriterier.
+- 
+
+
 ## Wrap up
 Nästa möte: Måndag 23/9-19 kl 8:15-9:15.
