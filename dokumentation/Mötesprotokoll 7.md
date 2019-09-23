@@ -35,9 +35,9 @@ Tidsplanering för veckan.
 - Handledingsmöte 27/9 kl. 15:15-16:15.
 - Arbetstider inlagt i kalender.
 
-Acceptance Criteria & Definition of Done.
+Acceptance Criteria.
 - Acceptance Critera ska fastställas för varje enskild User-Story.
-- Definition of Done diskuteras och framtas senare idag 23/9.
+
 
 Skiss.
 - Marcus har redovisat nuvarande skiss och delat denna med samtliga gruppmedlemmar.
@@ -49,8 +49,9 @@ UML-Diagram, vad gäller?
 - Fundering: Ska ett UML-diagram finnas med i Repository?
  
 Bedömningskriterier.
-- 
+- Gruppen har tillsammasn läst igenom bedömningskriterierna. https://chalmers.instructure.com/courses/7585/pages/examination 
 
 
 ## Wrap up
-Nästa möte: Måndag 23/9-19 kl 8:15-9:15.
+- Definition of Done diskuteras och framtas senare idag 23/9.
+- Nästa möte: Onsdag 25/9-19 kl 15:15-16:15.
