@@ -14,4 +14,13 @@ Padel is a racquet sport and is typically seen as a combination of squash and te
 4. Check Acceptance Criteria and Definition of Done.
 5. Extend the UML.
 
+## Definition of Done
+* Acceptance criteria met.
+* Unit tests passed.
+* Follow Open-closed principle in the model.
+* Code reviewed.
+* UML updated.
+* JavaDoc updated.
+* Merge with master-branch.
+
 
