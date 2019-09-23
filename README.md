@@ -21,6 +21,6 @@ Padel is a racquet sport and is typically seen as a combination of squash and te
 * Code reviewed.
 * UML updated.
 * JavaDoc updated.
-* Merge with master-branch.
+* Merged with master-branch.
 
 
