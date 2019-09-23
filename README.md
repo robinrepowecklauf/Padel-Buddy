@@ -17,7 +17,7 @@ Padel is a racquet sport and is typically seen as a combination of squash and te
 ## Definition of Done
 * Acceptance criteria met.
 * Unit tests passed.
-* Follow Open-closed principle in the model.
+* Follow Open/Closed principle (model wise).
 * Code reviewed.
 * UML updated.
 * JavaDoc updated.
