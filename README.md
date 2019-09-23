@@ -7,3 +7,11 @@ Padel is a racquet sport and is typically seen as a combination of squash and te
 
 ## Running the program
 
+## Workflow
+1. Choose a User Story.
+2. Plan the implementation - see how well it accords with the design and domain model.
+3. Implement.
+4. Check Acceptance Criteria and Definition of Done.
+5. Extend the UML.
+
+
