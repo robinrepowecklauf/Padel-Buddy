@@ -4,7 +4,7 @@ import android.location.Location;
 
 import java.util.Date;
 
-abstract class Game {
+class Game {
     private Player[] players = new Player[4];
     private Location location;
     private Date date;
