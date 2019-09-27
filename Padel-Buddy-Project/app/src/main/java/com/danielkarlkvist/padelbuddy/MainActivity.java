@@ -21,7 +21,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
     // har flikarnas controllers som instansvariabler för att informationen ska sparas
     private HomeFragmentController homeFragmentController;
     private CreateAdFragmentController createAdFragmentController;

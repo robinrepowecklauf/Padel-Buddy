@@ -11,7 +11,7 @@ public class PadelBuddy {
 
     private static PadelBuddy instance = null;
 
-    private List<Game> games = new ArrayList<>();
+    private ArrayList<Game> games = new ArrayList<>();
     private Player player;
 
     private PadelBuddy(Player player) {
@@ -27,14 +27,18 @@ public class PadelBuddy {
         return instance;
     }
 
+    public ArrayList<Game> getGames() {
+        return games;
+    }
+
     // TODO Command query?
-    void createAd(Location location, Date date) {
-        Game game = new Game(location, date);
+    public void createAd(String location, Date date) {
+        Game game = new Game(player, location, date);
         game.getPlayers()[0] = player;
         games.add(game);
     }
 
-    void removeAd(Game game) {
+    public void removeAd(Game game) {
         if (games.contains(game)) {
             games.remove(game);
         }
