@@ -6,13 +6,25 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+// singleton class
 public class PadelBuddy {
+
+    private static PadelBuddy instance = null;
 
     private List<Game> games = new ArrayList<>();
     private Player player;
 
-    public PadelBuddy(Player player) {
+    private PadelBuddy(Player player) {
         this.player = player;
+    }
+
+    public static PadelBuddy getInstance() {
+        if (instance == null) {
+            Player player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", 20, 1);
+            instance = new PadelBuddy(player);
+        }
+
+        return instance;
     }
 
     // TODO Command query?
@@ -22,7 +34,7 @@ public class PadelBuddy {
         games.add(game);
     }
 
-    void deleteAd(Game game) {
+    void removeAd(Game game) {
         if (games.contains(game)) {
             games.remove(game);
         }
