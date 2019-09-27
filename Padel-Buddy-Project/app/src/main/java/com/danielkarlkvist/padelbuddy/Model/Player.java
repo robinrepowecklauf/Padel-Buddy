@@ -34,6 +34,6 @@ public class Player {
     }
 
     public String getFullName() {
-        return firstname + lastname;
+        return firstname + " " + lastname;
     }
 }

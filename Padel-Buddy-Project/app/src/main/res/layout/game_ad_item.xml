@@ -1,54 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp" >
-    
+    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+    app:cardCornerRadius="@dimen/cardRadius">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="4dp" >
-
-        <ImageView
-            android:id="@+id/player1_imageview"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/skilllevel_textview"
-            android:background="@android:color/holo_green_light"
-            android:padding="2dp" >
-        </ImageView>
-
-        <ImageView
-            android:id="@+id/player2_imageview"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@id/player1_imageview"
-            android:padding="2dp"
-            android:layout_marginTop="2dp"
-            android:background="@android:color/holo_green_light" >
-        </ImageView>
-
-        <ImageView
-            android:id="@+id/player3_imageview"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/holo_green_light"
-            android:padding="2dp"
-            android:layout_below="@+id/skilllevel_textview"
-            android:layout_toLeftOf="@+id/player3_name_textview" >
-        </ImageView>
-
-        <ImageView
-            android:id="@+id/player4_imageview"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/holo_green_light"
-            android:padding="2dp"
-            android:layout_below="@id/player3_imageview"
-            android:layout_marginTop="2dp"
-            android:layout_toLeftOf="@+id/player4_name_textview" >
-        </ImageView>
+        android:padding="@dimen/margin_padding_size_small">
 
         <TextView
             android:id="@+id/location_textview"
@@ -58,28 +20,18 @@
             android:text="Location"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:textStyle="bold" >
+            android:textStyle="bold">
         </TextView>
 
-        <TextView
-            android:id="@+id/rating_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/location_textview"
-            android:text="Rating"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" >
-        </TextView>
         <TextView
             android:id="@+id/skilllevel_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rating_textview"
+            android:layout_below="@+id/location_textview"
             android:text="Skill level"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:textStyle="bold" >
+            android:textStyle="bold">
         </TextView>
 
         <TextView
@@ -87,10 +39,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="8dp"
             android:text="Date"
-            android:textSize="15sp" >
+            android:textSize="15sp">
         </TextView>
+
+        <ImageView
+            android:id="@+id/player1_imageview"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/skilllevel_textview"
+            android:background="@android:color/holo_green_light">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/player2_imageview"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/player1_imageview"
+            android:background="@android:color/holo_green_light">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/player3_imageview"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/holo_green_light"
+            android:layout_below="@+id/skilllevel_textview"
+            android:layout_toLeftOf="@+id/player3_name_textview">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/player4_imageview"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/holo_green_light"
+            android:layout_below="@id/player3_imageview"
+            android:layout_toLeftOf="@+id/player4_name_textview">
+        </ImageView>
 
         <TextView
             android:id="@+id/player2_name_textview"
@@ -101,7 +86,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_below="@id/player1_imageview"
-            android:layout_toRightOf="@+id/player2_imageview" >
+            android:layout_toRightOf="@+id/player2_imageview">
         </TextView>
 
         <TextView
@@ -113,7 +98,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_below="@id/skilllevel_textview"
-            android:layout_alignParentRight="true" >
+            android:layout_alignParentRight="true">
         </TextView>
 
         <TextView
@@ -125,7 +110,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_below="@id/player1_imageview"
-            android:layout_alignParentRight="true" >
+            android:layout_alignParentRight="true">
         </TextView>
 
         <TextView
@@ -137,7 +122,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_below="@id/skilllevel_textview"
-            android:layout_toRightOf="@+id/player1_imageview" >
+            android:layout_toRightOf="@+id/player1_imageview">
         </TextView>
 
     </RelativeLayout>

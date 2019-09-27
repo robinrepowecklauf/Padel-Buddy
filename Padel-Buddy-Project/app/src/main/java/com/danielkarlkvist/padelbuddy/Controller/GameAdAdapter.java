@@ -28,7 +28,6 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
         public TextView dateTextView;
 
         public TextView skillLevelTextView;
-        public TextView ratingTextView;
 
         public ImageView player1ImageView;
         public ImageView player2ImageView;
@@ -44,7 +43,6 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
             dateTextView = itemView.findViewById(R.id.date_textview);
 
             skillLevelTextView = itemView.findViewById(R.id.skilllevel_textview);
-            ratingTextView = itemView.findViewById(R.id.rating_textview);
 
             player1ImageView = itemView.findViewById(R.id.player1_imageview);
             player2ImageView = itemView.findViewById(R.id.player2_imageview);
@@ -83,8 +81,7 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
         holder.locationTextView.setText(currentGame.getLocation().toString());
         holder.dateTextView.setText(currentGame.getDateAsString());
 
-        holder.skillLevelTextView.setText("will add this later");
-        holder.ratingTextView.setText("will add rating as well");
+        holder.skillLevelTextView.setText("Medelsnittsnivå: Nybörjare");
 
         holder.player1ImageView.setImageResource(R.drawable.ic_android);
         holder.player2ImageView.setImageResource(R.drawable.ic_audio);
@@ -94,9 +91,9 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
         for (int i = 0; i < currentGame.getPlayers().length; i++) {
             Player player = currentGame.getPlayers()[i];
             if (player != null) {
-                holder.playerNameTextViews[i].setText(player.getFirstname());
+                holder.playerNameTextViews[i].setText(player.getFullName());
             } else {
-                holder.playerNameTextViews[i].setText("Join Game");
+                holder.playerNameTextViews[i].setText("Player " + i);
             }
         }
     }
