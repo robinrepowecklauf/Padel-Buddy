@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
@@ -19,7 +20,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
 
 
     // har flikarnas controllers som instansvariabler för att informationen ska sparas
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
-            // endregion bottomNavigationViewListener
+    // endregion bottomNavigationViewListener
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         initializeBottomNavigationViewControllers();
         initializeBottomNavigationView();
     }
+
 
     private void initializeBottomNavigationViewControllers() {
         homeFragmentController = new HomeFragmentController();

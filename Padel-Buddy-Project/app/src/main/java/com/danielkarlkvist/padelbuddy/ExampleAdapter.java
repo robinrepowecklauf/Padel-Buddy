@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 /**
- *  ExampleAdapter
- *  Example on implementation of RecyclerView for HomeFragment (Feed of Game ads)
+ * ExampleAdapter
+ * Example on implementation of RecyclerView for HomeFragment (Feed of Game ads)
  */
 public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
     private ArrayList<ExampleItem> mExampleList;
