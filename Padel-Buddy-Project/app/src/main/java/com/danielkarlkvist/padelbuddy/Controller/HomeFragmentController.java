@@ -19,16 +19,16 @@ import java.util.ArrayList;
 
 public class HomeFragmentController extends Fragment {
 
+    private RecyclerView homeRecyclerView;
+    private RecyclerView.Adapter homeRecyclerViewAdapter;
+    private RecyclerView.LayoutManager homeRecyclerViewLayoutManager;
 
-    //ExampleRecyclerView
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
         //Example RecycleView
         ArrayList<ExampleItem> exampleList = new ArrayList<>();
         exampleList.add(new ExampleItem(R.drawable.ic_android, "Line 1", "Line 2"));
@@ -47,14 +47,13 @@ public class HomeFragmentController extends Fragment {
         exampleList.add(new ExampleItem(R.drawable.ic_audio, "Line 27", "Line 28"));
         exampleList.add(new ExampleItem(R.drawable.ic_sun, "Line 29", "Line 30"));
 
-        mRecyclerView = rootView.findViewById(R.id.recyclerView);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(getActivity());    //getActivity instead of this when used in fragment?
-        mAdapter = new ExampleAdapter(exampleList);
+        homeRecyclerView = rootView.findViewById(R.id.recyclerView);
+        homeRecyclerView.setHasFixedSize(true);
+        homeRecyclerViewLayoutManager = new LinearLayoutManager(getActivity());    //getActivity instead of this when used in fragment?
+        homeRecyclerViewAdapter = new ExampleAdapter(exampleList);
 
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-
+        homeRecyclerView.setLayoutManager(homeRecyclerViewLayoutManager);
+        homeRecyclerView.setAdapter(homeRecyclerViewAdapter);
 
         return rootView;
     }
