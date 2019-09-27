@@ -1,12 +1,12 @@
 package com.danielkarlkvist.padelbuddy.Controller;
 
-import android.content.DialogInterface;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -18,9 +18,11 @@ import com.danielkarlkvist.padelbuddy.R;
 
 public class ProfileFragmentController extends Fragment implements View.OnClickListener {
 
-    TextView changeTextView;
-    TextView nameTextView;
-    EditText editText;
+    private TextView changeTextView;
+    private TextView nameTextView;
+    private EditText nameEditText;
+
+    boolean isInEditingMode = false;
 
     @Nullable
     @Override
@@ -32,8 +34,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         changeTextView.setOnClickListener(this);
 
         nameTextView = v.findViewById(R.id.profile_name);
-        editText = v.findViewById(R.id.profile_name_edit);
-
+        nameEditText = v.findViewById(R.id.profile_name_edit);
 
         return v;
     }
@@ -42,21 +43,62 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.profile_change:
-                editProfile(v);
+                if (!isInEditingMode) {
+                    isInEditingMode = true;
+                    editProfile(v);
+                } else {
+                    isInEditingMode = false;
+                    hideKeyboard(v);
+                    saveProfile(v);
+                }
                 break;
         }
     }
 
     private void editProfile(View view) {
+
+        changeTextView.setText("Spara");
+        changeTextView.setTextColor(Color.BLUE);
+
         nameTextView.setVisibility(View.INVISIBLE);
+
+        editName();
+    }
+
+    private void editName() {
         String previousName = nameTextView.getText().toString();
-        editText.setText(previousName);
-        editText.setVisibility(View.VISIBLE);
-        placeCursorAfterText(editText);
+        nameEditText.setText(previousName);
+        nameEditText.setVisibility(View.VISIBLE);
+        placeCursorAfterText(nameEditText);
+    }
+
+    private void editBiography() {
+
+    }
+    private void saveProfile(View view) {
+
+        nameEditText.setVisibility(View.GONE);
+        nameTextView.setVisibility(View.VISIBLE);
+
+        String newName = nameEditText.getText().toString();
+        nameTextView.setText(newName);
+
+        changeTextView.setText("Ändra");
+        changeTextView.setTextColor(Color.BLUE);
     }
 
     private void placeCursorAfterText(EditText editText) {
         int textLength = editText.getText().toString().length();
         editText.setSelection(textLength);
     }
+
+    private void hideKeyboard(View view) {
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (inputManager != null) {
+                inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        }
+    }
+
 }
