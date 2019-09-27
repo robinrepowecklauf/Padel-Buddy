@@ -3,10 +3,13 @@ package com.danielkarlkvist.padelbuddy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
@@ -14,14 +17,16 @@ import com.danielkarlkvist.padelbuddy.Controller.HomeFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
 
     // har flikarnas controllers som instansvariabler för att informationen ska sparas
     private HomeFragmentController homeFragmentController;
     private CreateAdFragmentController createAdFragmentController;
     private GamesFragmentController gamesFragmentController;
     private ProfileFragmentController profileFragmentController;
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
             // region bottomNavigationViewListener
@@ -52,17 +57,17 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
-            // endregion bottomNavigationViewListener
+    // endregion bottomNavigationViewListener
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
         initializeBottomNavigationViewControllers();
         initializeBottomNavigationView();
     }
+
 
     private void initializeBottomNavigationViewControllers() {
         homeFragmentController = new HomeFragmentController();
@@ -74,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializeBottomNavigationView() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavigationViewListener);
-        // finns för att home-fliken ska få rätt fragment-container
+        // finns för att home-fliken ska få rätt fragment-container vid start
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
     }
 }
