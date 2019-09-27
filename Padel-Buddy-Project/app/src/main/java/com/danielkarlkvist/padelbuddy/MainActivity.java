@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private GamesFragmentController gamesFragmentController;
     private ProfileFragmentController profileFragmentController;
 
-
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
             // region bottomNavigationViewListener
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializeBottomNavigationView() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavigationViewListener);
-        // finns för att home-fliken ska få rätt fragment-container
+        // finns för att home-fliken ska få rätt fragment-container vid start
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
     }
 }
