@@ -15,12 +15,22 @@
         android:layout_height="match_parent"
         android:padding="@dimen/margin_padding_size_small">
 
+        <ImageView
+            android:id="@+id/location_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:maxWidth="20sp"
+            android:maxHeight="20sp"
+            android:background="@drawable/ic_location_on_black_24dp">
+        </ImageView>
+
         <TextView
             android:id="@+id/location_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="@dimen/margin_padding_size_small"
+            android:layout_toRightOf="@+id/location_imageview"
+            android:layout_marginBottom="@dimen/margin_padding_size_large"
             android:text="Location"
             android:textColor="@color/primaryTextColor"
             android:textSize="20sp">
@@ -30,7 +40,8 @@
             android:id="@+id/skilllevel_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/location_textview"
+            android:layout_below="@+id/location_imageview"
+            android:layout_alignLeft="@+id/location_textview"
             android:text="Skill level"
             android:textColor="@color/primaryTextColor"
             android:textSize="20sp">
@@ -42,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignBottom="@+id/location_textview"
+            android:layout_marginRight="@dimen/margin_padding_size_small"
             android:text="Date"
             android:textSize="15sp"
             android:textColor="@color/primaryTextColor">
@@ -77,8 +89,8 @@
                     android:id="@+id/player1_ratingbar"
                     android:layout_alignLeft="@+id/player1_name_textview"
                     android:layout_below="@+id/player1_name_textview"
-                    style="@style/game_ad_ratingbar"
-                    />
+                    style="@style/game_ad_ratingbar">
+                </RatingBar>
 
             </RelativeLayout>
 
@@ -103,8 +115,9 @@
                     android:id="@+id/player2_ratingbar"
                     android:layout_alignLeft="@+id/player2_name_textview"
                     android:layout_below="@+id/player2_name_textview"
-                    style="@style/game_ad_ratingbar"
-                    />
+                    style="@style/game_ad_ratingbar">
+                </RatingBar>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -128,8 +141,8 @@
                     android:id="@+id/player3_ratingbar"
                     android:layout_alignLeft="@+id/player3_name_textview"
                     android:layout_below="@+id/player3_name_textview"
-                    style="@style/game_ad_ratingbar"
-                    />
+                    style="@style/game_ad_ratingbar">
+                </RatingBar>
 
             </RelativeLayout>
 
@@ -154,8 +167,8 @@
                     android:id="@+id/player4_ratingbar"
                     android:layout_alignLeft="@+id/player4_name_textview"
                     android:layout_below="@+id/player4_name_textview"
-                    style="@style/game_ad_ratingbar"
-                    />
+                    style="@style/game_ad_ratingbar">
+                </RatingBar>
 
             </RelativeLayout>
 
