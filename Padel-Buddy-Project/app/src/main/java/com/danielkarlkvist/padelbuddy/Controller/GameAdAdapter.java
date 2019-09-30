@@ -78,10 +78,10 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
     public void onBindViewHolder(@NonNull GameAdViewHolder holder, int position) {
         Game currentGame = games.get(position);
 
-        holder.locationTextView.setText(currentGame.getLocation().toString());
+        holder.locationTextView.setText(currentGame.getLocation());
         holder.dateTextView.setText(currentGame.getDateAsString());
 
-        holder.skillLevelTextView.setText("Medelsnittsnivå: Nybörjare");
+        holder.skillLevelTextView.setText("Nybörjare");
 
         holder.player1ImageView.setImageResource(R.drawable.text_profile_picture);
         holder.player2ImageView.setImageResource(R.drawable.text_profile_picture);

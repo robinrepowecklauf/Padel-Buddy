@@ -69,9 +69,10 @@
                     android:id="@+id/player1_name_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_padding_size_xxlarge"
                     android:text="Player1"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp">
+                    android:textSize="@dimen/text_size_small">
                 </TextView>
             </LinearLayout>
 
@@ -93,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:text="Player2"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp">
+                    android:textSize="@dimen/text_size_small">
                 </TextView>
             </LinearLayout>
 
@@ -114,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:text="Player3"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp">
+                    android:textSize="@dimen/text_size_small">
                 </TextView>
             </LinearLayout>
 
@@ -136,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:text="Player4"
                     android:textColor="@android:color/black"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/text_size_small"
                     >
                 </TextView>
             </LinearLayout>
