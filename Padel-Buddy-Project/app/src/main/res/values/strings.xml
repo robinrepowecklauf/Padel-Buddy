@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Padel Buddy</string>
-    <string name="app_name_caps">PADEL BUDDY</string>
     <string name="home">Hem</string>
     <string name="createAd">Skapa</string>
     <string name="games">Spel</string>
