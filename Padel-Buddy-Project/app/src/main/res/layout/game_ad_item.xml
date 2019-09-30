@@ -13,13 +13,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
         android:padding="@dimen/margin_padding_size_small">
 
         <ImageView
             android:id="@+id/location_imageview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/margin_padding_size_small"
             android:maxWidth="20sp"
             android:maxHeight="20sp"
             android:background="@drawable/ic_location_on_black_24dp">
@@ -30,7 +31,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/location_imageview"
-            android:layout_marginBottom="@dimen/margin_padding_size_large"
             android:text="Location"
             android:textColor="@color/primaryTextColor"
             android:textSize="20sp">
@@ -60,6 +60,7 @@
         </TextView>
 
         <GridLayout
+            android:id="@+id/players_gridlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/skilllevel_textview"
@@ -172,9 +173,20 @@
 
             </RelativeLayout>
 
-
-
         </GridLayout>
+
+        <Button
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_padding_size_medium"
+            android:layout_below="@+id/players_gridlayout"
+            android:background="@drawable/rounded_green_button"
+            android:text="Skicka förfrågan"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="#FFFFFF"
+            android:padding="@dimen/margin_padding_size_small">
+        </Button>
 
     </RelativeLayout>
 
