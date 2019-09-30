@@ -21,8 +21,10 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
     private TextView changeTextView;
     private TextView nameTextView;
     private EditText nameEditText;
+    private TextView bioTextView;
+    private EditText bioEditText;
 
-    boolean isInEditingMode = false;
+    private boolean isInEditingMode = false;
 
     @Nullable
     @Override
@@ -36,11 +38,15 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         nameTextView = v.findViewById(R.id.profile_name);
         nameEditText = v.findViewById(R.id.profile_name_edit);
 
+        bioTextView = v.findViewById(R.id.profile_bio);
+        bioEditText = v.findViewById(R.id.profile_bio_edit);
+
         return v;
     }
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.profile_change:
                 if (!isInEditingMode) {
@@ -61,11 +67,14 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         changeTextView.setTextColor(Color.BLUE);
 
         nameTextView.setVisibility(View.INVISIBLE);
+        bioTextView.setVisibility(View.INVISIBLE);
 
         editName();
+        editBiography();
     }
 
     private void editName() {
+
         String previousName = nameTextView.getText().toString();
         nameEditText.setText(previousName);
         nameEditText.setVisibility(View.VISIBLE);
@@ -74,25 +83,39 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
     private void editBiography() {
 
+        String previousBio = bioTextView.getText().toString();
+        bioEditText.setText(previousBio);
+        bioEditText.setVisibility(View.VISIBLE);
+        placeCursorAfterText(bioEditText);
     }
+
     private void saveProfile(View view) {
 
         nameEditText.setVisibility(View.GONE);
         nameTextView.setVisibility(View.VISIBLE);
 
+        bioEditText.setVisibility(View.GONE);
+        bioTextView.setVisibility(View.VISIBLE);
+
         String newName = nameEditText.getText().toString();
         nameTextView.setText(newName);
+        System.out.println(nameTextView.getText().toString());
+
+        String newBio = bioEditText.getText().toString();
+        bioTextView.setText(newBio);
 
         changeTextView.setText("Ändra");
         changeTextView.setTextColor(Color.BLUE);
     }
 
     private void placeCursorAfterText(EditText editText) {
+
         int textLength = editText.getText().toString().length();
         editText.setSelection(textLength);
     }
 
     private void hideKeyboard(View view) {
+
         if (view != null) {
             InputMethodManager inputManager = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
             if (inputManager != null) {
@@ -100,5 +123,4 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
             }
         }
     }
-
 }

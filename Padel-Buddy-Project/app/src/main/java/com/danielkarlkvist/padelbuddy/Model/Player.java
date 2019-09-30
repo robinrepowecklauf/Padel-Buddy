@@ -5,7 +5,7 @@ import android.location.Location;
 import java.util.ArrayList;
 import java.util.List;
 
-class Player {
+public class Player {
 
     private String firstname;
     private String lastname;
