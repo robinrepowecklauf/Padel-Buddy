@@ -61,33 +61,24 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/player1_imageview"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="@dimen/margin_padding_size_small"
                     android:layout_marginBottom="@dimen/margin_padding_size_xxlarge"
+                    style="@style/game_ad_imageview"
                     >
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <TextView
                     android:id="@+id/player1_name_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/player1_imageview"
                     android:text="Player1"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="@dimen/text_size_small">
+                    style="@style/game_ad_textview">
                 </TextView>
 
                 <RatingBar
                     android:id="@+id/player1_ratingbar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/player1_name_textview"
                     android:layout_below="@+id/player1_name_textview"
-                    style="@style/customRatingBar"
+                    style="@style/game_ad_ratingbar"
                     />
-
-
 
             </RelativeLayout>
 
@@ -97,29 +88,22 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/player2_imageview"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="@dimen/margin_padding_size_small"
+                    style="@style/game_ad_imageview"
                     >
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <TextView
                     android:id="@+id/player2_name_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/player2_imageview"
                     android:text="Player2"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="@dimen/text_size_small">
+                    style="@style/game_ad_textview">
                 </TextView>
 
                 <RatingBar
                     android:id="@+id/player2_ratingbar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/player2_name_textview"
                     android:layout_below="@+id/player2_name_textview"
-                    style="@style/customRatingBar"
+                    style="@style/game_ad_ratingbar"
                     />
             </RelativeLayout>
 
@@ -129,28 +113,22 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/player3_imageview"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="@dimen/margin_padding_size_small">
+                    style="@style/game_ad_imageview">
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <TextView
                     android:id="@+id/player3_name_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/player3_imageview"
                     android:text="Player3"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="@dimen/text_size_small">
+                    style="@style/game_ad_textview"
+                    >
                 </TextView>
 
                 <RatingBar
                     android:id="@+id/player3_ratingbar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/player3_name_textview"
                     android:layout_below="@+id/player3_name_textview"
-                    style="@style/customRatingBar"
+                    style="@style/game_ad_ratingbar"
                     />
 
             </RelativeLayout>
@@ -161,30 +139,22 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/player4_imageview"
-
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="@dimen/margin_padding_size_small">
+                    style="@style/game_ad_imageview">
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <TextView
                     android:id="@+id/player4_name_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/player4_imageview"
                     android:text="Player4"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="@dimen/text_size_small"
+                    style="@style/game_ad_textview"
                     >
                 </TextView>
 
                 <RatingBar
                     android:id="@+id/player4_ratingbar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/player4_name_textview"
                     android:layout_below="@+id/player4_name_textview"
-                    style="@style/customRatingBar"
+                    style="@style/game_ad_ratingbar"
                     />
 
             </RelativeLayout>

@@ -31,7 +31,7 @@ public class HomeFragmentController extends Fragment {
 
         if (!hasOpenedController) {
             PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
-            hasOpenedController = true;
+            hasOpenedController = false;
         }
 
         homeRecyclerView = rootView.findViewById(R.id.recyclerView);

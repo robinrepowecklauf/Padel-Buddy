@@ -4,7 +4,26 @@
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
 
     </style>
-    <style name="customRatingBar"
+
+    <style name="game_ad_ratingbar"
         parent="android:style/Widget.Material.RatingBar.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="game_ad_textview">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:maxWidth">80dp</item>
+    </style>
+
+    <style name="game_ad_imageview">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_marginRight">@dimen/margin_padding_size_small</item>
     </style>
 </resources>
