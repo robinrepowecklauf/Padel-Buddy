@@ -24,7 +24,7 @@ public class Player {
         this.bio = bio;
         this.age = age;
         this.skillLevel = skillLevel;
-        this.profileRating = 4.2f;
+        this.profileRating = 3.3f;
     }
 
     public String getFirstname() {

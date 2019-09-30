@@ -31,7 +31,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/location_textview"
-            android:layout_marginBottom="@dimen/margin_padding_size_xlarge"
             android:text="Skill level"
             android:textColor="@color/primaryTextColor"
             android:textSize="20sp">
@@ -52,7 +51,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/skilllevel_textview"
-            android:layout_centerInParent="true">
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+            android:layout_marginBottom="@dimen/margin_padding_size_xlarge">
 
             <RelativeLayout
                 android:layout_column="1"
@@ -62,8 +63,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/player1_imageview"
                     android:layout_marginBottom="@dimen/margin_padding_size_xxlarge"
-                    style="@style/game_ad_imageview"
-                    >
+                    style="@style/game_ad_imageview">
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <TextView
@@ -166,86 +166,3 @@
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
-
-<!--
-<ImageView
-android:id="@+id/player1_imageview"
-android:layout_width="40dp"
-android:layout_height="40dp"
-android:layout_below="@+id/skilllevel_textview"
-android:background="@android:color/holo_green_light">
-</ImageView>
-
-<ImageView
-android:id="@+id/player2_imageview"
-android:layout_width="40dp"
-android:layout_height="40dp"
-android:layout_below="@id/player1_imageview"
-android:background="@android:color/holo_green_light">
-</ImageView>
-
-<ImageView
-android:id="@+id/player3_imageview"
-android:layout_width="40dp"
-android:layout_height="40dp"
-android:layout_alignTop="@+id/player1_imageview"
-android:layout_toLeftOf="@+id/player3_name_textview"
-android:background="@android:color/holo_green_light">
-</ImageView>
-
-<ImageView
-android:id="@+id/player4_imageview"
-android:layout_width="40dp"
-android:layout_height="40dp"
-android:background="@android:color/holo_green_light"
-android:layout_below="@id/player3_imageview"
-android:layout_toLeftOf="@+id/player4_name_textview">
-</ImageView>
-
-<TextView
-android:id="@+id/player1_name_textview"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_toRightOf="@+id/player1_imageview"
-android:layout_alignTop="@+id/player1_imageview"
-android:text="Player1"
-android:textColor="@android:color/black"
-android:textSize="20sp"
-android:textStyle="bold">
-</TextView>
-
-<TextView
-android:id="@+id/player2_name_textview"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_alignTop="@id/player2_imageview"
-android:layout_toRightOf="@+id/player2_imageview"
-android:text="Player2"
-android:textColor="@android:color/black"
-android:textSize="20sp"
-android:textStyle="bold">
-</TextView>
-
-<TextView
-android:id="@+id/player3_name_textview"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Player3"
-android:textColor="@android:color/black"
-android:textSize="20sp"
-android:textStyle="bold"
-android:layout_below="@id/skilllevel_textview"
-android:layout_alignParentRight="true">
-</TextView>
-
-<TextView
-android:id="@+id/player4_name_textview"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Player4"
-android:textColor="@android:color/black"
-android:textSize="20sp"
-android:textStyle="bold"
-android:layout_below="@id/player1_imageview"
-android:layout_alignParentRight="true">
-</TextView>-->
