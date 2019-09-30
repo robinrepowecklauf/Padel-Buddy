@@ -83,10 +83,10 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
 
         holder.skillLevelTextView.setText("Medelsnittsnivå: Nybörjare");
 
-        holder.player1ImageView.setImageResource(R.drawable.ic_android);
-        holder.player2ImageView.setImageResource(R.drawable.ic_audio);
-        holder.player3ImageView.setImageResource(R.drawable.ic_sun);
-        holder.player4ImageView.setImageResource(R.drawable.ic_android);
+        holder.player1ImageView.setImageResource(R.drawable.text_profile_picture);
+        holder.player2ImageView.setImageResource(R.drawable.text_profile_picture);
+        holder.player3ImageView.setImageResource(R.drawable.text_profile_picture);
+        holder.player4ImageView.setImageResource(R.drawable.text_profile_picture);
 
         for (int i = 0; i < currentGame.getPlayers().length; i++) {
             Player player = currentGame.getPlayers()[i];

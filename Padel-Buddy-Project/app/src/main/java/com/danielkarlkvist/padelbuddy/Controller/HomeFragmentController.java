@@ -22,12 +22,17 @@ public class HomeFragmentController extends Fragment {
     private RecyclerView.Adapter homeRecyclerViewAdapter;
     private RecyclerView.LayoutManager homeRecyclerViewLayoutManager;
 
+    private boolean hasOpenedController = false;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
+
+        if (!hasOpenedController) {
+            PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
+            hasOpenedController = true;
+        }
 
         homeRecyclerView = rootView.findViewById(R.id.recyclerView);
         homeRecyclerView.setHasFixedSize(true);
