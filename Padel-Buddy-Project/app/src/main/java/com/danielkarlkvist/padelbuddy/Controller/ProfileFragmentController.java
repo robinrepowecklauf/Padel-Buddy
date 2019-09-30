@@ -104,8 +104,9 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         bioEditText.setVisibility(View.GONE);
         bioTextView.setVisibility(View.VISIBLE);
 
+        padelBuddy.player.setFirstname(firstnameEditText.getText().toString());
+        padelBuddy.player.setLastname(lastnameEditText.getText().toString());
         nameTextView.setText(padelBuddy.player.getFullName());
-        System.out.println(nameTextView.getText().toString());
 
         String newBio = bioEditText.getText().toString();
         bioTextView.setText(newBio);

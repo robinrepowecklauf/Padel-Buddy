@@ -52,7 +52,8 @@
             android:text="Förnamn:"
             android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/text_size_small"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="invisible"/>
 
 
         <EditText
@@ -64,7 +65,7 @@
             android:text="Hej"
             android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/text_size_medium"
-            android:visibility="visible" />
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/profile_lastname_hint"
@@ -74,7 +75,8 @@
             android:layout_marginTop="70dp"
             android:text="Omdöme:"
             android:textColor="@color/primaryTextColor"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="invisible"/>
 
         <EditText
             android:id="@+id/profile_lastname_edit"
@@ -85,7 +87,7 @@
             android:text="hopp"
             android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/text_size_medium"
-            android:visibility="visible" />
+            android:visibility="invisible" />
 
 
         <de.hdodenhof.circleimageview.CircleImageView
