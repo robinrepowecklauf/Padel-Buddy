@@ -21,6 +21,8 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
     private TextView changeTextView;
     private TextView nameTextView;
+    private TextView firstnameHintTextView;
+    private TextView lastnameHintTextView;
     private EditText firstnameEditText;
     private EditText lastnameEditText;
     private TextView bioTextView;
@@ -38,6 +40,9 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         changeTextView = v.findViewById(R.id.profile_change);
         changeTextView.setOnClickListener(this);
 
+        firstnameHintTextView = v.findViewById(R.id.profile_firstname_hint);
+        lastnameHintTextView = v.findViewById(R.id.profile_lastname_hint);
+
         padelBuddy = PadelBuddy.getInstance();
 
         nameTextView = v.findViewById(R.id.profile_name);
@@ -46,6 +51,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         lastnameEditText = v.findViewById(R.id.profile_lastname_edit);
 
         bioTextView = v.findViewById(R.id.profile_bio);
+        bioTextView.setText(padelBuddy.player.getBio());
         bioEditText = v.findViewById(R.id.profile_bio_edit);
 
         return v;
@@ -76,40 +82,45 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         nameTextView.setVisibility(View.INVISIBLE);
         bioTextView.setVisibility(View.INVISIBLE);
 
+        firstnameHintTextView.setVisibility(View.VISIBLE);
+        lastnameHintTextView.setVisibility(View.VISIBLE);
+
         editName();
         editBiography();
     }
 
     private void editName() {
 
-        String previousName = nameTextView.getText().toString();
-        firstnameEditText.setText(previousName);
+        firstnameEditText.setText(padelBuddy.player.getFirstname());
+        lastnameEditText.setText(padelBuddy.player.getLastname());
         firstnameEditText.setVisibility(View.VISIBLE);
+        lastnameEditText.setVisibility(View.VISIBLE);
         placeCursorAfterText(firstnameEditText);
     }
 
     private void editBiography() {
 
-        String previousBio = bioTextView.getText().toString();
-        bioEditText.setText(previousBio);
+        bioEditText.setText(padelBuddy.player.getBio());
         bioEditText.setVisibility(View.VISIBLE);
-        placeCursorAfterText(bioEditText);
     }
 
     private void saveProfile(View view) {
 
         firstnameEditText.setVisibility(View.GONE);
-        nameTextView.setVisibility(View.VISIBLE);
+        lastnameEditText.setVisibility(View.GONE);
 
-        bioEditText.setVisibility(View.GONE);
-        bioTextView.setVisibility(View.VISIBLE);
+        firstnameHintTextView.setVisibility(View.GONE);
+        lastnameHintTextView.setVisibility(View.GONE);
 
         padelBuddy.player.setFirstname(firstnameEditText.getText().toString());
         padelBuddy.player.setLastname(lastnameEditText.getText().toString());
         nameTextView.setText(padelBuddy.player.getFullName());
 
-        String newBio = bioEditText.getText().toString();
-        bioTextView.setText(newBio);
+        nameTextView.setVisibility(View.VISIBLE);
+
+        bioEditText.setVisibility(View.GONE);
+        bioTextView.setText(bioEditText.getText().toString());
+        bioTextView.setVisibility(View.VISIBLE);
 
         changeTextView.setText("Ändra");
         changeTextView.setTextColor(Color.BLUE);

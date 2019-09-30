@@ -53,7 +53,7 @@
             android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/text_size_small"
             android:textStyle="bold"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
 
         <EditText
@@ -62,7 +62,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="131dp"
             android:layout_marginTop="30dp"
-            android:text="Hej"
             android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/text_size_medium"
             android:visibility="invisible" />
@@ -73,10 +72,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="135dp"
             android:layout_marginTop="70dp"
-            android:text="Omdöme:"
+            android:text="Efternamn:"
             android:textColor="@color/primaryTextColor"
             android:textStyle="bold"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/profile_lastname_edit"
@@ -84,7 +83,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="131dp"
             android:layout_marginTop="80dp"
-            android:text="hopp"
             android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/text_size_medium"
             android:visibility="invisible" />
