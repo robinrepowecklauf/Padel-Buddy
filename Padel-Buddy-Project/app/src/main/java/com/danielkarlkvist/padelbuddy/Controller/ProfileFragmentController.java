@@ -17,6 +17,9 @@ import androidx.fragment.app.Fragment;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ProfileFragmentController extends Fragment implements View.OnClickListener {
 
     private TextView changeTextView;
@@ -62,7 +65,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
         switch (v.getId()) {
             case R.id.profile_change:
-                if (!isInEditingMode) {
+                if (!isInEditingMode || checkForSpecialCharacters(firstnameEditText) || checkForSpecialCharacters(lastnameEditText)) {
                     isInEditingMode = true;
                     editProfile(v);
                 } else {
@@ -140,5 +143,18 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
                 inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
         }
+    }
+
+    private boolean checkForSpecialCharacters(EditText editText) {
+        Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(editText.getText().toString());
+        boolean b = m.find();
+
+        if (b) {
+            editText.setTextColor(Color.RED);
+            return true;
+        }
+
+        return false;
     }
 }
