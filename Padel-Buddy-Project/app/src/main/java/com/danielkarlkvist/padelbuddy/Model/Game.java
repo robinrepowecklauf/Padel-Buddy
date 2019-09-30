@@ -2,14 +2,16 @@ package com.danielkarlkvist.padelbuddy.Model;
 
 import android.location.Location;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-class Game {
+public class Game {
     private Player[] players = new Player[4];
-    private Location location;
+    private String location;
     private Date date;
 
-    Game(Location location, Date date) {
+    Game(Player player, String location, Date date) {
+        this.players[0] = player;
         this.location = location;
         this.date = date;
     }
@@ -21,7 +23,6 @@ class Game {
 
     // TODO decide return type
     private void getAvgProfileRating() {
-
     }
 
     //Setters and Getters.
@@ -34,16 +35,19 @@ class Game {
         this.players = players;
     }
 
-    public Location getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDateAsString() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM hh:mm");
+        String formattedDate = simpleDateFormat.format(date);
+
+        return formattedDate;
     }
 
     public void setDate(Date date) {

@@ -24,4 +24,16 @@ public class Player {
         this.skillLevel = skillLevel;
         this.profileRating = 0;
     }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getFullName() {
+        return firstname + " " + lastname;
+    }
 }
