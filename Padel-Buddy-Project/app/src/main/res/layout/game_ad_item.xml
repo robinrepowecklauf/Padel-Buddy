@@ -7,7 +7,8 @@
     android:layout_marginLeft="@dimen/margin_padding_size_medium"
     android:layout_marginRight="@dimen/margin_padding_size_medium"
     android:layout_marginBottom="@dimen/margin_padding_size_medium"
-    app:cardCornerRadius="@dimen/cardRadius">
+    app:cardCornerRadius="@dimen/cardRadius"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,7 +22,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginBottom="@dimen/margin_padding_size_small"
             android:text="Location"
-            android:textColor="@android:color/black"
+            android:textColor="@color/primaryTextColor"
             android:textSize="20sp">
         </TextView>
 
@@ -32,7 +33,7 @@
             android:layout_below="@+id/location_textview"
             android:layout_marginBottom="@dimen/margin_padding_size_xlarge"
             android:text="Skill level"
-            android:textColor="@android:color/black"
+            android:textColor="@color/primaryTextColor"
             android:textSize="20sp">
         </TextView>
 
@@ -43,7 +44,8 @@
             android:layout_alignParentRight="true"
             android:layout_alignBottom="@+id/location_textview"
             android:text="Date"
-            android:textSize="15sp">
+            android:textSize="15sp"
+            android:textColor="@color/primaryTextColor">
         </TextView>
 
         <GridLayout
@@ -72,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/player1_imageview"
                     android:text="Player1"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/primaryTextColor"
                     android:textSize="@dimen/text_size_small">
                 </TextView>
 
@@ -107,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/player2_imageview"
                     android:text="Player2"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/primaryTextColor"
                     android:textSize="@dimen/text_size_small">
                 </TextView>
 
@@ -138,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/player3_imageview"
                     android:text="Player3"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/primaryTextColor"
                     android:textSize="@dimen/text_size_small">
                 </TextView>
 
@@ -171,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/player4_imageview"
                     android:text="Player4"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/primaryTextColor"
                     android:textSize="@dimen/text_size_small"
                     >
                 </TextView>
