@@ -5,7 +5,7 @@ import android.location.Location;
 import java.util.ArrayList;
 import java.util.List;
 
-class Player {
+public class Player {
 
     private String firstname;
     private String lastname;
@@ -23,5 +23,17 @@ class Player {
         this.age = age;
         this.skillLevel = skillLevel;
         this.profileRating = 0;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getFullName() {
+        return firstname + " " + lastname;
     }
 }
