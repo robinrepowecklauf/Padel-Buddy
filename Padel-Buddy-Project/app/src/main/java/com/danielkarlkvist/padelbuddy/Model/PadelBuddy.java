@@ -12,7 +12,7 @@ public class PadelBuddy {
     private static PadelBuddy instance = null;
 
     private ArrayList<Game> games = new ArrayList<>();
-    private Player player;
+    public Player player;
 
     private PadelBuddy(Player player) {
         this.player = player;
@@ -20,7 +20,7 @@ public class PadelBuddy {
 
     public static PadelBuddy getInstance() {
         if (instance == null) {
-            Player player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", 20, 1);
+            Player player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 1);
             instance = new PadelBuddy(player);
         }
 
