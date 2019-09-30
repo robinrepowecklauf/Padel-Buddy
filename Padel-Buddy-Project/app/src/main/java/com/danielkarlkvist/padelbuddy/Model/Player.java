@@ -13,7 +13,7 @@ public class Player {
     private String phone;
     private int age;
     private double skillLevel;
-    private double profileRating;
+    private float profileRating;
 
     Player(String firstname, String lastname, String mail, String phone, int age, double skillLevel) {
         this.firstname = firstname;
@@ -22,7 +22,7 @@ public class Player {
         this.phone = phone;
         this.age = age;
         this.skillLevel = skillLevel;
-        this.profileRating = 0;
+        this.profileRating = 4.2f;
     }
 
     public String getFirstname() {
@@ -35,5 +35,9 @@ public class Player {
 
     public String getFullName() {
         return firstname + " " + lastname;
+    }
+
+    public float getProfileRating() {
+        return profileRating;
     }
 }

@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,8 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
 
         public TextView[] playerNameTextViews = new TextView[4];
 
+        public RatingBar[] playerRatingbars = new RatingBar[4];
+
         public GameAdViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -53,6 +56,15 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
             playerNameTextViews[1] = itemView.findViewById(R.id.player2_name_textview);
             playerNameTextViews[2] = itemView.findViewById(R.id.player3_name_textview);
             playerNameTextViews[3] = itemView.findViewById(R.id.player4_name_textview);
+
+            playerRatingbars[0] = itemView.findViewById(R.id.player1_ratingbar);
+            playerRatingbars[1] = itemView.findViewById(R.id.player2_ratingbar);
+            playerRatingbars[2] = itemView.findViewById(R.id.player3_ratingbar);
+            playerRatingbars[3] = itemView.findViewById(R.id.player4_ratingbar);
+
+            for ( RatingBar ratingBar : playerRatingbars){
+                ratingBar.setStepSize(0.1f);
+            }
         }
     }
 
@@ -92,6 +104,7 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
             Player player = currentGame.getPlayers()[i];
             if (player != null) {
                 holder.playerNameTextViews[i].setText(player.getFullName());
+                holder.playerRatingbars[i].setRating(player.getProfileRating());
             } else {
                 holder.playerNameTextViews[i].setText("Player " + i);
             }
