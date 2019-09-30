@@ -103,7 +103,7 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
         for (int i = 0; i < currentGame.getPlayers().length; i++) {
             Player player = currentGame.getPlayers()[i];
             if (player != null) {
-                holder.playerNameTextViews[i].setText(player.getFullName());
+                holder.playerNameTextViews[i].setText(player.getFirstname());
                 holder.playerRatingbars[i].setRating(player.getProfileRating());
             } else {
                 holder.playerNameTextViews[i].setText("Player " + i);
