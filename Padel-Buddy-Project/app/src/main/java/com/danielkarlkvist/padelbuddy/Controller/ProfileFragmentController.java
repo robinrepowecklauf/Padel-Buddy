@@ -14,15 +14,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 
 public class ProfileFragmentController extends Fragment implements View.OnClickListener {
 
     private TextView changeTextView;
     private TextView nameTextView;
-    private EditText nameEditText;
+    private EditText firstnameEditText;
+    private EditText lastnameEditText;
     private TextView bioTextView;
     private EditText bioEditText;
+    private PadelBuddy padelBuddy;
 
     private boolean isInEditingMode = false;
 
@@ -35,8 +38,12 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         changeTextView = v.findViewById(R.id.profile_change);
         changeTextView.setOnClickListener(this);
 
+        padelBuddy = PadelBuddy.getInstance();
+
         nameTextView = v.findViewById(R.id.profile_name);
-        nameEditText = v.findViewById(R.id.profile_name_edit);
+        nameTextView.setText(padelBuddy.player.getFullName());
+        firstnameEditText = v.findViewById(R.id.profile_firstname_edit);
+        lastnameEditText = v.findViewById(R.id.profile_lastname_edit);
 
         bioTextView = v.findViewById(R.id.profile_bio);
         bioEditText = v.findViewById(R.id.profile_bio_edit);
@@ -76,9 +83,9 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
     private void editName() {
 
         String previousName = nameTextView.getText().toString();
-        nameEditText.setText(previousName);
-        nameEditText.setVisibility(View.VISIBLE);
-        placeCursorAfterText(nameEditText);
+        firstnameEditText.setText(previousName);
+        firstnameEditText.setVisibility(View.VISIBLE);
+        placeCursorAfterText(firstnameEditText);
     }
 
     private void editBiography() {
@@ -91,14 +98,13 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
     private void saveProfile(View view) {
 
-        nameEditText.setVisibility(View.GONE);
+        firstnameEditText.setVisibility(View.GONE);
         nameTextView.setVisibility(View.VISIBLE);
 
         bioEditText.setVisibility(View.GONE);
         bioTextView.setVisibility(View.VISIBLE);
 
-        String newName = nameEditText.getText().toString();
-        nameTextView.setText(newName);
+        nameTextView.setText(padelBuddy.player.getFullName());
         System.out.println(nameTextView.getText().toString());
 
         String newBio = bioEditText.getText().toString();
