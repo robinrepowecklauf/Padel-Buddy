@@ -62,7 +62,7 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
             playerRatingbars[2] = itemView.findViewById(R.id.player3_ratingbar);
             playerRatingbars[3] = itemView.findViewById(R.id.player4_ratingbar);
 
-            for ( RatingBar ratingBar : playerRatingbars){
+            for (RatingBar ratingBar : playerRatingbars){
                 ratingBar.setStepSize(0.1f);
             }
         }

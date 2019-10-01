@@ -38,4 +38,9 @@
 
     <!-- Card sizes -->
     <dimen name="cardRadius">15dp</dimen>
+
+    <!-- Button Sizes -->
+    <dimen name="buttonRadius">20dp</dimen>
+    <dimen name="buttonWidth">190dp</dimen>
+    <dimen name="buttonHeight">40dp</dimen>
 </resources>

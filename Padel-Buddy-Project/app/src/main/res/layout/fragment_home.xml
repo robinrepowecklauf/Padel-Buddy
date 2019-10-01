@@ -21,6 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/topbar_textview"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        android:clipToPadding="false"
+        android:paddingTop="5dp"
+        android:paddingBottom="50dp"/>
 
 </RelativeLayout>
