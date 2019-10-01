@@ -15,7 +15,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
+import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.R;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ProfileFragmentController extends Fragment implements View.OnClickListener {
 
@@ -28,6 +32,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
     private TextView bioTextView;
     private EditText bioEditText;
     private PadelBuddy padelBuddy;
+    private Player user;
 
     private boolean isInEditingMode = false;
 
@@ -44,14 +49,15 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         lastnameHintTextView = v.findViewById(R.id.profile_lastname_hint);
 
         padelBuddy = PadelBuddy.getInstance();
+        user = padelBuddy.getPlayer();
 
         nameTextView = v.findViewById(R.id.profile_name);
-        nameTextView.setText(padelBuddy.player.getFullName());
+        nameTextView.setText(user.getFullName());
         firstnameEditText = v.findViewById(R.id.profile_firstname_edit);
         lastnameEditText = v.findViewById(R.id.profile_lastname_edit);
 
         bioTextView = v.findViewById(R.id.profile_bio);
-        bioTextView.setText(padelBuddy.player.getBio());
+        bioTextView.setText(user.getBio());
         bioEditText = v.findViewById(R.id.profile_bio_edit);
 
         return v;
@@ -62,7 +68,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
         switch (v.getId()) {
             case R.id.profile_change:
-                if (!isInEditingMode) {
+                if (!isInEditingMode || checkForSpecialCharacters(firstnameEditText) || checkForSpecialCharacters(lastnameEditText)) {
                     isInEditingMode = true;
                     editProfile(v);
                 } else {
@@ -91,8 +97,8 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
     private void editName() {
 
-        firstnameEditText.setText(padelBuddy.player.getFirstname());
-        lastnameEditText.setText(padelBuddy.player.getLastname());
+        firstnameEditText.setText(user.getFirstname());
+        lastnameEditText.setText(user.getLastname());
         firstnameEditText.setVisibility(View.VISIBLE);
         lastnameEditText.setVisibility(View.VISIBLE);
         placeCursorAfterText(firstnameEditText);
@@ -100,7 +106,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
     private void editBiography() {
 
-        bioEditText.setText(padelBuddy.player.getBio());
+        bioEditText.setText(user.getBio());
         bioEditText.setVisibility(View.VISIBLE);
     }
 
@@ -112,9 +118,9 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         firstnameHintTextView.setVisibility(View.GONE);
         lastnameHintTextView.setVisibility(View.GONE);
 
-        padelBuddy.player.setFirstname(firstnameEditText.getText().toString());
-        padelBuddy.player.setLastname(lastnameEditText.getText().toString());
-        nameTextView.setText(padelBuddy.player.getFullName());
+        user.setFirstname(firstnameEditText.getText().toString());
+        user.setLastname(lastnameEditText.getText().toString());
+        nameTextView.setText(user.getFullName());
 
         nameTextView.setVisibility(View.VISIBLE);
 
@@ -140,5 +146,18 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
                 inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
         }
+    }
+
+    private boolean checkForSpecialCharacters(EditText editText) {
+        Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(editText.getText().toString());
+        boolean b = m.find();
+
+        if (b) {
+            editText.setTextColor(Color.RED);
+            return true;
+        }
+
+        return false;
     }
 }
