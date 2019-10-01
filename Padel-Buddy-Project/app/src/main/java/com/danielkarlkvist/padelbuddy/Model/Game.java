@@ -21,20 +21,12 @@ public class Game {
 
     }
 
-    // TODO decide return type
-    private void getAvgProfileRating() {
-    }
-
     //Setters and Getters.
 
     public Player[] getPlayers() {
         return players;
     }
-
-    public void setPlayers(Player[] players) {
-        this.players = players;
-    }
-
+    
     public String getLocation() {
         return location;
     }

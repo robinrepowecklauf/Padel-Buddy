@@ -62,7 +62,7 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
             playerRatingbars[2] = itemView.findViewById(R.id.player3_ratingbar);
             playerRatingbars[3] = itemView.findViewById(R.id.player4_ratingbar);
 
-            for ( RatingBar ratingBar : playerRatingbars){
+            for (RatingBar ratingBar : playerRatingbars){
                 ratingBar.setStepSize(0.1f);
             }
         }
@@ -103,7 +103,7 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
         for (int i = 0; i < currentGame.getPlayers().length; i++) {
             Player player = currentGame.getPlayers()[i];
             if (player != null) {
-                holder.playerNameTextViews[i].setText(player.getFullName());
+                holder.playerNameTextViews[i].setText(player.getFirstname());
                 holder.playerRatingbars[i].setRating(player.getProfileRating());
             } else {
                 holder.playerNameTextViews[i].setText("Player " + i);

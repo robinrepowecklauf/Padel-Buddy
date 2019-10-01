@@ -12,7 +12,7 @@ public class PadelBuddy {
     private static PadelBuddy instance = null;
 
     private ArrayList<Game> games = new ArrayList<>();
-    public Player player;
+    private Player player;
 
     private PadelBuddy(Player player) {
         this.player = player;
@@ -29,6 +29,10 @@ public class PadelBuddy {
 
     public ArrayList<Game> getGames() {
         return games;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 
     // TODO Command query?
