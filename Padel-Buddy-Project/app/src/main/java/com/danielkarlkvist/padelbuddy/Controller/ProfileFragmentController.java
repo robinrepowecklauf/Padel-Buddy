@@ -160,8 +160,9 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         if (b) {
             editText.setTextColor(Color.RED);
             return true;
+        } else {
+            editText.setTextColor(getResources().getColor(R.color.primaryTextColor));
+            return false;
         }
-
-        return false;
     }
 }
