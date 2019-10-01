@@ -14,7 +14,7 @@ public class Player {
     private String bio;
     private int age;
     private double skillLevel;
-    private double profileRating;
+    private float profileRating;
 
     Player(String firstname, String lastname, String mail, String phone, String bio, int age, double skillLevel) {
         this.firstname = firstname;
@@ -24,7 +24,7 @@ public class Player {
         this.bio = bio;
         this.age = age;
         this.skillLevel = skillLevel;
-        this.profileRating = 0;
+        this.profileRating = 3.3f;
     }
 
     public String getFirstname() {
@@ -53,5 +53,9 @@ public class Player {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public float getProfileRating() {
+        return profileRating;
     }
 }
