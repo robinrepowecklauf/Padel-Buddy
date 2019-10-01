@@ -8,12 +8,13 @@
     android:layout_marginRight="@dimen/margin_padding_size_medium"
     android:layout_marginBottom="@dimen/margin_padding_size_medium"
     app:cardCornerRadius="@dimen/cardRadius"
-    >
+    android:elevation="25dp"
+    app:cardElevation="17dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        android:layout_marginTop="@dimen/margin_padding_size_small"
         android:padding="@dimen/margin_padding_size_small">
 
         <ImageView
