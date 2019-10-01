@@ -33,6 +33,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
     private EditText bioEditText;
     private PadelBuddy padelBuddy;
     private Player user;
+    private TextView gamesPlayedTextView;
 
     private boolean isInEditingMode = false;
 
@@ -59,6 +60,9 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         bioTextView = v.findViewById(R.id.profile_bio);
         bioTextView.setText(user.getBio());
         bioEditText = v.findViewById(R.id.profile_bio_edit);
+
+        gamesPlayedTextView = v.findViewById(R.id.profile_games_played);
+        gamesPlayedTextView.setText("Antal spelade matcher: " + String.valueOf(user.getGamesPlayed()));
 
         return v;
     }
