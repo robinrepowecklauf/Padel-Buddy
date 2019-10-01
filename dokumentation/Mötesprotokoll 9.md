@@ -1,6 +1,6 @@
 # Meeting Agenda
 Group: Padel Buddy  
-Date: 30/9-19 8:15-9:15  
+Date: 1/10-19 8:15-9:15  
 Chair: Carl-Johan Björnson  
 Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Fredrik Lilliecreutz & Carl-Johan Björnson
 
@@ -16,14 +16,19 @@ Daniel, Carl-Johan, Fredrik: Implementerat flödet i hem-fliken. Skapat game_ad_
 Klassen PadelBuddy är nu singelton. 
  
 ## Discussion items (35 min)
-- Restriktioner för namn (ska specialtecken tillåtas osv)
-- Sprintplanering.
+- Sprintplanering. 
 - Tider för veckan.
 
 ## Outcomes and assignments (5 min)
-Restriktioner för namn (ska specialtecken tillåtas osv)
-- 
+Sprintplanering.
+- Möjligheten att skapa annons ska implementeras.
+- Fliken med matcher ska visa upp kommande, samt spelade matcher.
+Tider för veckan.
+- Handledningsmöte 3/10 15:15-16:15.
+- Gruppmöte 3/10 13:15-14:15.
+- Arbetstider inlagt i kalendern. 
+
 
 ## Wrap up
 
-- Nästa möte: 
+- Nästa möte: Torsdag 3/10 kl. 13:15-14:15.
