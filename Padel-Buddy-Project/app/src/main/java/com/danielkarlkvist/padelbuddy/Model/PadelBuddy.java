@@ -1,10 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import android.location.Location;
-
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 // singleton class
 public class PadelBuddy {
