@@ -18,6 +18,9 @@ import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.R;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ProfileFragmentController extends Fragment implements View.OnClickListener {
 
     private TextView changeTextView;
@@ -28,8 +31,10 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
     private EditText lastnameEditText;
     private TextView bioTextView;
     private EditText bioEditText;
+
     private PadelBuddy padelBuddy;
     private Player user;
+    private TextView gamesPlayedTextView;
 
     private boolean isInEditingMode = false;
 
@@ -57,6 +62,9 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         bioTextView.setText(user.getBio());
         bioEditText = v.findViewById(R.id.profile_bio_edit);
 
+        gamesPlayedTextView = v.findViewById(R.id.profile_games_played);
+        gamesPlayedTextView.setText("Antal spelade matcher: " + String.valueOf(user.getGamesPlayed()));
+
         return v;
     }
 
@@ -65,7 +73,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
         switch (v.getId()) {
             case R.id.profile_change:
-                if (!isInEditingMode) {
+                if (!isInEditingMode || checkForSpecialCharacters(firstnameEditText) || checkForSpecialCharacters(lastnameEditText)) {
                     isInEditingMode = true;
                     editProfile(v);
                 } else {
@@ -142,6 +150,20 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
             if (inputManager != null) {
                 inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
+        }
+    }
+
+    private boolean checkForSpecialCharacters(EditText editText) {
+        Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(editText.getText().toString());
+        boolean b = m.find();
+
+        if (b) {
+            editText.setTextColor(Color.RED);
+            return true;
+        } else {
+            editText.setTextColor(getResources().getColor(R.color.primaryTextColor));
+            return false;
         }
     }
 }
