@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 public class ProfileFragmentController extends Fragment implements View.OnClickListener {
 
     private TextView changeTextView;
-    private TextView nameTextView;
+    private TextView fullNameTextView;
     private TextView firstnameHintTextView;
     private TextView lastnameHintTextView;
     private EditText firstnameEditText;
@@ -43,24 +43,14 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
-
-        changeTextView = v.findViewById(R.id.profile_change);
-        changeTextView.setOnClickListener(this);
-
-        firstnameHintTextView = v.findViewById(R.id.profile_firstname_hint);
-        lastnameHintTextView = v.findViewById(R.id.profile_lastname_hint);
-
         padelBuddy = PadelBuddy.getInstance();
         user = padelBuddy.getPlayer();
+        initializeViews(v);
 
-        nameTextView = v.findViewById(R.id.profile_name);
-        nameTextView.setText(user.getFullName());
-        firstnameEditText = v.findViewById(R.id.profile_firstname_edit);
-        lastnameEditText = v.findViewById(R.id.profile_lastname_edit);
+        changeTextView.setOnClickListener(this);
 
-        bioTextView = v.findViewById(R.id.profile_bio);
+        fullNameTextView.setText(user.getFullName());
         bioTextView.setText(user.getBio());
-        bioEditText = v.findViewById(R.id.profile_bio_edit);
 
         gamesPlayedTextView = v.findViewById(R.id.profile_games_played);
         gamesPlayedTextView.setText("Antal spelade matcher: " + String.valueOf(user.getGamesPlayed()));
@@ -72,25 +62,25 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
     public void onClick(View v) {
 
         switch (v.getId()) {
+
             case R.id.profile_change:
                 if (!isInEditingMode || checkForSpecialCharacters(firstnameEditText) || checkForSpecialCharacters(lastnameEditText)) {
                     isInEditingMode = true;
-                    editProfile(v);
+                    editProfile();
                 } else {
                     isInEditingMode = false;
                     hideKeyboard(v);
-                    saveProfile(v);
+                    saveProfile();
                 }
                 break;
         }
     }
 
-    private void editProfile(View view) {
+    private void editProfile() {
 
         changeTextView.setText("Spara");
-        changeTextView.setTextColor(Color.BLUE);
 
-        nameTextView.setVisibility(View.INVISIBLE);
+        fullNameTextView.setVisibility(View.INVISIBLE);
         bioTextView.setVisibility(View.INVISIBLE);
 
         firstnameHintTextView.setVisibility(View.VISIBLE);
@@ -115,7 +105,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         bioEditText.setVisibility(View.VISIBLE);
     }
 
-    private void saveProfile(View view) {
+    private void saveProfile() {
 
         firstnameEditText.setVisibility(View.GONE);
         lastnameEditText.setVisibility(View.GONE);
@@ -125,9 +115,9 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
         user.setFirstname(firstnameEditText.getText().toString());
         user.setLastname(lastnameEditText.getText().toString());
-        nameTextView.setText(user.getFullName());
+        fullNameTextView.setText(user.getFullName());
 
-        nameTextView.setVisibility(View.VISIBLE);
+        fullNameTextView.setVisibility(View.VISIBLE);
 
         bioEditText.setVisibility(View.GONE);
         bioTextView.setText(bioEditText.getText().toString());
@@ -156,14 +146,20 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
     private boolean checkForSpecialCharacters(EditText editText) {
         Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(editText.getText().toString());
-        boolean b = m.find();
 
-        if (b) {
-            editText.setTextColor(Color.RED);
-            return true;
-        } else {
-            editText.setTextColor(getResources().getColor(R.color.primaryTextColor));
-            return false;
-        }
+        return m.find();
+    }
+
+    private void initializeViews(View v) {
+
+        fullNameTextView = v.findViewById(R.id.profile_name);
+        bioTextView = v.findViewById(R.id.profile_bio);
+        firstnameHintTextView = v.findViewById(R.id.profile_firstname_hint);
+        lastnameHintTextView = v.findViewById(R.id.profile_lastname_hint);
+        changeTextView = v.findViewById(R.id.profile_change);
+
+        firstnameEditText = v.findViewById(R.id.profile_firstname_edit);
+        lastnameEditText = v.findViewById(R.id.profile_lastname_edit);
+        bioEditText = v.findViewById(R.id.profile_bio_edit);
     }
 }
