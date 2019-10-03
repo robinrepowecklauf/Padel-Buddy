@@ -1,5 +1,6 @@
 package com.danielkarlkvist.padelbuddy.Controller;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -45,6 +46,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
      * Puts the current information of a user into TextViews which is visible in the profile-view
      */
 
+    @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -60,7 +62,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         bioTextView.setText(user.getBio());
 
         gamesPlayedTextView = v.findViewById(R.id.profile_games_played);
-        gamesPlayedTextView.setText("Antal spelade matcher: " + String.valueOf(user.getGamesPlayed()));
+        gamesPlayedTextView.setText("Antal spelade matcher: " + (user.getGamesPlayed()));
 
         return v;
     }
@@ -116,7 +118,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
         changeTextView.setText("Spara");
 
-        placeUserInformationForEditMode();
+        editUserInformation();
         changeVisibilityForEditMode();
 
         placeCursorAfterText(firstnameEditText);
@@ -126,7 +128,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
      * Places the current information of the user into EditText so it can be edited
      */
 
-    private void placeUserInformationForEditMode() {
+    private void editUserInformation() {
         firstnameEditText.setText(user.getFirstname());
         lastnameEditText.setText(user.getLastname());
         bioEditText.setText(user.getBio());
@@ -173,7 +175,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
      * Updates the user's name and biography
      */
 
-    private void placeUserInformationForStandardMode() {
+    private void placeNewUserInformation() {
 
         user.setFirstname(firstnameEditText.getText().toString());
         user.setLastname(lastnameEditText.getText().toString());
@@ -190,7 +192,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
         changeTextView.setText("Ändra");
 
-        placeUserInformationForStandardMode();
+        placeNewUserInformation();
         changeVisibilityForStandardMode();
 
     }
