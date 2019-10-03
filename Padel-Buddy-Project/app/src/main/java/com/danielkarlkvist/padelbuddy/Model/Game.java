@@ -5,6 +5,9 @@ import android.location.Location;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Represents all information of a game
+ */
 public class Game {
     private Player[] players = new Player[4];
     private String location;
@@ -33,18 +36,34 @@ public class Game {
 
     //Setters and Getters.
 
+    /**
+     * Get the players currently in the game
+     * @return Players in the game
+     */
     public Player[] getPlayers() {
         return players;
     }
-    
+
+    /**
+     * Get the location of the game
+     * @return The location of the game
+     */
     public String getLocation() {
         return location;
     }
 
+    /**
+     * Set the location of the game
+     * @param location
+     */
     public void setLocation(String location) {
         this.location = location;
     }
 
+    /**
+     * Get the date when the game should be played formatted as dd/MM hh:mm
+     * @return The date of the game formatted as dd/MM hh:mm
+     */
     public String getDateAsString() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM hh:mm");
         String formattedDate = simpleDateFormat.format(date);
@@ -52,6 +71,10 @@ public class Game {
         return formattedDate;
     }
 
+    /**
+     * Set the date when the game should be played
+     * @param date
+     */
     public void setDate(Date date) {
         this.date = date;
     }

@@ -28,6 +28,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
     private EditText lastnameEditText;
     private TextView bioTextView;
     private EditText bioEditText;
+
     private PadelBuddy padelBuddy;
     private Player user;
 
