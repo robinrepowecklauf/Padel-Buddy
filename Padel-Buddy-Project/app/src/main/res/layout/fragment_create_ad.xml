@@ -1,12 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
     <TextView
+        android:id="@+id/createAd_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="createeee"
-        android:textSize="30sp"></TextView>
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        android:layout_marginLeft="@dimen/margin_padding_size_medium"
+        android:layout_marginBottom="2dp"
+        android:text="@string/createAd"
+        android:textSize="30sp"
+        android:fontFamily="@font/octin_prison"
+        android:textColor="#FFFFFF" />
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_padding_size_medium"
+        android:layout_marginRight="@dimen/margin_padding_size_medium"
+        android:layout_above="@+id/bottom_navigation_view"
+        android:layout_below="@+id/createAd_textview"
+        app:cardCornerRadius="@dimen/cardRadius"
+        android:background="@drawable/background">
+
+
+
+
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
