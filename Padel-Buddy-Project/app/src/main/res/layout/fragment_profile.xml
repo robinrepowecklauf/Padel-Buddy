@@ -18,10 +18,10 @@
 
     <RelativeLayout
         android:layout_width="360dp"
-        android:layout_height="320dp"
+        android:layout_height="345dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:background="@drawable/card_rounded_corner">
+        android:background="@drawable/white_card_rounded_corner">
 
         <TextView
             android:id="@+id/profile_change"
@@ -131,6 +131,17 @@
             android:layout_marginTop="275dp"
             android:text="Skicklighetsnivå:"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/profile_games_played"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="300dp"
+            android:text="Antal spelade matcher:"
+            android:textStyle="bold" />
+
+
 
 
     </RelativeLayout>
