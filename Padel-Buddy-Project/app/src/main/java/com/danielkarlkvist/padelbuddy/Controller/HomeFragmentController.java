@@ -16,6 +16,9 @@ import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.Date;
 
+/**
+ * Controller for the home tab
+ */
 public class HomeFragmentController extends Fragment {
 
     private RecyclerView homeRecyclerView;
@@ -29,9 +32,10 @@ public class HomeFragmentController extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
+        // Only performs these actions once in the app
         if (!hasOpenedController) {
             PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
-            hasOpenedController = false;
+            hasOpenedController = true;
         }
 
         homeRecyclerView = rootView.findViewById(R.id.recyclerView);
