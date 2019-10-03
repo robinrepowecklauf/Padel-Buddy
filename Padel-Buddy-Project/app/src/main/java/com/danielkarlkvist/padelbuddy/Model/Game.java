@@ -9,16 +9,26 @@ public class Game {
     private Player[] players = new Player[4];
     private String location;
     private Date date;
+    private Tuple<Integer, Integer> result;
 
     Game(Player player, String location, Date date) {
         this.players[0] = player;
         this.location = location;
         this.date = date;
+        this.result = result;
     }
 
     // TODO decide return type
     private void getAvgSkillLevel() {
 
+    }
+
+    boolean isFinishedGame(){
+        return result!=null;
+    }
+
+    void setResult(int t1, int t2){
+        this.result = new Tuple(t1, t2);
     }
 
     //Setters and Getters.

@@ -30,6 +30,8 @@ public class HomeFragmentController extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         if (!hasOpenedController) {
+            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019,0,10,15, 30));
+            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 2, 3,17,30));
             PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
             hasOpenedController = false;
         }
