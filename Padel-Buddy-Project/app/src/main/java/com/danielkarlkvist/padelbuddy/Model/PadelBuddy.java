@@ -20,7 +20,7 @@ public class PadelBuddy {
 
     public static PadelBuddy getInstance() {
         if (instance == null) {
-            Player player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 1);
+            Player player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 1, 3);
             instance = new PadelBuddy(player);
         }
 
