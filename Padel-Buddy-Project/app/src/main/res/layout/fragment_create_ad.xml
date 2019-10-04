@@ -33,6 +33,7 @@
         app:cardElevation="17dp">
 
         <RelativeLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin_padding_size_medium"
@@ -125,6 +126,18 @@
                 android:layout_alignBottom="@id/description_textview"
                 android:layout_marginStart="@dimen/margin_padding_size_small"
                 android:textSize="@dimen/text_size_small"/>
+
+            <Button
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/buttonHeight"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/rounded_green_button"
+                android:text="Skapa annons"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="#FFFFFF"
+                android:padding="@dimen/margin_padding_size_small">
+            </Button>
 
         </RelativeLayout>
 
