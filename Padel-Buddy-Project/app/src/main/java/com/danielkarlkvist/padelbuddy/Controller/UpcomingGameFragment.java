@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 
-public class UpcomingGame extends Fragment {
+public class UpcomingGameFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab_upcoming_game, container, false);
