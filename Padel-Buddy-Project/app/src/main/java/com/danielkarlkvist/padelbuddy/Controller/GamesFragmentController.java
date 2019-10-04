@@ -24,10 +24,10 @@ public class GamesFragmentController extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_games, container, false);
 
-        gamesRecyclerView = rootView.findViewById(R.id.recyclerView);
+        gamesRecyclerView = rootView.findViewById(R.id.games_recyclerView);
         gamesRecyclerView.setHasFixedSize(true);
         gamesRecyclerViewLayoutManager = new LinearLayoutManager(getActivity());    //getActivity instead of this when used in fragment?
-        gamesRecyclerViewAdapter = new GameAdAdapter(PadelBuddy.getInstance().getGames());
+        gamesRecyclerViewAdapter = new GamesAdapter(PadelBuddy.getInstance().getGames());
 
         gamesRecyclerView.setLayoutManager(gamesRecyclerViewLayoutManager);
         gamesRecyclerView.setAdapter(gamesRecyclerViewAdapter);
