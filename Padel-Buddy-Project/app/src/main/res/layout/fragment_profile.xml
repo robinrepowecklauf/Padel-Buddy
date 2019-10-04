@@ -54,6 +54,7 @@
                 android:textSize="@dimen/text_size_small" />
 
             <RelativeLayout
+                android:id="@+id/profile_name_and_picture_relativelayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
@@ -80,14 +81,14 @@
                     android:id="@+id/profile_firstname_hint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_padding_size_medium"
                     android:layout_marginLeft="@dimen/margin_padding_size_large"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
                     android:layout_toEndOf="@id/profile_image"
                     android:text="Förnamn:"
                     android:textColor="@color/primaryTextColor"
                     android:textSize="@dimen/text_size_small"
                     android:textStyle="bold"
-                    android:visibility="visible" />
+                    android:visibility="invisible" />
 
                 <EditText
                     android:id="@+id/profile_firstname_edit"
@@ -95,55 +96,83 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/profile_firstname_hint"
                     android:layout_alignLeft="@+id/profile_firstname_hint"
+                    android:layout_marginTop="@dimen/margin_padding_size_small"
                     android:background="@drawable/edittext_background"
-                    android:paddingLeft="10dp"
+                    android:paddingStart="5dp"
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
                     android:textColor="@color/primaryTextColor"
                     android:textSize="@dimen/text_size_medium"
-                    android:visibility="invisible"
-                    />
+                    android:visibility="invisible" />
 
                 <TextView
                     android:id="@+id/profile_lastname_hint"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="135dp"
-                    android:layout_marginTop="70dp"
+                    android:layout_below="@id/profile_firstname_edit"
+                    android:layout_marginLeft="@dimen/margin_padding_size_large"
+                    android:layout_marginTop="@dimen/margin_padding_size_small"
+                    android:layout_toEndOf="@id/profile_image"
                     android:text="Efternamn:"
                     android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/text_size_small"
                     android:textStyle="bold"
                     android:visibility="invisible" />
 
                 <EditText
                     android:id="@+id/profile_lastname_edit"
-                    android:layout_width="239dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="131dp"
-                    android:layout_marginTop="80dp"
+                    android:layout_below="@+id/profile_lastname_hint"
+                    android:layout_alignLeft="@+id/profile_firstname_hint"
+                    android:layout_marginTop="@dimen/margin_padding_size_small"
+                    android:background="@drawable/edittext_background"
+                    android:paddingStart="5dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
                     android:textColor="@color/primaryTextColor"
                     android:textSize="@dimen/text_size_medium"
                     android:visibility="invisible" />
-            </RelativeLayout>
 
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/profile_bio"
-                android:layout_width="322dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="136dp"
-                android:layout_marginEnd="20dp" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_name_and_picture_relativelayout"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:maxLength="100"
+                android:textSize="@dimen/text_size_small" />
+
+            <TextView
+                android:id="@+id/profile_bio_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_name_and_picture_relativelayout"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:text="Biografi:"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"
+                android:visibility="visible" />
 
             <EditText
                 android:id="@+id/profile_bio_edit"
-                android:layout_width="322dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="136dp"
-                android:layout_marginEnd="20dp"
-                android:textSize="19sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_bio_hint"
+                android:layout_marginStart="@dimen/text_size_medium"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@drawable/edittext_background"
+                android:maxLength="100"
+                android:paddingStart="5dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/text_size_small"
                 android:visibility="invisible" />
+
 
             <TextView
                 android:id="@+id/profile_rating"
