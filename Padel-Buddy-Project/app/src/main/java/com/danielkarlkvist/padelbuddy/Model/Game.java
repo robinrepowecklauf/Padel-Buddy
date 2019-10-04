@@ -26,18 +26,26 @@ public class Game {
 
     }
 
-    boolean isFinishedGame(){
-        return result!=null;
+    /**
+     * Checks if the Game is finished
+     * @return Returns true if Game has a result
+     */
+    public boolean isFinishedGame(){
+        return result != null;
     }
 
-    void setResult(int t1, int t2){
-        this.result = new Tuple(t1, t2);
+    /**
+     * Set both scores of each team
+     * @param score1
+     * @param score2
+     */
+    public void setResult(int score1, int score2) {
+        this.result = new Tuple(score1, score2);
     }
-
-    //Setters and Getters.
 
     /**
      * Get the players currently in the game
+     *
      * @return Players in the game
      */
     public Player[] getPlayers() {
@@ -46,6 +54,7 @@ public class Game {
 
     /**
      * Get the location of the game
+     *
      * @return The location of the game
      */
     public String getLocation() {
@@ -54,6 +63,7 @@ public class Game {
 
     /**
      * Set the location of the game
+     *
      * @param location
      */
     public void setLocation(String location) {
@@ -62,6 +72,7 @@ public class Game {
 
     /**
      * Get the date when the game should be played formatted as dd/MM hh:mm
+     *
      * @return The date of the game formatted as dd/MM hh:mm
      */
     public String getDateAsString() {
@@ -73,6 +84,7 @@ public class Game {
 
     /**
      * Set the date when the game should be played
+     *
      * @param date
      */
     public void setDate(Date date) {
