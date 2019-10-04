@@ -21,9 +21,27 @@
         <item name="android:layout_marginRight">@dimen/margin_padding_size_small</item>
     </style>
 
-    <style name="game_ad_ratingbar"
-        parent="android:style/Widget.Material.RatingBar.Small">
+
+    <style name="game_ad_ratingbar" parent="android:style/Widget.Material.RatingBar.Small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
+    <style name="creategame_ad_imageview">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_marginRight">@dimen/margin_padding_size_small</item>
+    </style>
+
+    <style name="creategame_ad_textview">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:maxWidth">80dp</item>
+        <item name="android:layout_marginStart">@dimen/margin_padding_size_medium</item>
+    </style>
+
 </resources>
