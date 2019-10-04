@@ -19,6 +19,7 @@
         android:textSize="30sp" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/profile_CardView"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_below="@id/profile_header_TextView"
@@ -30,31 +31,54 @@
 
 
         <RelativeLayout
+            android:id="@+id/profile_RelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp">
+            android:layout_marginStart="@dimen/margin_padding_size_medium"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            android:layout_marginEnd="@dimen/margin_padding_size_medium"
+            android:layout_marginBottom="@dimen/margin_padding_size_medium">
 
             <TextView
                 android:id="@+id/profile_change"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="285dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:layout_marginEnd="@dimen/margin_padding_size_large"
                 android:clickable="true"
+                android:focusable="true"
                 android:onClick="editProfile"
                 android:text="Ändra"
                 android:textColor="@android:color/holo_blue_dark"
-                android:textSize="15sp" />
+                android:textSize="@dimen/text_size_small" />
 
-            <TextView
-                android:id="@+id/profile_name"
-                android:layout_width="239dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="135dp"
-                android:layout_marginTop="53dp"
-                android:text="Robin Repo Wecklauf"
-                android:textSize="20sp" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_padding_size_medium"
+                    android:layout_toEndOf="@id/profile_image"
+                    android:text="Robin Repo Wecklauf"
+                    android:textSize="@dimen/text_size_large" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_padding_size_medium"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:src="@drawable/text_profile_picture">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+            </RelativeLayout>
+
 
             <TextView
                 android:id="@+id/profile_firstname_hint"
@@ -99,15 +123,6 @@
                 android:textColor="@color/primaryTextColor"
                 android:textSize="@dimen/text_size_medium"
                 android:visibility="invisible" />
-
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/text_profile_picture" />
 
             <TextView
                 android:id="@+id/profile_bio"
