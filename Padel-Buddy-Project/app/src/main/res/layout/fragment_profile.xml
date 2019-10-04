@@ -74,55 +74,58 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/margin_padding_size_medium"
                     android:layout_marginTop="@dimen/margin_padding_size_medium"
-                    android:src="@drawable/text_profile_picture">
+                    android:src="@drawable/text_profile_picture" />
 
-                </de.hdodenhof.circleimageview.CircleImageView>
+                <TextView
+                    android:id="@+id/profile_firstname_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:layout_marginLeft="@dimen/margin_padding_size_large"
+                    android:layout_toEndOf="@id/profile_image"
+                    android:text="Förnamn:"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+                <EditText
+                    android:id="@+id/profile_firstname_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profile_firstname_hint"
+                    android:layout_alignLeft="@+id/profile_firstname_hint"
+                    android:background="@drawable/edittext_background"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/text_size_medium"
+                    android:visibility="invisible"
+                    />
+
+                <TextView
+                    android:id="@+id/profile_lastname_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="135dp"
+                    android:layout_marginTop="70dp"
+                    android:text="Efternamn:"
+                    android:textColor="@color/primaryTextColor"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+
+                <EditText
+                    android:id="@+id/profile_lastname_edit"
+                    android:layout_width="239dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="131dp"
+                    android:layout_marginTop="80dp"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/text_size_medium"
+                    android:visibility="invisible" />
             </RelativeLayout>
 
-
-            <TextView
-                android:id="@+id/profile_firstname_hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="135dp"
-                android:layout_marginTop="20dp"
-                android:text="Förnamn:"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="@dimen/text_size_small"
-                android:textStyle="bold"
-                android:visibility="invisible" />
-
-
-            <EditText
-                android:id="@+id/profile_firstname_edit"
-                android:layout_width="239dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="131dp"
-                android:layout_marginTop="30dp"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="@dimen/text_size_medium"
-                android:visibility="invisible" />
-
-            <TextView
-                android:id="@+id/profile_lastname_hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="135dp"
-                android:layout_marginTop="70dp"
-                android:text="Efternamn:"
-                android:textColor="@color/primaryTextColor"
-                android:textStyle="bold"
-                android:visibility="invisible" />
-
-            <EditText
-                android:id="@+id/profile_lastname_edit"
-                android:layout_width="239dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="131dp"
-                android:layout_marginTop="80dp"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="@dimen/text_size_medium"
-                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/profile_bio"
