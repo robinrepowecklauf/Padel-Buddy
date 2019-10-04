@@ -26,15 +26,22 @@ public class Game {
 
     }
 
-    boolean isFinishedGame() {
+    /**
+     * Checks if the Game is finished
+     * @return Returns true if Game has a result
+     */
+    public boolean isFinishedGame(){
         return result != null;
     }
 
-    void setResult(int t1, int t2) {
-        this.result = new Tuple(t1, t2);
+    /**
+     * Set both scores of each team
+     * @param score1
+     * @param score2
+     */
+    public void setResult(int score1, int score2) {
+        this.result = new Tuple(score1, score2);
     }
-
-    //Setters and Getters.
 
     /**
      * Get the players currently in the game
