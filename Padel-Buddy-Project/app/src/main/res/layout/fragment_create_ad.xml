@@ -86,9 +86,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/date_textview"
-                android:layout_alignBottom="@id/date_textview"
+                android:layout_alignBottom="@+id/date_textview"
                 android:layout_marginStart="@dimen/margin_padding_size_small"
-                android:textSize="@dimen/text_size_small"/>
+                android:ems="10"
+                android:inputType="date" />
 
             <TextView
                 android:id="@+id/time_textview"
@@ -105,9 +106,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/time_textview"
-                android:layout_alignBottom="@id/time_textview"
+                android:layout_alignBottom="@+id/time_textview"
                 android:layout_marginStart="@dimen/margin_padding_size_small"
-                android:textSize="@dimen/text_size_small"/>
+                android:ems="10"
+                android:inputType="time" />
 
             <TextView
                 android:id="@+id/description_textview"
@@ -138,6 +140,9 @@
                 android:textColor="#FFFFFF"
                 android:padding="@dimen/margin_padding_size_small">
             </Button>
+
+
+
 
         </RelativeLayout>
 
