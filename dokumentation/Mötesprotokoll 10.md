@@ -13,7 +13,7 @@ Marcus: Påbörjat fragment_create_ad.xml.
 
 Daniel: Skrivit JavaDoc för GameAdAdapter.java, HomeFragmentController.java, MainActivity.java och Game.java. Implementerat en knapp samt skugga i game_ad_item.xml.
 
-Fredrik: Implementerat antal spelade atcher i fragment_profile.xml. Skapat olika metoder i Game.java 
+Fredrik: Implementerat antal spelade atcher i fragment_profile.xml. Skapat olika metoder i Game.java. Uppdaterat HomeFragmentController med hårdkodade games. 
 
 Carl-Johan: Studerat Android appars anatomi samt undersökt lämpliga designmönster inför refaktorering. 
  
