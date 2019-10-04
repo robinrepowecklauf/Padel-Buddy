@@ -32,10 +32,10 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_padding_size_small"
-            android:layout_marginEnd="@dimen/margin_padding_size_small"
-            android:layout_marginTop="@dimen/margin_padding_size_small"
-            android:layout_marginBottom="@dimen/margin_padding_size_small">
+            android:layout_marginStart="@dimen/margin_padding_size_medium"
+            android:layout_marginEnd="@dimen/margin_padding_size_medium"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            android:layout_marginBottom="@dimen/margin_padding_size_medium">
 
 
             <TextView
@@ -50,7 +50,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/createAdHelp_textview"
-                android:text="TextView" />
+                android:layout_alignEnd="@+id/description_textview"
+                android:layout_marginTop="@dimen/margin_padding_size_large"
+                android:text="Padelarena: "
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/date_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/padelarena_textview"
+                android:layout_alignEnd="@+id/description_textview"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:text="Datum: "
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/time_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/date_textview"
+                android:layout_alignEnd="@+id/description_textview"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:text="Tid: "
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/description_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/time_textview"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:text="Beskrivning: "
+                android:textStyle="bold"/>
 
         </RelativeLayout>
 
