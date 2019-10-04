@@ -142,8 +142,8 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
     private void changeVisibilityForEditMode() {
 
-        fullNameTextView.setVisibility(View.GONE);
-        bioTextView.setVisibility(View.GONE);
+        fullNameTextView.setVisibility(View.INVISIBLE);
+        bioTextView.setVisibility(View.INVISIBLE);
 
         firstnameHintTextView.setVisibility(View.VISIBLE);
         lastnameHintTextView.setVisibility(View.VISIBLE);
@@ -160,14 +160,14 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
     private void changeVisibilityForStandardMode() {
 
-        firstnameEditText.setVisibility(View.GONE);
-        lastnameEditText.setVisibility(View.GONE);
+        firstnameEditText.setVisibility(View.INVISIBLE);
+        lastnameEditText.setVisibility(View.INVISIBLE);
 
-        bioEditText.setVisibility(View.GONE);
+        bioEditText.setVisibility(View.INVISIBLE);
 
-        firstnameHintTextView.setVisibility(View.GONE);
-        lastnameHintTextView.setVisibility(View.GONE);
-        bioHintTextView.setVisibility(View.GONE);
+        firstnameHintTextView.setVisibility(View.INVISIBLE);
+        lastnameHintTextView.setVisibility(View.INVISIBLE);
+        bioHintTextView.setVisibility(View.INVISIBLE);
 
 
         fullNameTextView.setVisibility(View.VISIBLE);

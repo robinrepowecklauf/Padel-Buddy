@@ -9,25 +9,27 @@
         android:id="@+id/profile_header_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginLeft="@dimen/margin_padding_size_medium"
         android:layout_marginTop="@dimen/margin_padding_size_medium"
         android:layout_marginBottom="2dp"
         android:fontFamily="@font/octin_prison"
         android:text="@string/profile"
         android:textColor="#FFFFFF"
-        android:textSize="30sp" />
+        android:textSize="@dimen/text_size_tab_title" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/profile_CardView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="340dp"
         android:layout_below="@id/profile_header_TextView"
         android:layout_marginLeft="@dimen/margin_padding_size_medium"
         android:layout_marginTop="5dp"
         android:layout_marginRight="@dimen/margin_padding_size_medium"
         android:background="@drawable/background"
-        app:cardCornerRadius="@dimen/cardRadius">
+        app:cardCornerRadius="@dimen/cardRadius"
+
+        android:elevation="25dp"
+        app:cardElevation="17dp">
 
 
         <RelativeLayout
@@ -142,7 +144,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/profile_name_and_picture_relativelayout"
                 android:layout_marginStart="@dimen/margin_padding_size_medium"
-                android:maxLength="100"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:maxLength="200"
                 android:textSize="@dimen/text_size_small" />
 
             <TextView
@@ -177,8 +180,9 @@
                 android:id="@+id/profile_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="250dp"
+                android:layout_below="@id/profile_bio_edit"
+                android:layout_marginLeft="@dimen/margin_padding_size_medium"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:text="Omdöme:"
                 android:textStyle="bold" />
 
@@ -186,8 +190,9 @@
                 android:id="@+id/profile_skill_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="275dp"
+                android:layout_below="@id/profile_rating"
+                android:layout_marginLeft="@dimen/margin_padding_size_medium"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:text="Skicklighetsnivå:"
                 android:textStyle="bold" />
 
@@ -195,8 +200,9 @@
                 android:id="@+id/profile_games_played"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="300dp"
+                android:layout_below="@id/profile_skill_level"
+                android:layout_marginLeft="@dimen/margin_padding_size_medium"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:text="Antal spelade matcher:"
                 android:textStyle="bold" />
 
