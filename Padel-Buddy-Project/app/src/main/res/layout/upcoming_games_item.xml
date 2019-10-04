@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/margin_padding_size_medium"
+    android:layout_marginRight="@dimen/margin_padding_size_medium"
+    android:layout_marginBottom="@dimen/margin_padding_size_medium"
+    android:elevation="25dp"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/cardRadius"
+    app:cardElevation="17dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_padding_size_small"
+        android:padding="@dimen/margin_padding_size_small">
+
+        <ImageView
+            android:id="@+id/location_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_padding_size_small"
+            android:maxWidth="20sp"
+            android:maxHeight="20sp"
+            android:background="@drawable/ic_location_on_black_24dp">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/location_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/location_imageview"
+            android:text="Location"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="20sp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/skilllevel_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/location_imageview"
+            android:layout_alignLeft="@+id/location_textview"
+            android:text="Skill level"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="20sp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/date_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/location_textview"
+            android:layout_marginRight="@dimen/margin_padding_size_small"
+            android:text="Date"
+            android:textSize="15sp"
+            android:textColor="@color/primaryTextColor">
+        </TextView>
+
+        <GridLayout
+            android:id="@+id/players_gridlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/skilllevel_textview"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_padding_size_xlarge"
+            android:layout_marginBottom="@dimen/margin_padding_size_xlarge">
+
+            <RelativeLayout
+                android:layout_column="1"
+                android:layout_row="1"
+                android:layout_marginRight="@dimen/margin_padding_size_xxlarge">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/player1_imageview"
+                    android:layout_marginBottom="@dimen/margin_padding_size_xxlarge"
+                    style="@style/game_ad_imageview">
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <TextView
+                    android:id="@+id/player1_name_textview"
+                    android:layout_toRightOf="@+id/player1_imageview"
+                    android:text="Player1"
+                    style="@style/game_ad_textview">
+                </TextView>
+
+                <RatingBar
+                    android:id="@+id/player1_ratingbar"
+                    android:layout_alignLeft="@+id/player1_name_textview"
+                    android:layout_below="@+id/player1_name_textview"
+                    style="@style/game_ad_ratingbar">
+                </RatingBar>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_column="1"
+                android:layout_row="2">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/player2_imageview"
+                    style="@style/game_ad_imageview"
+                    >
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <TextView
+                    android:id="@+id/player2_name_textview"
+                    android:layout_toRightOf="@+id/player2_imageview"
+                    android:text="Player2"
+                    style="@style/game_ad_textview">
+                </TextView>
+
+                <RatingBar
+                    android:id="@+id/player2_ratingbar"
+                    android:layout_alignLeft="@+id/player2_name_textview"
+                    android:layout_below="@+id/player2_name_textview"
+                    style="@style/game_ad_ratingbar">
+                </RatingBar>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_column="2"
+                android:layout_row="1">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/player3_imageview"
+                    style="@style/game_ad_imageview">
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <TextView
+                    android:id="@+id/player3_name_textview"
+                    android:layout_toRightOf="@+id/player3_imageview"
+                    android:text="Player3"
+                    style="@style/game_ad_textview"
+                    >
+                </TextView>
+
+                <RatingBar
+                    android:id="@+id/player3_ratingbar"
+                    android:layout_alignLeft="@+id/player3_name_textview"
+                    android:layout_below="@+id/player3_name_textview"
+                    style="@style/game_ad_ratingbar">
+                </RatingBar>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_column="2"
+                android:layout_row="2">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/player4_imageview"
+                    style="@style/game_ad_imageview">
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <TextView
+                    android:id="@+id/player4_name_textview"
+                    android:layout_toRightOf="@+id/player4_imageview"
+                    android:text="Player4"
+                    style="@style/game_ad_textview"
+                    >
+                </TextView>
+
+                <RatingBar
+                    android:id="@+id/player4_ratingbar"
+                    android:layout_alignLeft="@+id/player4_name_textview"
+                    android:layout_below="@+id/player4_name_textview"
+                    style="@style/game_ad_ratingbar">
+                </RatingBar>
+
+            </RelativeLayout>
+
+        </GridLayout>
+
+        <Button
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_padding_size_medium"
+            android:layout_below="@+id/players_gridlayout"
+            android:background="@drawable/rounded_red_button"
+            android:text="Lämna återbud"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="#FFFFFF"
+            android:padding="@dimen/margin_padding_size_small">
+        </Button>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
