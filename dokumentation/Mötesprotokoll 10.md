@@ -18,11 +18,11 @@ Fredrik:
 Carl-Johan: Studerat Android appars anatomi samt undersökt lämpliga designmönster inför refaktorering. 
  
 ## Discussion items (35 min)
-Uppföljning av pågående user stories. 
-Uppföljning på arbetsgång under implementering, har detta följts?
-Konroll av Git-commits. 
-Vad ska bli klart innan peer rewview 11/10. 
-Bestämma tid för refaktorering.   
+- Uppföljning av pågående user stories. 
+- Uppföljning på arbetsgång under implementering, har detta följts?
+- Konroll av Git-commits. 
+- Vad ska bli klart innan peer rewview 11/10.
+- Bestämma tid för refaktorering.   
 
 ## Outcomes and assignments (5 min)
 Uppföjing av pågående user stories. 
