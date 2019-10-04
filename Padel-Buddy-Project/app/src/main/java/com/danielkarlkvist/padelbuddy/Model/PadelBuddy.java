@@ -43,6 +43,7 @@ public class PadelBuddy {
         if (games.contains(game)) {
             games.remove(game);
         }
+
         // TODO Error message? FancyToast Library?? Finns i slack
     }
 }
