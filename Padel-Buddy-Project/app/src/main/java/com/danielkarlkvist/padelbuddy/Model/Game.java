@@ -45,6 +45,7 @@ public class Game {
 
     /**
      * Get the players currently in the game
+     *
      * @return Players in the game
      */
     public Player[] getPlayers() {
@@ -53,6 +54,7 @@ public class Game {
 
     /**
      * Get the location of the game
+     *
      * @return The location of the game
      */
     public String getLocation() {
@@ -61,6 +63,7 @@ public class Game {
 
     /**
      * Set the location of the game
+     *
      * @param location
      */
     public void setLocation(String location) {
@@ -69,6 +72,7 @@ public class Game {
 
     /**
      * Get the date when the game should be played formatted as dd/MM hh:mm
+     *
      * @return The date of the game formatted as dd/MM hh:mm
      */
     public String getDateAsString() {
@@ -80,6 +84,7 @@ public class Game {
 
     /**
      * Set the date when the game should be played
+     *
      * @param date
      */
     public void setDate(Date date) {
