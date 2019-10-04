@@ -31,6 +31,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
     private TextView fullNameTextView;
     private TextView firstnameHintTextView;
     private TextView lastnameHintTextView;
+    private TextView bioHintTextView;
     private EditText firstnameEditText;
     private EditText lastnameEditText;
     private TextView bioTextView;
@@ -103,6 +104,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         bioTextView = v.findViewById(R.id.profile_bio);
         firstnameHintTextView = v.findViewById(R.id.profile_firstname_hint);
         lastnameHintTextView = v.findViewById(R.id.profile_lastname_hint);
+        bioHintTextView = v.findViewById(R.id.profile_bio_hint);
         changeTextView = v.findViewById(R.id.profile_change);
 
         firstnameEditText = v.findViewById(R.id.profile_firstname_edit);
@@ -145,6 +147,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
         firstnameHintTextView.setVisibility(View.VISIBLE);
         lastnameHintTextView.setVisibility(View.VISIBLE);
+        bioHintTextView.setVisibility(View.VISIBLE);
 
         firstnameEditText.setVisibility(View.VISIBLE);
         lastnameEditText.setVisibility(View.VISIBLE);
@@ -164,6 +167,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
         firstnameHintTextView.setVisibility(View.GONE);
         lastnameHintTextView.setVisibility(View.GONE);
+        bioHintTextView.setVisibility(View.GONE);
 
 
         fullNameTextView.setVisibility(View.VISIBLE);
