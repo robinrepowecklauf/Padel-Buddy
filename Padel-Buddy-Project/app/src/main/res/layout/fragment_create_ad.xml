@@ -26,8 +26,11 @@
         android:layout_marginBottom="71dp"
         android:layout_below="@+id/createAd_textview"
         android:layout_marginTop="5dp"
+        android:background="@drawable/background"
+        android:elevation="25dp"
+
         app:cardCornerRadius="@dimen/cardRadius"
-        android:background="@drawable/background">
+        app:cardElevation="17dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
