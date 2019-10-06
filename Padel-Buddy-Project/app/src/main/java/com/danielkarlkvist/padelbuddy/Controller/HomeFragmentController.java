@@ -35,7 +35,11 @@ public class HomeFragmentController extends Fragment {
         // Only performs these actions once in the app
         if (!hasOpenedController) {
             PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019,0,10,15, 30));
-            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 2, 3,17,30));
+            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 2, 2,8,00));
+            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, 1, 4,15,15));
+            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2015, 7, 7,10,20));
+            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 9, 3,9,30));
+            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 12, 25,23,50));
             PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
             hasOpenedController = true;
         }

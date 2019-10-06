@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Padel Buddy</string>
     <string name="home">Hem</string>
+    <string name="create">Skapa</string>
     <string name="createAd">Skapa Annons</string>
     <string name="games">Spel</string>
     <string name="profile">Profil</string>
