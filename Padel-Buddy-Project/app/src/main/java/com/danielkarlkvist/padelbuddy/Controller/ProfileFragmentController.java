@@ -185,7 +185,8 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         user.setLastname(lastnameEditText.getText().toString());
         fullNameTextView.setText(user.getFullName());
 
-        bioTextView.setText(bioEditText.getText().toString());
+        user.setBio(bioEditText.getText().toString());
+        bioTextView.setText(user.getBio());
     }
 
     /**
