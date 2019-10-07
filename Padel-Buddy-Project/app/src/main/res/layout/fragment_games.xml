@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/topbar_textview"
-        android:background="@drawable/primary_green_gradient"
+        android:background="#000000"
         app:tabTextColor="@color/primaryTextColorOnDarkBackground"
         app:tabGravity="fill"
         app:tabMode="fixed" />

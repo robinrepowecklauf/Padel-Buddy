@@ -4,14 +4,9 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/games_recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/games_tablayout"
-        android:scrollbars="vertical"
-        android:clipToPadding="false"
-        android:paddingTop="5dp"
-        android:paddingBottom="50dp">
+        android:id="@+id/upcoming_games_recyclerView"
+        style="@style/game_recyclerview"
+        android:layout_below="@+id/games_tablayout">
 
     </androidx.recyclerview.widget.RecyclerView>
 
