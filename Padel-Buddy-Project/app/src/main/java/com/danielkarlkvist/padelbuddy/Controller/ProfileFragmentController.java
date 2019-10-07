@@ -2,11 +2,14 @@ package com.danielkarlkvist.padelbuddy.Controller;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -25,9 +28,12 @@ import java.util.regex.Pattern;
  * Defines the profile-view for a user
  */
 
-public class ProfileFragmentController extends Fragment implements View.OnClickListener {
+public class ProfileFragmentController extends Fragment {
 
-    private TextView changeTextView;
+    private static final int PICK_PHOTO_FOR_AVATAR = 0;
+
+    private Button editProfileButton;
+    private Button editImageButton;
     private TextView fullNameTextView;
     private TextView firstnameHintTextView;
     private TextView lastnameHintTextView;
@@ -56,8 +62,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         padelBuddy = PadelBuddy.getInstance();
         user = padelBuddy.getPlayer();
         initializeViews(v);
-
-        changeTextView.setOnClickListener(this);
+        initializeListenerToButton();
 
         fullNameTextView.setText(user.getFullName());
         bioTextView.setText(user.getBio());
@@ -65,21 +70,16 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         gamesPlayedTextView = v.findViewById(R.id.profile_games_played);
         gamesPlayedTextView.setText("Antal spelade matcher: " + (user.getGamesPlayed()));
 
+
         return v;
     }
 
-    /**
-     * Listener for the current View if changTextView is being pressed
-     *
-     * @param v current view of the app
-     */
 
-    @Override
-    public void onClick(View v) {
+    private void initializeListenerToButton() {
+        editProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        switch (v.getId()) {
-
-            case R.id.profile_change:
                 if (!isInEditingMode || checkForSpecialCharacters(firstnameEditText) || checkForSpecialCharacters(lastnameEditText)) {
                     isInEditingMode = true;
                     editProfile();
@@ -88,8 +88,16 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
                     hideKeyboard(v);
                     saveProfile();
                 }
-                break;
-        }
+            }
+        });
+
+        editImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pickImage();
+            }
+        });
+
     }
 
     /**
@@ -105,11 +113,12 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
         firstnameHintTextView = v.findViewById(R.id.profile_firstname_hint);
         lastnameHintTextView = v.findViewById(R.id.profile_lastname_hint);
         bioHintTextView = v.findViewById(R.id.profile_bio_hint);
-        changeTextView = v.findViewById(R.id.profile_change);
+        editProfileButton = v.findViewById(R.id.edit_profile_button);
 
         firstnameEditText = v.findViewById(R.id.profile_firstname_edit);
         lastnameEditText = v.findViewById(R.id.profile_lastname_edit);
         bioEditText = v.findViewById(R.id.profile_bio_edit);
+        editImageButton = v.findViewById(R.id.pick_new_image_button);
     }
 
     /**
@@ -118,12 +127,37 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
     private void editProfile() {
 
-        changeTextView.setText("Spara");
+        editProfileButton.setText("Spara");
 
         editUserInformation();
         changeVisibilityForEditMode();
 
         placeCursorAfterText(firstnameEditText);
+    }
+
+    private void pickImage() {
+        editImageButton.setBackgroundColor(Color.RED);
+/*        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, PICK_PHOTO_FOR_AVATAR);*/
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+/*        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_PHOTO_FOR_AVATAR && resultCode == Activity.RESULT_OK) {
+            if (data == null) {
+                //Display an error
+                return;
+            }
+            try {
+                InputStream inputStream = getContext().getContentResolver().openInputStream(data.getData());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            //Now you can do whatever you want with your inpustream, save it as file, upload to a server, decode a bitmap...
+        }*/
     }
 
     /**
@@ -195,7 +229,7 @@ public class ProfileFragmentController extends Fragment implements View.OnClickL
 
     private void saveProfile() {
 
-        changeTextView.setText("Ändra");
+        editProfileButton.setText("Ändra");
 
         placeNewUserInformation();
         changeVisibilityForStandardMode();

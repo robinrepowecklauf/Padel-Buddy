@@ -26,9 +26,9 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="@dimen/margin_padding_size_medium"
         android:background="@drawable/background"
-        app:cardCornerRadius="@dimen/cardRadius"
-
         android:elevation="25dp"
+
+        app:cardCornerRadius="@dimen/cardRadius"
         app:cardElevation="17dp">
 
 
@@ -41,16 +41,14 @@
             android:layout_marginEnd="@dimen/margin_padding_size_medium"
             android:layout_marginBottom="@dimen/margin_padding_size_medium">
 
-            <TextView
-                android:id="@+id/profile_change"
+            <Button
+                android:id="@+id/edit_profile_button"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/margin_padding_size_small"
-                android:layout_marginEnd="@dimen/margin_padding_size_large"
                 android:clickable="true"
                 android:focusable="true"
-                android:onClick="editProfile"
                 android:text="Ändra"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="@dimen/text_size_small" />
@@ -78,6 +76,12 @@
                     android:layout_marginLeft="@dimen/margin_padding_size_medium"
                     android:layout_marginTop="@dimen/margin_padding_size_medium"
                     android:src="@drawable/text_profile_picture" />
+
+                <Button
+                    android:id="@+id/pick_new_image_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pick me" />
 
                 <TextView
                     android:id="@+id/profile_firstname_hint"
@@ -205,7 +209,6 @@
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:text="Antal spelade matcher:"
                 android:textStyle="bold" />
-
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
