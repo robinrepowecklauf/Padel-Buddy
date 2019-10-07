@@ -87,7 +87,8 @@
                     android:text="Pick me"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
-                    android:background="@drawable/half_circle_button"/>
+                    android:background="@drawable/half_circle_button"
+                    android:visibility="invisible"/>
 
                 <TextView
                     android:id="@+id/profile_firstname_hint"

@@ -227,6 +227,7 @@ public class ProfileFragmentController extends Fragment {
         firstnameEditText.setVisibility(View.VISIBLE);
         lastnameEditText.setVisibility(View.VISIBLE);
         bioEditText.setVisibility(View.VISIBLE);
+        editImageButton.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -237,6 +238,7 @@ public class ProfileFragmentController extends Fragment {
 
         firstnameEditText.setVisibility(View.INVISIBLE);
         lastnameEditText.setVisibility(View.INVISIBLE);
+        editImageButton.setVisibility(View.INVISIBLE);
 
         bioEditText.setVisibility(View.INVISIBLE);
 
