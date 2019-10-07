@@ -129,7 +129,6 @@
                 android:layout_marginStart="@dimen/margin_padding_size_small"
                 android:textSize="@dimen/text_size_small"/>
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -138,100 +137,167 @@
                 android:gravity="center_horizontal"
                 >
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_padding_size_large"
-                    >
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_padding_size_large"
+                        >
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/player1_imageview"
-                        android:src="@drawable/text_profile_picture"
-                        android:layout_marginBottom="@dimen/margin_padding_size_xxlarge"
-                        android:layout_centerVertical="true"
-                        style="@style/creategame_ad_imageview">
-                    </de.hdodenhof.circleimageview.CircleImageView>
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/player1_imageview"
+                            android:src="@drawable/text_profile_picture"
+                            android:layout_centerVertical="true"
+                            style="@style/creategame_ad_imageview">
+                        </de.hdodenhof.circleimageview.CircleImageView>
 
-                    <TextView
-                        android:id="@+id/player1_name_textview"
-                        android:layout_toEndOf="@+id/player1_imageview"
-                        android:layout_centerInParent="true"
-                        android:text="Player1"
-                        style="@style/creategame_ad_textview">
-                    </TextView>
+                        <TextView
+                            android:id="@+id/player1_name_textview"
+                            android:layout_toEndOf="@+id/player1_imageview"
+                            android:layout_centerInParent="true"
+                            android:text="Player1"
+                            style="@style/creategame_ad_textview">
+                        </TextView>
 
-                    <RatingBar
-                        android:id="@+id/player1_ratingbar"
-                        android:layout_toEndOf="@+id/player1_name_textview"
-                        android:layout_marginStart="@dimen/margin_padding_size_large"
-                        android:layout_centerInParent="true"
-                        style="@style/game_ad_ratingbar">
-                    </RatingBar>
+                        <RatingBar
+                            android:id="@+id/player1_ratingbar"
+                            android:layout_toEndOf="@+id/player1_name_textview"
+                            android:layout_marginStart="@dimen/margin_padding_size_large"
+                            android:layout_centerInParent="true"
+                            style="@style/game_ad_ratingbar">
+                        </RatingBar>
 
-                </RelativeLayout>
+                    </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+
 
                     <Button
-                        android:id="@+id/player_invite1_button"
+                        android:id="@+id/invitation1_button"
                         android:layout_width="@dimen/buttonWidth"
                         android:layout_height="@dimen/buttonHeight"
                         android:background="@drawable/rounded_green_button"
                         android:text="@string/invite"
                         android:textSize="@dimen/text_size_small"
                         android:textColor="#FFFFFF"
-                        android:layout_gravity="center_horizontal"
-
-                        android:padding="@dimen/margin_padding_size_small">
+                        android:padding="@dimen/margin_padding_size_small"
+                        android:layout_centerInParent="true">
                     </Button>
-                </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/invited_player2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="invisible"
+                            >
 
-                <RelativeLayout
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content">
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/player2_imageview"
+                                android:src="@drawable/text_profile_picture"
+                                android:layout_centerVertical="true"
+                                style="@style/creategame_ad_imageview">
+                            </de.hdodenhof.circleimageview.CircleImageView>
 
+                            <TextView
+                                android:id="@+id/player2_name_textview"
+                                android:layout_toEndOf="@+id/player2_imageview"
+                                android:layout_centerInParent="true"
+                                android:text="Player2"
+                                style="@style/creategame_ad_textview">
+                            </TextView>
+
+                            <RatingBar
+                                android:id="@+id/player2_ratingbar"
+                                android:layout_toEndOf="@+id/player2_name_textview"
+                                android:layout_marginStart="@dimen/margin_padding_size_large"
+                                android:layout_centerInParent="true"
+                                style="@style/game_ad_ratingbar">
+                            </RatingBar>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
                     <Button
-                        android:id="@+id/player_invite2_button"
+                        android:id="@+id/invitation2_button"
                         android:layout_width="@dimen/buttonWidth"
                         android:layout_height="@dimen/buttonHeight"
                         android:background="@drawable/rounded_green_button"
                         android:text="@string/invite"
                         android:textSize="@dimen/text_size_small"
                         android:textColor="#FFFFFF"
-                        android:layout_gravity="center_horizontal"
-
-                        android:padding="@dimen/margin_padding_size_small">
+                        android:layout_centerInParent="true"
+                        >
                     </Button>
-                </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content">
+                        <RelativeLayout
+                            android:id="@+id/invited_player3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="invisible"
+                            >
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/player3_imageview"
+                                android:src="@drawable/text_profile_picture"
+                                android:layout_centerVertical="true"
+                                style="@style/creategame_ad_imageview">
+                            </de.hdodenhof.circleimageview.CircleImageView>
+
+                            <TextView
+                                android:id="@+id/player3_name_textview"
+                                android:layout_toEndOf="@+id/player3_imageview"
+                                android:layout_centerInParent="true"
+                                android:text="Player3"
+                                style="@style/creategame_ad_textview">
+                            </TextView>
+
+                            <RatingBar
+                                android:id="@+id/player3_ratingbar"
+                                android:layout_toEndOf="@+id/player3_name_textview"
+                                android:layout_marginStart="@dimen/margin_padding_size_large"
+                                android:layout_centerInParent="true"
+                                style="@style/game_ad_ratingbar">
+                            </RatingBar>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        >
 
                     <Button
+                        android:id="@+id/create_ad_button"
                         android:layout_width="@dimen/buttonWidth"
                         android:layout_height="@dimen/buttonHeight"
                         android:background="@drawable/rounded_green_button"
-                        android:text="Skapa annons"
+                        android:text="@string/createAd"
                         android:textSize="@dimen/text_size_small"
                         android:textColor="#FFFFFF"
-                        android:layout_gravity="center_horizontal"
+
 
                         android:padding="@dimen/margin_padding_size_small">
                     </Button>
-                </RelativeLayout>
+
+                    </RelativeLayout>
+
+
+
+
             </LinearLayout>
 
 
-
-
-
-
-
-
         </RelativeLayout>
+
 
 
 
