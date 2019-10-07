@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +21,8 @@ import com.danielkarlkvist.padelbuddy.R;
 import java.util.ArrayList;
 
 public class CreateAdFragmentController extends Fragment {
+    private TextView userFirstName;
+    private RatingBar userProfileRating;
 
     private RelativeLayout invitation1;
     private RelativeLayout invitation2;
@@ -37,10 +41,18 @@ public class CreateAdFragmentController extends Fragment {
         invitation2 = v.findViewById(R.id.invited_player3);
         player2RemoveButton = v.findViewById(R.id.player2_remove_button);
         player3RemoveButton = v.findViewById(R.id.player3_remove_button);
+        userFirstName = v.findViewById(R.id.player1_name_textview);
+        userProfileRating = v.findViewById(R.id.player1_ratingbar);
+
         invitePlayers();
+        PadelBuddy pb = PadelBuddy.getInstance();
+        userFirstName.setText(pb.getPlayer().getFirstname());
+        userProfileRating.setRating(pb.getPlayer().getProfileRating());
 
         return v;
     }
+
+
 
     private void invitePlayers() {
         player2RemoveButton.setOnClickListener(new View.OnClickListener() {
