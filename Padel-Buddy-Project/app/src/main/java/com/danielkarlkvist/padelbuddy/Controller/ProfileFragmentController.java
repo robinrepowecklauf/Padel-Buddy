@@ -37,7 +37,6 @@ import static android.app.Activity.RESULT_OK;
 
 public class ProfileFragmentController extends Fragment {
 
-    private static final int IMAGE_PICK_CODE = 1000;
     private static final int PERMISSION_CODE = 1001;
 
     private Button editProfileButton;
@@ -57,7 +56,6 @@ public class ProfileFragmentController extends Fragment {
     private TextView gamesPlayedTextView;
 
     private boolean isInEditingMode = false;
-    private Uri uri;
 
     /**
      * Puts the current information of a user into TextViews which is visible in the profile-view
@@ -81,6 +79,10 @@ public class ProfileFragmentController extends Fragment {
 
         return v;
     }
+
+    /**
+     * Add listener to buttons
+     */
 
     private void initializeListenerToButton() {
         editProfileButton.setOnClickListener(new View.OnClickListener() {
