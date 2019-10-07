@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/location_imageview"
             android:text="Location"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/primaryTextColorOnLightBackground"
             android:textSize="20sp">
         </TextView>
 
@@ -45,7 +45,7 @@
             android:layout_below="@+id/location_imageview"
             android:layout_alignLeft="@+id/location_textview"
             android:text="Skill level"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/primaryTextColorOnLightBackground"
             android:textSize="20sp">
         </TextView>
 
@@ -58,7 +58,7 @@
             android:layout_marginRight="@dimen/margin_padding_size_small"
             android:text="Date"
             android:textSize="15sp"
-            android:textColor="@color/primaryTextColor">
+            android:textColor="@color/primaryTextColorOnLightBackground">
         </TextView>
 
         <GridLayout

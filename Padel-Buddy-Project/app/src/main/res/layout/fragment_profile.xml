@@ -50,7 +50,7 @@
             android:layout_marginStart="135dp"
             android:layout_marginTop="20dp"
             android:text="Förnamn:"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/primaryTextColorOnLightBackground"
             android:textSize="@dimen/text_size_small"
             android:textStyle="bold"
             android:visibility="invisible" />
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="131dp"
             android:layout_marginTop="30dp"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/primaryTextColorOnLightBackground"
             android:textSize="@dimen/text_size_medium"
             android:visibility="invisible" />
 
@@ -73,7 +73,7 @@
             android:layout_marginStart="135dp"
             android:layout_marginTop="70dp"
             android:text="Efternamn:"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/primaryTextColorOnLightBackground"
             android:textStyle="bold"
             android:visibility="invisible" />
 
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="131dp"
             android:layout_marginTop="80dp"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/primaryTextColorOnLightBackground"
             android:textSize="@dimen/text_size_medium"
             android:visibility="invisible" />
 

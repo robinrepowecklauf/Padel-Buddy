@@ -16,13 +16,14 @@ import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.ArrayList;
 
-public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHolder>{
+public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHolder> {
 
     private ArrayList<Game> games;
 
     /**
      * The ViewHolder which should be updated to represent the contents of a Game.
      */
+
     public static class GamesViewHolder extends RecyclerView.ViewHolder {
         public TextView locationTextView;
         public TextView dateTextView;
@@ -61,7 +62,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
             playerRatingBars[2] = itemView.findViewById(R.id.player3_ratingbar);
             playerRatingBars[3] = itemView.findViewById(R.id.player4_ratingbar);
 
-            for (RatingBar ratingBar : playerRatingBars){
+            for (RatingBar ratingBar : playerRatingBars) {
                 ratingBar.setStepSize(0.1f);
             }
         }

@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background">
 
     <TextView
@@ -16,14 +17,21 @@
         android:fontFamily="@font/octin_prison"
         android:textColor="#FFFFFF" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/games_recyclerView"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/games_tablayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/topbar_textview"
-        android:scrollbars="vertical"
-        android:clipToPadding="false"
-        android:paddingTop="5dp"
-        android:paddingBottom="50dp"/>
+        android:background="@drawable/primary_green_gradient"
+        app:tabTextColor="@color/primaryTextColorOnDarkBackground"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/games_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.viewpager.widget.ViewPager>
 
 </RelativeLayout>

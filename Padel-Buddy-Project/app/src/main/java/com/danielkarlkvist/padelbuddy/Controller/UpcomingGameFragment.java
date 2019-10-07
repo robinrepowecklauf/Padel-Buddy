@@ -18,7 +18,6 @@ public class UpcomingGameFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab_upcoming_game, container, false);
 
-
         return rootView;
     }
 }
