@@ -1,9 +1,12 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import android.location.Location;
+import android.media.Image;
+import android.net.Uri;
+import android.widget.ImageView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.danielkarlkvist.padelbuddy.R;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Player {
 
@@ -13,9 +16,11 @@ public class Player {
     private String phone;
     private String bio;
     private int age;
+    private int gamesPlayed;
     private double skillLevel;
     private float profileRating;
-    private int gamesPlayed;
+    private CircleImageView image;
+
 
     Player(String firstname, String lastname, String mail, String phone, String bio, int age, double skillLevel, int gamesPlayed) {
         this.firstname = firstname;
@@ -63,5 +68,13 @@ public class Player {
 
     public int getGamesPlayed() {
         return gamesPlayed;
+    }
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    public void setImage(CircleImageView image) {
+        this.image = image;
     }
 }

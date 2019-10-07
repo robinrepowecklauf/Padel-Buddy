@@ -3,8 +3,11 @@ package com.danielkarlkvist.padelbuddy.Controller;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,13 +27,18 @@ import com.danielkarlkvist.padelbuddy.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
+import static android.app.Activity.RESULT_OK;
+
 /**
  * Defines the profile-view for a user
  */
 
 public class ProfileFragmentController extends Fragment {
 
-    private static final int PICK_PHOTO_FOR_AVATAR = 0;
+    private static final int IMAGE_PICK_CODE = 1000;
+    private static final int PERMISSION_CODE = 1001;
 
     private Button editProfileButton;
     private Button editImageButton;
@@ -42,12 +50,14 @@ public class ProfileFragmentController extends Fragment {
     private EditText lastnameEditText;
     private TextView bioTextView;
     private EditText bioEditText;
+    private CircleImageView userCircularImageView;
 
     private PadelBuddy padelBuddy;
     private Player user;
     private TextView gamesPlayedTextView;
 
     private boolean isInEditingMode = false;
+    private Uri uri;
 
     /**
      * Puts the current information of a user into TextViews which is visible in the profile-view
@@ -67,13 +77,10 @@ public class ProfileFragmentController extends Fragment {
         fullNameTextView.setText(user.getFullName());
         bioTextView.setText(user.getBio());
 
-        gamesPlayedTextView = v.findViewById(R.id.profile_games_played);
         gamesPlayedTextView.setText("Antal spelade matcher: " + (user.getGamesPlayed()));
-
 
         return v;
     }
-
 
     private void initializeListenerToButton() {
         editProfileButton.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +101,7 @@ public class ProfileFragmentController extends Fragment {
         editImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pickImage();
+                pickImageFromGallery();
             }
         });
 
@@ -119,6 +126,8 @@ public class ProfileFragmentController extends Fragment {
         lastnameEditText = v.findViewById(R.id.profile_lastname_edit);
         bioEditText = v.findViewById(R.id.profile_bio_edit);
         editImageButton = v.findViewById(R.id.pick_new_image_button);
+        userCircularImageView = v.findViewById(R.id.profile_image);
+        gamesPlayedTextView = v.findViewById(R.id.profile_games_played);
     }
 
     /**
@@ -135,29 +144,61 @@ public class ProfileFragmentController extends Fragment {
         placeCursorAfterText(firstnameEditText);
     }
 
-    private void pickImage() {
-        editImageButton.setBackgroundColor(Color.RED);
-/*        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");
-        startActivityForResult(intent, PICK_PHOTO_FOR_AVATAR);*/
+    /**
+     * Open the option to pick images and crop it
+     */
 
+    private void pickImageFromGallery() {
+        Intent intent = new Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        intent.setType("image/*");
+        intent.putExtra("crop", "true");
+        intent.putExtra("scale", true);
+        intent.putExtra("outputX", 256);
+        intent.putExtra("outputY", 256);
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("return-data", true);
+        startActivityForResult(intent, 1);
     }
+
+    /**
+     * Handle result of picked image
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-/*        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_PHOTO_FOR_AVATAR && resultCode == Activity.RESULT_OK) {
-            if (data == null) {
-                //Display an error
-                return;
+        if (resultCode != RESULT_OK) {
+            // error
+            return;
+        }
+        if (requestCode == 1) {
+            final Bundle extras = data.getExtras();
+            if (extras != null) {
+                //Get image
+                Bitmap newProfilePic = extras.getParcelable("data");
+                userCircularImageView.setImageBitmap(newProfilePic);
+                user.setImage(userCircularImageView);
             }
-            try {
-                InputStream inputStream = getContext().getContentResolver().openInputStream(data.getData());
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            //Now you can do whatever you want with your inpustream, save it as file, upload to a server, decode a bitmap...
-        }*/
+        }
+    }
+
+    /**
+     * Handle result runtime permission
+     *
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_CODE) {
+            pickImageFromGallery();
+        }
     }
 
     /**
