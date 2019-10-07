@@ -44,4 +44,29 @@
         <item name="android:layout_marginStart">@dimen/margin_padding_size_medium</item>
     </style>
 
+    <!-- Styles for fragment_create_ad.xml -->
+
+    <style name="border">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@android:color/black</item>
+    </style>
+
+    <style name="linearlayout_row">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_padding_size_small</item>
+        <item name="android:layout_marginBottom">@dimen/margin_padding_size_small</item>
+    </style>
+
+    <style name="invitation_button">
+        <item name="android:layout_height">@dimen/buttonHeight</item>
+        <item name="android:layout_width">@dimen/buttonWidth</item>
+        <item name="android:background">@drawable/rounded_green_button</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:padding">@dimen/margin_padding_size_small</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
 </resources>
