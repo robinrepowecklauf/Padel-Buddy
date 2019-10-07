@@ -24,6 +24,8 @@ public class CreateAdFragmentController extends Fragment {
     private RelativeLayout invitation2;
     private Button invitationButton1;
     private Button invitationButton2;
+    private Button player2RemoveButton;
+    private Button player3RemoveButton;
 
     @Nullable
     @Override
@@ -33,12 +35,30 @@ public class CreateAdFragmentController extends Fragment {
         invitation1 = v.findViewById(R.id.invited_player2);
         invitationButton2 = v.findViewById(R.id.invitation2_button);
         invitation2 = v.findViewById(R.id.invited_player3);
+        player2RemoveButton = v.findViewById(R.id.player2_remove_button);
+        player3RemoveButton = v.findViewById(R.id.player3_remove_button);
         invitePlayers();
 
         return v;
     }
 
     private void invitePlayers() {
+        player2RemoveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                invitationButton1.setVisibility(View.VISIBLE);
+                invitation1.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        player3RemoveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                invitationButton2.setVisibility(View.VISIBLE);
+                invitation2.setVisibility(View.INVISIBLE);
+            }
+        });
+
         invitationButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,5 +74,6 @@ public class CreateAdFragmentController extends Fragment {
                 invitation2.setVisibility(View.VISIBLE);
             }
         });
+
     }
 }

@@ -170,7 +170,9 @@
                     </RelativeLayout>
 
                 <View
-                    style="@style/border"/>
+                    style="@style/border"
+
+                    />
 
                     <RelativeLayout
                         style="@style/linearlayout_row">
@@ -178,9 +180,12 @@
                     <Button
                         android:id="@+id/invitation1_button"
                         android:text="@string/invite"
+                        android:visibility="visible"
                         style="@style/invitation_button"
                         >
                     </Button>
+
+
                         <RelativeLayout
                             android:id="@+id/invited_player2"
                             android:layout_width="wrap_content"
@@ -212,6 +217,12 @@
                                 android:layout_centerInParent="true"
                                 style="@style/game_ad_ratingbar">
                             </RatingBar>
+
+                            <Button
+                                style="@style/remove_player_button"
+                                android:id="@+id/player2_remove_button"
+                                android:layout_toRightOf="@id/player2_ratingbar"
+                                />
 
                         </RelativeLayout>
 
@@ -261,6 +272,12 @@
                                 android:layout_centerInParent="true"
                                 style="@style/game_ad_ratingbar">
                             </RatingBar>
+
+                            <Button
+                                style="@style/remove_player_button"
+                                android:id="@+id/player3_remove_button"
+                                android:layout_toRightOf="@id/player3_ratingbar"
+                                />
 
                         </RelativeLayout>
 
