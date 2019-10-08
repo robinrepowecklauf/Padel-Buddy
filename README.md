@@ -12,15 +12,14 @@ Padel is a racquet sport and is typically seen as a combination of squash and te
 2. Plan the implementation - see how well it accords with the design and domain model.
 3. Implement.
 4. Check Acceptance Criteria and Definition of Done.
-5. Extend the UML.
 
 ## Definition of Done
 * Acceptance criteria met.
 * Unit tests passed.
 * Follow Open/Closed principle (model wise).
 * Code reviewed.
-* UML updated.
 * JavaDoc updated.
 * Merged with master-branch.
+* UML updated.
 
 
