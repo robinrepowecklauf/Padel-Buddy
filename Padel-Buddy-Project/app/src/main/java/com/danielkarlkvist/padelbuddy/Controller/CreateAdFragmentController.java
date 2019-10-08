@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,6 +41,8 @@ public class CreateAdFragmentController extends Fragment{
     private Button player2RemoveButton;
     private Button player3RemoveButton;
 
+    private Spinner padelArenaSpinner;
+
     private Button dateButton;
     private TextView chosenDateTextview;
 
@@ -57,6 +61,11 @@ public class CreateAdFragmentController extends Fragment{
         player3RemoveButton = v.findViewById(R.id.player3_remove_button);
         userFirstName = v.findViewById(R.id.player1_name_textview);
         userProfileRating = v.findViewById(R.id.player1_ratingbar);
+
+        padelArenaSpinner = v.findViewById(R.id.padelarena_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.padel_arenas, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        padelArenaSpinner.setAdapter(adapter);
 
         dateButton = v.findViewById(R.id.date_button);
         chosenDateTextview = v.findViewById(R.id.chosen_date_textview);
