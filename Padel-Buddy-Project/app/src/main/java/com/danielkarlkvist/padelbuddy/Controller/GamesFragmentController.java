@@ -21,10 +21,6 @@ public class GamesFragmentController extends Fragment {
     private TabLayout gamesTabLayout;
     private ViewPager gamesViewPager;
 
-    private RecyclerView gamesRecyclerView;
-    private RecyclerView.Adapter gamesRecyclerViewAdapter;
-    private RecyclerView.LayoutManager gamesRecyclerViewLayoutManager;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,21 +29,14 @@ public class GamesFragmentController extends Fragment {
         gamesTabLayout = rootView.findViewById(R.id.games_tablayout);
         gamesViewPager = rootView.findViewById(R.id.games_viewpager);
 
+        // Create a GamesViewPagerAdapter and add fragments with titles to it
         GamesViewPagerAdapter gamesViewPagerAdapter = new GamesViewPagerAdapter(getFragmentManager());
-
         gamesViewPagerAdapter.addFragment(new UpcomingGameFragment(), "Kommande matcher");
         gamesViewPagerAdapter.addFragment(new HistoryGameFragment(), "Tidigare matcher");
 
+        // Setup adapter
         gamesViewPager.setAdapter(gamesViewPagerAdapter);
         gamesTabLayout.setupWithViewPager(gamesViewPager);
-
-        /*gamesRecyclerView = rootView.findViewById(R.id.games_recyclerView);
-        gamesRecyclerView.setHasFixedSize(true);
-        gamesRecyclerViewLayoutManager = new LinearLayoutManager(getActivity());    //getActivity instead of this when used in fragment?
-        gamesRecyclerViewAdapter = new GamesAdapter(PadelBuddy.getInstance().getGames());
-
-        gamesRecyclerView.setLayoutManager(gamesRecyclerViewLayoutManager);
-        gamesRecyclerView.setAdapter(gamesRecyclerViewAdapter);*/
 
         return rootView;
     }
