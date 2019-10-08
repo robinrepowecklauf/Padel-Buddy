@@ -1,12 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@android:color/holo_purple">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profile_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
     <TextView
+        android:id="@+id/profile_header_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="profile playererere"
-        android:textSize="30sp"></TextView>
+        android:layout_marginLeft="@dimen/margin_padding_size_medium"
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/octin_prison"
+        android:text="@string/profile"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/text_size_tab_title" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profile_CardView"
+        android:layout_width="match_parent"
+        android:layout_height="355dp"
+        android:layout_below="@id/profile_header_TextView"
+        android:layout_marginLeft="@dimen/margin_padding_size_medium"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="@dimen/margin_padding_size_medium"
+        android:background="@drawable/background"
+        android:elevation="25dp"
+
+        app:cardCornerRadius="@dimen/cardRadius"
+        app:cardElevation="17dp">
+
+
+        <RelativeLayout
+            android:id="@+id/profile_RelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_padding_size_medium"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            android:layout_marginEnd="@dimen/margin_padding_size_medium"
+            android:layout_marginBottom="@dimen/margin_padding_size_medium">
+
+            <Button
+                android:id="@+id/edit_profile_button"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Ändra"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="@dimen/text_size_small" />
+
+            <RelativeLayout
+                android:id="@+id/profile_name_and_picture_relativelayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_padding_size_medium"
+                    android:layout_toEndOf="@id/profile_image"
+                    android:text="Robin Repo Wecklauf"
+                    android:textSize="@dimen/text_size_large" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_padding_size_medium"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium" />
+
+                <Button
+                    android:id="@+id/pick_new_image_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/profile_image"
+                    android:layout_alignRight="@+id/profile_image"
+                    android:layout_alignBottom="@+id/profile_image"
+                    android:alpha="0.75"
+                    android:background="@drawable/half_circle_button"
+                    android:gravity="bottom"
+                    android:paddingBottom="@dimen/margin_padding_size_large"
+                    android:text="Välj bild"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/profile_firstname_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_padding_size_large"
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:layout_toEndOf="@id/profile_image"
+                    android:text="Förnamn:"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+
+                <EditText
+                    android:id="@+id/profile_firstname_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profile_firstname_hint"
+                    android:layout_alignLeft="@+id/profile_firstname_hint"
+                    android:layout_marginTop="@dimen/margin_padding_size_small"
+                    android:background="@drawable/edittext_background"
+                    android:paddingStart="5dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/text_size_medium"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/profile_lastname_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profile_firstname_edit"
+                    android:layout_marginLeft="@dimen/margin_padding_size_large"
+                    android:layout_marginTop="@dimen/margin_padding_size_small"
+                    android:layout_toEndOf="@id/profile_image"
+                    android:text="Efternamn:"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+
+                <EditText
+                    android:id="@+id/profile_lastname_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profile_lastname_hint"
+                    android:layout_alignLeft="@+id/profile_firstname_hint"
+                    android:layout_marginTop="@dimen/margin_padding_size_small"
+                    android:background="@drawable/edittext_background"
+                    android:paddingStart="5dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/text_size_medium"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/profile_bio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_name_and_picture_relativelayout"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:maxLength="200"
+                android:textSize="@dimen/text_size_small" />
+
+            <TextView
+                android:id="@+id/profile_bio_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_name_and_picture_relativelayout"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:text="Biografi:"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/profile_bio_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_bio_hint"
+                android:layout_marginStart="@dimen/text_size_medium"
+                android:layout_marginTop="@dimen/margin_padding_size_small"
+                android:background="@drawable/edittext_background"
+                android:maxLength="100"
+                android:paddingStart="5dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/text_size_small"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/profile_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_bio_edit"
+                android:layout_marginLeft="@dimen/margin_padding_size_medium"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:text="Omdöme:"
+                android:textColor="@color/primaryTextColor"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/profile_skill_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_rating"
+                android:layout_marginLeft="@dimen/margin_padding_size_medium"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:text="Skicklighetsnivå:"
+                android:textColor="@color/primaryTextColor"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/profile_games_played"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_skill_level"
+                android:layout_marginLeft="@dimen/margin_padding_size_medium"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:text="Antal spelade matcher:"
+                android:textColor="@color/primaryTextColor"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

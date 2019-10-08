@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@android:color/holo_red_light">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
     <TextView
+        android:id="@+id/topbar_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="homeme"
-        android:textSize="30sp"></TextView>
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        android:layout_marginLeft="@dimen/margin_padding_size_medium"
+        android:layout_marginBottom="2dp"
+        android:text="@string/app_name"
+        android:textSize="@dimen/text_size_tab_title"
+        android:fontFamily="@font/octin_prison"
+        android:textColor="#FFFFFF" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topbar_textview"
+        android:scrollbars="vertical"
+        android:clipToPadding="false"
+        android:paddingTop="5dp"
+        android:paddingBottom="50dp"/>
 
 </RelativeLayout>
