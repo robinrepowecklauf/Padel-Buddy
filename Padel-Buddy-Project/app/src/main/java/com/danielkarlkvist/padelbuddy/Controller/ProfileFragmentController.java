@@ -33,10 +33,10 @@ import static android.app.Activity.RESULT_OK;
  * The ProfileFragmentController class defines and manages a
  * profile for the user
  *
- * @author  Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
- *          Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
  * @version 1.0
- * @since   2019-09-05
+ * @since 2019-09-05
  */
 
 public class ProfileFragmentController extends Fragment {
@@ -54,10 +54,10 @@ public class ProfileFragmentController extends Fragment {
     private TextView bioTextView;
     private EditText bioEditText;
     private CircleImageView userCircularImageView;
+    private TextView gamesPlayedTextView;
 
     private PadelBuddy padelBuddy;
     private Player user;
-    private TextView gamesPlayedTextView;
 
     private boolean isInEditingMode = false;
 

@@ -1,12 +1,16 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import android.media.Image;
-import android.net.Uri;
-import android.widget.ImageView;
-
-import com.danielkarlkvist.padelbuddy.R;
-
 import de.hdodenhof.circleimageview.CircleImageView;
+
+/**
+ * The Player class defines a player which holds values that are being accessed from
+ * a user's profile and gameads
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
 
 public class Player {
 
@@ -68,10 +72,6 @@ public class Player {
 
     public int getGamesPlayed() {
         return gamesPlayed;
-    }
-
-    public ImageView getImage() {
-        return image;
     }
 
     public void setImage(CircleImageView image) {
