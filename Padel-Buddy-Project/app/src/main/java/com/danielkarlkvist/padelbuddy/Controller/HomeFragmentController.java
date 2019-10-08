@@ -19,7 +19,7 @@ import java.util.Date;
 /**
  * Controller for the home tab
  */
-public class HomeFragmentController extends Fragment {
+public class HomeFragmentController extends Fragment implements ScrollToTop{
 
     private RecyclerView homeRecyclerView;
     private RecyclerView.Adapter homeRecyclerViewAdapter;
@@ -49,5 +49,9 @@ public class HomeFragmentController extends Fragment {
         homeRecyclerView.setAdapter(homeRecyclerViewAdapter);
 
         return rootView;
+    }
+
+    public void scrollToTop() {
+        homeRecyclerViewLayoutManager.smoothScrollToPosition(homeRecyclerView, null, 0);
     }
 }
