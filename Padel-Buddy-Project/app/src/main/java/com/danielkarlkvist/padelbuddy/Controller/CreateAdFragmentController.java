@@ -115,7 +115,7 @@ public class CreateAdFragmentController extends Fragment{
                 dpd = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
-                        chosenDateTextview.setText(mDay + "/" + mMonth +"/" + mYear);
+                        chosenDateTextview.setText(mDay + "/" + (mMonth+1) +"/" + mYear);
                     }
                 }, year, month, day);
 
