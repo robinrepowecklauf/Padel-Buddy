@@ -71,6 +71,7 @@
                 android:layout_marginStart="@dimen/margin_padding_size_small"
                 android:textSize="@dimen/text_size_small"/>
 
+
             <TextView
                 android:id="@+id/date_textview"
                 android:layout_width="wrap_content"
@@ -80,16 +81,25 @@
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:text="Datum: "
                 android:textStyle="bold"/>
+            <Button
+                android:id="@+id/date_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="välj datum"
+                android:layout_toRightOf="@+id/chosen_date_textview"
+                android:layout_below="@+id/padelarena_edittext"/>
 
-            <EditText
-                android:id="@+id/date_edittext"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/chosen_date_textview"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/date_textview"
-                android:layout_alignBottom="@+id/date_textview"
-                android:layout_marginStart="@dimen/margin_padding_size_small"
-                android:ems="10"
-                android:inputType="date" />
+                android:layout_below="@+id/padelarena_edittext"
+                android:text="datum"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                />
+
+
 
             <TextView
                 android:id="@+id/time_textview"
