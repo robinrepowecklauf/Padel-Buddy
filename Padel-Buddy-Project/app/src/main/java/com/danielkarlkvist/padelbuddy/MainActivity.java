@@ -3,22 +3,17 @@ package com.danielkarlkvist.padelbuddy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.HomeFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 

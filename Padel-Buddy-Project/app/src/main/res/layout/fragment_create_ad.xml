@@ -82,12 +82,15 @@
                 android:text="Datum: "
                 android:textStyle="bold"/>
             <Button
+                android:background="@drawable/rounded_green_button"
                 android:id="@+id/date_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:text="välj datum"
-                android:layout_toRightOf="@+id/chosen_date_textview"
-                android:layout_below="@+id/padelarena_edittext"/>
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/margin_padding_size_small"
+                android:layout_below="@+id/padelarena_edittext"
+                android:layout_alignParentRight="true"/>
 
             <TextView
                 android:id="@+id/chosen_date_textview"
@@ -95,8 +98,9 @@
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/date_textview"
                 android:layout_below="@+id/padelarena_edittext"
-                android:text="datum"
+                android:text="dd/MM/yyyy"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:layout_marginStart="@dimen/margin_padding_size_small"
                 />
 
 
