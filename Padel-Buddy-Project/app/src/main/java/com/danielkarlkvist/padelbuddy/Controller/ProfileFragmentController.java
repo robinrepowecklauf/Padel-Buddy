@@ -24,9 +24,6 @@ import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.R;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.app.Activity.RESULT_OK;
@@ -65,7 +62,7 @@ public class ProfileFragmentController extends Fragment {
     private Player user;
 
     private boolean isInEditingMode = false;
-    private String blockCharacterSet = "!#€%&/()=?`^¡”¥¢‰{}≠¿1234567890+¨',_©®™℅[]<>@$*:;.~|•√π÷×¶∆°£";
+    private String blockCharacterSet = "!#€%&/()=?`^¡”¥¢‰{}≠¿1234567890+¨',_©®™℅[]<>@$*:;.~|•√π÷×¶∆°£ ";
 
     /**
      * Puts the current information of a user into TextViews which is visible in the profile-view
@@ -85,8 +82,8 @@ public class ProfileFragmentController extends Fragment {
         fullNameTextView.setText(user.getFullName());
         bioTextView.setText(user.getBio());
 
-        firstnameEditText.setFilters(new InputFilter[] { filter });
-        lastnameEditText.setFilters(new InputFilter[] { filter });
+        firstnameEditText.setFilters(new InputFilter[]{filter});
+        lastnameEditText.setFilters(new InputFilter[]{filter});
 
         gamesPlayedTextView.setText("Antal spelade matcher: " + (user.getGamesPlayed()));
 
@@ -94,7 +91,8 @@ public class ProfileFragmentController extends Fragment {
     }
 
     /**
-     * Add listener to buttons
+     * Add listener to buttons and checks that the user's firstnameEditText and lastnameEditText is not empty
+     * when pressing "Spara"
      */
 
     private void initializeListenerToButton() {
@@ -104,7 +102,7 @@ public class ProfileFragmentController extends Fragment {
                 if (!isInEditingMode) {
                     isInEditingMode = true;
                     editProfile();
-                } else {
+                } else if (!firstnameEditText.getText().toString().equals("") && !lastnameEditText.getText().toString().equals("")){
                     isInEditingMode = false;
                     hideKeyboard(v);
                     saveProfile();
@@ -320,6 +318,11 @@ public class ProfileFragmentController extends Fragment {
             }
         }
     }
+
+    /**
+     * A filter that block a specifik String of characters 'blockCharacterSet' from
+     * the user to put in as firstname and lastname
+     */
 
     private InputFilter filter = new InputFilter() {
 
