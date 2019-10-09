@@ -45,16 +45,19 @@ public class ProfileFragmentController extends Fragment {
 
     private Button editProfileButton;
     private Button editImageButton;
+
     private TextView fullNameTextView;
     private TextView firstnameHintTextView;
     private TextView lastnameHintTextView;
     private TextView bioHintTextView;
+    private TextView gamesPlayedTextView;
+    private TextView bioTextView;
+
     private EditText firstnameEditText;
     private EditText lastnameEditText;
-    private TextView bioTextView;
     private EditText bioEditText;
+
     private CircleImageView userCircularImageView;
-    private TextView gamesPlayedTextView;
 
     private PadelBuddy padelBuddy;
     private Player user;
