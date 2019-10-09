@@ -16,8 +16,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.replaceText;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
@@ -94,29 +96,46 @@ public class ProfileFragmentControllerTest {
     }
 
     @Test
-    public void firstnameValidator_CorrectFirstname_ReturnsTrue() throws Exception {
+    public void firstnameValidator_NoSpecialCharacters_ReturnsTrue() throws Exception {
+        String newFirstnameToBeSet = "Robin";
         onView(withId(R.id.edit_profile_button)).perform(click());
-        onView(withId(R.id.profile_firstname_edit)).perform(replaceText("Robin"));
+        onView(withId(R.id.profile_firstname_edit)).perform(clearText());
+        onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        onView(withId(R.id.profile_name)).check(matches(withText("Robin " + user.getLastname())));
+        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + user.getLastname())));
     }
 
     @Test
     public void firstnameValidator_SwedishLetters_ReturnsTrue() throws Exception {
+        String newFirstnameToBeSet = "åäö";
         onView(withId(R.id.edit_profile_button)).perform(click());
-        onView(withId(R.id.profile_firstname_edit)).perform(replaceText("åäö"));
+        onView(withId(R.id.profile_firstname_edit)).perform(clearText());
+        onView(withId(R.id.profile_firstname_edit)).perform(replaceText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        onView(withId(R.id.profile_name)).check(matches(withText("åäö " + user.getLastname())));
+        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + user.getLastname())));
     }
 
     @Test
-    public void firstnameValidator_() throws Exception {
+    public void firstnameValidator_SpecialCharacterUsed_ReturnsFalse() throws Exception {
+        String newFirstnameToBeSet = "*?!";
         onView(withId(R.id.edit_profile_button)).perform(click());
-        onView(withId(R.id.profile_firstname_edit)).perform(replaceText("åäö"));
+        onView(withId(R.id.profile_firstname_edit)).perform(clearText());
+        onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        onView(withId(R.id.profile_name)).check(matches(withText("åäö " + user.getLastname())));
+        assertNotEquals(user.getFirstname(), newFirstnameToBeSet);
+    }
+
+    @Test
+    public void firstnameValidator_EmptyString_ReturnsFalse() throws Exception {
+        String newFirstnameToBeSet = "";
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_firstname_edit)).perform(clearText());
+        onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        assertNotEquals(user.getFirstname(), newFirstnameToBeSet);
     }
 }
