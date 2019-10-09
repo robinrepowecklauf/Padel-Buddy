@@ -20,6 +20,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
+// TODO fix better javadoc for mainactivity
+
+/**
+ * The MainActivity class is the base of the project.
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since   2019-09-05
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     // Has the tab controllers as instance variables so the information always gets saved

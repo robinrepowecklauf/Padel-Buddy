@@ -65,7 +65,7 @@ public class ProfileFragmentController extends Fragment {
     private Player user;
 
     private boolean isInEditingMode = false;
-    private String blockCharacterSet = "!#€%&/()=?`^¡”¥¢‰{}≠¿1234567890+¨',_\©®™℅[]<>@$*\":;.~|•√π÷×¶∆°£;
+    private String blockCharacterSet = "!#€%&/()=?`^¡”¥¢‰{}≠¿1234567890+¨',_©®™℅[]<>@$*:;.~|•√π÷×¶∆°£";
 
     /**
      * Puts the current information of a user into TextViews which is visible in the profile-view
