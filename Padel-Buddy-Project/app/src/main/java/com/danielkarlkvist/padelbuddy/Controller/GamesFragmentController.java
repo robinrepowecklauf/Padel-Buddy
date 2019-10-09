@@ -21,6 +21,12 @@ public class GamesFragmentController extends Fragment {
     private TabLayout gamesTabLayout;
     private ViewPager gamesViewPager;
 
+    private GamesViewPagerAdapter gamesViewPagerAdapter;
+    private UpcomingGameFragment upcomingGameFragment = new UpcomingGameFragment();
+    private UpcomingGameFragment historyGameFragment = new UpcomingGameFragment();
+
+    boolean hasOpenedController = false;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,13 +36,15 @@ public class GamesFragmentController extends Fragment {
         gamesViewPager = rootView.findViewById(R.id.games_viewpager);
 
         // Create a GamesViewPagerAdapter and add fragments with titles to it
-        GamesViewPagerAdapter gamesViewPagerAdapter = new GamesViewPagerAdapter(getFragmentManager());
-        gamesViewPagerAdapter.addFragment(new UpcomingGameFragment(), "Kommande matcher");
-        gamesViewPagerAdapter.addFragment(new HistoryGameFragment(), "Tidigare matcher");
+        gamesViewPagerAdapter = new GamesViewPagerAdapter(getChildFragmentManager());
+        gamesViewPagerAdapter.addFragment(upcomingGameFragment, "Kommande matcher");
+        gamesViewPagerAdapter.addFragment(historyGameFragment, "Tidigare matcher");
 
         // Setup adapter
         gamesViewPager.setAdapter(gamesViewPagerAdapter);
         gamesTabLayout.setupWithViewPager(gamesViewPager);
+
+        hasOpenedController = true;
 
         return rootView;
     }

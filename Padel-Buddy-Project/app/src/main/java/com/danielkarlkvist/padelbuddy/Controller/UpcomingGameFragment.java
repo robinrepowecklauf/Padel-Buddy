@@ -19,6 +19,7 @@ public class UpcomingGameFragment extends Fragment {
     private RecyclerView.Adapter gamesRecyclerViewAdapter;
     private RecyclerView.LayoutManager gamesRecyclerViewLayoutManager;
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab_upcoming_game, container, false);
 

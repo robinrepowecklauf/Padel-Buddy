@@ -6,8 +6,6 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/upcoming_games_recyclerView"
-        style="@style/game_recyclerview">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        style="@style/game_recyclerview" />
 
 </RelativeLayout>
