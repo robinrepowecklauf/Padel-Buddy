@@ -49,6 +49,8 @@ public class CreateAdFragmentController extends Fragment{
     private Calendar c;
     private DatePickerDialog dpd;
 
+    private Button dialogButton;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,6 +64,8 @@ public class CreateAdFragmentController extends Fragment{
         userFirstName = v.findViewById(R.id.player1_name_textview);
         userProfileRating = v.findViewById(R.id.player1_ratingbar);
 
+        dialogButton = v.findViewById(R.id.time_button);
+
         padelArenaSpinner = v.findViewById(R.id.padelarena_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.padel_arenas, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -70,8 +74,8 @@ public class CreateAdFragmentController extends Fragment{
         dateButton = v.findViewById(R.id.date_button);
         chosenDateTextview = v.findViewById(R.id.chosen_date_textview);
 
-
         invitePlayers();
+
         PadelBuddy pb = PadelBuddy.getInstance();
         userFirstName.setText(pb.getPlayer().getFirstname());
         userProfileRating.setRating(pb.getPlayer().getProfileRating());
@@ -113,6 +117,7 @@ public class CreateAdFragmentController extends Fragment{
             }
         });
 
+        //Should it be here?
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,18 +140,19 @@ public class CreateAdFragmentController extends Fragment{
             }
         });
 
-    }
-/*
-    @Override
-    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month);
-        calendar.set(Calendar.YEAR, dayOfMonth);
-        String currentDateString = DateFormat.getDateInstance().format(calendar.getTime());
-        chosenDateTextview.setText(currentDateString);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDialog();
+            }
+        });
 
     }
-*/
+
+    public void openDialog(){
+        ExampleDialog exampleDialog = new ExampleDialog();
+        exampleDialog.show(getFragmentManager(), "example dialog");
+    }
+
 }
 

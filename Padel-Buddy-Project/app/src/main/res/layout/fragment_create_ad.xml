@@ -115,15 +115,36 @@
                 android:text="Tid: "
                 android:textStyle="bold"/>
 
-            <EditText
-                android:id="@+id/time_edittext"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/chosen_start_time_textview"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/time_textview"
-                android:layout_alignBottom="@+id/time_textview"
+                android:text="hh:mm"
+                android:layout_below="@+id/chosen_date_textview"
+                android:layout_toRightOf="@+id/time_textview"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:layout_marginStart="@dimen/margin_padding_size_small"
-                android:ems="10"
-                android:inputType="time" />
+                />
+
+            <TextView
+                android:id="@+id/chosen_end_time_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hh:mm"
+                android:layout_below="@+id/chosen_date_textview"
+                android:layout_toRightOf="@+id/chosen_start_time_textview"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:layout_marginStart="@dimen/margin_padding_size_small"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/time_button"
+                android:layout_below="@+id/date_button"
+                android:layout_toRightOf="@id/chosen_end_time_textview"
+                android:text="dialog"
+                />
 
             <TextView
                 android:id="@+id/description_textview"
