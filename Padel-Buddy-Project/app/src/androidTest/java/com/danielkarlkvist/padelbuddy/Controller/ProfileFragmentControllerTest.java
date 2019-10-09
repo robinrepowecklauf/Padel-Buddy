@@ -125,7 +125,7 @@ public class ProfileFragmentControllerTest {
         onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertNotEquals(user.getFirstname(), newFirstnameToBeSet);
+        assertNotEquals(newFirstnameToBeSet, user.getFirstname());
     }
 
     @Test
@@ -136,6 +136,15 @@ public class ProfileFragmentControllerTest {
         onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertNotEquals(user.getFirstname(), newFirstnameToBeSet);
+        assertNotEquals(newFirstnameToBeSet, user.getFirstname());
+    }
+
+    @Test
+    public void firstnameValidator_NullFirstname_ReturnsFalse() throws Exception {
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_firstname_edit)).perform(clearText());
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        assertNotEquals(null, user.getFirstname());
     }
 }
