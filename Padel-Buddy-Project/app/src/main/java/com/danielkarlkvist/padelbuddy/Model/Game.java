@@ -1,13 +1,17 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import android.location.Location;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Represents all information of a game
+ * The ProfileFragmentController class represents all information about a game
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
  */
+
 public class Game {
     private Player[] players = new Player[4];
     private String location;
@@ -26,11 +30,11 @@ public class Game {
 
     }
 
-    boolean isFinishedGame(){
-        return result!=null;
+    boolean isFinishedGame() {
+        return result != null;
     }
 
-    void setResult(int t1, int t2){
+    void setResult(int t1, int t2) {
         this.result = new Tuple(t1, t2);
     }
 
@@ -38,6 +42,7 @@ public class Game {
 
     /**
      * Get the players currently in the game
+     *
      * @return Players in the game
      */
     public Player[] getPlayers() {
@@ -46,6 +51,7 @@ public class Game {
 
     /**
      * Get the location of the game
+     *
      * @return The location of the game
      */
     public String getLocation() {
@@ -54,6 +60,7 @@ public class Game {
 
     /**
      * Set the location of the game
+     *
      * @param location
      */
     public void setLocation(String location) {
@@ -62,6 +69,7 @@ public class Game {
 
     /**
      * Get the date when the game should be played formatted as dd/MM hh:mm
+     *
      * @return The date of the game formatted as dd/MM hh:mm
      */
     public String getDateAsString() {
@@ -73,6 +81,7 @@ public class Game {
 
     /**
      * Set the date when the game should be played
+     *
      * @param date
      */
     public void setDate(Date date) {
