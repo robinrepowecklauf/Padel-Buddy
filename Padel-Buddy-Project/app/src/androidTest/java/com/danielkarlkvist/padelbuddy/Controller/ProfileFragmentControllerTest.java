@@ -77,12 +77,12 @@ public class ProfileFragmentControllerTest {
     }
 
     @Test
-    public void profileIsNotNull() throws Exception {
+    public void doesProfileExist_Exists_ReturnsTrue() throws Exception {
         assertNotNull(onView(withId(R.id.profile_fragment)));
     }
 
     @Test
-    public void editModeIsVisible() throws Exception {
+    public void isProfileInEditMode_IsInEditMode_ReturnsTrue() throws Exception {
         assertNotNull(onView(withId(R.id.edit_profile_button)));
 
         onView(withId(R.id.edit_profile_button)).check(matches(isClickable()));
@@ -94,11 +94,29 @@ public class ProfileFragmentControllerTest {
     }
 
     @Test
-    public void editPlayerFirstname() throws Exception {
+    public void firstnameValidator_CorrectFirstname_ReturnsTrue() throws Exception {
         onView(withId(R.id.edit_profile_button)).perform(click());
         onView(withId(R.id.profile_firstname_edit)).perform(replaceText("Robin"));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
         onView(withId(R.id.profile_name)).check(matches(withText("Robin " + user.getLastname())));
+    }
+
+    @Test
+    public void firstnameValidator_SwedishLetters_ReturnsTrue() throws Exception {
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_firstname_edit)).perform(replaceText("åäö"));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        onView(withId(R.id.profile_name)).check(matches(withText("åäö " + user.getLastname())));
+    }
+
+    @Test
+    public void firstnameValidator_() throws Exception {
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_firstname_edit)).perform(replaceText("åäö"));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        onView(withId(R.id.profile_name)).check(matches(withText("åäö " + user.getLastname())));
     }
 }

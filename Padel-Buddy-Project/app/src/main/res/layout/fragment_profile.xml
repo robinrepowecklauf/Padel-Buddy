@@ -67,7 +67,7 @@
                     android:layout_marginLeft="@dimen/margin_padding_size_medium"
                     android:layout_toEndOf="@id/profile_image"
                     android:text="Robin Repo Wecklauf"
-                    android:textSize="@dimen/text_size_large" />
+                    android:textSize="@dimen/text_size_large"/>
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_image"
@@ -119,7 +119,9 @@
                     android:paddingBottom="3dp"
                     android:textColor="@color/primaryTextColor"
                     android:textSize="@dimen/text_size_medium"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:maxLines="1"
+                    android:maxLength="20" />
 
                 <TextView
                     android:id="@+id/profile_lastname_hint"
@@ -148,7 +150,10 @@
                     android:paddingBottom="3dp"
                     android:textColor="@color/primaryTextColor"
                     android:textSize="@dimen/text_size_medium"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:maxLength="20"/>
 
             </RelativeLayout>
 

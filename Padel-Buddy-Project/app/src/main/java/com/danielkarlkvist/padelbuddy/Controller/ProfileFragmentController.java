@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +65,7 @@ public class ProfileFragmentController extends Fragment {
     private Player user;
 
     private boolean isInEditingMode = false;
+    private String blockCharacterSet = "!#€%&/()=?`^¡”¥¢‰{}≠¿1234567890+¨',_\©®™℅[]<>@$*\":;.~|•√π÷×¶∆°£;
 
     /**
      * Puts the current information of a user into TextViews which is visible in the profile-view
@@ -82,6 +85,9 @@ public class ProfileFragmentController extends Fragment {
         fullNameTextView.setText(user.getFullName());
         bioTextView.setText(user.getBio());
 
+        firstnameEditText.setFilters(new InputFilter[] { filter });
+        lastnameEditText.setFilters(new InputFilter[] { filter });
+
         gamesPlayedTextView.setText("Antal spelade matcher: " + (user.getGamesPlayed()));
 
         return v;
@@ -95,7 +101,7 @@ public class ProfileFragmentController extends Fragment {
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!isInEditingMode || checkForSpecialCharacters(firstnameEditText) || checkForSpecialCharacters(lastnameEditText)) {
+                if (!isInEditingMode) {
                     isInEditingMode = true;
                     editProfile();
                 } else {
@@ -315,17 +321,15 @@ public class ProfileFragmentController extends Fragment {
         }
     }
 
-    /**
-     * Finds special characters in any editable text
-     *
-     * @param editText is any editable text
-     * @return true if this method finds a special character
-     */
+    private InputFilter filter = new InputFilter() {
 
-    private boolean checkForSpecialCharacters(EditText editText) {
-        Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
-        Matcher m = p.matcher(editText.getText().toString());
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
 
-        return m.find();
-    }
+            if (source != null && blockCharacterSet.contains(("" + source))) {
+                return "";
+            }
+            return null;
+        }
+    };
 }
