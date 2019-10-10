@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@android:color/holo_green_dark">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background">
 
     <TextView
+        android:id="@+id/topbar_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="gamessses"
-        android:textSize="30sp"></TextView>
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        android:layout_marginLeft="@dimen/margin_padding_size_medium"
+        android:layout_marginBottom="2dp"
+        android:text="@string/games"
+        android:textSize="30sp"
+        android:fontFamily="@font/octin_prison"
+        android:textColor="#FFFFFF" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/games_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topbar_textview"
+        android:background="@drawable/games_tab_layout"
+        app:tabRippleColor="#000000"
+        app:tabIndicatorColor="#000000"
+        app:tabTextColor="@color/primaryTextColorOnDarkBackground"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/games_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/games_tablayout">
+
+    </androidx.viewpager.widget.ViewPager>
 
 </RelativeLayout>

@@ -19,26 +19,16 @@ import java.util.Date;
 /**
  * Controller for the home tab
  */
-public class HomeFragmentController extends Fragment {
+public class HomeFragmentController extends Fragment implements ScrollToTop{
 
     private RecyclerView homeRecyclerView;
     private RecyclerView.Adapter homeRecyclerViewAdapter;
     private RecyclerView.LayoutManager homeRecyclerViewLayoutManager;
 
-    private boolean hasOpenedController = false;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-
-        // Only performs these actions once in the app
-        if (!hasOpenedController) {
-            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019,0,10,15, 30));
-            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 2, 3,17,30));
-            PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
-            hasOpenedController = true;
-        }
 
         homeRecyclerView = rootView.findViewById(R.id.recyclerView);
         homeRecyclerView.setHasFixedSize(true);
@@ -49,5 +39,10 @@ public class HomeFragmentController extends Fragment {
         homeRecyclerView.setAdapter(homeRecyclerViewAdapter);
 
         return rootView;
+    }
+
+    @Override
+    public void scrollToTop() {
+        homeRecyclerViewLayoutManager.smoothScrollToPosition(homeRecyclerView, null, 0);
     }
 }

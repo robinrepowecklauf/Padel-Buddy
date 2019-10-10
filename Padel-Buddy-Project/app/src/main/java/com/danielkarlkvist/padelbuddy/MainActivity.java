@@ -14,8 +14,13 @@ import com.danielkarlkvist.padelbuddy.Controller.ExampleDialog;
 import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.HomeFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
+import com.danielkarlkvist.padelbuddy.Model.Game;
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
+import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
 
@@ -36,24 +41,34 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     private CreateAdFragmentController createAdFragmentController;
     private GamesFragmentController gamesFragmentController;
     private ProfileFragmentController profileFragmentController;
+    private Fragment selectedFragmentController = null;
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
             // region bottomNavigationViewListener
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                    Fragment selectedFragmentController = null;
 
                     switch (menuItem.getItemId()) {
                         case R.id.nav_home:
-                            selectedFragmentController = homeFragmentController;
-                            break;
+                            if(selectedFragmentController == homeFragmentController) {
+                                homeFragmentController.scrollToTop();
+                                break;
+                            } else {
+                                selectedFragmentController = homeFragmentController;
+                                break;
+                            }
                         case R.id.nav_create:
                             selectedFragmentController = createAdFragmentController;
                             break;
                         case R.id.nav_games:
-                            selectedFragmentController = gamesFragmentController;
-                            break;
+                            if(selectedFragmentController == gamesFragmentController) {
+                                gamesFragmentController.scrollToTop();
+                                break;
+                            } else {
+                                selectedFragmentController = gamesFragmentController;
+                                break;
+                            }
                         case R.id.nav_profile:
                             selectedFragmentController = profileFragmentController;
                             break;
@@ -74,10 +89,31 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
+        createRandomGames();
+
         initializeBottomNavigationViewControllers();
         initializeBottomNavigationView();
     }
 
+    private void createRandomGames() {
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019,0,10,15, 30));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 2, 2,8,00));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, 1, 4,15,15));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2015, 7, 7,10,20));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 9, 3,9,30));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 12, 25,23,50));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
+
+        PadelBuddy padelBuddy = PadelBuddy.getInstance();
+        ArrayList<Game> testGames = padelBuddy.getGames();
+        List<Player> testPlayers = PadelBuddy.testPlayers;
+        testGames.get(0).addPlayer(testPlayers.get(0));
+        testGames.get(0).addPlayer(testPlayers.get(1));
+        testGames.get(0).addPlayer(testPlayers.get(2));
+        testGames.get(0).addPlayer(testPlayers.get(3));
+
+
+    }
 
     private void initializeBottomNavigationViewControllers() {
         homeFragmentController = new HomeFragmentController();

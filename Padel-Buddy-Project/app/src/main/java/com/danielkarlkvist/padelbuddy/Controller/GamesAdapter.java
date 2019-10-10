@@ -16,17 +16,15 @@ import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.ArrayList;
 
-/**
- * Adapter between a Game and a RecyclerView
- */
-public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdViewHolder> {
+public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHolder> {
 
     private ArrayList<Game> games;
 
     /**
      * The ViewHolder which should be updated to represent the contents of a Game.
      */
-    public static class GameAdViewHolder extends RecyclerView.ViewHolder {
+
+    public static class GamesViewHolder extends RecyclerView.ViewHolder {
         public TextView locationTextView;
         public TextView dateTextView;
 
@@ -41,7 +39,7 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
 
         public RatingBar[] playerRatingBars = new RatingBar[4];
 
-        public GameAdViewHolder(@NonNull View itemView) {
+        public GamesViewHolder(@NonNull View itemView) {
             super(itemView);
 
             locationTextView = itemView.findViewById(R.id.location_textview);
@@ -64,29 +62,30 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
             playerRatingBars[2] = itemView.findViewById(R.id.player3_ratingbar);
             playerRatingBars[3] = itemView.findViewById(R.id.player4_ratingbar);
 
-            for (RatingBar ratingBar : playerRatingBars){
+            for (RatingBar ratingBar : playerRatingBars) {
                 ratingBar.setStepSize(0.1f);
             }
         }
     }
 
-    public GameAdAdapter(ArrayList<Game> games) {
+    public GamesAdapter(ArrayList<Game> games) {
         this.games = games;
     }
 
     // Called when RecyclerView needs a new RecyclerView.ViewHolder of the given type to represent an item.
     @NonNull
     @Override
-    public GameAdViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.game_ad_item, parent, false);
-        GameAdViewHolder gameAdViewHolder = new GameAdViewHolder(view);
-        return gameAdViewHolder;
+    public GamesAdapter.GamesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.upcoming_games_item, parent, false);
+        GamesAdapter.GamesViewHolder GamesViewHolder = new GamesAdapter.GamesViewHolder(view);
+        return GamesViewHolder;
     }
 
     // Called by RecyclerView to display the data from Game at the specified position.
     @Override
-    public void onBindViewHolder(@NonNull GameAdViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GamesAdapter.GamesViewHolder holder, int position) {
         Game currentGame = games.get(position);
+
         // Set location
         holder.locationTextView.setText(currentGame.getLocation());
         // Set date

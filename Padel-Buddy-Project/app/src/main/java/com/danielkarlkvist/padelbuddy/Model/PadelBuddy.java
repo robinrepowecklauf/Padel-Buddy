@@ -2,6 +2,7 @@ package com.danielkarlkvist.padelbuddy.Model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 // singleton class
 public class PadelBuddy {
@@ -10,6 +11,7 @@ public class PadelBuddy {
 
     private ArrayList<Game> games = new ArrayList<>();
     private Player player;
+    public static List<Player> testPlayers = new ArrayList<>();
 
     private PadelBuddy(Player player) {
         this.player = player;
@@ -17,12 +19,15 @@ public class PadelBuddy {
 
     public static PadelBuddy getInstance() {
         if (instance == null) {
-            Player player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-                    20, 1, 3);
+            Player player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 1);
             instance = new PadelBuddy(player);
-        }
 
+            // creating test players for functionality purposes
+            testPlayers.add(new Player("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "0704549972", "lorem ipsum", 15, 2));
+            testPlayers.add(new Player("Carl-Johan", "Björnson", "test@gmail.com", "123", "lorem ", 14, 4));
+            testPlayers.add(new Player("Marcus", "Creutz", "test@gmail.com", "123", "lorem ", 14, 4));
+            testPlayers.add(new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 4));
+        }
         return instance;
     }
 
@@ -45,6 +50,30 @@ public class PadelBuddy {
         if (games.contains(game)) {
             games.remove(game);
         }
+
         // TODO Error message? FancyToast Library?? Finns i slack
+    }
+
+    public ArrayList<Game> getUpcomingGames() {
+        ArrayList<Game> upcomingGames = new ArrayList<>();
+        for (Game game : games) {
+            if (!game.isFinishedGame()) {
+                upcomingGames.add(game);
+            }
+        }
+
+        return upcomingGames;
+    }
+
+
+    public ArrayList<Game> getPlayedGames() {
+        ArrayList<Game> playedGames = new ArrayList<>();
+        for (Game game : games) {
+            if (game.isFinishedGame()) {
+                playedGames.add(game);
+            }
+        }
+
+        return playedGames;
     }
 }
