@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/bottom_navigation_gradient"
+        android:background="@drawable/primary_green_gradient"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_navigation" />
 
