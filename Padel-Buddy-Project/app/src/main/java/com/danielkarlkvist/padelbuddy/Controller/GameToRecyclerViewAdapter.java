@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Adapter between a Game and a RecyclerView
  */
-public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdViewHolder> {
+public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameAdViewHolder> {
 
     private ArrayList<Game> games;
 
@@ -70,7 +70,7 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
         }
     }
 
-    public GameAdAdapter(ArrayList<Game> games) {
+    public GameToRecyclerViewAdapter(ArrayList<Game> games) {
         this.games = games;
     }
 

@@ -11,38 +11,49 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.danielkarlkvist.padelbuddy.Model.Game;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 
-import java.util.Date;
+import java.util.ArrayList;
 
 /**
  * Controller for the home tab
  */
 public class GameRecyclerViewFragment extends Fragment implements ScrollToTop{
 
-    private RecyclerView homeRecyclerView;
-    private RecyclerView.Adapter homeRecyclerViewAdapter;
-    private RecyclerView.LayoutManager homeRecyclerViewLayoutManager;
+    private RecyclerView gameRecyclerView;
+    private RecyclerView.Adapter gameRecyclerViewAdapter;
+    private RecyclerView.LayoutManager gameRecyclerViewLayoutManager;
+
+    private int fragmentId;
+    private int recyclerViewId;
+    private ArrayList<Game> games;
+
+    public GameRecyclerViewFragment(int fragmentId, int recyclerViewId, ArrayList<Game> games) {
+        this.fragmentId = fragmentId;
+        this.recyclerViewId = recyclerViewId;
+        this.games = games;
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(fragmentId, container, false);
 
-        homeRecyclerView = rootView.findViewById(R.id.recyclerView);
-        homeRecyclerView.setHasFixedSize(true);
-        homeRecyclerViewLayoutManager = new LinearLayoutManager(getActivity());    //getActivity instead of this when used in fragment?
-        homeRecyclerViewAdapter = new GameAdAdapter(PadelBuddy.getInstance().getGames());
+        gameRecyclerView = rootView.findViewById(recyclerViewId);
+        gameRecyclerView.setHasFixedSize(true);
+        gameRecyclerViewLayoutManager = new LinearLayoutManager(getActivity());    //getActivity instead of this when used in fragment?
+        gameRecyclerViewAdapter = new GameToRecyclerViewAdapter(games);
 
-        homeRecyclerView.setLayoutManager(homeRecyclerViewLayoutManager);
-        homeRecyclerView.setAdapter(homeRecyclerViewAdapter);
+        gameRecyclerView.setLayoutManager(gameRecyclerViewLayoutManager);
+        gameRecyclerView.setAdapter(gameRecyclerViewAdapter);
 
         return rootView;
     }
 
     @Override
     public void scrollToTop() {
-        homeRecyclerViewLayoutManager.smoothScrollToPosition(homeRecyclerView, null, 0);
+        gameRecyclerViewLayoutManager.smoothScrollToPosition(gameRecyclerView, null, 0);
     }
 }

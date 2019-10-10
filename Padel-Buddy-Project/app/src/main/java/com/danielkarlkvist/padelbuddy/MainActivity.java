@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                             break;
                         default:
                             Log.println(1, "tag", "Selected fragment that doesn't exist.");
-                            selectedFragmentController = new GameRecyclerViewFragment();
+                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, PadelBuddy.getInstance().getGames());
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragmentController).commit();
 
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     }
 
     private void initializeBottomNavigationViewControllers() {
-        homeFragmentController = new GameRecyclerViewFragment();
+        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, PadelBuddy.getInstance().getGames());
         createAdFragment = new CreateAdFragment();
         gamesFragment = new GamesFragment();
         profileFragment = new ProfileFragment();
