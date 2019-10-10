@@ -78,7 +78,7 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
     @NonNull
     @Override
     public GameAdViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.game_ad_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.game_item, parent, false);
         GameAdViewHolder gameAdViewHolder = new GameAdViewHolder(view);
         return gameAdViewHolder;
     }
