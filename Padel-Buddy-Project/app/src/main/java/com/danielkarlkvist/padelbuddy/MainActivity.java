@@ -16,11 +16,14 @@ import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.HomeFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
+import com.danielkarlkvist.padelbuddy.Model.Game;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
+import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 // TODO fix better javadoc for mainactivity
 
@@ -92,6 +95,16 @@ public class MainActivity extends AppCompatActivity {
         PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 9, 3,9,30));
         PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 12, 25,23,50));
         PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
+
+        PadelBuddy padelBuddy = PadelBuddy.getInstance();
+        ArrayList<Game> testGames = padelBuddy.getGames();
+        List<Player> testPlayers = PadelBuddy.testPlayers;
+        testGames.get(0).addPlayer(testPlayers.get(0));
+        testGames.get(0).addPlayer(testPlayers.get(1));
+        testGames.get(0).addPlayer(testPlayers.get(2));
+        testGames.get(0).addPlayer(testPlayers.get(3));
+
+
     }
 
     private void initializeBottomNavigationViewControllers() {

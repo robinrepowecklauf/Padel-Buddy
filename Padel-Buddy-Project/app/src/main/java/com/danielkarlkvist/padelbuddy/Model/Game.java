@@ -94,4 +94,13 @@ public class Game {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public void addPlayer(Player player) {
+        for (int i = 0; i < players.length; i++) {
+            if (players[i] == null) {
+                players[i] = player;
+                break;
+            }
+        }
+    }
 }
