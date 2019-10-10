@@ -43,24 +43,34 @@ public class MainActivity extends AppCompatActivity {
     private CreateAdFragmentController createAdFragmentController;
     private GamesFragmentController gamesFragmentController;
     private ProfileFragmentController profileFragmentController;
+    private Fragment selectedFragmentController = null;
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
             // region bottomNavigationViewListener
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                    Fragment selectedFragmentController = null;
 
                     switch (menuItem.getItemId()) {
                         case R.id.nav_home:
-                            selectedFragmentController = homeFragmentController;
-                            break;
+                            if(selectedFragmentController == homeFragmentController) {
+                                homeFragmentController.scrollToTop();
+                                break;
+                            } else {
+                                selectedFragmentController = homeFragmentController;
+                                break;
+                            }
                         case R.id.nav_create:
                             selectedFragmentController = createAdFragmentController;
                             break;
                         case R.id.nav_games:
-                            selectedFragmentController = gamesFragmentController;
-                            break;
+                            if(selectedFragmentController == gamesFragmentController) {
+                                gamesFragmentController.scrollToTop();
+                                break;
+                            } else {
+                                selectedFragmentController = gamesFragmentController;
+                                break;
+                            }
                         case R.id.nav_profile:
                             selectedFragmentController = profileFragmentController;
                             break;
