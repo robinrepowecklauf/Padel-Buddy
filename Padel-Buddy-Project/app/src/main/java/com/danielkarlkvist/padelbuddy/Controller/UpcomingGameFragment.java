@@ -11,8 +11,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.danielkarlkvist.padelbuddy.Model.Game;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UpcomingGameFragment extends Fragment {
     private RecyclerView gamesRecyclerView;
@@ -26,12 +30,15 @@ public class UpcomingGameFragment extends Fragment {
         gamesRecyclerView = rootView.findViewById(R.id.upcoming_games_recyclerView);
         gamesRecyclerView.setHasFixedSize(true);
         gamesRecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
-        gamesRecyclerViewAdapter = new GamesAdapter(PadelBuddy.getInstance().getGames());
 
         gamesRecyclerView.setLayoutManager(gamesRecyclerViewLayoutManager);
         gamesRecyclerView.setAdapter(gamesRecyclerViewAdapter);
 
         return rootView;
+    }
+
+    public void setGames(ArrayList<Game> games) {
+        gamesRecyclerViewAdapter = new GamesAdapter(games);
     }
 }
 

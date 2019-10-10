@@ -35,6 +35,9 @@ public class GamesFragmentController extends Fragment {
         gamesTabLayout = rootView.findViewById(R.id.games_tablayout);
         gamesViewPager = rootView.findViewById(R.id.games_viewpager);
 
+        upcomingGameFragment.setGames(PadelBuddy.getInstance().getUpcomingGames());
+        historyGameFragment.setGames(PadelBuddy.getInstance().getPlayedGames());
+        
         // Create a GamesViewPagerAdapter and add fragments with titles to it
         gamesViewPagerAdapter = new GamesViewPagerAdapter(getChildFragmentManager());
         gamesViewPagerAdapter.addFragment(upcomingGameFragment, "Kommande matcher");
