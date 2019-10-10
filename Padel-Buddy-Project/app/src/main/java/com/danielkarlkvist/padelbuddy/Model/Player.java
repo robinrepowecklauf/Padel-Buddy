@@ -15,9 +15,8 @@ public class Player {
     private int age;
     private double skillLevel;
     private float profileRating;
-    private int gamesPlayed;
 
-    Player(String firstname, String lastname, String mail, String phone, String bio, int age, double skillLevel, int gamesPlayed) {
+    Player(String firstname, String lastname, String mail, String phone, String bio, int age, double skillLevel) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
@@ -26,7 +25,6 @@ public class Player {
         this.age = age;
         this.skillLevel = skillLevel;
         this.profileRating = 3.3f;
-        this.gamesPlayed = gamesPlayed;
     }
 
     public String getFirstname() {
@@ -62,6 +60,6 @@ public class Player {
     }
 
     public int getGamesPlayed() {
-        return gamesPlayed;
+        return 3;
     }
 }
