@@ -15,9 +15,9 @@ import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.HomeFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
-import java.util.ArrayList;
 
 // TODO fix better javadoc for mainactivity
 
