@@ -36,7 +36,7 @@ public class UpcomingGameFragment extends Fragment {
     }
 
     public void setGames(ArrayList<Game> games) {
-        gamesRecyclerViewAdapter = new GamesAdapter(games);
+        gamesRecyclerViewAdapter = new GameAdAdapter(games);
     }
 
     public RecyclerView getGamesRecyclerView() {
