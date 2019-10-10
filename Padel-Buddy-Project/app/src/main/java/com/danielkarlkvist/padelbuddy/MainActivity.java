@@ -16,9 +16,22 @@ import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.HomeFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.Date;
+
+// TODO fix better javadoc for mainactivity
+
+/**
+ * The MainActivity class is the base of the project.
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since   2019-09-05
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,10 +83,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
+        createRandomGames();
+
         initializeBottomNavigationViewControllers();
         initializeBottomNavigationView();
     }
 
+    private void createRandomGames() {
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019,0,10,15, 30));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 2, 2,8,00));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, 1, 4,15,15));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2015, 7, 7,10,20));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 9, 3,9,30));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 12, 25,23,50));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
+    }
 
     private void initializeBottomNavigationViewControllers() {
         homeFragmentController = new HomeFragmentController();

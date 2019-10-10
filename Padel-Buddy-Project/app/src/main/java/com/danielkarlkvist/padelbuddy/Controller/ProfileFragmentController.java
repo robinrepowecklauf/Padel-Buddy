@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +23,6 @@ import androidx.fragment.app.Fragment;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.R;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -45,21 +44,25 @@ public class ProfileFragmentController extends Fragment {
 
     private Button editProfileButton;
     private Button editImageButton;
+
     private TextView fullNameTextView;
     private TextView firstnameHintTextView;
     private TextView lastnameHintTextView;
     private TextView bioHintTextView;
+    private TextView gamesPlayedTextView;
+    private TextView bioTextView;
+
     private EditText firstnameEditText;
     private EditText lastnameEditText;
-    private TextView bioTextView;
     private EditText bioEditText;
+
     private CircleImageView userCircularImageView;
-    private TextView gamesPlayedTextView;
 
     private PadelBuddy padelBuddy;
     private Player user;
 
     private boolean isInEditingMode = false;
+    private String blockCharacterSet = "!#€%&/()=?`^¡”¥¢‰{}≠¿1234567890+¨',_©®™℅[]<>@$*:;.~|•√π÷×¶∆°£ ";
 
     /**
      * Puts the current information of a user into TextViews which is visible in the profile-view
@@ -79,23 +82,27 @@ public class ProfileFragmentController extends Fragment {
         fullNameTextView.setText(user.getFullName());
         bioTextView.setText(user.getBio());
 
+        firstnameEditText.setFilters(new InputFilter[]{filter});
+        lastnameEditText.setFilters(new InputFilter[]{filter});
+
         gamesPlayedTextView.setText("Antal spelade matcher: " + (user.getGamesPlayed()));
 
         return v;
     }
 
     /**
-     * Add listener to buttons
+     * Add listener to buttons and checks that the user's firstnameEditText and lastnameEditText is not empty
+     * when pressing "Spara"
      */
 
     private void initializeListenerToButton() {
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!isInEditingMode || checkForSpecialCharacters(firstnameEditText) || checkForSpecialCharacters(lastnameEditText)) {
+                if (!isInEditingMode) {
                     isInEditingMode = true;
                     editProfile();
-                } else {
+                } else if (!firstnameEditText.getText().toString().equals("") && !lastnameEditText.getText().toString().equals("")){
                     isInEditingMode = false;
                     hideKeyboard(v);
                     saveProfile();
@@ -313,16 +320,19 @@ public class ProfileFragmentController extends Fragment {
     }
 
     /**
-     * Finds special characters in any editable text
-     *
-     * @param editText is any editable text
-     * @return true if this method finds a special character
+     * A filter that block a specifik String of characters 'blockCharacterSet' from
+     * the user to put in as firstname and lastname
      */
 
-    private boolean checkForSpecialCharacters(EditText editText) {
-        Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
-        Matcher m = p.matcher(editText.getText().toString());
+    private InputFilter filter = new InputFilter() {
 
-        return m.find();
-    }
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+
+            if (source != null && blockCharacterSet.contains(("" + source))) {
+                return "";
+            }
+            return null;
+        }
+    };
 }

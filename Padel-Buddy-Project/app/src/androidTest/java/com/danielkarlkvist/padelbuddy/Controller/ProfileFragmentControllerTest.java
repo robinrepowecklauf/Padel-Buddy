@@ -1,5 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Controller;
 
+import android.util.Log;
+
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
@@ -16,10 +18,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.replaceText;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
+import static androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
@@ -75,12 +81,107 @@ public class ProfileFragmentControllerTest {
     }
 
     @Test
-    public void profileIsNotNull() throws Exception {
-        assertNotNull(onView(withId(R.id.profile_fragment)));
+    public void doesProfileExist_Exists_ReturnsTrue() throws Exception {
+        try{
+            assertNotNull(onView(withId(R.id.profile_fragment)));
+        } catch (Exception e) {
+            System.out.println("Error message + " + e.getMessage() + " Profile Fragment does not exist");
+        }
     }
 
     @Test
-    public void shouldExist() throws Exception {
-        onView(withId(R.id.profile_games_played)).check(matches(withText("Antal spelade matcher: " + user.getGamesPlayed())));
+    public void isProfileInEditMode_IsInEditMode_ReturnsTrue() throws Exception {
+        assertNotNull(onView(withId(R.id.edit_profile_button)));
+
+        onView(withId(R.id.edit_profile_button)).check(matches(isClickable()));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        onView(withId(R.id.profile_firstname_edit)).check(matches(isDisplayed()));
+        onView(withId(R.id.profile_lastname_edit)).check(matches(isDisplayed()));
+        onView(withId(R.id.profile_bio_edit)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void firstnameValidator_ValidInput_ReturnsTrue() throws Exception {
+        String newFirstnameToBeSet = "Robin";
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_firstname_edit)).perform(clearText());
+        onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + user.getLastname())));
+    }
+
+    @Test
+    public void firstnameValidator_SwedishLetters_ReturnsTrue() throws Exception {
+        String newFirstnameToBeSet = "åäö";
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_firstname_edit)).perform(clearText());
+        onView(withId(R.id.profile_firstname_edit)).perform(replaceText(newFirstnameToBeSet));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + user.getLastname())));
+    }
+
+    @Test
+    public void firstnameValidator_SpecialCharacterUsed_ReturnsFalse() throws Exception {
+        String newFirstnameToBeSet = "*?!";
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_firstname_edit)).perform(clearText());
+        onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        assertNotEquals(newFirstnameToBeSet, user.getFirstname());
+    }
+
+    @Test
+    public void firstnameValidator_EmptyString_ReturnsFalse() throws Exception {
+        String newFirstnameToBeSet = "";
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_firstname_edit)).perform(clearText());
+        onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        assertNotEquals(newFirstnameToBeSet, user.getFirstname());
+    }
+
+    @Test
+    public void firstnameValidator_NullFirstname_ReturnsFalse() throws Exception {
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_firstname_edit)).perform(clearText());
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        assertNotEquals(null, user.getFirstname());
+    }
+
+    @Test
+    public void bioValidator_ValidInput_ReturnsTrue() throws Exception {
+        String newBioToBeSet = "lorem ipsum dolores sit amet";
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_bio_edit)).perform(clearText());
+        onView(withId(R.id.profile_bio_edit)).perform(typeText(newBioToBeSet));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        assertEquals(newBioToBeSet, user.getBio());
+    }
+
+    @Test
+    public void bioValidator_EmptyBio_ReturnsTrue() throws Exception {
+        String newBioToBeSet = "";
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_bio_edit)).perform(clearText());
+        onView(withId(R.id.profile_bio_edit)).perform(typeText(newBioToBeSet));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        assertEquals(newBioToBeSet, user.getBio());
+    }
+
+    @Test
+    public void bioValidator_NullBio_ReturnsFalse() throws Exception {
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_bio_edit)).perform(clearText());
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        assertNotEquals(null, user.getBio());
     }
 }

@@ -67,7 +67,7 @@
                     android:layout_marginLeft="@dimen/margin_padding_size_medium"
                     android:layout_toEndOf="@id/profile_image"
                     android:text="Robin Repo Wecklauf"
-                    android:textSize="@dimen/text_size_large" />
+                    android:textSize="@dimen/text_size_large"/>
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_image"
@@ -101,7 +101,7 @@
                     android:layout_marginTop="@dimen/margin_padding_size_medium"
                     android:layout_toEndOf="@id/profile_image"
                     android:text="Förnamn:"
-                    android:textColor="@color/primaryTextColor"
+                    android:textColor="@color/primaryTextColorOnLightBackground"
                     android:textSize="@dimen/text_size_small"
                     android:textStyle="bold"
                     android:visibility="invisible" />
@@ -117,9 +117,11 @@
                     android:paddingStart="5dp"
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
-                    android:textColor="@color/primaryTextColor"
+                    android:textColor="@color/primaryTextColorOnLightBackground"
                     android:textSize="@dimen/text_size_medium"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:maxLines="1"
+                    android:maxLength="20" />
 
                 <TextView
                     android:id="@+id/profile_lastname_hint"
@@ -130,7 +132,7 @@
                     android:layout_marginTop="@dimen/margin_padding_size_small"
                     android:layout_toEndOf="@id/profile_image"
                     android:text="Efternamn:"
-                    android:textColor="@color/primaryTextColor"
+                    android:textColor="@color/primaryTextColorOnLightBackground"
                     android:textSize="@dimen/text_size_small"
                     android:textStyle="bold"
                     android:visibility="invisible" />
@@ -146,9 +148,12 @@
                     android:paddingStart="5dp"
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
-                    android:textColor="@color/primaryTextColor"
+                    android:textColor="@color/primaryTextColorOnLightBackground"
                     android:textSize="@dimen/text_size_medium"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:maxLength="20"/>
 
             </RelativeLayout>
 
@@ -169,7 +174,7 @@
                 android:layout_below="@id/profile_name_and_picture_relativelayout"
                 android:layout_marginStart="@dimen/margin_padding_size_medium"
                 android:text="Biografi:"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textSize="@dimen/text_size_small"
                 android:textStyle="bold"
                 android:visibility="invisible" />
@@ -186,7 +191,7 @@
                 android:paddingStart="5dp"
                 android:paddingTop="3dp"
                 android:paddingBottom="3dp"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textSize="@dimen/text_size_small"
                 android:visibility="invisible" />
 
@@ -198,7 +203,7 @@
                 android:layout_marginLeft="@dimen/margin_padding_size_medium"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:text="Omdöme:"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textStyle="bold" />
 
             <TextView
@@ -209,7 +214,7 @@
                 android:layout_marginLeft="@dimen/margin_padding_size_medium"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:text="Skicklighetsnivå:"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textStyle="bold" />
 
             <TextView
@@ -220,7 +225,7 @@
                 android:layout_marginLeft="@dimen/margin_padding_size_medium"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:text="Antal spelade matcher:"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textStyle="bold" />
 
         </RelativeLayout>

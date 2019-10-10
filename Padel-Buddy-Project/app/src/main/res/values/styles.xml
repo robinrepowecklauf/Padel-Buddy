@@ -8,7 +8,7 @@
     <style name="game_ad_textview">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textColor">@color/primaryTextColorOnLightBackground</item>
         <item name="android:textSize">@dimen/text_size_small</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
@@ -25,5 +25,14 @@
         parent="android:style/Widget.Material.RatingBar.Small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="game_recyclerview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">50dp</item>
     </style>
 </resources>
