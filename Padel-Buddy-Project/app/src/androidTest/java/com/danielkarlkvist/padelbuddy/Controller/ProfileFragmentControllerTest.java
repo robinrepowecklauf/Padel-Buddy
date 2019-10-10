@@ -96,7 +96,7 @@ public class ProfileFragmentControllerTest {
     }
 
     @Test
-    public void firstnameValidator_NoSpecialCharacters_ReturnsTrue() throws Exception {
+    public void firstnameValidator_ValidInput_ReturnsTrue() throws Exception {
         String newFirstnameToBeSet = "Robin";
         onView(withId(R.id.edit_profile_button)).perform(click());
         onView(withId(R.id.profile_firstname_edit)).perform(clearText());
@@ -146,5 +146,36 @@ public class ProfileFragmentControllerTest {
         onView(withId(R.id.edit_profile_button)).perform(click());
 
         assertNotEquals(null, user.getFirstname());
+    }
+
+    @Test
+    public void bioValidator_ValidInput_ReturnsTrue() throws Exception {
+        String newBioToBeSet = "lorem ipsum dolores sit amet";
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_bio_edit)).perform(clearText());
+        onView(withId(R.id.profile_bio_edit)).perform(typeText(newBioToBeSet));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        assertEquals(newBioToBeSet, user.getBio());
+    }
+
+    @Test
+    public void bioValidator_EmptyBio_ReturnsTrue() throws Exception {
+        String newBioToBeSet = "";
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_bio_edit)).perform(clearText());
+        onView(withId(R.id.profile_bio_edit)).perform(typeText(newBioToBeSet));
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        assertEquals(newBioToBeSet, user.getBio());
+    }
+
+    @Test
+    public void bioValidator_NullBio_ReturnsFalse() throws Exception {
+        onView(withId(R.id.edit_profile_button)).perform(click());
+        onView(withId(R.id.profile_bio_edit)).perform(clearText());
+        onView(withId(R.id.edit_profile_button)).perform(click());
+
+        assertNotEquals(null, user.getBio());
     }
 }
