@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class CreateAdFragmentController extends Fragment{
+public class CreateAdFragmentController extends Fragment {
     private TextView userFirstName;
     private RatingBar userProfileRating;
 
@@ -51,6 +51,9 @@ public class CreateAdFragmentController extends Fragment{
 
     private Button dialogButton;
 
+    private TextView chosenTimeTextview;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,6 +68,8 @@ public class CreateAdFragmentController extends Fragment{
         userProfileRating = v.findViewById(R.id.player1_ratingbar);
 
         dialogButton = v.findViewById(R.id.time_button);
+
+        chosenTimeTextview = v.findViewById(R.id.chosen_start_time_textview);
 
         padelArenaSpinner = v.findViewById(R.id.padelarena_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.padel_arenas, android.R.layout.simple_spinner_item);
@@ -154,5 +159,10 @@ public class CreateAdFragmentController extends Fragment{
         exampleDialog.show(getFragmentManager(), "example dialog");
     }
 
+
+
+    public void applyTexts(String time) {
+        chosenTimeTextview.setText(time);
+    }
 }
 

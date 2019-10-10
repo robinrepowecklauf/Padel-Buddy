@@ -127,10 +127,10 @@
                 />
 
             <TextView
-                android:id="@+id/chosen_end_time_textview"
+                android:id="@+id/chosen_game_length_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="hh:mm"
+                android:text="60/90 min"
                 android:layout_below="@+id/chosen_date_textview"
                 android:layout_toRightOf="@+id/chosen_start_time_textview"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
@@ -142,7 +142,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/time_button"
                 android:layout_below="@+id/date_button"
-                android:layout_toRightOf="@id/chosen_end_time_textview"
+                android:layout_toRightOf="@id/chosen_game_length_textview"
                 android:text="dialog"
                 />
 

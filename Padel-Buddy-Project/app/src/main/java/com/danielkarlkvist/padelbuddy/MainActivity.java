@@ -10,12 +10,13 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragmentController;
+import com.danielkarlkvist.padelbuddy.Controller.ExampleDialog;
 import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.HomeFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
 
     // Has the tab controllers as instance variables so the information always gets saved
     private HomeFragmentController homeFragmentController;
@@ -76,5 +77,10 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavigationViewListener);
         bottomNavigationView.setSelectedItemId(R.id.nav_home);  // Sets the current selected tab as Home when the app opens
+    }
+
+    @Override
+    public void applyTexts(String time) {
+        createAdFragmentController.applyTexts(time);
     }
 }
