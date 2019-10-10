@@ -40,5 +40,13 @@ public class UpcomingGameFragment extends Fragment {
     public void setGames(ArrayList<Game> games) {
         gamesRecyclerViewAdapter = new GamesAdapter(games);
     }
+
+    public RecyclerView getGamesRecyclerView() {
+        return gamesRecyclerView;
+    }
+
+    public RecyclerView.LayoutManager getGamesRecyclerViewLayoutManager() {
+        return gamesRecyclerViewLayoutManager;
+    }
 }
 

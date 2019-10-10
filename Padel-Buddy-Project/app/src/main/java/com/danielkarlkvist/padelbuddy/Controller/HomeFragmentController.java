@@ -41,6 +41,7 @@ public class HomeFragmentController extends Fragment implements ScrollToTop{
         return rootView;
     }
 
+    @Override
     public void scrollToTop() {
         homeRecyclerViewLayoutManager.smoothScrollToPosition(homeRecyclerView, null, 0);
     }

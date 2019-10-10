@@ -61,8 +61,13 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragmentController = createAdFragmentController;
                             break;
                         case R.id.nav_games:
-                            selectedFragmentController = gamesFragmentController;
-                            break;
+                            if(selectedFragmentController == gamesFragmentController) {
+                                gamesFragmentController.scrollToTop();
+                                break;
+                            } else {
+                                selectedFragmentController = gamesFragmentController;
+                                break;
+                            }
                         case R.id.nav_profile:
                             selectedFragmentController = profileFragmentController;
                             break;
