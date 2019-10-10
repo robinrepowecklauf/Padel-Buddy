@@ -20,7 +20,6 @@ public class Player {
     private String phone;
     private String bio;
     private int age;
-    private int gamesPlayed;
     private double skillLevel;
     private float profileRating;
     private CircleImageView image;
