@@ -14,8 +14,8 @@ public class GameRecyclerViewFragmentTest {
 
     @Test
     public void testOnCreateView(){
-        GameRecyclerViewFragment hfc = new GameRecyclerViewFragment();
 
-    }
+
+}
 
 }
