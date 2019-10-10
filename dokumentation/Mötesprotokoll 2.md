@@ -1,8 +1,7 @@
 # Meeting Agenda
-
-Group: Padel Buddys
-Date: 5/9-19 13:15-14:15.
-Chair: Carl-Johan Björnson
+Group: Padel Buddys  
+Date: 5/9-19 13:15-14:15  
+Chair: Carl-Johan Björnson  
 Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Carl-Johan Björnson och Fredrik Lilliecreutz
 
 ## Objectives (5 min) 
@@ -17,8 +16,6 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Carl-Johan
 
 ## Discussion items (35 min)
 - Skriva User-Stories.
-	- Exempel på User Stories: 
-		- 
 	- Vad skulle en första User Story kunna vara?
 - Skissa och diskutera GUI.
 	- En tydlig idé angående de fundamentala delarna av GUI finns. Ej skissade.

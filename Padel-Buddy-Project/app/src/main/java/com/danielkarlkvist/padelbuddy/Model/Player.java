@@ -1,9 +1,16 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import android.location.Location;
+import de.hdodenhof.circleimageview.CircleImageView;
 
-import java.util.ArrayList;
-import java.util.List;
+/**
+ * The Player class defines a player which holds values that are being accessed from
+ * a user's profile and gameads
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
 
 public class Player {
 
@@ -13,9 +20,11 @@ public class Player {
     private String phone;
     private String bio;
     private int age;
+    private int gamesPlayed;
     private double skillLevel;
     private float profileRating;
-    private int gamesPlayed;
+    private CircleImageView image;
+
 
     Player(String firstname, String lastname, String mail, String phone, String bio, int age, double skillLevel, int gamesPlayed) {
         this.firstname = firstname;
@@ -63,5 +72,9 @@ public class Player {
 
     public int getGamesPlayed() {
         return gamesPlayed;
+    }
+
+    public void setImage(CircleImageView image) {
+        this.image = image;
     }
 }

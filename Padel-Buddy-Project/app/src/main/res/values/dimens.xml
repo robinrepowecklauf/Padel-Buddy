@@ -36,6 +36,8 @@
     <dimen name="text_size_xxlarge">45sp</dimen>
     <dimen name="text_size_xxxlarge">56sp</dimen>
 
+    <dimen name="text_size_tab_title">30sp</dimen>
+
     <!-- Card sizes -->
     <dimen name="cardRadius">15dp</dimen>
 

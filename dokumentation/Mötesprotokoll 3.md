@@ -1,8 +1,7 @@
 # Meeting Agenda
-
-Group: Padel Buddys
-Date: 9/9-19 8:15-9:15.
-Chair: Carl-Johan Björnson
+Group: Padel Buddys  
+Date: 9/9-19 8:15-9:15  
+Chair: Carl-Johan Björnson  
 Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Carl-Johan Björnson och Fredrik Lilliecreutz
 
 ## Objectives (5 min) 
@@ -25,7 +24,6 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Carl-Johan
   
  
 ## Outcomes and assignments (5 min)
- Outcomes:
  - Samtliga behöver få ordning på mjukvaran och få projektet fungera så att vi kan komma igång.
       - Android Studio.
       - Gradle.
@@ -36,7 +34,6 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Carl-Johan
  - Till att börja med behöver samtliga arbeta tillsammans för att komma igång kodmässigt. Uppdelning av arbete skjuts 
    därför upp ett par arbetsdagar.
   
- Assignments:
  - Fredrik ska på egen hand under ons-fre fördjupa sig i utvecklingsverktygen då han är bortrest.
  - Marcus ska skapa en första skiss över programmet. 
  - Robin ska påbörja RAD.
@@ -45,5 +42,5 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Carl-Johan
 
 
 ## Wrap up
-- Boka in King-off.
+- Boka in Kick-off.
 - Nästa möte 12/9-19 kl 8.15-9:15
