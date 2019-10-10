@@ -14,7 +14,7 @@ import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 import com.google.android.material.tabs.TabLayout;
 
-public class GamesFragmentController extends Fragment implements ScrollToTop {
+public class GamesFragment extends Fragment implements ScrollToTop {
 
     private TabLayout gamesTabLayout;
     private ViewPager gamesViewPager;

@@ -1,7 +1,5 @@
 package com.danielkarlkvist.padelbuddy.Controller;
 
-import android.util.Log;
-
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
@@ -22,17 +20,15 @@ import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
-import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
-import static androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.*;
 
 /**
- * The ProfileFragmentControllerTest class defines Android instrumented unit test
+ * The ProfileFragmentTest class defines Android instrumented unit test
  *
  * @author Robin Repo Wecklauf
  * @version 1.0
@@ -41,9 +37,9 @@ import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class ProfileFragmentControllerTest {
+public class ProfileFragmentTest {
 
-    private ProfileFragmentController profile;
+    private ProfileFragment profile;
     private PadelBuddy padelBuddy;
     private Player user;
 
@@ -63,7 +59,7 @@ public class ProfileFragmentControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        profile = new ProfileFragmentController();
+        profile = new ProfileFragment();
         padelBuddy = PadelBuddy.getInstance();
         user = padelBuddy.getPlayer();
         activityRule.getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, profile, "Profile").commit();

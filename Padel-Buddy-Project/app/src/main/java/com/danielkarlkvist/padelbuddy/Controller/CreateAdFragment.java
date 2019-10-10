@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class CreateAdFragmentController extends Fragment {
+public class CreateAdFragment extends Fragment {
     private TextView userFirstName;
     private RatingBar userProfileRating;
 

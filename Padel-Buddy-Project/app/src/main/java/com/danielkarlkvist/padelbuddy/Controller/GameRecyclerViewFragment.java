@@ -19,7 +19,7 @@ import java.util.Date;
 /**
  * Controller for the home tab
  */
-public class HomeFragmentController extends Fragment implements ScrollToTop{
+public class GameRecyclerViewFragment extends Fragment implements ScrollToTop{
 
     private RecyclerView homeRecyclerView;
     private RecyclerView.Adapter homeRecyclerViewAdapter;

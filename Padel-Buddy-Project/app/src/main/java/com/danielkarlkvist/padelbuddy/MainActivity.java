@@ -9,11 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragmentController;
+import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragment;
 import com.danielkarlkvist.padelbuddy.Controller.ExampleDialog;
-import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
-import com.danielkarlkvist.padelbuddy.Controller.HomeFragmentController;
-import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
+import com.danielkarlkvist.padelbuddy.Controller.GamesFragment;
+import com.danielkarlkvist.padelbuddy.Controller.GameRecyclerViewFragment;
+import com.danielkarlkvist.padelbuddy.Controller.ProfileFragment;
 import com.danielkarlkvist.padelbuddy.Model.Game;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
 
     // Has the tab controllers as instance variables so the information always gets saved
-    private HomeFragmentController homeFragmentController;
-    private CreateAdFragmentController createAdFragmentController;
-    private GamesFragmentController gamesFragmentController;
-    private ProfileFragmentController profileFragmentController;
+    private GameRecyclerViewFragment homeFragmentController;
+    private CreateAdFragment createAdFragment;
+    private GamesFragment gamesFragment;
+    private ProfileFragment profileFragment;
     private Fragment selectedFragmentController = null;
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
@@ -59,22 +59,22 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                                 break;
                             }
                         case R.id.nav_create:
-                            selectedFragmentController = createAdFragmentController;
+                            selectedFragmentController = createAdFragment;
                             break;
                         case R.id.nav_games:
-                            if(selectedFragmentController == gamesFragmentController) {
-                                gamesFragmentController.scrollToTop();
+                            if(selectedFragmentController == gamesFragment) {
+                                gamesFragment.scrollToTop();
                                 break;
                             } else {
-                                selectedFragmentController = gamesFragmentController;
+                                selectedFragmentController = gamesFragment;
                                 break;
                             }
                         case R.id.nav_profile:
-                            selectedFragmentController = profileFragmentController;
+                            selectedFragmentController = profileFragment;
                             break;
                         default:
                             Log.println(1, "tag", "Selected fragment that doesn't exist.");
-                            selectedFragmentController = new HomeFragmentController();
+                            selectedFragmentController = new GameRecyclerViewFragment();
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragmentController).commit();
 
@@ -116,10 +116,10 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     }
 
     private void initializeBottomNavigationViewControllers() {
-        homeFragmentController = new HomeFragmentController();
-        createAdFragmentController = new CreateAdFragmentController();
-        gamesFragmentController = new GamesFragmentController();
-        profileFragmentController = new ProfileFragmentController();
+        homeFragmentController = new GameRecyclerViewFragment();
+        createAdFragment = new CreateAdFragment();
+        gamesFragment = new GamesFragment();
+        profileFragment = new ProfileFragment();
     }
 
     private void initializeBottomNavigationView() {
@@ -130,6 +130,6 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
     @Override
     public void applyTexts(String time) {
-        createAdFragmentController.applyTexts(time);
+        createAdFragment.applyTexts(time);
     }
 }
