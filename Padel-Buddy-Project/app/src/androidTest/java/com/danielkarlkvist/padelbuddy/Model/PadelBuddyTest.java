@@ -31,14 +31,27 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 
-public class PadelBuddyTest {
+import java.sql.Date;
+import java.util.ArrayList;
 
+public class PadelBuddyTest {
+    private PadelBuddy padelBuddy;
+    private Player user;
+    private ArrayList<Game> games = new ArrayList<>();
     @Before
     public void setUp() throws Exception {
+        padelBuddy = PadelBuddy.getInstance();
+        user = padelBuddy.getPlayer();
+
 
     }
 
     @After
     public void tearDown() throws Exception {
+
+    }
+    @Test
+    public void doesAdExist_Exists_ReturnsTrue() throws Exception {
+        padelBuddy.createAd();
     }
 }

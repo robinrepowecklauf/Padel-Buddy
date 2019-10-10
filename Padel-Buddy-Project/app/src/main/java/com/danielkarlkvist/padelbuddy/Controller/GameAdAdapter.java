@@ -87,7 +87,6 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
     @Override
     public void onBindViewHolder(@NonNull GameAdViewHolder holder, int position) {
         Game currentGame = games.get(position);
-
         // Set location
         holder.locationTextView.setText(currentGame.getLocation());
         // Set date
