@@ -3,16 +3,14 @@ package com.danielkarlkvist.padelbuddy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragmentController;
+import com.danielkarlkvist.padelbuddy.Controller.ExampleDialog;
 import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.HomeFragmentController;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
@@ -20,10 +18,11 @@ import com.danielkarlkvist.padelbuddy.Model.Game;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
 
 // TODO fix better javadoc for mainactivity
 
@@ -36,7 +35,6 @@ import java.util.List;
  * @since   2019-09-05
  */
 
-public class MainActivity extends AppCompatActivity {
 
     // Has the tab controllers as instance variables so the information always gets saved
     private HomeFragmentController homeFragmentController;
@@ -128,5 +126,10 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavigationViewListener);
         bottomNavigationView.setSelectedItemId(R.id.nav_home);  // Sets the current selected tab as Home when the app opens
+    }
+
+    @Override
+    public void applyTexts(String time) {
+        createAdFragmentController.applyTexts(time);
     }
 }
