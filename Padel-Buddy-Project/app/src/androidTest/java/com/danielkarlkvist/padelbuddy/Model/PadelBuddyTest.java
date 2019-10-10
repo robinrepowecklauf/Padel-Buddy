@@ -52,6 +52,5 @@ public class PadelBuddyTest {
     }
     @Test
     public void doesAdExist_Exists_ReturnsTrue() throws Exception {
-        padelBuddy.createAd();
     }
 }
