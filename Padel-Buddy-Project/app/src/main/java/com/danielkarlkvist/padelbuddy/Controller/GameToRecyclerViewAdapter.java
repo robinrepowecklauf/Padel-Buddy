@@ -100,11 +100,11 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             Player player = currentGame.getPlayers()[i];
             if (player != null) {
                 holder.playerNameTextViews[i].setText(player.getFirstname());
-                holder.playerImagesViews[i].setImageResource(R.drawable.profile_picture);
+                holder.playerImagesViews[i].setImageResource(R.drawable.no_profile_picture);
                 holder.playerRatingBars[i].setRating(player.getProfileRating());
             } else {
                 holder.playerNameTextViews[i].setText("Tillgänglig");
-                holder.playerImagesViews[i].setImageResource(R.drawable.waitning_for_player_picture);
+                holder.playerImagesViews[i].setImageResource(R.drawable.waiting_for_player_picture);
             }
         }
     }
