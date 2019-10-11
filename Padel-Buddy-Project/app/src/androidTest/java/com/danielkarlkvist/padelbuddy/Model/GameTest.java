@@ -13,8 +13,8 @@ public class GameTest {
 
     @Test
     public void addPlayer_onePlayerIsAdded_ReturnsTrue() {
-        Player player1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 5);
-        Player player2 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 5);
+        Player player1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Avancerad);
+        Player player2 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Nybörjare);
         Game game = new Game(player1, "Gltk", new Date(2019, 11, 05));
         game.addPlayer(player2);
         Player[] players = game.getPlayers();
