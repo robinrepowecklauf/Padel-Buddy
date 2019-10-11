@@ -80,7 +80,14 @@ public class ProfileFragment extends Fragment {
         initializeViews(rootView);
         initializeListenerToButton();
 
-        userCircularImageView.setImageDrawable(getResources().getDrawable(R.drawable.no_profile_picture));
+        CircleImageView playerImageView = user.getImage();
+
+        if (playerImageView != null) {
+            userCircularImageView.setImageDrawable(playerImageView.getDrawable());
+        } else {
+            userCircularImageView.setImageDrawable(getResources().getDrawable(R.drawable.no_profile_picture));
+        }
+
         fullNameTextView.setText(user.getFullName());
         bioTextView.setText(user.getBio());
 
@@ -96,7 +103,6 @@ public class ProfileFragment extends Fragment {
      * Add listener to buttons and checks that the user's firstnameEditText and lastnameEditText is not empty
      * when pressing "Spara"
      */
-
     private void initializeListenerToButton() {
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +132,6 @@ public class ProfileFragment extends Fragment {
      *
      * @param view is the current view of the app
      */
-
     private void initializeViews(View view) {
         fullNameTextView = view.findViewById(R.id.profile_name);
         bioTextView = view.findViewById(R.id.profile_bio);
@@ -161,7 +166,8 @@ public class ProfileFragment extends Fragment {
      * Open the option to pick images and crop it
      */
     private void pickImageFromGallery() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        Intent intent = new Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         intent.setType("image/*");
         intent.putExtra("crop", "true");
         intent.putExtra("scale", true);
@@ -218,6 +224,7 @@ public class ProfileFragment extends Fragment {
         firstnameEditText.setText(user.getFirstname());
         lastnameEditText.setText(user.getLastname());
         bioEditText.setText(user.getBio());
+     //   userCircularImageView.setImageDrawable(user.getImage().getDrawable());
     }
 
     /**
@@ -284,8 +291,7 @@ public class ProfileFragment extends Fragment {
      * @param editText is any editable text
      */
     private void placeCursorAfterText(EditText editText) {
-        String text = editText.toString();
-        int textLength = text.length();
+        int textLength = editText.getText().toString().length();
         editText.setSelection(textLength);
     }
 
