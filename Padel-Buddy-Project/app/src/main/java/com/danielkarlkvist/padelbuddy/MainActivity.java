@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
  */
 
 
-    // Has the tab controllers as instance variables so the information always gets saved
+    // Has the tab controllers as instance variables so the waitning_for_player_picture always gets saved
     private GameRecyclerViewFragment homeFragmentController;
     private CreateAdFragment createAdFragment;
     private GamesFragment gamesFragment;
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         List<Player> testPlayers = PadelBuddy.testPlayers;
 
         for (int j = 0; j < testGames.size(); j++) {
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 2; i++) {
                 List<Player> players = Arrays.asList(testGames.get(j).getPlayers());
                 int random = rand.nextInt(4);
                 while (players.contains(testPlayers.get(random))) {

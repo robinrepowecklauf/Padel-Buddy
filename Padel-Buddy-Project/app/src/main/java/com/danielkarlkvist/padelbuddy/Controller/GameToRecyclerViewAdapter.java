@@ -98,7 +98,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         holder.player1ImageView.setImageResource(R.drawable.profile_picture);
         holder.player2ImageView.setImageResource(R.drawable.profile_picture);
         holder.player3ImageView.setImageResource(R.drawable.profile_picture);
-        holder.player4ImageView.setImageResource(R.drawable.profile_picture);
+        holder.player4ImageView.setImageResource(R.drawable.waitning_for_player_picture);
 
         // Set name and rating for all (4) players
         for (int i = 0; i < currentGame.getPlayers().length; i++) {
@@ -107,7 +107,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
                 holder.playerNameTextViews[i].setText(player.getFirstname());
                 holder.playerRatingBars[i].setRating(player.getProfileRating());
             } else {
-                holder.playerNameTextViews[i].setText("Player " + i);
+                holder.playerNameTextViews[i].setText("Tillgänglig");
             }
         }
     }
