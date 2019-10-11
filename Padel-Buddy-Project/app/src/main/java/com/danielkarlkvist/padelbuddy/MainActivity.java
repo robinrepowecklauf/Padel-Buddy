@@ -111,14 +111,6 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                 testGames.get(j).addPlayer(testPlayers.get(rand.nextInt(4)));
             }
         }
-
-        /*
-        testGames.get(0).addPlayer(testPlayers.get(0));
-        testGames.get(0).addPlayer(testPlayers.get(1));
-        testGames.get(0).addPlayer(testPlayers.get(2));
-        testGames.get(0).addPlayer(testPlayers.get(3));
-*/
-
     }
 
     private void initializeBottomNavigationViewControllers() {

@@ -95,10 +95,10 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         holder.skillLevelTextView.setText("Nybörjare");
 
         // Set images of players
-        holder.player1ImageView.setImageResource(R.drawable.text_profile_picture);
-        holder.player2ImageView.setImageResource(R.drawable.text_profile_picture);
-        holder.player3ImageView.setImageResource(R.drawable.text_profile_picture);
-        holder.player4ImageView.setImageResource(R.drawable.text_profile_picture);
+        holder.player1ImageView.setImageResource(R.drawable.profile_picture);
+        holder.player2ImageView.setImageResource(R.drawable.profile_picture);
+        holder.player3ImageView.setImageResource(R.drawable.profile_picture);
+        holder.player4ImageView.setImageResource(R.drawable.profile_picture);
 
         // Set name and rating for all (4) players
         for (int i = 0; i < currentGame.getPlayers().length; i++) {

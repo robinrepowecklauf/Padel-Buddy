@@ -181,7 +181,7 @@
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/player1_imageview"
-                            android:src="@drawable/text_profile_picture"
+                            android:src="@drawable/profile_picture"
                             android:layout_centerVertical="true"
                             style="@style/creategame_ad_imageview">
                         </de.hdodenhof.circleimageview.CircleImageView>
@@ -232,7 +232,7 @@
 
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:id="@+id/player2_imageview"
-                                android:src="@drawable/text_profile_picture"
+                                android:src="@drawable/profile_picture"
                                 android:layout_centerVertical="true"
                                 style="@style/creategame_ad_imageview">
                             </de.hdodenhof.circleimageview.CircleImageView>
@@ -287,7 +287,7 @@
 
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:id="@+id/player3_imageview"
-                                android:src="@drawable/text_profile_picture"
+                                android:src="@drawable/profile_picture"
                                 android:layout_centerVertical="true"
                                 style="@style/creategame_ad_imageview">
                             </de.hdodenhof.circleimageview.CircleImageView>
