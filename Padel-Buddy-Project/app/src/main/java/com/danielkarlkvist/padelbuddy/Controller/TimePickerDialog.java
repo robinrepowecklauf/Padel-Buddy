@@ -103,7 +103,7 @@ public class TimePickerDialog extends AppCompatDialogFragment {
     }
 
     /**
-     * Interface
+     * The ExampleDialogListener Interface lets the ExampleDialog apply text to the Activity which implements it.
      *
      */
 
