@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * The ProfileFragmentController class represents all information about a game
+ * The ProfileFragment class represents all waitning_for_player_picture about a game
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
@@ -102,5 +102,8 @@ public class Game {
                 break;
             }
         }
+    }
+    boolean hasPlayer(){
+       return players[0]!=null;
     }
 }

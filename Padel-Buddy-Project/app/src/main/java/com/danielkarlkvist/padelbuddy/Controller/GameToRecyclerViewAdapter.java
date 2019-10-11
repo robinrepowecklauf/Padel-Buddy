@@ -17,31 +17,36 @@ import com.danielkarlkvist.padelbuddy.R;
 import java.util.ArrayList;
 
 /**
- * Adapter between a Game and a RecyclerView
+ * The GameToRecyclerViewAdapter class defines an adapter between a Game and a RecyclerView
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-10-05
  */
-public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdViewHolder> {
+
+public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameAdViewHolder> {
 
     private ArrayList<Game> games;
 
     /**
      * The ViewHolder which should be updated to represent the contents of a Game.
      */
-    public static class GameAdViewHolder extends RecyclerView.ViewHolder {
-        public TextView locationTextView;
-        public TextView dateTextView;
 
-        public TextView skillLevelTextView;
+    static class GameAdViewHolder extends RecyclerView.ViewHolder {
+        TextView locationTextView;
+        TextView dateTextView;
+        TextView skillLevelTextView;
 
-        public ImageView player1ImageView;
-        public ImageView player2ImageView;
-        public ImageView player3ImageView;
-        public ImageView player4ImageView;
+        ImageView player1ImageView;
+        ImageView player2ImageView;
+        ImageView player3ImageView;
+        ImageView player4ImageView;
 
-        public TextView[] playerNameTextViews = new TextView[4];
+        TextView[] playerNameTextViews = new TextView[4];
+        RatingBar[] playerRatingBars = new RatingBar[4];
 
-        public RatingBar[] playerRatingBars = new RatingBar[4];
-
-        public GameAdViewHolder(@NonNull View itemView) {
+        GameAdViewHolder(@NonNull View itemView) {
             super(itemView);
 
             locationTextView = itemView.findViewById(R.id.location_textview);
@@ -64,13 +69,13 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
             playerRatingBars[2] = itemView.findViewById(R.id.player3_ratingbar);
             playerRatingBars[3] = itemView.findViewById(R.id.player4_ratingbar);
 
-            for (RatingBar ratingBar : playerRatingBars){
+            for (RatingBar ratingBar : playerRatingBars) {
                 ratingBar.setStepSize(0.1f);
             }
         }
     }
 
-    public GameAdAdapter(ArrayList<Game> games) {
+    GameToRecyclerViewAdapter(ArrayList<Game> games) {
         this.games = games;
     }
 
@@ -78,7 +83,7 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
     @NonNull
     @Override
     public GameAdViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.game_ad_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.game_item, parent, false);
         GameAdViewHolder gameAdViewHolder = new GameAdViewHolder(view);
         return gameAdViewHolder;
     }
@@ -95,10 +100,10 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
         holder.skillLevelTextView.setText("Nybörjare");
 
         // Set images of players
-        holder.player1ImageView.setImageResource(R.drawable.text_profile_picture);
-        holder.player2ImageView.setImageResource(R.drawable.text_profile_picture);
-        holder.player3ImageView.setImageResource(R.drawable.text_profile_picture);
-        holder.player4ImageView.setImageResource(R.drawable.text_profile_picture);
+        holder.player1ImageView.setImageResource(R.drawable.profile_picture);
+        holder.player2ImageView.setImageResource(R.drawable.profile_picture);
+        holder.player3ImageView.setImageResource(R.drawable.profile_picture);
+        holder.player4ImageView.setImageResource(R.drawable.waitning_for_player_picture);
 
         // Set name and rating for all (4) players
         for (int i = 0; i < currentGame.getPlayers().length; i++) {
@@ -107,7 +112,7 @@ public class GameAdAdapter extends RecyclerView.Adapter<GameAdAdapter.GameAdView
                 holder.playerNameTextViews[i].setText(player.getFirstname());
                 holder.playerRatingBars[i].setRating(player.getProfileRating());
             } else {
-                holder.playerNameTextViews[i].setText("Player " + i);
+                holder.playerNameTextViews[i].setText("Tillgänglig");
             }
         }
     }

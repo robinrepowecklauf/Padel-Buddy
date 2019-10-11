@@ -29,7 +29,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import static android.app.Activity.RESULT_OK;
 
 /**
- * The ProfileFragmentController class defines and manages a
+ * The ProfileFragment class defines and manages a
  * profile for the user
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
@@ -38,7 +38,7 @@ import static android.app.Activity.RESULT_OK;
  * @since 2019-09-05
  */
 
-public class ProfileFragmentController extends Fragment {
+public class ProfileFragment extends Fragment {
 
     private static final int PERMISSION_CODE = 1001;
 
@@ -65,7 +65,7 @@ public class ProfileFragmentController extends Fragment {
     private String blockCharacterSet = "!#€%&/()=?`^¡”¥¢‰{}≠¿1234567890+¨',_©®™℅[]<>@$*:;.~|•√π÷×¶∆°£ ";
 
     /**
-     * Puts the current information of a user into TextViews which is visible in the profile-view
+     * Puts the current waitning_for_player_picture of a user into TextViews which is visible in the profile-view
      */
 
     @SuppressLint("SetTextI18n")
@@ -214,7 +214,7 @@ public class ProfileFragmentController extends Fragment {
     }
 
     /**
-     * Places the current information of the user into EditText so it can be edited
+     * Places the current waitning_for_player_picture of the user into EditText so it can be edited
      */
 
     private void editUserInformation() {

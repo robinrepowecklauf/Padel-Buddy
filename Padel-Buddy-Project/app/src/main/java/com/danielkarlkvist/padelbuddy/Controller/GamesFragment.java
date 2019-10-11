@@ -14,7 +14,7 @@ import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 import com.google.android.material.tabs.TabLayout;
 
-public class GamesFragmentController extends Fragment implements ScrollToTop {
+public class GamesFragment extends Fragment implements ScrollToTop {
 
     private TabLayout gamesTabLayout;
     private ViewPager gamesViewPager;
@@ -52,10 +52,12 @@ public class GamesFragmentController extends Fragment implements ScrollToTop {
 
     @Override
     public void scrollToTop() {
-        if(gamesTabLayout.getSelectedTabPosition() == 0) {
-            upcomingGameFragment.getGamesRecyclerViewLayoutManager().smoothScrollToPosition(upcomingGameFragment.getGamesRecyclerView(), null, 0);
-        } else {
-            historyGameFragment.getGamesRecyclerViewLayoutManager().smoothScrollToPosition(historyGameFragment.getGamesRecyclerView(), null, 0);
+        UpcomingGameFragment temp;
+        for (int i = 0; i < gamesViewPagerAdapter.tabFragments.size(); i++) {
+            if ( i == gamesTabLayout.getSelectedTabPosition()) {
+                temp = (UpcomingGameFragment) gamesViewPagerAdapter.getItem(i);
+                temp.getGamesRecyclerViewLayoutManager().smoothScrollToPosition(temp.getGamesRecyclerView(), null, 0);
+            }
         }
     }
 }

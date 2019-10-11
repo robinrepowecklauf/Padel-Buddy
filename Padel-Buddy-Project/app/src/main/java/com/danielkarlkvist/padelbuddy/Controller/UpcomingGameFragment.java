@@ -12,11 +12,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.danielkarlkvist.padelbuddy.Model.Game;
-import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.ArrayList;
-import java.util.List;
+
+/**
+ * The UpcomingGameFragment class defines the fragment that inflates the
+ * upcoming games view for the user
+ *
+ * @author Marcus Axelsson
+ * @version 1.0
+ * @since 2019-10-05
+ */
 
 public class UpcomingGameFragment extends Fragment {
     private RecyclerView gamesRecyclerView;
@@ -25,7 +32,7 @@ public class UpcomingGameFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.tab_upcoming_game, container, false);
+        View rootView = inflater.inflate(R.layout.games_game_tab, container, false);
 
         gamesRecyclerView = rootView.findViewById(R.id.upcoming_games_recyclerView);
         gamesRecyclerView.setHasFixedSize(true);
@@ -38,7 +45,7 @@ public class UpcomingGameFragment extends Fragment {
     }
 
     public void setGames(ArrayList<Game> games) {
-        gamesRecyclerViewAdapter = new GamesAdapter(games);
+        gamesRecyclerViewAdapter = new GameToRecyclerViewAdapter(games);
     }
 
     public RecyclerView getGamesRecyclerView() {

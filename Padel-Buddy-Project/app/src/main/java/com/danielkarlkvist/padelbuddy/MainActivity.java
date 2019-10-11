@@ -9,19 +9,21 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragmentController;
+import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragment;
 import com.danielkarlkvist.padelbuddy.Controller.ExampleDialog;
-import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
-import com.danielkarlkvist.padelbuddy.Controller.HomeFragmentController;
-import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
+import com.danielkarlkvist.padelbuddy.Controller.GamesFragment;
+import com.danielkarlkvist.padelbuddy.Controller.GameRecyclerViewFragment;
+import com.danielkarlkvist.padelbuddy.Controller.ProfileFragment;
 import com.danielkarlkvist.padelbuddy.Model.Game;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
 
@@ -37,11 +39,11 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
      */
 
 
-    // Has the tab controllers as instance variables so the information always gets saved
-    private HomeFragmentController homeFragmentController;
-    private CreateAdFragmentController createAdFragmentController;
-    private GamesFragmentController gamesFragmentController;
-    private ProfileFragmentController profileFragmentController;
+    // Has the tab controllers as instance variables so the waitning_for_player_picture always gets saved
+    private GameRecyclerViewFragment homeFragmentController;
+    private CreateAdFragment createAdFragment;
+    private GamesFragment gamesFragment;
+    private ProfileFragment profileFragment;
     private Fragment selectedFragmentController = null;
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
@@ -60,22 +62,22 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                                 break;
                             }
                         case R.id.nav_create:
-                            selectedFragmentController = createAdFragmentController;
+                            selectedFragmentController = createAdFragment;
                             break;
                         case R.id.nav_games:
-                            if (selectedFragmentController == gamesFragmentController) {
-                                gamesFragmentController.scrollToTop();
+                            if(selectedFragmentController == gamesFragment) {
+                                gamesFragment.scrollToTop();
                                 break;
                             } else {
-                                selectedFragmentController = gamesFragmentController;
+                                selectedFragmentController = gamesFragment;
                                 break;
                             }
                         case R.id.nav_profile:
-                            selectedFragmentController = profileFragmentController;
+                            selectedFragmentController = profileFragment;
                             break;
                         default:
                             Log.println(1, "tag", "Selected fragment that doesn't exist.");
-                            selectedFragmentController = new HomeFragmentController();
+                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, PadelBuddy.getInstance().getGames());
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragmentController).commit();
 
@@ -97,30 +99,32 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     }
 
     private void createRandomGames() {
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, 0, 10, 15, 30));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 2, 2, 8, 00));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, 1, 4, 15, 15));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2015, 7, 7, 10, 20));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 9, 3, 9, 30));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 12, 25, 23, 50));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
+        Random rand = new Random();
+        for (int i = 0; i < 10; i++) {
+            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
+        }
 
         PadelBuddy padelBuddy = PadelBuddy.getInstance();
         ArrayList<Game> testGames = padelBuddy.getGames();
         List<Player> testPlayers = PadelBuddy.testPlayers;
-        testGames.get(0).addPlayer(testPlayers.get(0));
-        testGames.get(0).addPlayer(testPlayers.get(1));
-        testGames.get(0).addPlayer(testPlayers.get(2));
-        testGames.get(0).addPlayer(testPlayers.get(3));
 
-
+        for (int j = 0; j < testGames.size(); j++) {
+            for (int i = 0; i < 2; i++) {
+                List<Player> players = Arrays.asList(testGames.get(j).getPlayers());
+                int random = rand.nextInt(4);
+                while (players.contains(testPlayers.get(random))) {
+                    random = rand.nextInt(4);
+                }
+                testGames.get(j).addPlayer(testPlayers.get(random));
+            }
+        }
     }
 
     private void initializeBottomNavigationViewControllers() {
-        homeFragmentController = new HomeFragmentController();
-        createAdFragmentController = new CreateAdFragmentController();
-        gamesFragmentController = new GamesFragmentController();
-        profileFragmentController = new ProfileFragmentController();
+        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, PadelBuddy.getInstance().getGames());
+        createAdFragment = new CreateAdFragment();
+        gamesFragment = new GamesFragment();
+        profileFragment = new ProfileFragment();
     }
 
     private void initializeBottomNavigationView() {
