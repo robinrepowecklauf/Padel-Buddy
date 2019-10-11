@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     private ProfileFragment profileFragment;
     private Fragment selectedFragmentController = null;
 
+    private PadelBuddy padelBuddy;
+
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
             // region bottomNavigationViewListener
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -92,6 +94,8 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
+        padelBuddy = PadelBuddy.getInstance();
+
         createRandomGames();
 
         initializeBottomNavigationViewControllers();
@@ -104,7 +108,6 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
             PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
         }
 
-        PadelBuddy padelBuddy = PadelBuddy.getInstance();
         ArrayList<Game> testGames = padelBuddy.getGames();
         List<Player> testPlayers = PadelBuddy.testPlayers;
 
@@ -121,10 +124,10 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     }
 
     private void initializeBottomNavigationViewControllers() {
-        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, PadelBuddy.getInstance().getGames());
-        createAdFragment = new CreateAdFragment(PadelBuddy.getInstance().getPlayer());
-        gamesFragment = new GamesFragment(PadelBuddy.getInstance().getUpcomingGames(), PadelBuddy.getInstance().getPlayedGames());
-        profileFragment = new ProfileFragment(PadelBuddy.getInstance().getPlayer());
+        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames());
+        createAdFragment = new CreateAdFragment(padelBuddy.getPlayer());
+        gamesFragment = new GamesFragment(padelBuddy.getUpcomingGames(), padelBuddy.getPlayedGames());
+        profileFragment = new ProfileFragment(padelBuddy.getPlayer());
     }
 
     private void initializeBottomNavigationView() {
