@@ -18,8 +18,14 @@ import com.danielkarlkvist.padelbuddy.R;
 import java.util.ArrayList;
 
 /**
- * Controller for the home tab
+ * The GameRecyclerViewFragment class defines a RecyclerView for games
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-10-11
  */
+
 public class GameRecyclerViewFragment extends Fragment implements ScrollToTop{
 
     private RecyclerView gameRecyclerView;
@@ -51,6 +57,11 @@ public class GameRecyclerViewFragment extends Fragment implements ScrollToTop{
 
         return rootView;
     }
+
+    /**
+     * Makes the user able to scroll to the top of the page if they click
+     * on the BottomNavigationView that they are already inside of
+     */
 
     @Override
     public void scrollToTop() {

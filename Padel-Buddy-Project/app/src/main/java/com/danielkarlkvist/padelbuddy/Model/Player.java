@@ -74,4 +74,8 @@ public class Player {
     public void setImage(CircleImageView image) {
         this.image = image;
     }
+
+    public CircleImageView getImage() {
+        return image;
+    }
 }

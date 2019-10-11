@@ -17,6 +17,15 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
+/**
+ * The GameRecyclerViewFragment class defines a RecyclerView for games
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-10-11
+ */
+
 public class GamesFragment extends Fragment implements ScrollToTop {
 
     private TabLayout gamesTabLayout;
@@ -61,12 +70,16 @@ public class GamesFragment extends Fragment implements ScrollToTop {
         return rootView;
     }
 
+    /**
+     * Makes the user able to scroll to the top of the page if they click
+     * on the BottomNavigationView that they are already inside of
+     */
 
     @Override
     public void scrollToTop() {
         GameRecyclerViewFragment temp;
         for (int i = 0; i < gamesViewPagerAdapter.tabFragments.size(); i++) {
-            if ( i == gamesTabLayout.getSelectedTabPosition()) {
+            if (i == gamesTabLayout.getSelectedTabPosition()) {
                 temp = (GameRecyclerViewFragment) gamesViewPagerAdapter.getItem(i);
                 temp.getGameRecyclerViewLayoutManager().smoothScrollToPosition(temp.getGameRecyclerView(), null, 0);
             }
