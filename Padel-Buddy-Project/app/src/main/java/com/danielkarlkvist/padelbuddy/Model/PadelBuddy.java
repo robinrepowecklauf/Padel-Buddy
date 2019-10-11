@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-// singleton class
 public class PadelBuddy {
 
     private ArrayList<Game> games = new ArrayList<>();
