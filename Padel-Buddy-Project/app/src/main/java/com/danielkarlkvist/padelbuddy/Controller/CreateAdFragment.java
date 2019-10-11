@@ -24,10 +24,10 @@ import com.danielkarlkvist.padelbuddy.R;
 import java.util.Calendar;
 
 /**
- * The CreateAdFragment class defines
+ * The CreateAdFragment class defines the Fragment where a user can create a game ad.
  *
- * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
- * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @author Carl-Johan Björnson
+ *
  * @version 1.0
  * @since 2019-10-11
  */
@@ -61,6 +61,15 @@ public class CreateAdFragment extends Fragment {
     public CreateAdFragment(Player user) {
         this.user = user;
     }
+
+    /**
+     *  Creates the view, assigns all xml components and adds listeners.
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
 
     @Nullable
     @Override
@@ -170,7 +179,7 @@ public class CreateAdFragment extends Fragment {
     }
 
     /**
-     *
+     *  Creates and opens Dialog to chose time for the game ad.
      */
 
     public void openDialog() {
@@ -179,6 +188,7 @@ public class CreateAdFragment extends Fragment {
     }
 
     /**
+     * Applies chosen time and game length to the game ad.
      * @param time
      * @param length
      */
