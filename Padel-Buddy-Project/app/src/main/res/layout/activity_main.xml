@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout for the MainActivity,
+     is displayed all over the application. Contains
+     the fragment container and the bottomNavigationView
+
+     @Authors Daniel Karlkvist, Robin Repo Wecklauf & Carl-Johan Björnson.
+
+     -->
+
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

@@ -60,7 +60,7 @@ public class GameRecyclerViewFragment extends Fragment implements ScrollToTop{
 
     /**
      * Makes the user able to scroll to the top of the page if they click
-     * on the BottomNavigationView that they are already inside of
+     * on the BottomNavigationView icon that they are already inside of
      */
 
     @Override

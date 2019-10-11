@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout for the ProfileFragment,
+     Is displayed when the user is within
+     the profile tab.
+
+     @Authors Robin Repo Wecklauf, Marcus Axelsson.
+
+     -->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/profile_fragment"
