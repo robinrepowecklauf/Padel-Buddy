@@ -95,7 +95,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         // Set date
         holder.dateTextView.setText(currentGame.getDateAsString());
         // Set skill level
-        holder.skillLevelTextView.setText("Nybörjare");
+        holder.skillLevelTextView.setText(currentGame.getAverageSkillLevel());
 
         // Set name and rating for all (4) players
         for (int i = 0; i < currentGame.getPlayers().length; i++) {

@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
      */
     private void createRandomGames() {
         Random rand = new Random();
-        for (int i = 0; i < 4; i++) {
-            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)));
+        for (int i = 0; i < 15; i++) {
+            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
         }
 
         ArrayList<Game> testGames = padelBuddy.getGames();

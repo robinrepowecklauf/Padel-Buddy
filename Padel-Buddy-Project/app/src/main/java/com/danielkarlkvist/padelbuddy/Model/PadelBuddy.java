@@ -13,11 +13,11 @@ public class PadelBuddy {
 
     public PadelBuddy() {
         this.player = player;
-        player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 1);
-        testPlayers.add(new Player("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "0704549972", "lorem ipsum", 15, 2));
-        testPlayers.add(new Player("Carl-Johan", "Björnson", "test@gmail.com", "123", "lorem ", 14, 3));
-        testPlayers.add(new Player("Marcus", "Creutz", "test@gmail.com", "123", "lorem ", 14, 4));
-        testPlayers.add(new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 5));
+        player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, SkillLevel.Nybörjare);
+        testPlayers.add(new Player("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "0704549972", "lorem ipsum", 15, SkillLevel.Avancerad));
+        testPlayers.add(new Player("Carl-Johan", "Björnson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Medel));
+        testPlayers.add(new Player("Marcus", "Creutz", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Nybörjare));
+        testPlayers.add(new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Avancerad));
     }
 
     public ArrayList<Game> getGames() {

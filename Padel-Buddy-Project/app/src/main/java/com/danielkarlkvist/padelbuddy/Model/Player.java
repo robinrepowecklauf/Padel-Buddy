@@ -20,11 +20,11 @@ public class Player {
     private String phone;
     private String bio;
     private int age;
-    private double skillLevel;
+    private SkillLevel skillLevel;
     private float profileRating;
     private CircleImageView image;
 
-    Player(String firstname, String lastname, String mail, String phone, String bio, int age, double skillLevel) {
+    Player(String firstname, String lastname, String mail, String phone, String bio, int age, SkillLevel skillLevel) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
@@ -73,6 +73,10 @@ public class Player {
 
     public void setImage(CircleImageView image) {
         this.image = image;
+    }
+
+    public SkillLevel getSkillLevel() {
+        return skillLevel;
     }
 
     public CircleImageView getImage() {
