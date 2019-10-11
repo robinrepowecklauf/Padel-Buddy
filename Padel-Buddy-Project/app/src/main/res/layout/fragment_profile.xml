@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout for the ProfileFragment,
+     Is displayed when the user is within
+     the profile tab.
+
+     @Authors Robin Repo Wecklauf, Marcus Axelsson.
+
+     -->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/profile_fragment"
@@ -101,7 +110,7 @@
                     android:layout_marginTop="@dimen/margin_padding_size_medium"
                     android:layout_toEndOf="@id/profile_image"
                     android:text="Förnamn:"
-                    android:textColor="@color/primaryTextColor"
+                    android:textColor="@color/primaryTextColorOnLightBackground"
                     android:textSize="@dimen/text_size_small"
                     android:textStyle="bold"
                     android:visibility="invisible" />
@@ -114,10 +123,12 @@
                     android:layout_alignLeft="@+id/profile_firstname_hint"
                     android:layout_marginTop="@dimen/margin_padding_size_small"
                     android:background="@drawable/edittext_background"
+                    android:maxLength="20"
+                    android:maxLines="1"
                     android:paddingStart="5dp"
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
-                    android:textColor="@color/primaryTextColor"
+                    android:textColor="@color/primaryTextColorOnLightBackground"
                     android:textSize="@dimen/text_size_medium"
                     android:visibility="invisible" />
 
@@ -130,7 +141,7 @@
                     android:layout_marginTop="@dimen/margin_padding_size_small"
                     android:layout_toEndOf="@id/profile_image"
                     android:text="Efternamn:"
-                    android:textColor="@color/primaryTextColor"
+                    android:textColor="@color/primaryTextColorOnLightBackground"
                     android:textSize="@dimen/text_size_small"
                     android:textStyle="bold"
                     android:visibility="invisible" />
@@ -143,10 +154,13 @@
                     android:layout_alignLeft="@+id/profile_firstname_hint"
                     android:layout_marginTop="@dimen/margin_padding_size_small"
                     android:background="@drawable/edittext_background"
+                    android:maxLength="20"
+                    android:maxLines="1"
                     android:paddingStart="5dp"
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
-                    android:textColor="@color/primaryTextColor"
+                    android:singleLine="true"
+                    android:textColor="@color/primaryTextColorOnLightBackground"
                     android:textSize="@dimen/text_size_medium"
                     android:visibility="invisible" />
 
@@ -169,7 +183,7 @@
                 android:layout_below="@id/profile_name_and_picture_relativelayout"
                 android:layout_marginStart="@dimen/margin_padding_size_medium"
                 android:text="Biografi:"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textSize="@dimen/text_size_small"
                 android:textStyle="bold"
                 android:visibility="invisible" />
@@ -186,7 +200,7 @@
                 android:paddingStart="5dp"
                 android:paddingTop="3dp"
                 android:paddingBottom="3dp"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textSize="@dimen/text_size_small"
                 android:visibility="invisible" />
 
@@ -198,7 +212,7 @@
                 android:layout_marginLeft="@dimen/margin_padding_size_medium"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:text="Omdöme:"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textStyle="bold" />
 
             <TextView
@@ -209,7 +223,7 @@
                 android:layout_marginLeft="@dimen/margin_padding_size_medium"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:text="Skicklighetsnivå:"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textStyle="bold" />
 
             <TextView
@@ -220,7 +234,7 @@
                 android:layout_marginLeft="@dimen/margin_padding_size_medium"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:text="Antal spelade matcher:"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textStyle="bold" />
 
         </RelativeLayout>

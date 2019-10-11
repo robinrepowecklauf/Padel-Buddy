@@ -8,7 +8,7 @@
     <style name="game_ad_textview">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textColor">@color/primaryTextColorOnLightBackground</item>
         <item name="android:textSize">@dimen/text_size_small</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
@@ -21,9 +21,68 @@
         <item name="android:layout_marginRight">@dimen/margin_padding_size_small</item>
     </style>
 
-    <style name="game_ad_ratingbar"
-        parent="android:style/Widget.Material.RatingBar.Small">
+
+    <style name="game_ad_ratingbar" parent="android:style/Widget.Material.RatingBar.Small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
+    <style name="game_recyclerview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">50dp</item>
+    </style>
+
+    <style name="creategame_ad_imageview">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_marginRight">@dimen/margin_padding_size_small</item>
+    </style>
+
+    <style name="creategame_ad_textview">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/primaryTextColorOnLightBackground</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:maxWidth">80dp</item>
+        <item name="android:layout_marginStart">@dimen/margin_padding_size_medium</item>
+    </style>
+
+    <!-- Styles for fragment_create_ad.xml -->
+
+    <style name="border">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#30000000</item>
+
+    </style>
+
+    <style name="linearlayout_row">
+        <item name="android:layout_width">275dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_padding_size_small</item>
+        <item name="android:layout_marginBottom">@dimen/margin_padding_size_small</item>
+    </style>
+
+    <style name="invitation_button">
+        <item name="android:layout_height">@dimen/buttonHeight</item>
+        <item name="android:layout_width">@dimen/buttonWidth</item>
+        <item name="android:background">@drawable/rounded_green_button</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:padding">@dimen/margin_padding_size_small</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="remove_player_button">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:background">@drawable/ic_clear_black_24dp</item>
+    </style>
+
 </resources>

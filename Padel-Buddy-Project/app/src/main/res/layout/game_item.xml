@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout for a game ad. Is being used by GameRecyclerView.
+
+     @Authors Carl-Johan Björnson, Daniel Karlkvist & Fredrik Lilliecreutz.
+
+     -->
+
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -32,8 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/location_imageview"
             android:text="Location"
-            android:textColor="@color/primaryTextColor"
-            android:textSize="20sp" />
+            android:textColor="@color/primaryTextColorOnLightBackground"
+            android:textSize="20sp"></TextView>
 
         <TextView
             android:id="@+id/skilllevel_textview"
@@ -42,8 +49,8 @@
             android:layout_below="@+id/location_imageview"
             android:layout_alignStart="@+id/location_textview"
             android:text="Skill level"
-            android:textColor="@color/primaryTextColor"
-            android:textSize="20sp" />
+            android:textColor="@color/primaryTextColorOnLightBackground"
+            android:textSize="20sp"></TextView>
 
         <TextView
             android:id="@+id/date_textview"
@@ -53,8 +60,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/margin_padding_size_small"
             android:text="Date"
-            android:textColor="@color/primaryTextColor"
-            android:textSize="15sp" />
+            android:textColor="@color/primaryTextColorOnLightBackground"
+            android:textSize="15sp"></TextView>
 
         <GridLayout
             android:id="@+id/players_gridlayout"
@@ -79,7 +86,7 @@
                     android:id="@+id/player1_name_textview"
                     style="@style/game_ad_textview"
                     android:layout_toEndOf="@+id/player1_imageview"
-                    android:text="Player1" />
+                    android:text="Väntar på spelare!" />
 
                 <RatingBar
                     android:id="@+id/player1_ratingbar"
@@ -101,7 +108,7 @@
                     android:id="@+id/player2_name_textview"
                     style="@style/game_ad_textview"
                     android:layout_toEndOf="@+id/player2_imageview"
-                    android:text="Player2" />
+                    android:text="Väntar på spelare!" />
 
                 <RatingBar
                     android:id="@+id/player2_ratingbar"
@@ -123,7 +130,7 @@
                     android:id="@+id/player3_name_textview"
                     style="@style/game_ad_textview"
                     android:layout_toEndOf="@+id/player3_imageview"
-                    android:text="Player3" />
+                    android:text="Väntar på spelare!" />
 
                 <RatingBar
                     android:id="@+id/player3_ratingbar"
@@ -145,7 +152,7 @@
                     android:id="@+id/player4_name_textview"
                     style="@style/game_ad_textview"
                     android:layout_toEndOf="@+id/player4_imageview"
-                    android:text="Player4" />
+                    android:text="Väntar på spelare!" />
 
                 <RatingBar
                     android:id="@+id/player4_ratingbar"
