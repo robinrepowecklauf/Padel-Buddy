@@ -8,6 +8,15 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The GamesViewPagerAdapter class defines
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-10-05
+ */
+
 public class GamesViewPagerAdapter extends FragmentPagerAdapter {
     List<Fragment> tabFragments = new ArrayList<>();
     List<String> tabFragmentTitles = new ArrayList<>();

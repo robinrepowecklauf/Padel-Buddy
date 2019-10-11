@@ -15,20 +15,21 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
-import com.danielkarlkvist.padelbuddy.MainActivity;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.R;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+
+/**
+ * The CreateAdFragment class defines
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-10-11
+ */
 
 public class CreateAdFragment extends Fragment {
     private TextView userFirstName;
@@ -90,6 +91,9 @@ public class CreateAdFragment extends Fragment {
         return v;
     }
 
+    /**
+     *
+     */
 
     private void invitePlayers() {
         player2RemoveButton.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +128,10 @@ public class CreateAdFragment extends Fragment {
             }
         });
 
+        /**
+         *
+         */
+
         //Should it be here?
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,12 +144,12 @@ public class CreateAdFragment extends Fragment {
                 dpd = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
-                        chosenDateTextview.setText(mDay + "/" + (mMonth+1) +"/" + mYear);
+                        chosenDateTextview.setText(mDay + "/" + (mMonth + 1) + "/" + mYear);
                     }
                 }, year, month, day);
 
                 dpd.getDatePicker().setMinDate(c.getTimeInMillis());
-                c.add(Calendar.DATE,+31);                           // Allows user to book one month ahead
+                c.add(Calendar.DATE, +31);                           // Allows user to book one month ahead
                 dpd.getDatePicker().setMaxDate(c.getTimeInMillis());
                 dpd.show();
             }
@@ -156,13 +164,19 @@ public class CreateAdFragment extends Fragment {
 
     }
 
-    public void openDialog(){
+    /**
+     *
+     */
+
+    public void openDialog() {
         ExampleDialog exampleDialog = new ExampleDialog();
         exampleDialog.show(getFragmentManager(), "example dialog");
     }
 
-
-
+    /**
+     * @param time
+     * @param length
+     */
     public void applyTexts(String time, String length) {
         chosenTimeTextview.setText(time);
         chosenGameLengthTextview.setText(length);
