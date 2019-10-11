@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout for the MainActivity,
+     is displayed all over the application. Contains
+     the fragment container and the bottomNavigationView
+
+     @Authors Marcus Axelsson & Robin Repo Wecklauf
+
+     -->
 <font-family xmlns:android="http://schemas.android.com/apk/res/android">
     <font
         android:fontStyle="normal"

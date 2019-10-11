@@ -62,7 +62,7 @@ public class CreateAdFragment extends Fragment {
     }
 
     /**
-     *  Creates the view, assigns all xml components and adds listeners.
+     *  Creates the view.
      *
      * @param inflater
      * @param container
@@ -88,6 +88,11 @@ public class CreateAdFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Initializes the view and all xml components.
+     *
+     * @param view
+     */
     private void initializeViews(View view) {
         padelArenaSpinner = view.findViewById(R.id.padelarena_spinner);
 
@@ -111,7 +116,7 @@ public class CreateAdFragment extends Fragment {
     }
 
     /**
-     *
+     *  Assigns Listeners to all buttons.
      */
 
     private void setButtonListeners() {
