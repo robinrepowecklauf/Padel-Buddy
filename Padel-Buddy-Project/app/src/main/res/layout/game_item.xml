@@ -82,7 +82,7 @@
                     android:id="@+id/player1_name_textview"
                     style="@style/game_ad_textview"
                     android:layout_toEndOf="@+id/player1_imageview"
-                    android:text="Player1" />
+                    android:text="Väntar på spelare!" />
 
                 <RatingBar
                     android:id="@+id/player1_ratingbar"
@@ -104,7 +104,7 @@
                     android:id="@+id/player2_name_textview"
                     style="@style/game_ad_textview"
                     android:layout_toEndOf="@+id/player2_imageview"
-                    android:text="Player2" />
+                    android:text="Väntar på spelare!" />
 
                 <RatingBar
                     android:id="@+id/player2_ratingbar"
@@ -126,7 +126,7 @@
                     android:id="@+id/player3_name_textview"
                     style="@style/game_ad_textview"
                     android:layout_toEndOf="@+id/player3_imageview"
-                    android:text="Player3" />
+                    android:text="Väntar på spelare!" />
 
                 <RatingBar
                     android:id="@+id/player3_ratingbar"
@@ -148,7 +148,7 @@
                     android:id="@+id/player4_name_textview"
                     style="@style/game_ad_textview"
                     android:layout_toEndOf="@+id/player4_imageview"
-                    android:text="Player4" />
+                    android:text="Väntar på spelare!" />
 
                 <RatingBar
                     android:id="@+id/player4_ratingbar"

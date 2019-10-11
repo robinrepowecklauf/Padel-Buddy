@@ -19,6 +19,7 @@ import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
  */
 
 
-    // Has the tab controllers as instance variables so the information always gets saved
+    // Has the tab controllers as instance variables so the waitning_for_player_picture always gets saved
     private GameRecyclerViewFragment homeFragmentController;
     private CreateAdFragment createAdFragment;
     private GamesFragment gamesFragment;
@@ -107,8 +108,13 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         List<Player> testPlayers = PadelBuddy.testPlayers;
 
         for (int j = 0; j < testGames.size(); j++) {
-            for (int i = 0; i < 4; i++) {
-                testGames.get(j).addPlayer(testPlayers.get(rand.nextInt(4)));
+            for (int i = 0; i < 2; i++) {
+                List<Player> players = Arrays.asList(testGames.get(j).getPlayers());
+                int random = rand.nextInt(4);
+                while (players.contains(testPlayers.get(random))) {
+                    random = rand.nextInt(4);
+                }
+                testGames.get(j).addPlayer(testPlayers.get(random));
             }
         }
     }
