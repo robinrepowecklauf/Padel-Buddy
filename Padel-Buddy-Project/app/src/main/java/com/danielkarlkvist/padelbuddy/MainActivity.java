@@ -135,6 +135,6 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
     @Override
     public void applyTexts(String time, String length) {
-        createAdFragmentController.applyTexts(time, length);
+        createAdFragment.applyTexts(time, length);
     }
 }
