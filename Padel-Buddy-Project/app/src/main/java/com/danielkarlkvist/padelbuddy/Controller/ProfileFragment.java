@@ -58,11 +58,14 @@ public class ProfileFragment extends Fragment {
 
     private CircleImageView userCircularImageView;
 
-    private PadelBuddy padelBuddy;
     private Player user;
 
     private boolean isInEditingMode = false;
     private String blockCharacterSet = "!#€%&/()=?`^¡”¥¢‰{}≠¿1234567890+¨',_©®™℅[]<>@$*:;.~|•√π÷×¶∆°£ ";
+
+    public ProfileFragment(Player user) {
+        this.user = user;
+    }
 
     /**
      * Puts the current waiting_for_player_picture of a user into TextViews which is visible in the profile-view
@@ -74,8 +77,6 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
-        padelBuddy = PadelBuddy.getInstance();
-        user = padelBuddy.getPlayer();
         initializeViews(v);
         initializeListenerToButton();
 
