@@ -16,10 +16,9 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import com.danielkarlkvist.padelbuddy.R;
 
 /**
- * The ExampleDialog class defines
+ * The ExampleDialog class defines the dialog where the user choose time when creating a game ad.
  *
- * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
- * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @author Carl-Johan Björnson
  * @version 1.0
  * @since 2019-10-11
  */
@@ -31,6 +30,12 @@ public class ExampleDialog extends AppCompatDialogFragment {
     private RadioButton radioButton;
     private ExampleDialogListener listener;
     private View view;
+
+    /**
+     * Builds the Dialog and instantiate the components.
+     * @param savedInstanceState
+     * @return Dialog with the arguments supplied to this builder.
+     */
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -68,6 +73,12 @@ public class ExampleDialog extends AppCompatDialogFragment {
         return builder.create();
     }
 
+    /**
+     * Returns the checked RadioButton.
+     * @param view
+     * @return Checked RadioButton
+     */
+
     private RadioButton getCheckedRadioButton(View view) {
         int radioId = radioGroup.getCheckedRadioButtonId();
         radioButton = view.findViewById(radioId);
@@ -75,7 +86,8 @@ public class ExampleDialog extends AppCompatDialogFragment {
     }
 
     /**
-     * @param context
+     *  Creates the listener and assigns the MainActivity.
+     * @param context, In our case the MainActivity.
      */
 
     @Override
@@ -91,6 +103,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
     }
 
     /**
+     * Interface
      *
      */
 
