@@ -20,8 +20,8 @@ public class GamesFragment extends Fragment implements ScrollToTop {
     private ViewPager gamesViewPager;
 
     private GamesViewPagerAdapter gamesViewPagerAdapter;
-    private GameRecyclerViewFragment upcomingGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerView, PadelBuddy.getInstance().getUpcomingGames());
-    private GameRecyclerViewFragment historyGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerView, PadelBuddy.getInstance().getPlayedGames());
+    private GameRecyclerViewFragment upcomingGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, PadelBuddy.getInstance().getUpcomingGames());
+    private GameRecyclerViewFragment historyGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, PadelBuddy.getInstance().getPlayedGames());
 
 
     boolean hasOpenedController = false;
