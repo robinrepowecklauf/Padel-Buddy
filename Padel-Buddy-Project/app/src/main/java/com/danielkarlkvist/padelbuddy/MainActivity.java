@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
      */
 
 
-    // Has the tab controllers as instance variables so the waitning_for_player_picture always gets saved
+    // Has the tab controllers as instance variables so the waiting_for_player_picture always gets saved
     private GameRecyclerViewFragment homeFragmentController;
     private CreateAdFragment createAdFragment;
     private GamesFragment gamesFragment;
