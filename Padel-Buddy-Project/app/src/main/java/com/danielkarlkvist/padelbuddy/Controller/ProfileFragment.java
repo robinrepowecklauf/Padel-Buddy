@@ -79,6 +79,7 @@ public class ProfileFragment extends Fragment {
         initializeViews(v);
         initializeListenerToButton();
 
+        userCircularImageView.setImageDrawable(getResources().getDrawable(R.drawable.no_profile_picture));
         fullNameTextView.setText(user.getFullName());
         bioTextView.setText(user.getBio());
 
