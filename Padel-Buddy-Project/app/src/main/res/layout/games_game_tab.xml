@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/upcoming_games_recyclerView"
+        android:id="@+id/games_recyclerView"
         style="@style/game_recyclerview" />
 
 </RelativeLayout>

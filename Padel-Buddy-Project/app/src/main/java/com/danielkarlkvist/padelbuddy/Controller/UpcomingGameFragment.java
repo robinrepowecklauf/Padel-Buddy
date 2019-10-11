@@ -25,7 +25,7 @@ public class UpcomingGameFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.games_game_tab, container, false);
 
-        gamesRecyclerView = rootView.findViewById(R.id.upcoming_games_recyclerView);
+        gamesRecyclerView = rootView.findViewById(R.id.games_recyclerView);
         gamesRecyclerView.setHasFixedSize(true);
         gamesRecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
 
