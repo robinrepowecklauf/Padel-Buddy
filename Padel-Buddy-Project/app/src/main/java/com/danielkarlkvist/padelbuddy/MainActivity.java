@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
     private void initializeBottomNavigationViewControllers() {
         homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, PadelBuddy.getInstance().getGames());
-        createAdFragment = new CreateAdFragment();
+        createAdFragment = new CreateAdFragment(PadelBuddy.getInstance().getPlayer());
         gamesFragment = new GamesFragment(PadelBuddy.getInstance().getUpcomingGames(), PadelBuddy.getInstance().getPlayedGames());
         profileFragment = new ProfileFragment(PadelBuddy.getInstance().getPlayer());
     }

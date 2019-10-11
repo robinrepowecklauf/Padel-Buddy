@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
+import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.Calendar;
@@ -55,6 +56,11 @@ public class CreateAdFragment extends Fragment {
     private TextView chosenTimeTextview;
     private TextView chosenGameLengthTextview;
 
+    private Player user;
+
+    public CreateAdFragment(Player user) {
+        this.user = user;
+    }
 
     @Nullable
     @Override
@@ -84,9 +90,8 @@ public class CreateAdFragment extends Fragment {
 
         invitePlayers();
 
-        PadelBuddy pb = PadelBuddy.getInstance();
-        userFirstName.setText(pb.getPlayer().getFirstname());
-        userProfileRating.setRating(pb.getPlayer().getProfileRating());
+        userFirstName.setText(user.getFirstname());
+        userProfileRating.setRating(user.getProfileRating());
 
         return v;
     }
