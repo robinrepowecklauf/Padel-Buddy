@@ -41,6 +41,12 @@ public class GamesViewPagerAdapter extends FragmentPagerAdapter {
         return tabFragmentTitles.size();
     }
 
+    /**
+     * Add new tab-fragments. Used in GamesFragment to create tabs
+     * @param fragment current fragment
+     * @param title title of the new fragment
+     */
+
     public void addFragment(Fragment fragment, String title) {
         tabFragments.add(fragment);
         tabFragmentTitles.add(title);
