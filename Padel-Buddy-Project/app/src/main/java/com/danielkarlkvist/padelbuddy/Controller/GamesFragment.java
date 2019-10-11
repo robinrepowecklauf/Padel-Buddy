@@ -10,9 +10,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.danielkarlkvist.padelbuddy.Model.Game;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
 
 public class GamesFragment extends Fragment implements ScrollToTop {
 
@@ -20,10 +23,18 @@ public class GamesFragment extends Fragment implements ScrollToTop {
     private ViewPager gamesViewPager;
 
     private GamesViewPagerAdapter gamesViewPagerAdapter;
-    private GameRecyclerViewFragment upcomingGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, PadelBuddy.getInstance().getUpcomingGames());
-    private GameRecyclerViewFragment historyGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, PadelBuddy.getInstance().getPlayedGames());
+    private GameRecyclerViewFragment upcomingGameFragment;
+    private GameRecyclerViewFragment historyGameFragment;
 
     boolean hasOpenedController = false;
+
+    private ArrayList<Game> upcomingGames;
+    private ArrayList<Game> playedGames;
+
+    public GamesFragment(ArrayList<Game> upcomingGames, ArrayList<Game> playedGames) {
+        this.upcomingGames = upcomingGames;
+        this.playedGames = playedGames;
+    }
 
     @Nullable
     @Override
@@ -32,6 +43,9 @@ public class GamesFragment extends Fragment implements ScrollToTop {
 
         gamesTabLayout = rootView.findViewById(R.id.games_tablayout);
         gamesViewPager = rootView.findViewById(R.id.games_viewpager);
+
+        upcomingGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, upcomingGames);
+        historyGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, playedGames);
 
         // Create a GamesViewPagerAdapter and add fragments with titles to it
         gamesViewPagerAdapter = new GamesViewPagerAdapter(getChildFragmentManager());

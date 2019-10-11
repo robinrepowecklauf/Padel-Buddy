@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
     private void createRandomGames() {
         Random rand = new Random();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 4; i++) {
             PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
         }
 
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     private void initializeBottomNavigationViewControllers() {
         homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, PadelBuddy.getInstance().getGames());
         createAdFragment = new CreateAdFragment();
-        gamesFragment = new GamesFragment();
+        gamesFragment = new GamesFragment(PadelBuddy.getInstance().getUpcomingGames(), PadelBuddy.getInstance().getPlayedGames());
         profileFragment = new ProfileFragment();
     }
 
