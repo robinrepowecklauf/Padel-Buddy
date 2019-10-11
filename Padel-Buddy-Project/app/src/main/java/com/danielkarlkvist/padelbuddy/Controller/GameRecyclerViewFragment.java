@@ -56,4 +56,12 @@ public class GameRecyclerViewFragment extends Fragment implements ScrollToTop{
     public void scrollToTop() {
         gameRecyclerViewLayoutManager.smoothScrollToPosition(gameRecyclerView, null, 0);
     }
+
+    public RecyclerView getGameRecyclerView() {
+        return gameRecyclerView;
+    }
+
+    public RecyclerView.LayoutManager getGameRecyclerViewLayoutManager() {
+        return gameRecyclerViewLayoutManager;
+    }
 }

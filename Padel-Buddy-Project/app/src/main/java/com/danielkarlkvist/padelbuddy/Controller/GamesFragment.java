@@ -20,8 +20,9 @@ public class GamesFragment extends Fragment implements ScrollToTop {
     private ViewPager gamesViewPager;
 
     private GamesViewPagerAdapter gamesViewPagerAdapter;
-    private UpcomingGameFragment upcomingGameFragment = new UpcomingGameFragment();
-    private UpcomingGameFragment historyGameFragment = new UpcomingGameFragment();
+    private GameRecyclerViewFragment upcomingGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerView, PadelBuddy.getInstance().getUpcomingGames());
+    private GameRecyclerViewFragment historyGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerView, PadelBuddy.getInstance().getPlayedGames());
+
 
     boolean hasOpenedController = false;
 
@@ -33,9 +34,6 @@ public class GamesFragment extends Fragment implements ScrollToTop {
         gamesTabLayout = rootView.findViewById(R.id.games_tablayout);
         gamesViewPager = rootView.findViewById(R.id.games_viewpager);
 
-        upcomingGameFragment.setGames(PadelBuddy.getInstance().getUpcomingGames());
-        historyGameFragment.setGames(PadelBuddy.getInstance().getPlayedGames());
-        
         // Create a GamesViewPagerAdapter and add fragments with titles to it
         gamesViewPagerAdapter = new GamesViewPagerAdapter(getChildFragmentManager());
         gamesViewPagerAdapter.addFragment(upcomingGameFragment, "Kommande matcher");
@@ -50,14 +48,18 @@ public class GamesFragment extends Fragment implements ScrollToTop {
         return rootView;
     }
 
+
     @Override
     public void scrollToTop() {
-        UpcomingGameFragment temp;
+        GameRecyclerViewFragment temp;
         for (int i = 0; i < gamesViewPagerAdapter.tabFragments.size(); i++) {
             if ( i == gamesTabLayout.getSelectedTabPosition()) {
-                temp = (UpcomingGameFragment) gamesViewPagerAdapter.getItem(i);
-                temp.getGamesRecyclerViewLayoutManager().smoothScrollToPosition(temp.getGamesRecyclerView(), null, 0);
+                temp = (GameRecyclerViewFragment) gamesViewPagerAdapter.getItem(i);
+                temp.getGameRecyclerViewLayoutManager().smoothScrollToPosition(temp.getGameRecyclerView(), null, 0);
             }
+
         }
     }
+
+
 }
