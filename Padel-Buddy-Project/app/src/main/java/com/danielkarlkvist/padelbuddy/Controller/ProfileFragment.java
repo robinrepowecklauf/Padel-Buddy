@@ -65,7 +65,7 @@ public class ProfileFragment extends Fragment {
     private String blockCharacterSet = "!#€%&/()=?`^¡”¥¢‰{}≠¿1234567890+¨',_©®™℅[]<>@$*:;.~|•√π÷×¶∆°£ ";
 
     /**
-     * Puts the current waitning_for_player_picture of a user into TextViews which is visible in the profile-view
+     * Puts the current waiting_for_player_picture of a user into TextViews which is visible in the profile-view
      */
 
     @SuppressLint("SetTextI18n")
@@ -215,7 +215,7 @@ public class ProfileFragment extends Fragment {
     }
 
     /**
-     * Places the current waitning_for_player_picture of the user into EditText so it can be edited
+     * Places the current waiting_for_player_picture of the user into EditText so it can be edited
      */
 
     private void editUserInformation() {

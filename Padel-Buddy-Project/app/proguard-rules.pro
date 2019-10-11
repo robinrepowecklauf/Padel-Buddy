@@ -12,10 +12,10 @@
 #   public *;
 #}
 
-# Uncomment this to preserve the line number waitning_for_player_picture for
+# Uncomment this to preserve the line number waiting_for_player_picture for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
 
-# If you keep the line number waitning_for_player_picture, uncomment this to
+# If you keep the line number waiting_for_player_picture, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
