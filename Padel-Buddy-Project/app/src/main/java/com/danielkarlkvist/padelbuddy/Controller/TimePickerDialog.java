@@ -16,14 +16,14 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import com.danielkarlkvist.padelbuddy.R;
 
 /**
- * The ExampleDialog class defines the dialog where the user choose time when creating a game ad.
+ * The TimePickerDialog class defines the dialog where the user choose time when creating a game ad.
  *
  * @author Carl-Johan Björnson
  * @version 1.0
  * @since 2019-10-11
  */
 
-public class ExampleDialog extends AppCompatDialogFragment {
+public class TimePickerDialog extends AppCompatDialogFragment {
 
     private TimePicker timePicker1;
     private RadioGroup radioGroup;

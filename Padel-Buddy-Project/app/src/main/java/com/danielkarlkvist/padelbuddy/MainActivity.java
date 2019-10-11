@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragment;
-import com.danielkarlkvist.padelbuddy.Controller.ExampleDialog;
+import com.danielkarlkvist.padelbuddy.Controller.TimePickerDialog;
 import com.danielkarlkvist.padelbuddy.Controller.GamesFragment;
 import com.danielkarlkvist.padelbuddy.Controller.GameRecyclerViewFragment;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragment;
@@ -25,7 +25,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
+public class MainActivity extends AppCompatActivity implements TimePickerDialog.ExampleDialogListener {
 
 // TODO fix better javadoc for mainactivity
 

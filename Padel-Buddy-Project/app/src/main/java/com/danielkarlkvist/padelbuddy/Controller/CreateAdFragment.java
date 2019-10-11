@@ -177,8 +177,8 @@ public class CreateAdFragment extends Fragment {
      */
 
     public void openDialog() {
-        ExampleDialog exampleDialog = new ExampleDialog();
-        exampleDialog.show(getFragmentManager(), "example dialog");
+        TimePickerDialog timePickerDialog = new TimePickerDialog();
+        timePickerDialog.show(getFragmentManager(), "timePickerDialog");
     }
 
     /**
