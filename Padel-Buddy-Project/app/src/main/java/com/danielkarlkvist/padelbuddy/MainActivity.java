@@ -18,6 +18,7 @@ import com.danielkarlkvist.padelbuddy.Model.Game;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,14 +27,14 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
 // TODO fix better javadoc for mainactivity
 
-/**
- * The MainActivity class is the base of the project.
- *
- * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
- * Carl-Johan Björnson och Fredrik Lilliecreutz
- * @version 1.0
- * @since   2019-09-05
- */
+    /**
+     * The MainActivity class is the base of the project.
+     *
+     * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+     * Carl-Johan Björnson och Fredrik Lilliecreutz
+     * @version 1.0
+     * @since 2019-09-05
+     */
 
 
     // Has the tab controllers as instance variables so the information always gets saved
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
                     switch (menuItem.getItemId()) {
                         case R.id.nav_home:
-                            if(selectedFragmentController == homeFragmentController) {
+                            if (selectedFragmentController == homeFragmentController) {
                                 homeFragmentController.scrollToTop();
                                 break;
                             } else {
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                             selectedFragmentController = createAdFragmentController;
                             break;
                         case R.id.nav_games:
-                            if(selectedFragmentController == gamesFragmentController) {
+                            if (selectedFragmentController == gamesFragmentController) {
                                 gamesFragmentController.scrollToTop();
                                 break;
                             } else {
@@ -96,12 +97,12 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     }
 
     private void createRandomGames() {
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019,0,10,15, 30));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 2, 2,8,00));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, 1, 4,15,15));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2015, 7, 7,10,20));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 9, 3,9,30));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 12, 25,23,50));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, 0, 10, 15, 30));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 2, 2, 8, 00));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, 1, 4, 15, 15));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2015, 7, 7, 10, 20));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 9, 3, 9, 30));
+        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 12, 25, 23, 50));
         PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
 
         PadelBuddy padelBuddy = PadelBuddy.getInstance();
@@ -129,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     }
 
     @Override
-    public void applyTexts(String time) {
-        createAdFragmentController.applyTexts(time);
+    public void applyTexts(String time, String length) {
+        createAdFragmentController.applyTexts(time, length);
     }
 }

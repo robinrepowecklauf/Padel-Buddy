@@ -8,5 +8,29 @@
         android:layout_height="wrap_content"
         android:timePickerMode="spinner"
         />
+    <RadioGroup
+        android:id="@+id/length_radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/timePicker1"
+        >
+
+        <RadioButton
+            android:id="@+id/time60_radiobutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="60 min"
+            android:checked="true"
+            />
+
+        <RadioButton
+            android:id="@+id/time90_radiobutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="90 min"
+            />
+
+    </RadioGroup>
+
 
 </RelativeLayout>

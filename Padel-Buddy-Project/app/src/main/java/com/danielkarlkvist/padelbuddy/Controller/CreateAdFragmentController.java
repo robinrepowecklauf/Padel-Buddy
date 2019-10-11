@@ -52,6 +52,7 @@ public class CreateAdFragmentController extends Fragment {
     private Button dialogButton;
 
     private TextView chosenTimeTextview;
+    private TextView chosenGameLengthTextview;
 
 
     @Nullable
@@ -70,6 +71,7 @@ public class CreateAdFragmentController extends Fragment {
         dialogButton = v.findViewById(R.id.time_button);
 
         chosenTimeTextview = v.findViewById(R.id.chosen_start_time_textview);
+        chosenGameLengthTextview = v.findViewById(R.id.chosen_game_length_textview);
 
         padelArenaSpinner = v.findViewById(R.id.padelarena_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.padel_arenas, android.R.layout.simple_spinner_item);
@@ -161,8 +163,9 @@ public class CreateAdFragmentController extends Fragment {
 
 
 
-    public void applyTexts(String time) {
+    public void applyTexts(String time, String length) {
         chosenTimeTextview.setText(time);
+        chosenGameLengthTextview.setText(length);
     }
 }
 
