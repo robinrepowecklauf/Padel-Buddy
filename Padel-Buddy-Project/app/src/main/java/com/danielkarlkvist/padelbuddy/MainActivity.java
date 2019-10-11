@@ -27,8 +27,6 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements TimePickerDialog.ExampleDialogListener {
 
-// TODO fix better javadoc for mainactivity
-
     /**
      * The MainActivity class is the base of the project.
      *
@@ -37,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
      * @version 1.0
      * @since 2019-09-05
      */
-
 
     // Has the tab controllers as instance variables so the waiting_for_player_picture always gets saved
     private GameRecyclerViewFragment homeFragmentController;
@@ -67,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
                             selectedFragmentController = createAdFragment;
                             break;
                         case R.id.nav_games:
-                            if(selectedFragmentController == gamesFragment) {
+                            if (selectedFragmentController == gamesFragment) {
                                 gamesFragment.scrollToTop();
                                 break;
                             } else {
@@ -102,10 +99,13 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         initializeBottomNavigationView();
     }
 
+    /**
+     * Creates random games for showing purposes
+     */
     private void createRandomGames() {
         Random rand = new Random();
         for (int i = 0; i < 4; i++) {
-            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
+            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)));
         }
 
         ArrayList<Game> testGames = padelBuddy.getGames();
@@ -123,6 +123,9 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         }
     }
 
+    /**
+     * Instantiates the main Fragments in the app
+     */
     private void initializeBottomNavigationViewControllers() {
         homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames());
         createAdFragment = new CreateAdFragment(padelBuddy.getPlayer());
@@ -130,12 +133,21 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         profileFragment = new ProfileFragment(padelBuddy.getPlayer());
     }
 
+    /**
+     * Instantiates the BottomNavigationView
+     */
     private void initializeBottomNavigationView() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavigationViewListener);
         bottomNavigationView.setSelectedItemId(R.id.nav_home);  // Sets the current selected tab as Home when the app opens
     }
 
+    /**
+     * Put the text in CreateAdFragment
+     *
+     * @param time   current time
+     * @param length current length
+     */
     @Override
     public void applyTexts(String time, String length) {
         createAdFragment.applyTexts(time, length);
