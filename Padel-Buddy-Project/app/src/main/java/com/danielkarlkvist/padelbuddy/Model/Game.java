@@ -103,7 +103,4 @@ public class Game {
             }
         }
     }
-    boolean hasPlayer(){
-       return players[0]!=null;
     }
-}

@@ -27,7 +27,7 @@ public class PadelBuddyTest {
     public void createAd_PlayerExist_ReturnsTrue() {
         padelBuddy = PadelBuddy.getInstance();
         padelBuddy.createAd("Göteborg", new Date(2019, 11, 12));
-        assertTrue(padelBuddy.getGames().get(padelBuddy.getGames().size() - 1).hasPlayer());
+        assertTrue(padelBuddy.getGames().get(padelBuddy.getGames().size() - 1).getPlayers()!=null);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class PadelBuddyTest {
         padelBuddy.createAd("Göteborg", new Date(2019, 11, 12));
         int temp = padelBuddy.getGames().size();
         padelBuddy.removeAd(padelBuddy.getGames().get(temp-1));
-        assertTrue(padelBuddy.getGames().get(temp-2).hasPlayer());
+        assertTrue(padelBuddy.getGames().get(temp-2).getPlayers()!=null);
     }
 
 }
