@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                             break;
                         default:
                             Log.println(1, "tag", "Selected fragment that doesn't exist.");
-                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, PadelBuddy.getInstance().getGames());
+                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames());
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragmentController).commit();
 
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
-        padelBuddy = PadelBuddy.getInstance();
+        padelBuddy = new PadelBuddy();
 
         createRandomGames();
 
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     private void createRandomGames() {
         Random rand = new Random();
         for (int i = 0; i < 4; i++) {
-            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
+            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
         }
 
         ArrayList<Game> testGames = padelBuddy.getGames();
