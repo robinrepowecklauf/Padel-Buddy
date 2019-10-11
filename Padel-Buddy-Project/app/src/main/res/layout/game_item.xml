@@ -40,8 +40,7 @@
             android:layout_toEndOf="@+id/location_imageview"
             android:text="Location"
             android:textColor="@color/primaryTextColorOnLightBackground"
-            android:textSize="20sp">
-        </TextView>
+            android:textSize="20sp"></TextView>
 
         <TextView
             android:id="@+id/skilllevel_textview"
@@ -51,8 +50,7 @@
             android:layout_alignStart="@+id/location_textview"
             android:text="Skill level"
             android:textColor="@color/primaryTextColorOnLightBackground"
-            android:textSize="20sp">
-        </TextView>
+            android:textSize="20sp"></TextView>
 
         <TextView
             android:id="@+id/date_textview"
@@ -62,9 +60,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/margin_padding_size_small"
             android:text="Date"
-            android:textSize="15sp"
-            android:textColor="@color/primaryTextColorOnLightBackground">
-        </TextView>
+            android:textColor="@color/primaryTextColorOnLightBackground"
+            android:textSize="15sp"></TextView>
 
         <GridLayout
             android:id="@+id/players_gridlayout"
