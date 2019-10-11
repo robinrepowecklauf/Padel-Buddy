@@ -24,9 +24,9 @@ public class PadelBuddy {
 
             // creating test players for functionality purposes
             testPlayers.add(new Player("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "0704549972", "lorem ipsum", 15, 2));
-            testPlayers.add(new Player("Carl-Johan", "Björnson", "test@gmail.com", "123", "lorem ", 14, 4));
+            testPlayers.add(new Player("Carl-Johan", "Björnson", "test@gmail.com", "123", "lorem ", 14, 3));
             testPlayers.add(new Player("Marcus", "Creutz", "test@gmail.com", "123", "lorem ", 14, 4));
-            testPlayers.add(new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 4));
+            testPlayers.add(new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 5));
         }
         return instance;
     }

@@ -21,6 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
 
@@ -96,17 +97,15 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     }
 
     private void createRandomGames() {
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019,0,10,15, 30));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 2, 2,8,00));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, 1, 4,15,15));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2015, 7, 7,10,20));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 9, 3,9,30));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 12, 25,23,50));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
+        Random rand = new Random();
+        for (int i = 0; i < 10; i++) {
+            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
+        }
 
         PadelBuddy padelBuddy = PadelBuddy.getInstance();
         ArrayList<Game> testGames = padelBuddy.getGames();
         List<Player> testPlayers = PadelBuddy.testPlayers;
+        
         testGames.get(0).addPlayer(testPlayers.get(0));
         testGames.get(0).addPlayer(testPlayers.get(1));
         testGames.get(0).addPlayer(testPlayers.get(2));
