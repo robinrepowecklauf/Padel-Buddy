@@ -22,7 +22,7 @@ import java.util.ArrayList;
  *
  * @author Marcus Axelsson
  * @version 1.0
- * @since 2019-10-09
+ * @since 2019-10-05
  */
 
 public class UpcomingGameFragment extends Fragment {

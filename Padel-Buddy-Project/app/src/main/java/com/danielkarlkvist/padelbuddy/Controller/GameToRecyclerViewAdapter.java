@@ -17,8 +17,14 @@ import com.danielkarlkvist.padelbuddy.R;
 import java.util.ArrayList;
 
 /**
- * Adapter between a Game and a RecyclerView
+ * The GameToRecyclerViewAdapter class defines an adapter between a Game and a RecyclerView
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-10-05
  */
+
 public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameAdViewHolder> {
 
     private ArrayList<Game> games;
@@ -26,22 +32,21 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
     /**
      * The ViewHolder which should be updated to represent the contents of a Game.
      */
-    public static class GameAdViewHolder extends RecyclerView.ViewHolder {
-        public TextView locationTextView;
-        public TextView dateTextView;
 
-        public TextView skillLevelTextView;
+    static class GameAdViewHolder extends RecyclerView.ViewHolder {
+        TextView locationTextView;
+        TextView dateTextView;
+        TextView skillLevelTextView;
 
-        public ImageView player1ImageView;
-        public ImageView player2ImageView;
-        public ImageView player3ImageView;
-        public ImageView player4ImageView;
+        ImageView player1ImageView;
+        ImageView player2ImageView;
+        ImageView player3ImageView;
+        ImageView player4ImageView;
 
-        public TextView[] playerNameTextViews = new TextView[4];
+        TextView[] playerNameTextViews = new TextView[4];
+        RatingBar[] playerRatingBars = new RatingBar[4];
 
-        public RatingBar[] playerRatingBars = new RatingBar[4];
-
-        public GameAdViewHolder(@NonNull View itemView) {
+        GameAdViewHolder(@NonNull View itemView) {
             super(itemView);
 
             locationTextView = itemView.findViewById(R.id.location_textview);
@@ -64,13 +69,13 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             playerRatingBars[2] = itemView.findViewById(R.id.player3_ratingbar);
             playerRatingBars[3] = itemView.findViewById(R.id.player4_ratingbar);
 
-            for (RatingBar ratingBar : playerRatingBars){
+            for (RatingBar ratingBar : playerRatingBars) {
                 ratingBar.setStepSize(0.1f);
             }
         }
     }
 
-    public GameToRecyclerViewAdapter(ArrayList<Game> games) {
+    GameToRecyclerViewAdapter(ArrayList<Game> games) {
         this.games = games;
     }
 
