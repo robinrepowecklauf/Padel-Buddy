@@ -75,7 +75,8 @@
                     android:layout_height="96dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/margin_padding_size_medium"
-                    android:layout_marginTop="@dimen/margin_padding_size_medium" />
+                    android:layout_marginTop="@dimen/margin_padding_size_medium"
+                    android:src="@drawable/no_profile_picture"/>
 
                 <Button
                     android:id="@+id/pick_new_image_button"

@@ -101,7 +101,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
 
         // Set images of players
         holder.player1ImageView.setImageResource(R.drawable.profile_picture);
-        holder.player2ImageView.setImageResource(R.drawable.profile_picture);
+        holder.player2ImageView.setImageResource(R.drawable.no_profile_picture);
         holder.player3ImageView.setImageResource(R.drawable.profile_picture);
         holder.player4ImageView.setImageResource(R.drawable.waitning_for_player_picture);
 
