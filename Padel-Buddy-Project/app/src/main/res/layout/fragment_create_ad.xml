@@ -41,7 +41,6 @@
             android:layout_marginTop="@dimen/margin_padding_size_medium"
             android:layout_marginBottom="@dimen/margin_padding_size_medium">
 
-            <!-- TODO fix the alignment between textview and edittext-->
 
 
             <TextView
@@ -84,13 +83,16 @@
             <Button
                 android:background="@drawable/rounded_green_button"
                 android:id="@+id/date_button"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
                 android:text="välj datum"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/margin_padding_size_small"
                 android:layout_below="@+id/padelarena_spinner"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="4dp"
+                />
 
             <TextView
                 android:id="@+id/chosen_date_textview"
@@ -102,8 +104,6 @@
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:layout_marginStart="@dimen/margin_padding_size_small"
                 />
-
-
 
             <TextView
                 android:id="@+id/time_textview"
@@ -138,12 +138,17 @@
                 />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/time_button"
                 android:layout_below="@+id/date_button"
-                android:layout_toRightOf="@id/chosen_game_length_textview"
                 android:text="dialog"
+                android:background="@drawable/rounded_green_button"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/margin_padding_size_small"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="4dp"
                 />
 
             <TextView
@@ -177,7 +182,9 @@
                     />
 
                     <RelativeLayout
-                        style="@style/linearlayout_row">
+                        style="@style/linearlayout_row"
+                        >
+
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/player1_imageview"
@@ -196,11 +203,13 @@
 
                         <RatingBar
                             android:id="@+id/player1_ratingbar"
-                            android:layout_toEndOf="@+id/player1_name_textview"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginEnd="@dimen/margin_padding_size_xlarge"
                             android:layout_marginStart="@dimen/margin_padding_size_large"
                             android:layout_centerInParent="true"
                             style="@style/game_ad_ratingbar">
                         </RatingBar>
+
 
                     </RelativeLayout>
 
@@ -247,7 +256,8 @@
 
                             <RatingBar
                                 android:id="@+id/player2_ratingbar"
-                                android:layout_toEndOf="@+id/player2_name_textview"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginEnd="@dimen/margin_padding_size_xlarge"
                                 android:layout_marginStart="@dimen/margin_padding_size_large"
                                 android:layout_centerInParent="true"
                                 style="@style/game_ad_ratingbar">
@@ -256,7 +266,7 @@
                             <Button
                                 style="@style/remove_player_button"
                                 android:id="@+id/player2_remove_button"
-                                android:layout_toRightOf="@id/player2_ratingbar"
+                                android:layout_alignParentRight="true"
                                 />
 
                         </RelativeLayout>
@@ -302,7 +312,8 @@
 
                             <RatingBar
                                 android:id="@+id/player3_ratingbar"
-                                android:layout_toEndOf="@+id/player3_name_textview"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginEnd="@dimen/margin_padding_size_xlarge"
                                 android:layout_marginStart="@dimen/margin_padding_size_large"
                                 android:layout_centerInParent="true"
                                 style="@style/game_ad_ratingbar">
@@ -311,7 +322,7 @@
                             <Button
                                 style="@style/remove_player_button"
                                 android:id="@+id/player3_remove_button"
-                                android:layout_toRightOf="@id/player3_ratingbar"
+                                android:layout_alignParentRight="true"
                                 />
 
                         </RelativeLayout>

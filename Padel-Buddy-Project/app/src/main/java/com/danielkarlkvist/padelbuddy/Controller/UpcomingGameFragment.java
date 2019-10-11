@@ -16,6 +16,15 @@ import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.ArrayList;
 
+/**
+ * The UpcomingGameFragment class defines the fragment that inflates the
+ * upcoming games view for the user
+ *
+ * @author Marcus Axelsson
+ * @version 1.0
+ * @since 2019-10-05
+ */
+
 public class UpcomingGameFragment extends Fragment {
     private RecyclerView gamesRecyclerView;
     private RecyclerView.Adapter gamesRecyclerViewAdapter;
