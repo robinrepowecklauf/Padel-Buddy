@@ -18,6 +18,7 @@ import com.danielkarlkvist.padelbuddy.Model.Game;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -28,14 +29,14 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
 // TODO fix better javadoc for mainactivity
 
-/**
- * The MainActivity class is the base of the project.
- *
- * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
- * Carl-Johan Björnson och Fredrik Lilliecreutz
- * @version 1.0
- * @since   2019-09-05
- */
+    /**
+     * The MainActivity class is the base of the project.
+     *
+     * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+     * Carl-Johan Björnson och Fredrik Lilliecreutz
+     * @version 1.0
+     * @since 2019-09-05
+     */
 
 
     // Has the tab controllers as instance variables so the waitning_for_player_picture always gets saved
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
                     switch (menuItem.getItemId()) {
                         case R.id.nav_home:
-                            if(selectedFragmentController == homeFragmentController) {
+                            if (selectedFragmentController == homeFragmentController) {
                                 homeFragmentController.scrollToTop();
                                 break;
                             } else {
@@ -133,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
     }
 
     @Override
-    public void applyTexts(String time) {
-        createAdFragment.applyTexts(time);
+    public void applyTexts(String time, String length) {
+        createAdFragmentController.applyTexts(time, length);
     }
 }
