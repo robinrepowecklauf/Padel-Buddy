@@ -224,7 +224,7 @@
                     <Button
                         android:id="@+id/invitation1_button"
                         android:text="@string/invite"
-                        android:visibility="invisible"
+                        android:visibility="visible"
                         style="@style/invitation_button"
                         >
                     </Button>
@@ -234,7 +234,7 @@
                             android:id="@+id/invited_player2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:visibility="visible"
+                            android:visibility="invisible"
                             android:layout_centerInParent="true"
 
                             >
