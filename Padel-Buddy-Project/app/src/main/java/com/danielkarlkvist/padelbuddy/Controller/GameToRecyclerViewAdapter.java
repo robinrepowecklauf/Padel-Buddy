@@ -16,6 +16,8 @@ import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 /**
  * The GameToRecyclerViewAdapter class defines an adapter between a Game and a RecyclerView
  *
@@ -100,7 +102,12 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             Player player = currentGame.getPlayers()[i];
             if (player != null) {
                 holder.playerNameTextViews[i].setText(player.getFirstname());
-                holder.playerImagesViews[i].setImageResource(R.drawable.no_profile_picture);
+                CircleImageView playerImageView = player.getImage();
+                if(playerImageView != null) {
+                    holder.playerImagesViews[i].setImageDrawable(player.getImage().getDrawable());
+                } else {
+                    holder.playerImagesViews[i].setImageResource(R.drawable.no_profile_picture);
+                }
                 holder.playerRatingBars[i].setRating(player.getProfileRating());
             } else {
                 holder.playerNameTextViews[i].setText("Tillgänglig");
