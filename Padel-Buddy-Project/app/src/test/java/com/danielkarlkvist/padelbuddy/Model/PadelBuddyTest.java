@@ -39,5 +39,14 @@ public class PadelBuddyTest {
         assertTrue(padelBuddy.getGames().size()==temp);
 
     }
+    @Test
+    public void removeAd_RemoveOneAd_ReturnsTrue() {
+        padelBuddy=PadelBuddy.getInstance();
+        padelBuddy.createAd("Göteborg", new Date(2019, 11, 12));
+        padelBuddy.createAd("Göteborg", new Date(2019, 11, 12));
+        int temp = padelBuddy.getGames().size();
+        padelBuddy.removeAd(padelBuddy.getGames().get(temp-1));
+        assertTrue(padelBuddy.getGames().get(temp-2).hasPlayer());
+    }
 
 }
