@@ -19,6 +19,7 @@ import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -108,7 +109,12 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
         for (int j = 0; j < testGames.size(); j++) {
             for (int i = 0; i < 4; i++) {
-                testGames.get(j).addPlayer(testPlayers.get(rand.nextInt(4)));
+                List<Player> players = Arrays.asList(testGames.get(j).getPlayers());
+                int random = rand.nextInt(4);
+                while (players.contains(testPlayers.get(random))) {
+                    random = rand.nextInt(4);
+                }
+                testGames.get(j).addPlayer(testPlayers.get(random));
             }
         }
     }
