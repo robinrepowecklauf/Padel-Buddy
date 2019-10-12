@@ -21,5 +21,20 @@ public class GameTest {
             assertTrue(players[3]==null);
         }
 
+    @Test
+    public void GetAverageSkillevel_averageiscorrect_ReturnsTrue(){
+        Player player1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Medel);
+        Player player2 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Medel);
+        Player player3 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Medel);
+        Player player4 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Nybörjare);
+        Game game = new Game(player1, "Gltk", new Date(2019, 11, 05));
+        game.addPlayer(player2);
+        game.addPlayer(player3);
+        game.addPlayer(player4);
+
+        assertTrue(game.getAverageSkillLevel()=="Medel");
+
+    }
+
     }
 

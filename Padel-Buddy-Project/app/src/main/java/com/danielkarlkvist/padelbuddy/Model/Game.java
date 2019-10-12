@@ -45,12 +45,12 @@ public class Game {
     }
 
     private int getAverageSkillLevelNumber(int[] skillLevelNumbers, int amountOfPlayers) {
-        int sum = 0;
+        double sum = 0;
         for (Integer skillLevelNumber : skillLevelNumbers) {
             sum += skillLevelNumber;
         }
 
-        double average = sum / amountOfPlayers + 0.5;
+        double average = (sum / amountOfPlayers + 0.5);
 
         return (int) average;
     }
