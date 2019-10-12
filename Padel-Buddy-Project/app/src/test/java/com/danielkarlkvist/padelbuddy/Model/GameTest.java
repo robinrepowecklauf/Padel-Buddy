@@ -70,7 +70,18 @@ public class GameTest {
         assertTrue(game4.getAverageSkillLevel()=="Nybörjare");
 
     }
-    
+    public void isFinishedGame_gameisfinished_ReturnsTrue() {
+        Player player1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Medel);
+        Game game1 = new Game(player1, "Gltk", new Date(2019, 11, 05));
+        game1.setResult(3,2);
+
+        Player player2 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Medel);
+        Game game2 = new Game(player2, "Gltk", new Date(2019, 11, 05));
+
+        assertTrue(game1.isFinishedGame());
+        assertTrue(!game2.isFinishedGame());
+    }
+
 
     }
 
