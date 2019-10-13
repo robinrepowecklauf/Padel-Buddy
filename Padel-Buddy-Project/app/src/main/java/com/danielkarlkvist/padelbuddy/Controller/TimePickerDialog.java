@@ -25,7 +25,7 @@ import com.danielkarlkvist.padelbuddy.R;
 
 public class TimePickerDialog extends AppCompatDialogFragment{
 
-    private TimePicker timePicker1;
+    private TimePicker timePicker;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
     private ITimePickerDialogListener listener;
@@ -41,7 +41,7 @@ public class TimePickerDialog extends AppCompatDialogFragment{
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        view = inflater.inflate(R.layout.test_time_picker, null);
+        view = inflater.inflate(R.layout.time_picker_dialog, null);
 
         builder.setView(view)
                 .setTitle("Välj tid för matchens start och längd")
@@ -55,7 +55,7 @@ public class TimePickerDialog extends AppCompatDialogFragment{
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        String time = "" + timePicker1.getHour() + ":" + timePicker1.getMinute();
+                        String time = "" + timePicker.getHour() + ":" + timePicker.getMinute();
 
                         radioButton = getCheckedRadioButton(view);
 
@@ -67,8 +67,8 @@ public class TimePickerDialog extends AppCompatDialogFragment{
         radioGroup = view.findViewById(R.id.length_radiogroup);
         radioButton = getCheckedRadioButton(view);
 
-        timePicker1 = view.findViewById(R.id.timePicker1);
-        timePicker1.setIs24HourView(true);
+        timePicker = view.findViewById(R.id.timePicker1);
+        timePicker.setIs24HourView(true);
 
         return builder.create();
     }
