@@ -23,12 +23,12 @@ import com.danielkarlkvist.padelbuddy.R;
  * @since 2019-10-11
  */
 
-public class TimePickerDialog extends AppCompatDialogFragment {
+public class TimePickerDialog extends AppCompatDialogFragment{
 
     private TimePicker timePicker1;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
-    private ExampleDialogListener listener;
+    private ITimePickerDialogListener listener;
     private View view;
 
     /**
@@ -95,19 +95,10 @@ public class TimePickerDialog extends AppCompatDialogFragment {
         super.onAttach(context);
 
         try {
-            listener = (ExampleDialogListener) context;
+            listener = (ITimePickerDialogListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString() +
-                    "must implement ExampleDialogListener");
+                    "must implement ITimePickerDialogListener");
         }
-    }
-
-    /**
-     * The ExampleDialogListener Interface lets the ExampleDialog apply text to the Activity which implements it.
-     *
-     */
-
-    public interface ExampleDialogListener {
-        void applyTexts(String time, String length);
     }
 }

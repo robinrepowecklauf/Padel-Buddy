@@ -1,7 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Controller;
 
 /**
- * The ScrollToTop interface defines the method that allows
+ * The ITopScrollable interface defines the method that allows
  * the user to press on current tab to arrive at the top of the
  * tab
  *
@@ -10,7 +10,7 @@ package com.danielkarlkvist.padelbuddy.Controller;
  * @since 2019-10-09
  */
 
-interface ScrollToTop {
+interface ITopScrollable {
 
     void scrollToTop();
 }

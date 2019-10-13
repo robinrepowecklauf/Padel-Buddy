@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.danielkarlkvist.padelbuddy.Model.Game;
-import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.ArrayList;
 
@@ -26,7 +24,7 @@ import java.util.ArrayList;
  * @since 2019-10-11
  */
 
-public class GameRecyclerViewFragment extends Fragment implements ScrollToTop{
+public class GameRecyclerViewFragment extends Fragment implements ITopScrollable {
 
     private RecyclerView gameRecyclerView;
     private RecyclerView.Adapter gameRecyclerViewAdapter;

@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.danielkarlkvist.padelbuddy.Model.Game;
-import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 import com.google.android.material.tabs.TabLayout;
 
@@ -26,7 +25,7 @@ import java.util.ArrayList;
  * @since 2019-10-11
  */
 
-public class GamesFragment extends Fragment implements ScrollToTop {
+public class GamesFragment extends Fragment implements ITopScrollable {
 
     private TabLayout gamesTabLayout;
     private ViewPager gamesViewPager;
