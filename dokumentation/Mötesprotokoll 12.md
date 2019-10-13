@@ -9,11 +9,16 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Fredrik Li
 ## Reports (15 min) from previous meeting
 
 Alla: Refaktorerat, Skapat UML-diagram för nuvarande kodbas.
+
 Robin:
+
 Marcus:
+
 Fredrik:
+
 Daniel:
-Carl-Johan: 
+
+Carl-Johan: Utveckalt fliken för att skapa matchannons; Skapat två dialoger för att välja datum samt tid för match. Skapat en Spinner för att välja Padel anläggningar. Skrivit JavaDoc för olika kontroller samt deras metoder. Skrivit kommentarer i xml-filer. 
  
 ## Discussion items (35 min)
 - Frågor till Gerdes.
