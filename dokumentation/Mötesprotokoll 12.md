@@ -30,13 +30,21 @@ Carl-Johan: Utvecklat fliken för att skapa matchannons; Skapat två dialoger f�
 ## Discussion items (35 min)
 - Frågor till Gerdes.
 - Sprintplanering.
-- Tid för Peer Review.
 - Tider för veckan.
-- 
 
 ## Outcomes and assignments (5 min)
+Frågor till Gerdes:
+- Frågona finns sammanställda i separatdokument.
 
+Sprintplanering:
+- Peer Review Måndag förmiddag 14/10.
+- Fortsätta strukturera upp kodbasen, implementera designmönster samt följa designprinciper. 
+- I mån om tid: Skapa user stories för att implementera databas och flera användare. 
+
+Tider för veckan:
+- Handledningsmöte torsdag 15:15.
+- Arbetstider inlagt i kalender. 
 
 ## Wrap up
 
-- Nästa möte: 
+- Nästa möte: Onsdag 16/10 10:00-11:00.
