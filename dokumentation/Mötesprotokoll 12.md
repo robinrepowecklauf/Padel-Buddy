@@ -12,7 +12,7 @@ Alla: Refaktorerat. Skapat UML-diagram för nuvarande kodbas.
 
 Robin: Möjliggjort att skriva instrumental tests för Fragment. Skrivit samtliga JUNIT+Espresso (GUI) tester på ProfileFragment. Fyllt i samtliga User Stories och lagt till User Story "Filtrering" i RAD. Uppdaterat Introduktionen och skrivit programmets livscykel i SDD. Merge med master-branch. Uppdaterat JavaDoc för samtliga .java klasser. 
 
-Robin, Daniel: Rektorerat följande: Tog bort "Controller" från samtliga klasser i Controller-paketet. Slog samman history_item.xml och upcoming_games_item.xml till game_item.xml. Tog bort GamesAdapter. Lade till konstruktor till GameRecyclerViewFragment för att slippa beroende. Dessvärre inträffade en merge-konflikt som gjorde att samtliga ändringar togs bort.
+Robin, Daniel: Rektorerat följande: Tog bort "Controller" från samtliga klasser i Controller-paketet. Slog samman history_item.xml och upcoming_games_item.xml till game_item.xml. Tog bort GamesAdapter. Lade till konstruktor till GameRecyclerViewFragment för att slippa beroende. Dessvärre inträffade en merge-konflikt som gjorde att samtliga ändringar inte implementerades, utan Daniel, Marcus och Fredrik implementerade detta istället.
 
 Marcus:
 
