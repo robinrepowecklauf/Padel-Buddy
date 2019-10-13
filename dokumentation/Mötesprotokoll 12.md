@@ -14,18 +14,16 @@ Robin: Möjliggjort att skriva instrumental tests för Fragment. Skrivit samtlig
 
 Robin, Daniel: Rektorerat följande: Tog bort "Controller" från samtliga klasser i Controller-paketet. Slog samman history_item.xml och upcoming_games_item.xml till game_item.xml. Tog bort GamesAdapter. Lade till konstruktor till GameRecyclerViewFragment för att slippa beroende. Dessvärre inträffade en merge-konflikt som gjorde att samtliga ändringar inte implementerades, utan Daniel, Marcus och Fredrik implementerade detta istället.
 
-Marcus: Implementerade metoden scrollToTop i GamesFragment, där funktionalliteten fungerar oavsett vilken flik man är inne på. Ändrade även metoden createRandomGames i MainActivity där den nu kan skapa hur många games man vill. Fixade även så att spelare läggs in i dessa spel, på olika ställen. Lade till så att spelare utan profilbild har en standard bild och de platser i en annons som är lediga har ett frågetecken som profilbild.
+Marcus: Implementerade metoden scrollToTop i GamesFragment, där funktionaliteten fungerar oavsett vilken flik man är inne på. Ändrade även metoden createRandomGames i MainActivity där den nu kan skapa hur många games man vill. Fixade även så att spelare läggs in i dessa spel, på olika ställen. Lade till så att spelare utan profilbild har en standard bild och de platser i en annons som är lediga har ett frågetecken som profilbild.
 
-Marcus, Daniel: Skapade en metod för att räkan ut genomsnittlig skicklighetsnivå, som sedan används i produktkorten.
+Marcus, Daniel: Skapade en metod för att räkna ut genomsnittlig skicklighetsnivå, som sedan används i produktkorten.
 
-Marcus, Daniel, Fredik: Ändrade om PadelBuddy classen så att den inte är en singelton, och istället använder vi ett object av PadelBuddy i MainActivity. Ändrad om UpCommingGames till en gemensam klass som kan återanvändas (GameRecyclerViewFragment). Refactoriserade GameAdFragment och ProfileFragment, ändrade namn och snyggade upp koden. Lade även till funktionallitet för att ändra profilbild, som sedan även länkas ihop med produktkorten i flödet. 
+Marcus, Daniel, Fredik: Implementerade det som försvann för Robin och Daniel vid en merge i git. Ändrade om PadelBuddy klassen så att den inte är en singelton, och istället använder vi ett objekt av PadelBuddy i MainActivity. Ändrade om UpComingGames till en gemensam klass som kan återanvändas (GameRecyclerViewFragment). Refaktoriserade GameAdFragment och ProfileFragment, ändrade namn och snyggade upp koden. Lade även till funktionalitet för att ändra profilbild, som sedan även länkas ihop med produktkorten i flödet. 
 
 Fredrik: Utöver ovan: Skapat tester för addPlayer, GetAverageSkillevel, isFinishedGame i GameTest. Skapat tester för createAd, removeAd i PadelBuddyTest. Ändrat metoden för att räkna ut genomsnittlig skicklighetsnivå. 
 
 Daniel & Fredrik:
 Skapat metoderna upcoming games och history games i Padelbuddy. 
-
-Daniel:
 
 Carl-Johan: Utvecklat fliken för att skapa matchannons; Skapat två dialoger för att välja datum samt tid för match. Skapat en Spinner för att välja Padel anläggningar. Skrivit JavaDoc för olika kontroller samt deras metoder. Skrivit kommentarer i xml-filer. 
  
