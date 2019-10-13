@@ -20,7 +20,10 @@ Marcus, Daniel: Skapade en metod för att räkan ut genomsnittlig skicklighetsni
 
 Marcus, Daniel, Fredik: Ändrade om PadelBuddy classen så att den inte är en singelton, och istället använder vi ett object av PadelBuddy i MainActivity. Ändrad om UpCommingGames till en gemensam klass som kan återanvändas (GameRecyclerViewFragment). Refactoriserade GameAdFragment och ProfileFragment, ändrade namn och snyggade upp koden. Lade även till funktionallitet för att ändra profilbild, som sedan även länkas ihop med produktkorten i flödet. 
 
-Fredrik:
+Fredrik: Utöver ovan: Skapat tester för addPlayer, GetAverageSkillevel, isFinishedGame i GameTest. Skapat tester för createAd, removeAd i PadelBuddyTest. Ändrat metoden för att räkna ut genomsnittlig skicklighetsnivå. 
+
+Daniel & Fredrik:
+Skapat metoderna upcoming games och history games i Padelbuddy. 
 
 Daniel:
 
