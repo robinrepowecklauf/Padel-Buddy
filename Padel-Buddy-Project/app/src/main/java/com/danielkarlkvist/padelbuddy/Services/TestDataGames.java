@@ -1,10 +1,10 @@
 package com.danielkarlkvist.padelbuddy.Services;
 
-class TestGames implements ITest{
+class TestDataGames implements ITestData {
 
 
     @Override
     public void create() {
-        
+
     }
 }
