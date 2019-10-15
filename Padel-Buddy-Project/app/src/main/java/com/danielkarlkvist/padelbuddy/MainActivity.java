@@ -15,8 +15,8 @@ import com.danielkarlkvist.padelbuddy.Controller.GameRecyclerViewFragment;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragment;
 import com.danielkarlkvist.padelbuddy.Controller.ITimePickerDialogListener;
 import com.danielkarlkvist.padelbuddy.Model.Game;
+import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -109,11 +109,11 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
         }
 
         ArrayList<Game> testGames = padelBuddy.getGames();
-        List<Player> testPlayers = PadelBuddy.testPlayers;
+        List<IPlayer> testPlayers = PadelBuddy.testPlayers;
 
         for (int j = 0; j < testGames.size(); j++) {
             for (int i = 0; i < 2; i++) {
-                List<Player> players = Arrays.asList(testGames.get(j).getPlayers());
+                List<IPlayer> players = Arrays.asList(testGames.get(j).getPlayers());
                 int random = rand.nextInt(4);
                 while (players.contains(testPlayers.get(random))) {
                     random = rand.nextInt(4);

@@ -20,8 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Model.Player;
+import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -58,12 +57,12 @@ public class ProfileFragment extends Fragment {
 
     private CircleImageView userCircularImageView;
 
-    private Player user;
+    private IPlayer user;
 
     private boolean isInEditingMode = false;
     private String blockCharacterSet = "!#€%&/()=?`^¡”¥¢‰{}≠¿1234567890+¨',_©®™℅[]<>@$*:;.~|•√π÷×¶∆°£ ";
 
-    public ProfileFragment(Player user) {
+    public ProfileFragment(IPlayer user) {
         this.user = user;
     }
 

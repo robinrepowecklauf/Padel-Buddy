@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 public class Game {
-    private Player[] players = new Player[4];
+    private IPlayer[] players = new Player[4];
     private String location;
     private Date date;
     private Tuple<Integer, Integer> result;
@@ -105,7 +105,7 @@ public class Game {
      *
      * @return Players in the game
      */
-    public Player[] getPlayers() {
+    public IPlayer[] getPlayers() {
         return players;
     }
 
@@ -148,7 +148,7 @@ public class Game {
         this.date = date;
     }
 
-    public void addPlayer(Player player) {
+    public void addPlayer(IPlayer player) {
         for (int i = 0; i < players.length; i++) {
             if (players[i] == null) {
                 players[i] = player;

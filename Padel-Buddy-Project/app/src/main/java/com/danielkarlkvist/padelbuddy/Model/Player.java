@@ -12,7 +12,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * @since 2019-09-05
  */
 
-public class Player {
+class Player implements IPlayer {
 
     private String firstname;
     private String lastname;
@@ -79,6 +79,7 @@ public class Player {
         return skillLevel;
     }
 
+    @Override
     public CircleImageView getImage() {
         return image;
     }

@@ -8,7 +8,7 @@ public class PadelBuddy {
 
     private ArrayList<Game> games = new ArrayList<>();
     private Player player;
-    public static List<Player> testPlayers = new ArrayList<>();
+    public static List<IPlayer> testPlayers = new ArrayList<>();
 
     public PadelBuddy() {
         this.player = player;

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.danielkarlkvist.padelbuddy.Model.Game;
-import com.danielkarlkvist.padelbuddy.Model.Player;
+import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.ArrayList;
@@ -99,7 +99,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
 
         // Set name and rating for all (4) players
         for (int i = 0; i < currentGame.getPlayers().length; i++) {
-            Player player = currentGame.getPlayers()[i];
+            IPlayer player = currentGame.getPlayers()[i];
             if (player != null) {
                 holder.playerNameTextViews[i].setText(player.getFirstname());
                 CircleImageView playerImageView = player.getImage();

@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.danielkarlkvist.padelbuddy.Model.Player;
+import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.Calendar;
@@ -55,9 +55,9 @@ public class CreateAdFragment extends Fragment {
     private TextView chosenTimeTextview;
     private TextView chosenGameLengthTextview;
 
-    private Player user;
+    private IPlayer user;
 
-    public CreateAdFragment(Player user) {
+    public CreateAdFragment(IPlayer user) {
         this.user = user;
     }
 
