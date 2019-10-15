@@ -12,7 +12,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * @since 2019-09-05
  */
 
-class Player implements IPlayer {
+// TODO Package-private
+
+public class Player implements IPlayer {
 
     private String firstname;
     private String lastname;
@@ -22,9 +24,9 @@ class Player implements IPlayer {
     private int age;
     private SkillLevel skillLevel;
     private float profileRating;
-    private CircleImageView image;
+    private CircleImageView image; //inte i model- ska finnas i vy map<user, circleimageview>
 
-    Player(String firstname, String lastname, String mail, String phone, String bio, int age, SkillLevel skillLevel) {
+    public Player(String firstname, String lastname, String mail, String phone, String bio, int age, SkillLevel skillLevel) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;

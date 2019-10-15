@@ -1,6 +1,8 @@
 package com.danielkarlkvist.padelbuddy.Services;
 
-public interface ITest {
+import java.util.List;
 
-    void create();
+public interface ITestData {
+
+    List create();
 }
