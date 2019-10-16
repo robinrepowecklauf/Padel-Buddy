@@ -21,7 +21,15 @@ Robin: Fixade så GUI-testerna funkar nu när PadelBuddy inte är en Singleton l
 
 ## Outcomes and assignments (5 min)
 Vad som ska implementeras utifrån råd från Gerdes.
-* a
+- Få bort hårdkodade värden från modellen. Implementera Service. 
+- Iterator pattern, Skicka iväg en iterator till vyn istället för en ArrayList för att hindra vyn att ändra på modellen. 
+- Skapa en abstrakt klass Game och en klass padelgame som extendar Game för att göra applikationen mer utbyggbart. 
+- Få bort CirecleImageview från player. HashMap? 
+- Se över användingnen av eunm i skicklighetsnivå. 
+- Städa upp klassen Padelbuddy.
+- Observerpattern. 
+
+
 User Stories för implementering av ny struktur i kodbasen
 * b
 Börja kolla på betygskriterier och vad som ska vara klart tills nästa vecka.
