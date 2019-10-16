@@ -14,7 +14,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 // TODO Package-private
 
-class Player implements IPlayer {
+public class Player implements IPlayer {
 
     private String firstname;
     private String lastname;
