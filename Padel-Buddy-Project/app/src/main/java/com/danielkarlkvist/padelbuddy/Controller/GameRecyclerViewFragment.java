@@ -12,15 +12,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.danielkarlkvist.padelbuddy.Model.Game;
-import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Controller for the home tab
+ * The GameRecyclerViewFragment class defines a RecyclerView for games
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-10-11
  */
-public class GameRecyclerViewFragment extends Fragment implements ScrollToTop{
+
+public class GameRecyclerViewFragment extends Fragment implements ITopScrollable {
 
     private RecyclerView gameRecyclerView;
     private RecyclerView.Adapter gameRecyclerViewAdapter;
@@ -28,9 +32,9 @@ public class GameRecyclerViewFragment extends Fragment implements ScrollToTop{
 
     private int fragmentId;
     private int recyclerViewId;
-    private ArrayList<Game> games;
+    private List<Game> games;
 
-    public GameRecyclerViewFragment(int fragmentId, int recyclerViewId, ArrayList<Game> games) {
+    public GameRecyclerViewFragment(int fragmentId, int recyclerViewId, List<Game> games) {
         this.fragmentId = fragmentId;
         this.recyclerViewId = recyclerViewId;
         this.games = games;
@@ -52,8 +56,21 @@ public class GameRecyclerViewFragment extends Fragment implements ScrollToTop{
         return rootView;
     }
 
+    /**
+     * Makes the user able to scroll to the top of the page if they click
+     * on the BottomNavigationView icon that they are already inside of
+     */
+
     @Override
     public void scrollToTop() {
         gameRecyclerViewLayoutManager.smoothScrollToPosition(gameRecyclerView, null, 0);
+    }
+
+    public RecyclerView getGameRecyclerView() {
+        return gameRecyclerView;
+    }
+
+    public RecyclerView.LayoutManager getGameRecyclerViewLayoutManager() {
+        return gameRecyclerViewLayoutManager;
     }
 }

@@ -59,9 +59,9 @@ public class ProfileFragmentTest {
 
     @Before
     public void setUp() throws Exception {
-        profile = new ProfileFragment();
-        padelBuddy = PadelBuddy.getInstance();
+        padelBuddy = new PadelBuddy();
         user = padelBuddy.getPlayer();
+        profile = new ProfileFragment(user);
         activityRule.getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, profile, "Profile").commit();
     }
 

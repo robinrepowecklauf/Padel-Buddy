@@ -10,24 +10,21 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragment;
-import com.danielkarlkvist.padelbuddy.Controller.ExampleDialog;
 import com.danielkarlkvist.padelbuddy.Controller.GamesFragment;
 import com.danielkarlkvist.padelbuddy.Controller.GameRecyclerViewFragment;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragment;
+import com.danielkarlkvist.padelbuddy.Controller.ITimePickerDialogListener;
 import com.danielkarlkvist.padelbuddy.Model.Game;
+import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
-
-// TODO fix better javadoc for mainactivity
+public class MainActivity extends AppCompatActivity implements ITimePickerDialogListener {
 
     /**
      * The MainActivity class is the base of the project.
@@ -38,13 +35,14 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
      * @since 2019-09-05
      */
 
-
-    // Has the tab controllers as instance variables so the waitning_for_player_picture always gets saved
+    // Has the tab controllers as instance variables so the waiting_for_player_picture always gets saved
     private GameRecyclerViewFragment homeFragmentController;
     private CreateAdFragment createAdFragment;
     private GamesFragment gamesFragment;
     private ProfileFragment profileFragment;
     private Fragment selectedFragmentController = null;
+
+    private PadelBuddy padelBuddy;
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
             // region bottomNavigationViewListener
@@ -65,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                             selectedFragmentController = createAdFragment;
                             break;
                         case R.id.nav_games:
-                            if(selectedFragmentController == gamesFragment) {
+                            if (selectedFragmentController == gamesFragment) {
                                 gamesFragment.scrollToTop();
                                 break;
                             } else {
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
                             break;
                         default:
                             Log.println(1, "tag", "Selected fragment that doesn't exist.");
-                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, PadelBuddy.getInstance().getGames());
+                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames());
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragmentController).commit();
 
@@ -92,25 +90,29 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
+        padelBuddy = new PadelBuddy();
+
         createRandomGames();
 
         initializeBottomNavigationViewControllers();
         initializeBottomNavigationView();
     }
 
+    /**
+     * Creates random games for showing purposes
+     */
     private void createRandomGames() {
         Random rand = new Random();
-        for (int i = 0; i < 10; i++) {
-            PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
+        for (int i = 0; i < 15; i++) {
+            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
         }
 
-        PadelBuddy padelBuddy = PadelBuddy.getInstance();
-        ArrayList<Game> testGames = padelBuddy.getGames();
-        List<Player> testPlayers = PadelBuddy.testPlayers;
+        List<Game> testGames = padelBuddy.getGames();
+        List<IPlayer> testPlayers = padelBuddy.testPlayers;
 
         for (int j = 0; j < testGames.size(); j++) {
             for (int i = 0; i < 2; i++) {
-                List<Player> players = Arrays.asList(testGames.get(j).getPlayers());
+                List<IPlayer> players = Arrays.asList(testGames.get(j).getPlayers());
                 int random = rand.nextInt(4);
                 while (players.contains(testPlayers.get(random))) {
                     random = rand.nextInt(4);
@@ -120,19 +122,31 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
         }
     }
 
+    /**
+     * Instantiates the main Fragments in the app
+     */
     private void initializeBottomNavigationViewControllers() {
-        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, PadelBuddy.getInstance().getGames());
-        createAdFragment = new CreateAdFragment();
-        gamesFragment = new GamesFragment();
-        profileFragment = new ProfileFragment();
+        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames());
+        createAdFragment = new CreateAdFragment(padelBuddy.getPlayer());
+        gamesFragment = new GamesFragment(padelBuddy.getUpcomingGames(), padelBuddy.getPlayedGames());
+        profileFragment = new ProfileFragment(padelBuddy.getPlayer());
     }
 
+    /**
+     * Instantiates the BottomNavigationView
+     */
     private void initializeBottomNavigationView() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavigationViewListener);
         bottomNavigationView.setSelectedItemId(R.id.nav_home);  // Sets the current selected tab as Home when the app opens
     }
 
+    /**
+     * Put the text in CreateAdFragment
+     *
+     * @param time   current time
+     * @param length current length
+     */
     @Override
     public void applyTexts(String time, String length) {
         createAdFragment.applyTexts(time, length);

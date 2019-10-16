@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout for the ProfileFragment,
+     Is displayed when the user is within
+     the profile tab.
+
+     @Authors Robin Repo Wecklauf, Marcus Axelsson.
+
+     -->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/profile_fragment"
@@ -67,7 +76,7 @@
                     android:layout_marginLeft="@dimen/margin_padding_size_medium"
                     android:layout_toEndOf="@id/profile_image"
                     android:text="Robin Repo Wecklauf"
-                    android:textSize="@dimen/text_size_large"/>
+                    android:textSize="@dimen/text_size_large" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_image"
@@ -114,14 +123,14 @@
                     android:layout_alignLeft="@+id/profile_firstname_hint"
                     android:layout_marginTop="@dimen/margin_padding_size_small"
                     android:background="@drawable/edittext_background"
+                    android:maxLength="20"
+                    android:maxLines="1"
                     android:paddingStart="5dp"
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
                     android:textColor="@color/primaryTextColorOnLightBackground"
                     android:textSize="@dimen/text_size_medium"
-                    android:visibility="invisible"
-                    android:maxLines="1"
-                    android:maxLength="20" />
+                    android:visibility="invisible" />
 
                 <TextView
                     android:id="@+id/profile_lastname_hint"
@@ -145,15 +154,15 @@
                     android:layout_alignLeft="@+id/profile_firstname_hint"
                     android:layout_marginTop="@dimen/margin_padding_size_small"
                     android:background="@drawable/edittext_background"
+                    android:maxLength="20"
+                    android:maxLines="1"
                     android:paddingStart="5dp"
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
+                    android:singleLine="true"
                     android:textColor="@color/primaryTextColorOnLightBackground"
                     android:textSize="@dimen/text_size_medium"
-                    android:visibility="invisible"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:maxLength="20"/>
+                    android:visibility="invisible" />
 
             </RelativeLayout>
 

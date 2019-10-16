@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout for the TimePickerDialog in CreateAdFragment.
+
+     @Author Carl-Johan Björnson.
+     -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/game_start_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Starttid:"
         android:layout_marginLeft="@dimen/margin_padding_size_medium"
         android:layout_marginTop="@dimen/margin_padding_size_medium"
-        />
+        android:text="Starttid:" />
 
     <TimePicker
         android:id="@+id/timePicker1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:timePickerMode="spinner"
         android:layout_below="@+id/game_start_textview"
-        />
+        android:timePickerMode="spinner" />
 
     <TextView
         android:id="@+id/gametime_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Speltid:"
-        android:layout_toRightOf="@id/timePicker1"
         android:layout_marginLeft="@dimen/margin_padding_size_medium"
         android:layout_marginTop="@dimen/margin_padding_size_medium"
-        />
+        android:layout_toRightOf="@id/timePicker1"
+        android:text="Speltid:" />
 
     <RadioGroup
         android:id="@+id/length_radiogroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/timePicker1"
-        android:layout_marginTop="@dimen/margin_padding_size_medium"
         android:layout_below="@+id/game_start_textview"
-        >
+        android:layout_marginTop="@dimen/margin_padding_size_medium"
+        android:layout_toRightOf="@id/timePicker1">
 
         <RadioButton
             android:id="@+id/time60_radiobutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="60 min"
             android:checked="true"
-            />
+            android:text="60 min" />
 
         <RadioButton
             android:id="@+id/time90_radiobutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="90 min"
-            />
+            android:text="90 min" />
 
     </RadioGroup>
 

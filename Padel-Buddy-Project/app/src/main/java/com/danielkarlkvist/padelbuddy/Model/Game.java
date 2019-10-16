@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * The ProfileFragment class represents all waitning_for_player_picture about a game
+ * The ProfileFragment class represents all waiting_for_player_picture about a game
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
@@ -12,8 +12,8 @@ import java.util.Date;
  * @since 2019-09-05
  */
 
-public class Game {
-    private Player[] players = new Player[4];
+public class Game implements IGame{
+    private IPlayer[] players = new Player[4];
     private String location;
     private Date date;
     private Tuple<Integer, Integer> result;
@@ -26,8 +26,59 @@ public class Game {
     }
 
     // TODO decide return type
-    private void getAvgSkillLevel() {
+    public String getAverageSkillLevel() {
+        int[] skillLevelsAsNumber = new int[4];
+        int amountOfPlayers = 0;
+        for (int i = 0; i < skillLevelsAsNumber.length; i++) {
+            if (players[i] != null) {
+                int skillLevelAsNumber = getIntFromSkillLevel(players[i].getSkillLevel());
+                skillLevelsAsNumber[i] = skillLevelAsNumber;
+                amountOfPlayers++;
+            }
+        }
 
+        int averageSkillLevelNumber = getAverageSkillLevelNumber(skillLevelsAsNumber, amountOfPlayers);
+
+        return getSkillLevelFromInt(averageSkillLevelNumber).toString();
+    }
+
+    private int getAverageSkillLevelNumber(int[] skillLevelNumbers, int amountOfPlayers) {
+        double sum = 0;
+        for (Integer skillLevelNumber : skillLevelNumbers) {
+            sum += skillLevelNumber;
+        }
+
+        double average = (sum / amountOfPlayers + 0.5);
+
+        return (int) average;
+    }
+
+    private int getIntFromSkillLevel(SkillLevel skillLevel) {
+        switch (skillLevel) {
+            case Nybörjare:
+                return 1;
+            case Medel:
+                return 2;
+            case Avancerad:
+                return 3;
+
+                default:
+                    return 2;
+        }
+    }
+
+    private SkillLevel getSkillLevelFromInt(int skillLevelNumber) {
+        switch (skillLevelNumber) {
+            case 1:
+                return SkillLevel.Nybörjare;
+            case 2:
+                return SkillLevel.Medel;
+            case 3:
+                return SkillLevel.Avancerad;
+
+                default:
+                    return SkillLevel.Medel;
+        }
     }
 
     /**
@@ -52,7 +103,7 @@ public class Game {
      *
      * @return Players in the game
      */
-    public Player[] getPlayers() {
+    public IPlayer[] getPlayers() {
         return players;
     }
 
@@ -95,7 +146,7 @@ public class Game {
         this.date = date;
     }
 
-    public void addPlayer(Player player) {
+    public void addPlayer(IPlayer player) {
         for (int i = 0; i < players.length; i++) {
             if (players[i] == null) {
                 players[i] = player;
@@ -103,7 +154,4 @@ public class Game {
             }
         }
     }
-    boolean hasPlayer(){
-       return players[0]!=null;
     }
-}
