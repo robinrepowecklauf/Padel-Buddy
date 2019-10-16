@@ -20,14 +20,14 @@ Robin: Fixade så GUI-testerna funkar nu när PadelBuddy inte är en Singleton l
 - Sätta en deadline för projektet.
 
 ## Outcomes and assignments (5 min)
-- Vad som ska implementeras utifrån råd från Gerdes.
-  a
-- User Stories för implementering av ny struktur i kodbasen.
-  b
-- Börja kolla på betygskriterier och vad som ska vara klart tills nästa vecka.
-  c
-- Sätta en deadline för projektet.
-  d
+Vad som ska implementeras utifrån råd från Gerdes.
+* a
+User Stories för implementering av ny struktur i kodbasen
+* b
+Börja kolla på betygskriterier och vad som ska vara klart tills nästa vecka.
+* c
+Sätta en deadline för projektet.
+* d
 
 ## Wrap up
 - Nästa möte: Fredag 18/10 10:00-11:00.
