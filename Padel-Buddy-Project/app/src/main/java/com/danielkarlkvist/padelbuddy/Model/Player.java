@@ -1,5 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
+import java.io.Serializable;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
