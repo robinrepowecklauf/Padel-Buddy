@@ -2,11 +2,8 @@ package com.danielkarlkvist.padelbuddy.Model;
 
 import org.junit.Test;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Date;
 
-import javax.crypto.BadPaddingException;
 
 import static org.junit.Assert.*;
 

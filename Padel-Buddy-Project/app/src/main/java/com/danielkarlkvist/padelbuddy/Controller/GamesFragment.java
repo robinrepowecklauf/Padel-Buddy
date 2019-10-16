@@ -14,7 +14,7 @@ import com.danielkarlkvist.padelbuddy.Model.Game;
 import com.danielkarlkvist.padelbuddy.R;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The GameRecyclerViewFragment class defines a RecyclerView for games
@@ -36,10 +36,10 @@ public class GamesFragment extends Fragment implements ITopScrollable {
 
     boolean hasOpenedController = false;
 
-    private ArrayList<Game> upcomingGames;
-    private ArrayList<Game> playedGames;
+    private List<Game> upcomingGames;
+    private List<Game> playedGames;
 
-    public GamesFragment(ArrayList<Game> upcomingGames, ArrayList<Game> playedGames) {
+    public GamesFragment(List<Game> upcomingGames, List<Game> playedGames) {
         this.upcomingGames = upcomingGames;
         this.playedGames = playedGames;
     }

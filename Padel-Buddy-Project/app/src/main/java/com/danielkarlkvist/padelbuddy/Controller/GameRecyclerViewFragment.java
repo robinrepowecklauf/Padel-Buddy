@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.danielkarlkvist.padelbuddy.Model.Game;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The GameRecyclerViewFragment class defines a RecyclerView for games
@@ -32,9 +32,9 @@ public class GameRecyclerViewFragment extends Fragment implements ITopScrollable
 
     private int fragmentId;
     private int recyclerViewId;
-    private ArrayList<Game> games;
+    private List<Game> games;
 
-    public GameRecyclerViewFragment(int fragmentId, int recyclerViewId, ArrayList<Game> games) {
+    public GameRecyclerViewFragment(int fragmentId, int recyclerViewId, List<Game> games) {
         this.fragmentId = fragmentId;
         this.recyclerViewId = recyclerViewId;
         this.games = games;

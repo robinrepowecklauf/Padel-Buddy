@@ -1,9 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * The ProfileFragment class represents all waiting_for_player_picture about a game

@@ -14,7 +14,7 @@ import com.danielkarlkvist.padelbuddy.Model.Game;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -29,7 +29,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameAdViewHolder> {
 
-    private ArrayList<Game> games;
+    private List<Game> games;
 
     /**
      * The ViewHolder which should be updated to represent the contents of a Game.
@@ -73,7 +73,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         }
     }
 
-    GameToRecyclerViewAdapter(ArrayList<Game> games) {
+    GameToRecyclerViewAdapter(List<Game> games) {
         this.games = games;
     }
 

@@ -19,7 +19,6 @@ import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -108,8 +107,8 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
             padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
         }
 
-        ArrayList<Game> testGames = padelBuddy.getGames();
-        List<IPlayer> testPlayers = PadelBuddy.testPlayers;
+        List<Game> testGames = padelBuddy.getGames();
+        List<IPlayer> testPlayers = padelBuddy.testPlayers;
 
         for (int j = 0; j < testGames.size(); j++) {
             for (int i = 0; i < 2; i++) {
