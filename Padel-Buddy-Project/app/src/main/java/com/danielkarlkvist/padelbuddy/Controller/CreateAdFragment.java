@@ -22,6 +22,7 @@ import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * The CreateAdFragment class defines the Fragment where a user can create a game ad.
@@ -57,6 +58,8 @@ public class CreateAdFragment extends Fragment {
     private TextView chosenGameLengthTextview;
 
     private ICreate iCreate;
+
+    private Button createAdButton;
 
     public CreateAdFragment(ICreate iCreate) {
         this.iCreate = iCreate;
@@ -114,6 +117,8 @@ public class CreateAdFragment extends Fragment {
 
         player2RemoveButton = view.findViewById(R.id.player2_remove_button);
         player3RemoveButton = view.findViewById(R.id.player3_remove_button);
+
+        createAdButton = view.findViewById(R.id.create_ad_button);
     }
 
     /**
@@ -163,6 +168,12 @@ public class CreateAdFragment extends Fragment {
 
         dateButton.setOnClickListener(dateButtonOnClickListener);
 
+        createAdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAd();
+            }
+        });
     }
 
     private Button.OnClickListener dateButtonOnClickListener = new View.OnClickListener() {
@@ -204,6 +215,10 @@ public class CreateAdFragment extends Fragment {
     public void applyTexts(String time, String length) {
         chosenTimeTextview.setText(time);
         chosenGameLengthTextview.setText(length);
+    }
+
+    public void createAd(){
+        iCreate.createAd(padelArenaSpinner.getSelectedItem().toString(), new Date(), chosenGameLengthTextview.getText().toString());
     }
 }
 

@@ -103,8 +103,8 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
      */
     private void createRandomGames() {
         Random rand = new Random();
-        for (int i = 0; i < 15; i++) {
-            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)));
+        for (int i = 0; i < 2; i++) {
+            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)),"60/90");
         }
 
         List<Game> testGames = padelBuddy.getGames();
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
      */
     private void initializeBottomNavigationViewControllers() {
         homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames());
-        createAdFragment = new CreateAdFragment(padelBuddy.getPlayer());
+        createAdFragment = new CreateAdFragment(padelBuddy);
         gamesFragment = new GamesFragment(padelBuddy.getUpcomingGames(), padelBuddy.getPlayedGames());
         profileFragment = new ProfileFragment(padelBuddy.getPlayer());
     }

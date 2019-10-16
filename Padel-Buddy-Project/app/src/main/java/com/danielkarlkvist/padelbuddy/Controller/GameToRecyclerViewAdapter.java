@@ -39,6 +39,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         TextView locationTextView;
         TextView dateTextView;
         TextView skillLevelTextView;
+        TextView gameLegnthTextView;
 
         TextView[] playerNameTextViews = new TextView[4];
         ImageView[] playerImagesViews = new ImageView[4];
@@ -47,6 +48,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         GameAdViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            gameLegnthTextView = itemView.findViewById(R.id.game_length_textview);
             locationTextView = itemView.findViewById(R.id.location_textview);
             dateTextView = itemView.findViewById(R.id.date_textview);
 
@@ -96,6 +98,8 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         holder.dateTextView.setText(currentGame.getDateAsString());
         // Set skill level
         holder.skillLevelTextView.setText(currentGame.getAverageSkillLevel());
+
+        holder.gameLegnthTextView.setText(currentGame.getGameLength());
 
         // Set name and rating for all (4) players
         for (int i = 0; i < currentGame.getPlayers().length; i++) {

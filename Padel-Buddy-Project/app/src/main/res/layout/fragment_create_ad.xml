@@ -318,9 +318,9 @@
                         android:id="@+id/create_ad_button"
                         style="@style/invitation_button"
                         android:padding="@dimen/margin_padding_size_small"
+                        android:text="@string/createAd">
 
-
-                        android:text="@string/createAd"></Button>
+                    </Button>
 
                 </RelativeLayout>
 

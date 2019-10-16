@@ -62,6 +62,15 @@
             android:text="Date"
             android:textColor="@color/primaryTextColorOnLightBackground"
             android:textSize="15sp"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/game_length_textview"
+            android:layout_alignBottom="@+id/skilllevel_textview"
+            android:layout_below="@id/date_textview"
+            android:layout_alignParentEnd="true"
+            android:text="60/90min"
+            />
 
         <GridLayout
             android:id="@+id/players_gridlayout"

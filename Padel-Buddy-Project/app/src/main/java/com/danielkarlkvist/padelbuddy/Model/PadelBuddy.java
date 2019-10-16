@@ -30,8 +30,8 @@ public class PadelBuddy implements ICreate {
     }
 
     // TODO Command query?
-    public void createAd(String location, Date date) {
-        Game game = new Game(player, location, date);
+    public void createAd(String location, Date date, String length) {
+        Game game = new Game(player, location, date, length);
         game.getPlayers()[0] = player;
         games.add(game);
     }
