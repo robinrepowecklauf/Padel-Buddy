@@ -20,7 +20,7 @@ class TestDataGames implements ITestData {
 
 
     @Override
-    public List<Game> create() {
+    public List<IGame> create() {
 
         for (int i = 0; i < 15; i++) {
             padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)));

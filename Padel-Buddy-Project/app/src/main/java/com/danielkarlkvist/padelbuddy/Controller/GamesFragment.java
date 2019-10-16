@@ -10,10 +10,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.danielkarlkvist.padelbuddy.Model.Game;
+import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.R;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,10 +37,10 @@ public class GamesFragment extends Fragment implements ITopScrollable {
 
     boolean hasOpenedController = false;
 
-    private List<Game> upcomingGames;
-    private List<Game> playedGames;
+    private List<? extends IGame> upcomingGames;
+    private List<? extends IGame> playedGames;
 
-    public GamesFragment(List<Game> upcomingGames, List<Game> playedGames) {
+    public GamesFragment(List<?extends IGame> upcomingGames, List<?extends IGame> playedGames) {
         this.upcomingGames = upcomingGames;
         this.playedGames = playedGames;
     }

@@ -14,7 +14,7 @@ import com.danielkarlkvist.padelbuddy.Controller.GamesFragment;
 import com.danielkarlkvist.padelbuddy.Controller.GameRecyclerViewFragment;
 import com.danielkarlkvist.padelbuddy.Controller.ProfileFragment;
 import com.danielkarlkvist.padelbuddy.Controller.ITimePickerDialogListener;
-import com.danielkarlkvist.padelbuddy.Model.Game;
+import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Services.ITestFactory;
@@ -108,8 +108,8 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
             padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)));
         }
 
-        List<Game> testGames = padelBuddy.getGames();
-        List<IPlayer> testPlayers = padelBuddy.testPlayers;
+        List<? extends IGame> testGames = padelBuddy.getGames();
+        List<IPlayer> testPlayers = PadelBuddy.testPlayers;
 
         for (int j = 0; j < testGames.size(); j++) {
             for (int i = 0; i < 0; i++) {

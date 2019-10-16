@@ -12,18 +12,19 @@ import java.util.Date;
  * @since 2019-09-05
  */
 
-public class Game implements IGame{
-    private IPlayer[] players = new Player[4];
+ abstract class Game implements IGame{
+    private IPlayer[] players;
     private String location;
     private Date date;
     private Tuple<Integer, Integer> result;
 
-    Game(Player player, String location, Date date) {
+    Game(Player player, int amountOfPlayers, String location, Date date) {
+        this.players = new Player[amountOfPlayers];
         this.players[0] = player;
         this.location = location;
         this.date = date;
-        this.result = result;
     }
+
 
     // TODO decide return type
     public String getAverageSkillLevel() {
@@ -95,7 +96,7 @@ public class Game implements IGame{
      * @param score2
      */
     public void setResult(int score1, int score2) {
-        this.result = new Tuple(score1, score2);
+        //this.result = new Tuple(score1, score2);
     }
 
     /**

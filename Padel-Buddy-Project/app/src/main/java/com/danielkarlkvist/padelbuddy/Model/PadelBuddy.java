@@ -10,7 +10,7 @@ public class PadelBuddy {
 
     private List<Game> games = new ArrayList<>();
     private Player player;
-    public List<IPlayer> testPlayers = new ArrayList<>();
+    public static List<IPlayer> testPlayers = new ArrayList<>();
 
     public PadelBuddy() {
 
@@ -32,7 +32,7 @@ public class PadelBuddy {
 
     // TODO Command query?
     public void createAd(String location, Date date) {
-        Game game = new Game(player, location, date);
+        Game game = new PadelGame(player, location, date);
         game.getPlayers()[0] = player;
         games.add(game);
     }
@@ -45,7 +45,7 @@ public class PadelBuddy {
         // TODO Error message? FancyToast Library?? Finns i slack
     }
 
-    public List<Game> getUpcomingGames() {
+    public List<? extends Game> getUpcomingGames() {
         List<Game> upcomingGames = new ArrayList<>();
         for (Game game : games) {
             if (!game.isFinishedGame()) {
@@ -57,7 +57,7 @@ public class PadelBuddy {
     }
 
 
-    public List<Game> getPlayedGames() {
+    public List<? extends Game> getPlayedGames() {
         List<Game> playedGames = new ArrayList<>();
         for (Game game : games) {
             if (game.isFinishedGame()) {
