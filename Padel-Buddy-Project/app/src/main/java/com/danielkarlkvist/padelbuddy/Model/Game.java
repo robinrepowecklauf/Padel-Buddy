@@ -14,7 +14,7 @@ import java.util.List;
  * @since 2019-09-05
  */
 
-public class Game {
+public class Game implements IGame{
     private IPlayer[] players = new Player[4];
     private String location;
     private Date date;
