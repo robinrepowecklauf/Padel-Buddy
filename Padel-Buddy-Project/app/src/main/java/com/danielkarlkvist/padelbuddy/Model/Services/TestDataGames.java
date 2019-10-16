@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy.Services;
+package com.danielkarlkvist.padelbuddy.Model.Services;
 
 class TestDataGames implements ITestData {
 

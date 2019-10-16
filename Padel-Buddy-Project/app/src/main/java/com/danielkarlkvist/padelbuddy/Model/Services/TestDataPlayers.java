@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy.Services;
+package com.danielkarlkvist.padelbuddy.Model.Services;
 
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.Player;
