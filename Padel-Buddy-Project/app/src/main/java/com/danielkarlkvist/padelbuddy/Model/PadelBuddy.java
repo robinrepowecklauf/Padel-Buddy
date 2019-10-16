@@ -10,7 +10,7 @@ public class PadelBuddy {
 
     private List<Game> games = new ArrayList<>();
     private Player player;
-    public List<IPlayer> testPlayers = new ArrayList<>();
+    public static List<IPlayer> testPlayers = new ArrayList<>();
 
     public PadelBuddy() {
         player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, SkillLevel.Nybörjare);
