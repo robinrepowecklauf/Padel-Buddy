@@ -8,7 +8,7 @@ import java.util.List;
 
 public class PadelBuddy {
 
-    private List<Game> games = new ArrayList<>();
+    private List<IGame> games = new ArrayList<>();
     private Player player;
     public static List<IPlayer> testPlayers = new ArrayList<>();
 
@@ -18,11 +18,8 @@ public class PadelBuddy {
 
     }
 
-    public void setGames(List<Game> games) {
-        this.games = games;
-    }
 
-    public List<Game> getGames() {
+    public List<IGame> getGames() {
         return games;
     }
 
@@ -37,7 +34,7 @@ public class PadelBuddy {
         games.add(game);
     }
 
-    public void removeAd(Game game) {
+    public void removeAd(IGame game) {
         if (games.contains(game)) {
             games.remove(game);
         }
@@ -45,9 +42,9 @@ public class PadelBuddy {
         // TODO Error message? FancyToast Library?? Finns i slack
     }
 
-    public List<? extends Game> getUpcomingGames() {
-        List<Game> upcomingGames = new ArrayList<>();
-        for (Game game : games) {
+    public List<IGame> getUpcomingGames() {
+        List<IGame> upcomingGames = new ArrayList<>();
+        for (IGame game : games) {
             if (!game.isFinishedGame()) {
                 upcomingGames.add(game);
             }
@@ -57,9 +54,9 @@ public class PadelBuddy {
     }
 
 
-    public List<? extends Game> getPlayedGames() {
-        List<Game> playedGames = new ArrayList<>();
-        for (Game game : games) {
+    public List<IGame> getPlayedGames() {
+        List<IGame> playedGames = new ArrayList<>();
+        for (IGame game : games) {
             if (game.isFinishedGame()) {
                 playedGames.add(game);
             }

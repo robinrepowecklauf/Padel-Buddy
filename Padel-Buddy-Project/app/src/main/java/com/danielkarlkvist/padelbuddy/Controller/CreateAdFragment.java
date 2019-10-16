@@ -23,7 +23,7 @@ import com.danielkarlkvist.padelbuddy.R;
 import java.util.Calendar;
 
 /**
- * The CreateAdFragment class defines the Fragment where a user can create a game ad.
+ * The CreateAdFragment class defines the Fragment where a user can createTestData a game ad.
  *
  * @author Carl-Johan Björnson
  *

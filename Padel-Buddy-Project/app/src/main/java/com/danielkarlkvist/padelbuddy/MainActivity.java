@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
         padelBuddy = new PadelBuddy();
-        padelBuddy.setGames(ITestFactory.createTestGames());
+        ITestFactory.createTestGames(padelBuddy);
 
         initializeBottomNavigationViewControllers();
         initializeBottomNavigationView();

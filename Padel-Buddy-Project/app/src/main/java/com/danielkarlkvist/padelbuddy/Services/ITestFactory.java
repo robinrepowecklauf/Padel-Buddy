@@ -1,8 +1,9 @@
 package com.danielkarlkvist.padelbuddy.Services;
 
-import com.danielkarlkvist.padelbuddy.Model.Game;
+
 import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 
 import java.util.List;
 
@@ -14,12 +15,11 @@ public class ITestFactory {
 
     public static List<IPlayer> createTestPlayers() {
         TestDataPlayers testDataPlayers = new TestDataPlayers();
-        return testDataPlayers.create();
+        return testDataPlayers.createTestPlayer();
     }
 
-    public static List<Game> createTestGames() {
+    public static void createTestGames(PadelBuddy padelBuddy) {
         TestDataGames testDataGames = new TestDataGames();
-
-        return testDataGames.create();
+        testDataGames.createTestGame(padelBuddy);
     }
 }

@@ -42,7 +42,7 @@ public class GamesViewPagerAdapter extends FragmentPagerAdapter {
     }
 
     /**
-     * Add new tab-fragments. Used in GamesFragment to create tabs
+     * Add new tab-fragments. Used in GamesFragment to createTestData tabs
      * @param fragment current fragment
      * @param title title of the new fragment
      */
