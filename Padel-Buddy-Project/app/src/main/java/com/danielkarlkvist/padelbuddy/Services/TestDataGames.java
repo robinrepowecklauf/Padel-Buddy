@@ -1,6 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Services;
 
-import com.danielkarlkvist.padelbuddy.Model.Game;
+
+import com.danielkarlkvist.padelbuddy.Model.IGame;
 
 import java.util.List;
 
@@ -8,7 +9,7 @@ class TestDataGames implements ITestData {
 
 
     @Override
-    public List<Game> create() {
+    public List<IGame> create() {
 
         return null;
     }
