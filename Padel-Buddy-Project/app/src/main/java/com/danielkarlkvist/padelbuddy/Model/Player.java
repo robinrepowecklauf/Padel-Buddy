@@ -26,7 +26,7 @@ class Player implements IPlayer {
     private float profileRating;
     private CircleImageView image; //inte i model- ska finnas i vy map<user, circleimageview>
 
-    Player(String firstname, String lastname, String mail, String phone, String bio, int age, SkillLevel skillLevel) {
+    public Player(String firstname, String lastname, String mail, String phone, String bio, int age, SkillLevel skillLevel) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
