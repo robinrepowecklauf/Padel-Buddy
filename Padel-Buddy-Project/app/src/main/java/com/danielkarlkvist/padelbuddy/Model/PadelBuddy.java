@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class PadelBuddy {
+public class PadelBuddy implements ICreate {
 
     private List<Game> games = new ArrayList<>();
     private Player player;

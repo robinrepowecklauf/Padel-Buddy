@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.danielkarlkvist.padelbuddy.Model.ICreate;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.R;
 
@@ -55,10 +56,10 @@ public class CreateAdFragment extends Fragment {
     private TextView chosenTimeTextview;
     private TextView chosenGameLengthTextview;
 
-    private IPlayer user;
+    private ICreate iCreate;
 
-    public CreateAdFragment(IPlayer user) {
-        this.user = user;
+    public CreateAdFragment(ICreate iCreate) {
+        this.iCreate = iCreate;
     }
 
     /**
@@ -82,8 +83,8 @@ public class CreateAdFragment extends Fragment {
 
         setButtonListeners();
 
-        userFirstNameTextView.setText(user.getFirstname());
-        userProfileRatingBar.setRating(user.getProfileRating());
+        userFirstNameTextView.setText(iCreate.getPlayer().getFirstname());
+        userProfileRatingBar.setRating(iCreate.getPlayer().getProfileRating());
 
         return rootView;
     }
