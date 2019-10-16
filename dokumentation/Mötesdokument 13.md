@@ -29,13 +29,21 @@ Vad som ska implementeras utifrån råd från Gerdes.
 - Städa upp klassen Padelbuddy.
 - Observerpattern. 
 
-
 User Stories för implementering av ny struktur i kodbasen
-* b
+- Som utvecklare vill jag kunna testa funktionallitet med hjälp av påhittade användare som är avskilda från modellen 
+för att se att logiken fungerar.
+- Som en utvecklare vill jag implementera iterator pattern för att inte vyn ska ha möjlighet att modifiera data. 
+- Som produktägare vill jag att appen ska vara utbyggbar med flera sporter för att nå ut till fler möjliga användare. 
+
 Börja kolla på betygskriterier och vad som ska vara klart tills nästa vecka.
-* c
+1. Man ska kunna välja bland olika användare. 
+2. Man ska kunna skapa en annons.
+3. Man ska kunna gå med i en annons och se denna i upcoming games. 
+4. Man ska kunna gå ur en annons. 
+5. Man ska kunna ändra sin profil. 
+
 Sätta en deadline för projektet.
-* d
+- Fredag 25e. 
 
 ## Wrap up
 - Nästa möte: Fredag 18/10 10:00-11:00.
