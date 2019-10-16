@@ -14,7 +14,7 @@ public class GameTest {
             Player player2 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Nybörjare);
             Game game = new Game(player1, "Gltk", new Date(2019, 11, 05));
             game.addPlayer(player2);
-            Player[] players = game.getPlayers();
+            IPlayer[] players = game.getPlayers();
             assertTrue(players[0].getFirstname()=="Fredrik");
             assertTrue(players[1].getFirstname()=="Axel");
             assertTrue(players[2]==null);
