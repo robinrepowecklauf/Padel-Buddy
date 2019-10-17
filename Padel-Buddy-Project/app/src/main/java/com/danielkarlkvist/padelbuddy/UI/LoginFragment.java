@@ -29,9 +29,9 @@ public class LoginFragment extends Fragment {
     }
 
     private void initializeViews(View view) {
-        danielButton = view.findViewById(R.id.test_daniel_button);
+        /*danielButton = view.findViewById(R.id.test_daniel_button);
         robinButton = view.findViewById(R.id.test_robin_button);
-        marcusButton = view.findViewById(R.id.test_marcus_button);
+        marcusButton = view.findViewById(R.id.test_marcus_button);*/
     }
 
     private void initializeButtonListeners() {
