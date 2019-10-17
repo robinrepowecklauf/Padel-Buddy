@@ -1,7 +1,5 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import com.danielkarlkvist.padelbuddy.Services.ITestFactory;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,7 +8,6 @@ public class PadelBuddy {
 
     private List<IGame> games = new ArrayList<>();
     private Player player;
-    public static List<IPlayer> testPlayers = new ArrayList<>();
 
     public PadelBuddy() {
 
