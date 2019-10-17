@@ -133,7 +133,7 @@ public class Game implements IGame{
      * @return The date of the game formatted as dd/MM hh:mm
      */
     public String getDateAsString() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM hh:mm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm");
         String formattedDate = simpleDateFormat.format(date);
 
         return formattedDate;

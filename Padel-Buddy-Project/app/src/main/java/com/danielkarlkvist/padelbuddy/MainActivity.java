@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
     /**
      * Creates random games for showing purposes
      */
+
     private void createRandomGames() {
         Random rand = new Random();
         for (int i = 0; i < 2; i++) {

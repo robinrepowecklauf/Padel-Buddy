@@ -82,7 +82,6 @@ public class GamesFragment extends Fragment implements ITopScrollable {
                 temp = (GameRecyclerViewFragment) gamesViewPagerAdapter.getItem(i);
                 temp.getGameRecyclerViewLayoutManager().smoothScrollToPosition(temp.getGameRecyclerView(), null, 0);
             }
-
         }
     }
 
