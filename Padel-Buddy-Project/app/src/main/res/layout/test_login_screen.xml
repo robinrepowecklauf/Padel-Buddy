@@ -10,23 +10,23 @@
         android:layout_centerHorizontal="true">
 
         <Button
-            android:id="@+id/test_daniel"
+            android:id="@+id/test_daniel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Daniel"/>
 
         <Button
-            android:id="@+id/test_robin"
+            android:id="@+id/test_robin_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Robin"
-            android:layout_below="@+id/test_daniel"/>
+            android:layout_below="@+id/test_daniel_button"/>
         <Button
-            android:id="@+id/test_marcus"
+            android:id="@+id/test_marcus_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Marcus"
-            android:layout_below="@id/test_robin"/>
+            android:layout_below="@id/test_robin_button"/>
     </RelativeLayout>
 
 
