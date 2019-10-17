@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy.Controller;
+package com.danielkarlkvist.padelbuddy.UI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +14,6 @@ import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.R;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
