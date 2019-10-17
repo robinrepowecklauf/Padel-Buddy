@@ -44,6 +44,23 @@ public class PadelBuddy implements ICreate {
         // TODO Error message? FancyToast Library?? Finns i slack
     }
 
+    public List<Game> getAvailableGames() {
+        List<Game> availableGames = new ArrayList<>();
+        int arrayLength = games.get(0).getPlayers().length;
+
+        for (Game game : games){
+            for (int i=0; i<arrayLength; i++){
+                if (game.getPlayers()[i] == player){
+                    break;
+                }
+                availableGames.add(game);
+            }
+        }
+        //HadeCoded game where Daniel is not a player. should be removed when we create games without daniel in Service.
+        availableGames.add(new Game(new Player("Calle","balle","lingon","skalle","hejsan",12,SkillLevel.Medel), "thn", new Date(), "10"));
+        return availableGames;
+    }
+
     public List<Game> getUpcomingGames() {
         List<Game> upcomingGames = new ArrayList<>();
         for (Game game : games) {

@@ -127,9 +127,9 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
      * Instantiates the main Fragments in the app
      */
     private void initializeBottomNavigationViewControllers() {
-        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames());
+        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getAvailableGames());
         createAdFragment = new CreateAdFragment(padelBuddy);
-        gamesFragment = new GamesFragment(padelBuddy.getUpcomingGames(), padelBuddy.getPlayedGames());
+        gamesFragment = new GamesFragment(padelBuddy);
         profileFragment = new ProfileFragment(padelBuddy.getPlayer());
     }
 
