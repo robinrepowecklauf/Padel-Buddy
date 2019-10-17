@@ -1,15 +1,14 @@
 package com.danielkarlkvist.padelbuddy.UI;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import com.danielkarlkvist.padelbuddy.MainActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.danielkarlkvist.padelbuddy.Model.IPlayer;
+import com.danielkarlkvist.padelbuddy.Model.Player;
+import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +16,7 @@ import android.widget.Button;
 import com.danielkarlkvist.padelbuddy.R;
 
 public class LoginActivity extends AppCompatActivity {
+    private IPlayer currentUser;
 
     private Button danielButton;
     private Button robinButton;
@@ -41,12 +41,29 @@ public class LoginActivity extends AppCompatActivity {
         danielButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                TestFactory.setCurrentUser(1);
+                startMainActivity();
+            }
+        });
+        robinButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TestFactory.setCurrentUser(2);
+                startMainActivity();
+            }
+        });
+        marcusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TestFactory.setCurrentUser(3);
                 startMainActivity();
             }
         });
     }
 
     private void startMainActivity() {
+        TestFactory.createPadelBuddy();
+        TestFactory.createTestGames();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

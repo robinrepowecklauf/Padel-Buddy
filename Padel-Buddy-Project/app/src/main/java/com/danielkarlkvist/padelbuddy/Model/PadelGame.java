@@ -4,5 +4,5 @@ import java.util.Date;
 
 public class PadelGame extends Game {
 
-    PadelGame(Player player, String location, Date date){super(player, 4, location, date);}
+    PadelGame(IPlayer player, String location, Date date){super(player, 4, location, date);}
 }

@@ -7,10 +7,10 @@ import java.util.List;
 public class PadelBuddy {
 
     private List<IGame> games = new ArrayList<>();
-    private Player player;
+    private IPlayer player;
 
-    public PadelBuddy() {
-
+    public PadelBuddy(IPlayer player) {
+        this.player = player;
         //this.player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, SkillLevel.Nybörjare);
 
     }
@@ -20,7 +20,7 @@ public class PadelBuddy {
         return games;
     }
 
-    public Player getPlayer() {
+    public IPlayer getPlayer() {
         return player;
     }
 

@@ -9,6 +9,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.danielkarlkvist.padelbuddy.UI.CreateAdFragment;
 import com.danielkarlkvist.padelbuddy.UI.GamesFragment;
@@ -16,8 +17,7 @@ import com.danielkarlkvist.padelbuddy.UI.GameRecyclerViewFragment;
 import com.danielkarlkvist.padelbuddy.UI.LoginActivity;
 import com.danielkarlkvist.padelbuddy.UI.ProfileFragment;
 import com.danielkarlkvist.padelbuddy.UI.ITimePickerDialogListener;
-import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Services.ITestFactory;
+import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements ITimePickerDialogListener {
@@ -37,9 +37,6 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
     private GamesFragment gamesFragment;
     private ProfileFragment profileFragment;
     private Fragment selectedFragmentController = null;
-
-    private PadelBuddy padelBuddy;
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
             // region bottomNavigationViewListener
@@ -72,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
                             break;
                         default:
                             Log.println(1, "tag", "Selected fragment that doesn't exist.");
-                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames());
+                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, TestFactory.getPadelBuddy().getGames());
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragmentController).commit();
 
@@ -88,50 +85,25 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
-        padelBuddy = new PadelBuddy();
-        ITestFactory.createTestGames(padelBuddy);
-
-        if (padelBuddy.getPlayer() == null) {
+        if (TestFactory.getPadelBuddy() == null) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
-        }
+        } else {
+            findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
 
-        //initializeBottomNavigationViewControllers();
-        //initializeBottomNavigationView();
+            initializeBottomNavigationViewControllers();
+            initializeBottomNavigationView();
+        }
     }
-
-    /**
-     * Creates random games for showing purposes
-     */
-    /*  private void createRandomGames() {
-        Random rand = new Random();
-        for (int i = 0; i < 15; i++) {
-            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)));
-        }
-
-        List<? extends IGame> testGames = padelBuddy.getGames();
-        List<IPlayer> testPlayers = PadelBuddy.testPlayers;
-
-        for (int j = 0; j < testGames.size(); j++) {
-            for (int i = 0; i < 0; i++) {
-                List<IPlayer> players = Arrays.asList(testGames.get(j).getPlayers());
-                int random = rand.nextInt(4);
-                while (players.contains(testPlayers.get(random))) {
-                    random = rand.nextInt(4);
-                }
-                testGames.get(j).addPlayer(testPlayers.get(random));
-            }
-        }
-    } */
 
     /**
      * Instantiates the main Fragments in the app
      */
     private void initializeBottomNavigationViewControllers() {
-        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames());
-        createAdFragment = new CreateAdFragment(padelBuddy.getPlayer());
-        gamesFragment = new GamesFragment(padelBuddy.getUpcomingGames(), padelBuddy.getPlayedGames());
-        profileFragment = new ProfileFragment(padelBuddy.getPlayer());
+        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, TestFactory.getPadelBuddy().getGames());
+        createAdFragment = new CreateAdFragment(TestFactory.getPadelBuddy().getPlayer());
+        gamesFragment = new GamesFragment(TestFactory.getPadelBuddy().getUpcomingGames(), TestFactory.getPadelBuddy().getPlayedGames());
+        profileFragment = new ProfileFragment(TestFactory.getPadelBuddy().getPlayer());
     }
 
     /**
@@ -139,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
      */
     private void initializeBottomNavigationView() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        bottomNavigationView.setVisibility(View.VISIBLE);
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavigationViewListener);
         bottomNavigationView.setSelectedItemId(R.id.nav_home);  // Sets the current selected tab as Home when the app opens
     }
