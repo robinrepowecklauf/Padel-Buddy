@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy.Controller;
+package com.danielkarlkvist.padelbuddy.UI;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;

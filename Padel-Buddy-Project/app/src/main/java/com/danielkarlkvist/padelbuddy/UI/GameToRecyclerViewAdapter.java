@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy.Controller;
+package com.danielkarlkvist.padelbuddy.UI;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +14,6 @@ import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;

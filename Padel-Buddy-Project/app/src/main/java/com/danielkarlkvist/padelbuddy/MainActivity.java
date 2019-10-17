@@ -9,21 +9,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragment;
-import com.danielkarlkvist.padelbuddy.Controller.GamesFragment;
-import com.danielkarlkvist.padelbuddy.Controller.GameRecyclerViewFragment;
-import com.danielkarlkvist.padelbuddy.Controller.ProfileFragment;
-import com.danielkarlkvist.padelbuddy.Controller.ITimePickerDialogListener;
-import com.danielkarlkvist.padelbuddy.Model.IGame;
-import com.danielkarlkvist.padelbuddy.Model.IPlayer;
+import com.danielkarlkvist.padelbuddy.UI.CreateAdFragment;
+import com.danielkarlkvist.padelbuddy.UI.GamesFragment;
+import com.danielkarlkvist.padelbuddy.UI.GameRecyclerViewFragment;
+import com.danielkarlkvist.padelbuddy.UI.ProfileFragment;
+import com.danielkarlkvist.padelbuddy.UI.ITimePickerDialogListener;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Services.ITestFactory;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements ITimePickerDialogListener {
 
