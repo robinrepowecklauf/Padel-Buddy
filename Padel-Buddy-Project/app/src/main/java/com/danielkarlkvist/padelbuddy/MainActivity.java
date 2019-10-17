@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +13,7 @@ import android.view.MenuItem;
 import com.danielkarlkvist.padelbuddy.UI.CreateAdFragment;
 import com.danielkarlkvist.padelbuddy.UI.GamesFragment;
 import com.danielkarlkvist.padelbuddy.UI.GameRecyclerViewFragment;
-import com.danielkarlkvist.padelbuddy.UI.LoginFragment;
+import com.danielkarlkvist.padelbuddy.UI.LoginActivity;
 import com.danielkarlkvist.padelbuddy.UI.ProfileFragment;
 import com.danielkarlkvist.padelbuddy.UI.ITimePickerDialogListener;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
@@ -36,8 +37,6 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
     private GamesFragment gamesFragment;
     private ProfileFragment profileFragment;
     private Fragment selectedFragmentController = null;
-
-    private LoginFragment loginFragment;
 
     private PadelBuddy padelBuddy;
 
@@ -86,13 +85,16 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.test_login_screen);
-        loginFragment = new LoginFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.launch_screen_relativelayout, loginFragment).commit();
+        setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
         padelBuddy = new PadelBuddy();
         ITestFactory.createTestGames(padelBuddy);
+
+        if (padelBuddy.getPlayer() == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
 
         //initializeBottomNavigationViewControllers();
         //initializeBottomNavigationView();
