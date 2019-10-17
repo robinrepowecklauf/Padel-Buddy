@@ -1,5 +1,6 @@
 package com.danielkarlkvist.padelbuddy.UI;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,16 +30,16 @@ public class LoginFragment extends Fragment {
     }
 
     private void initializeViews(View view) {
-        /*danielButton = view.findViewById(R.id.test_daniel_button);
+        danielButton = view.findViewById(R.id.test_daniel_button);
         robinButton = view.findViewById(R.id.test_robin_button);
-        marcusButton = view.findViewById(R.id.test_marcus_button);*/
+        marcusButton = view.findViewById(R.id.test_marcus_button);
     }
 
     private void initializeButtonListeners() {
         danielButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                danielButton.setBackgroundColor(Color.RED);
             }
         });
     }

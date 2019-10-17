@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.test_login_screen);
+        loginFragment = new LoginFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.launch_screen_relativelayout, loginFragment).commit();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
         padelBuddy = new PadelBuddy();
