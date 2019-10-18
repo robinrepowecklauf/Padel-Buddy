@@ -26,10 +26,11 @@ public class PadelBuddy implements ICreate {
 
     // TODO Command query?
     public void createAd(String location, Date date, String length) {
-        IGame game = new PadelGame(player, location, date, length);
+        IGame game = new PadelGame(location, date, length);
         game.getPlayers()[0] = player;
         games.add(game);
     }
+
 
     public void removeAd(IGame game) {
         if (games.contains(game)) {
@@ -52,7 +53,7 @@ public class PadelBuddy implements ICreate {
             }
         }
         //Hardcoded game where Daniel is not a player. should be removed when we create games without daniel in Service.
-        availableGames.add(new PadelGame(new Player("Calle","balle","lingon","skalle","hejsan",12,2), "PDL Trollhättan", new Date(), "60 min"));
+        //availableGames.add(createAd(new Player("Calle","balle","lingon","skalle","hejsan",12,2), "PDL Trollhättan", new Date(), "60 min"););
         return availableGames;
     }
 

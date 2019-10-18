@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
     private ProfileFragment profileFragment;
     private Fragment selectedFragmentController = null;
 
-    private PadelBuddy padelBuddy;
+    private PadelBuddy padelBuddy = LoginActivity.getPadelbuddy();
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
             // region bottomNavigationViewListener
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
                     switch (menuItem.getItemId()) {
                         case R.id.nav_home:
                             if (selectedFragmentController == homeFragmentController) {
-                                homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, TestFactory.getPadelBuddy().getAvailableGames()); //
+                                homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getAvailableGames()); //
                                 homeFragmentController.scrollToTop();
                                 break;
                             } else {
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
                             break;
                         default:
                             Log.println(1, "tag", "Selected fragment that doesn't exist.");
-                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, TestFactory.getPadelBuddy().getGames());
+                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames());
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragmentController).commit();
 
@@ -88,11 +88,11 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
-        if (TestFactory.getPadelBuddy() == null) {
+        if (padelBuddy == null) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         } else {
-            padelBuddy = TestFactory.getPadelBuddy();
+            padelBuddy = LoginActivity.getPadelbuddy();
 
             initializeBottomNavigationViewControllers();
             initializeBottomNavigationView();
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
      * Instantiates the main Fragments in the app
      */
     private void initializeBottomNavigationViewControllers() {
-        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, TestFactory.getPadelBuddy().getAvailableGames());
+        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getAvailableGames());
         createAdFragment = new CreateAdFragment(padelBuddy);
         gamesFragment = new GamesFragment(padelBuddy);
         profileFragment = new ProfileFragment(padelBuddy.getPlayer());

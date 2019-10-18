@@ -8,17 +8,12 @@ import com.danielkarlkvist.padelbuddy.UI.PlayerImageBinder;
 
 public class TestFactory {
     private static IPlayer user;
-    private static PadelBuddy padelBuddy;
 
     private TestFactory() {
 
     }
 
-    public static PadelBuddy getPadelBuddy() {
-        return padelBuddy;
-    }
-
-    public static void setCurrentUser(int i) {
+    public static IPlayer setCurrentUser(int i) {
         switch (i) {
             case 1:
                 user = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 1);
@@ -36,13 +31,10 @@ public class TestFactory {
                 user = new Player("Fredrik", "Björnsson", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 3);
                 PlayerImageBinder.bind(user, R.drawable.mikael);
         }
+        return user;
     }
 
-    public static void createPadelBuddy() {
-        padelBuddy = new PadelBuddy(user);
-    }
-
-    public static void createTestGames() {
+    public static void createTestGames(PadelBuddy padelBuddy) {
         TestDataGames testDataGames = new TestDataGames();
         testDataGames.createTestGames(padelBuddy);
     }
