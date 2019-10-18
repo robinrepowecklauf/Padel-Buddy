@@ -19,8 +19,7 @@
     <RelativeLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="invisible"/>
+        android:layout_height="match_parent" />
 
     <!-- Add components -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -30,7 +29,6 @@
         android:layout_gravity="bottom"
         android:background="@drawable/primary_green_gradient"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_navigation"
-        android:visibility="invisible"/>
+        app:menu="@menu/bottom_navigation" />
 
 </FrameLayout>

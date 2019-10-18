@@ -89,8 +89,6 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         } else {
-            findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
-
             initializeBottomNavigationViewControllers();
             initializeBottomNavigationView();
         }
@@ -111,7 +109,6 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
      */
     private void initializeBottomNavigationView() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setVisibility(View.VISIBLE);
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavigationViewListener);
         bottomNavigationView.setSelectedItemId(R.id.nav_home);  // Sets the current selected tab as Home when the app opens
     }
