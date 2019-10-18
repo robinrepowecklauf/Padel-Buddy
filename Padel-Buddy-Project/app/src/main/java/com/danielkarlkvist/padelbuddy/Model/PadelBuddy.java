@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static java.lang.Boolean.TRUE;
+
 public class PadelBuddy implements ICreate {
 
     private List<IGame> games = new ArrayList<>();
@@ -39,28 +41,34 @@ public class PadelBuddy implements ICreate {
         // TODO Error message? FancyToast Library?? Finns i slack
     }
 
-    public List<IGame> getAvailableGames(List<IGame> games) {
+    public List<IGame> getAvailableGames() {
         List<IGame> availableGames = new ArrayList<>();
         int arrayLength = games.get(0).getPlayers().length;
+        boolean gameAvailable = true;
 
         for (IGame game : games){
             for (int i=0; i<arrayLength; i++){
                 if (game.getPlayers()[i] == user){
-                    break;
+                    gameAvailable = false;
                 }
+            }
+            if(gameAvailable){
                 availableGames.add(game);
             }
+            gameAvailable = true;
         }
         //Hardcoded game where Daniel is not a user. should be removed when we create games without daniel in Service.
-        availableGames.add(new PadelGame(new Player("Calle","balle","lingon","skalle","hejsan",12,2), "PDL Trollhättan", new Date(), "60 min"));
+       // availableGames.add(new PadelGame(new Player("Calle","balle","lingon","skalle","hejsan",12,2), "PDL Trollhättan", new Date(), "60"));
         return availableGames;
     }
 
     public List<IGame> getUpcomingGames() {
         List<IGame> upcomingGames = new ArrayList<>();
         for (IGame game : games) {
-            if (!game.isFinishedGame()) {
-                upcomingGames.add(game);
+            for (IPlayer player: game.getPlayers()) {
+                if (player == user && !game.isFinishedGame()) {
+                    upcomingGames.add(game);
+                }
             }
         }
 
@@ -71,8 +79,10 @@ public class PadelBuddy implements ICreate {
     public List<IGame> getPlayedGames() {
         List<IGame> playedGames = new ArrayList<>();
         for (IGame game : games) {
-            if (game.isFinishedGame()) {
-                playedGames.add(game);
+            for (IPlayer player: game.getPlayers()) {
+                if (player == user && game.isFinishedGame()) {
+                    playedGames.add(game);
+                }
             }
         }
 
