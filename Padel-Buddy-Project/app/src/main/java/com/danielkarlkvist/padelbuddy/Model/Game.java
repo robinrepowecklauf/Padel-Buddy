@@ -19,8 +19,9 @@ import java.util.Date;
     private String gameLength;
     private Tuple<Integer, Integer> result;
 
-    Game(int amountOfPlayers, String location, Date date, String gameLength) {
+    Game(IPlayer player, int amountOfPlayers, String location, Date date, String gameLength) {
         this.players = new Player[amountOfPlayers];
+        this.players[0] = player;
         this.location = location;
         this.date = date;
         this.result = result;
