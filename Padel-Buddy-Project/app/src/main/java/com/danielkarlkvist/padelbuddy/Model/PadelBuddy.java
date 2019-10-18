@@ -7,11 +7,11 @@ import java.util.List;
 public class PadelBuddy implements ICreate {
 
     private List<IGame> games = new ArrayList<>();
-    private Player player;
+    private IPlayer player;
 
-    public PadelBuddy() {
-
-        this.player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, SkillLevel.Nybörjare);
+    public PadelBuddy(IPlayer player) {
+        this.player = player;
+        //this.player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, SkillLevel.Nybörjare);
 
     }
 
@@ -20,7 +20,7 @@ public class PadelBuddy implements ICreate {
         return games;
     }
 
-    public Player getPlayer() {
+    public IPlayer getPlayer() {
         return player;
     }
 
@@ -51,7 +51,7 @@ public class PadelBuddy implements ICreate {
                 availableGames.add(game);
             }
         }
-        //HadeCoded game where Daniel is not a player. should be removed when we create games without daniel in Service.
+        //Hardcoded game where Daniel is not a player. should be removed when we create games without daniel in Service.
         availableGames.add(new PadelGame(new Player("Calle","balle","lingon","skalle","hejsan",12,SkillLevel.Medel), "PDL Trollhättan", new Date(), "60 min"));
         return availableGames;
     }

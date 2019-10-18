@@ -6,5 +6,5 @@ public interface ICreate {
 
     void createAd(String location, Date date, String length);
 
-    Player getPlayer();
+    IPlayer getPlayer();
 }

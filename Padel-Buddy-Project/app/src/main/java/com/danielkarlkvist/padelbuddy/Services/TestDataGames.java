@@ -17,7 +17,7 @@ class TestDataGames implements ITestData {
     private List<IPlayer> players = new ArrayList<>();
 
     @Override
-    public void createTestGame(PadelBuddy padelBuddy) {
+    public void createTestGames(PadelBuddy padelBuddy) {
 
         for (int i = 0; i < 15; i++) {
             padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)), "10år");
@@ -37,8 +37,7 @@ class TestDataGames implements ITestData {
         }
     }
 
-    @Override
-    public void createTestPlayers() {
+    private void createTestPlayers() {
         players.add(new Player("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "0704549972", "lorem ipsum", 15, SkillLevel.Avancerad));
         players.add(new Player("Carl-Johan", "Björnson", "tes@gmail.com", "1", "lorem ", 14, SkillLevel.Medel));
         players.add(new Player("Marcus", "Creutz", "test@gail.com", "2", "lorem ", 13, SkillLevel.Nybörjare));
