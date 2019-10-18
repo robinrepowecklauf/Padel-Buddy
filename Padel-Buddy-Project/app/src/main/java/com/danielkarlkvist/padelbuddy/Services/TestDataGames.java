@@ -3,6 +3,8 @@ package com.danielkarlkvist.padelbuddy.Services;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
+import com.danielkarlkvist.padelbuddy.R;
+import com.danielkarlkvist.padelbuddy.UI.PlayerImageBinder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,9 +39,21 @@ class TestDataGames implements ITestData {
     }
 
     private void createTestPlayers() {
-        players.add(new Player("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "0704549972", "lorem ipsum", 15, 3));
-        players.add(new Player("Carl-Johan", "Björnson", "tes@gmail.com", "1", "lorem ", 14, 2));
-        players.add(new Player("Marcus", "Creutz", "test@gail.com", "2", "lorem ", 13, 3));
-        players.add(new Player("Fredrik", "Axelsson", "tet@gmail.com", "3", "lorem ", 12, 3));
+        Player player = new Player("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "0704549972", "lorem ipsum", 15, 3);
+        bindPlayerImage(player, R.drawable.profile_picture);
+        players.add(player);
+        player = new Player("Carl-Johan", "Björnson", "tes@gmail.com", "1", "lorem ", 14, 2);
+        bindPlayerImage(player, R.drawable.no_profile_picture);
+        players.add(player);
+        player = new Player("Marcus", "Creutz", "test@gail.com", "2", "lorem ", 13, 1);
+        bindPlayerImage(player, R.drawable.profile_picture);
+        players.add(player);
+        player = new Player("Fredrik", "Axelsson", "tet@gmail.com", "3", "lorem ", 12, 3);
+        bindPlayerImage(player, R.drawable.profile_picture);
+        players.add(player);
+    }
+
+    private void bindPlayerImage(IPlayer player, int image) {
+        PlayerImageBinder.bind(player, image);
     }
 }
