@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.InputFilter;
@@ -79,13 +80,9 @@ public class ProfileFragment extends Fragment {
         initializeViews(rootView);
         initializeListenerToButton();
 
-        CircleImageView playerImageView = user.getImage();
 
-        if (playerImageView != null) {
-            userCircularImageView.setImageDrawable(playerImageView.getDrawable());
-        } else {
-            userCircularImageView.setImageDrawable(getResources().getDrawable(R.drawable.no_profile_picture));
-        }
+        Integer playerImage = PlayerImageBinder.getImage(user);
+        userCircularImageView.setImageResource(playerImage);
 
         fullNameTextView.setText(user.getFullName());
         bioTextView.setText(user.getBio());
