@@ -28,60 +28,31 @@ import java.util.Date;
         this.gameLength = gameLength;
     }
 
-
-    // TODO decide return type
     public String getAverageSkillLevel() {
-        int[] skillLevelsAsNumber = new int[4];
+        double skillLevelSum = 0;
         int amountOfPlayers = 0;
-        for (int i = 0; i < skillLevelsAsNumber.length; i++) {
-            if (players[i] != null) {
-                int skillLevelAsNumber = getIntFromSkillLevel(players[i].getSkillLevel());
-                skillLevelsAsNumber[i] = skillLevelAsNumber;
+        for (int i=0; i < players.length; i++) {
+            if(players[i] != null) {
+                skillLevelSum += players[i].getSkillLevel();
                 amountOfPlayers++;
             }
         }
 
-        int averageSkillLevelNumber = getAverageSkillLevelNumber(skillLevelsAsNumber, amountOfPlayers);
+        double averageSkillLevelNumber = (skillLevelSum/amountOfPlayers + 0.5);
 
-        return getSkillLevelFromInt(averageSkillLevelNumber).toString();
+        return getAverageSkillLevelFromInt((int) averageSkillLevelNumber);
     }
 
-    private int getAverageSkillLevelNumber(int[] skillLevelNumbers, int amountOfPlayers) {
-        double sum = 0;
-        for (Integer skillLevelNumber : skillLevelNumbers) {
-            sum += skillLevelNumber;
-        }
-
-        double average = (sum / amountOfPlayers + 0.5);
-
-        return (int) average;
-    }
-
-    private int getIntFromSkillLevel(SkillLevel skillLevel) {
-        switch (skillLevel) {
-            case Nybörjare:
-                return 1;
-            case Medel:
-                return 2;
-            case Avancerad:
-                return 3;
-
-                default:
-                    return 2;
-        }
-    }
-
-    private SkillLevel getSkillLevelFromInt(int skillLevelNumber) {
-        switch (skillLevelNumber) {
+    private String getAverageSkillLevelFromInt(int averageSkillLevelNumber) {
+        switch (averageSkillLevelNumber) {
             case 1:
-                return SkillLevel.Nybörjare;
+                return "Nybörjare";
             case 2:
-                return SkillLevel.Medel;
+                return "Medel";
             case 3:
-                return SkillLevel.Avancerad;
-
+                return "Avancerad";
                 default:
-                    return SkillLevel.Medel;
+                    return "Medel";
         }
     }
 
