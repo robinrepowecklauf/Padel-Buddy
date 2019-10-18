@@ -39,7 +39,7 @@ class TestDataGames implements ITestData {
     private void createTestPlayers() {
         players.add(new Player("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "0704549972", "lorem ipsum", 15, 3));
         players.add(new Player("Carl-Johan", "Björnson", "tes@gmail.com", "1", "lorem ", 14, 2));
-        players.add(new Player("Marcus", "Creutz", "test@gail.com", "2", "lorem ", 13, 1));
+        players.add(new Player("Marcus", "Creutz", "test@gail.com", "2", "lorem ", 13, 3));
         players.add(new Player("Fredrik", "Axelsson", "tet@gmail.com", "3", "lorem ", 12, 3));
     }
 }
