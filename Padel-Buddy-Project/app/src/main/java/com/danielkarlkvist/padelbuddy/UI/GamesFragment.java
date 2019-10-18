@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.danielkarlkvist.padelbuddy.Model.IGame;
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 import com.google.android.material.tabs.TabLayout;
 
@@ -35,13 +36,17 @@ public class GamesFragment extends Fragment implements ITopScrollable {
     private GameRecyclerViewFragment historyGameFragment;
 
     boolean hasOpenedController = false;
-
+    /*
     private List<? extends IGame> upcomingGames;
     private List<? extends IGame> playedGames;
+    */
+    private PadelBuddy padelBuddy;
 
-    public GamesFragment(List<?extends IGame> upcomingGames, List<?extends IGame> playedGames) {
-        this.upcomingGames = upcomingGames;
+    public GamesFragment(PadelBuddy padelBuddy) {
+        /*this.upcomingGames = upcomingGames;
         this.playedGames = playedGames;
+         */
+        this.padelBuddy = padelBuddy;
     }
 
     @Nullable
@@ -52,8 +57,8 @@ public class GamesFragment extends Fragment implements ITopScrollable {
         gamesTabLayout = rootView.findViewById(R.id.games_tablayout);
         gamesViewPager = rootView.findViewById(R.id.games_viewpager);
 
-        upcomingGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, upcomingGames);
-        historyGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, playedGames);
+        upcomingGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, padelBuddy.getUpcomingGames());
+        historyGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, padelBuddy.getPlayedGames());
 
         // Create a GamesViewPagerAdapter and add fragments with titles to it
         gamesViewPagerAdapter = new GamesViewPagerAdapter(getChildFragmentManager());
