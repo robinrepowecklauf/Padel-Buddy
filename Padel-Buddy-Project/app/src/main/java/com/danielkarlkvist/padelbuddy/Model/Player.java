@@ -24,11 +24,11 @@ public class Player implements IPlayer {
     private String phone;
     private String bio;
     private int age;
-    private SkillLevel skillLevel;
+    private double skillLevel;
     private float profileRating;
     private CircleImageView image; // Not in the model, should be in view (map<user, circleimageview>
 
-    public Player(String firstname, String lastname, String mail, String phone, String bio, int age, SkillLevel skillLevel) {
+    public Player(String firstname, String lastname, String mail, String phone, String bio, int age, double skillLevel) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
@@ -79,7 +79,7 @@ public class Player implements IPlayer {
         this.image = image;
     }
 
-    public SkillLevel getSkillLevel() {
+    public double getSkillLevel() {
         return skillLevel;
     }
 
