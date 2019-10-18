@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class PadelBuddy {
+public class PadelBuddy implements ICreate {
 
     private List<Game> games = new ArrayList<>();
     private Player player;
@@ -30,8 +30,8 @@ public class PadelBuddy {
     }
 
     // TODO Command query?
-    public void createAd(String location, Date date) {
-        Game game = new Game(player, location, date);
+    public void createAd(String location, Date date, String length) {
+        Game game = new Game(player, location, date, length);
         game.getPlayers()[0] = player;
         games.add(game);
     }
@@ -42,6 +42,23 @@ public class PadelBuddy {
         }
 
         // TODO Error message? FancyToast Library?? Finns i slack
+    }
+
+    public List<Game> getAvailableGames() {
+        List<Game> availableGames = new ArrayList<>();
+        int arrayLength = games.get(0).getPlayers().length;
+
+        for (Game game : games){
+            for (int i=0; i<arrayLength; i++){
+                if (game.getPlayers()[i] == player){
+                    break;
+                }
+                availableGames.add(game);
+            }
+        }
+        //HadeCoded game where Daniel is not a player. should be removed when we create games without daniel in Service.
+        availableGames.add(new Game(new Player("Calle","balle","lingon","skalle","hejsan",12,SkillLevel.Medel), "PDL Trollhättan", new Date(), "60 min"));
+        return availableGames;
     }
 
     public List<Game> getUpcomingGames() {

@@ -17,10 +17,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.danielkarlkvist.padelbuddy.Model.IPlayer;
+import com.danielkarlkvist.padelbuddy.Model.ICreate;
 import com.danielkarlkvist.padelbuddy.R;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * The CreateAdFragment class defines the Fragment where a user can create a game ad.
@@ -55,10 +60,12 @@ public class CreateAdFragment extends Fragment {
     private TextView chosenTimeTextview;
     private TextView chosenGameLengthTextview;
 
-    private IPlayer user;
+    private ICreate iCreate;
 
-    public CreateAdFragment(IPlayer user) {
-        this.user = user;
+    private Button createAdButton;
+
+    public CreateAdFragment(ICreate iCreate) {
+        this.iCreate = iCreate;
     }
 
     /**
@@ -82,8 +89,8 @@ public class CreateAdFragment extends Fragment {
 
         setButtonListeners();
 
-        userFirstNameTextView.setText(user.getFirstname());
-        userProfileRatingBar.setRating(user.getProfileRating());
+        userFirstNameTextView.setText(iCreate.getPlayer().getFirstname());
+        userProfileRatingBar.setRating(iCreate.getPlayer().getProfileRating());
 
         return rootView;
     }
@@ -113,6 +120,8 @@ public class CreateAdFragment extends Fragment {
 
         player2RemoveButton = view.findViewById(R.id.player2_remove_button);
         player3RemoveButton = view.findViewById(R.id.player3_remove_button);
+
+        createAdButton = view.findViewById(R.id.create_ad_button);
     }
 
     /**
@@ -162,6 +171,12 @@ public class CreateAdFragment extends Fragment {
 
         dateButton.setOnClickListener(dateButtonOnClickListener);
 
+        createAdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAd();
+            }
+        });
     }
 
     private Button.OnClickListener dateButtonOnClickListener = new View.OnClickListener() {
@@ -175,7 +190,7 @@ public class CreateAdFragment extends Fragment {
             datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                    chosenDateTextView.setText(day + "/" + (month + 1) + "/" + year);
+                    chosenDateTextView.setText(year + "/" + (month + 1) + "/" + day);
                 }
             }, year, month, day);
 
@@ -203,6 +218,32 @@ public class CreateAdFragment extends Fragment {
     public void applyTexts(String time, String length) {
         chosenTimeTextview.setText(time);
         chosenGameLengthTextview.setText(length);
+    }
+
+    public void createAd(){
+        iCreate.createAd(padelArenaSpinner.getSelectedItem().toString(), stringToDate(dateAndTimeString(chosenDateTextView.getText().toString(),chosenTimeTextview.getText().toString())), chosenGameLengthTextview.getText().toString());
+    }
+
+    private String dateAndTimeString(String dateString, String timeString ){
+        StringBuilder sb = new StringBuilder();
+        sb.append(dateString);
+        sb.append(" ");
+        sb.append(timeString);
+        return sb.toString();
+    }
+
+    private Date stringToDate (String dateString)  {
+
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd hh:mm", Locale.ENGLISH);
+        Date date = null;
+        try {
+            date = df.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return date;
+
     }
 }
 

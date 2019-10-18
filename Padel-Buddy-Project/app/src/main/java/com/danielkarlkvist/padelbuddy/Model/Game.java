@@ -16,13 +16,15 @@ public class Game implements IGame{
     private IPlayer[] players = new Player[4];
     private String location;
     private Date date;
+    private String gameLength;
     private Tuple<Integer, Integer> result;
 
-    Game(Player player, String location, Date date) {
+    Game(Player player, String location, Date date, String gameLength) {
         this.players[0] = player;
         this.location = location;
         this.date = date;
         this.result = result;
+        this.gameLength = gameLength;
     }
 
     // TODO decide return type
@@ -131,11 +133,18 @@ public class Game implements IGame{
      * @return The date of the game formatted as dd/MM hh:mm
      */
     public String getDateAsString() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM hh:mm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm");
         String formattedDate = simpleDateFormat.format(date);
 
         return formattedDate;
     }
+
+
+
+    public String getGameLength() {
+        return gameLength;
+    }
+
 
     /**
      * Set the date when the game should be played

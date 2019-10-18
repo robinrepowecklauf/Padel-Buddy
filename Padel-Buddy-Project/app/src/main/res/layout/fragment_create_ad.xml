@@ -107,7 +107,7 @@
                 android:layout_marginStart="@dimen/margin_padding_size_small"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:layout_toEndOf="@+id/date_textview"
-                android:text="dd/MM/yyyy" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/time_textview"
@@ -127,7 +127,7 @@
                 android:layout_marginStart="@dimen/margin_padding_size_small"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:layout_toRightOf="@+id/time_textview"
-                android:text="hh:mm" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/chosen_game_length_textview"
@@ -137,7 +137,7 @@
                 android:layout_marginStart="@dimen/margin_padding_size_small"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
                 android:layout_toRightOf="@+id/chosen_start_time_textview"
-                android:text="60/90 min" />
+                android:text="" />
 
             <Button
                 android:id="@+id/time_button"
@@ -148,7 +148,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/rounded_green_button"
-                android:text="dialog"
+                android:text="Välj Tid"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/margin_padding_size_small" />
 
@@ -301,7 +301,9 @@
                         <Button
                             android:id="@+id/player3_remove_button"
                             style="@style/remove_player_button"
-                            android:layout_alignParentRight="true" />
+                            android:layout_alignParentRight="true"
+
+                            />
 
                     </RelativeLayout>
 
@@ -315,12 +317,13 @@
 
 
                     <Button
-                        android:id="@+id/create_ad_button"
                         style="@style/invitation_button"
+                        android:id="@+id/create_ad_button"
                         android:padding="@dimen/margin_padding_size_small"
+                        android:text="@string/createAd"
+                        >
 
-
-                        android:text="@string/createAd"></Button>
+                    </Button>
 
                 </RelativeLayout>
 
