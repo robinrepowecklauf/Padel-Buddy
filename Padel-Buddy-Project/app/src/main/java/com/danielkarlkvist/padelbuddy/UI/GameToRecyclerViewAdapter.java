@@ -116,6 +116,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             } else {
                 holder.playerNameTextViews[i].setText("Tillgänglig");
                 holder.playerImagesViews[i].setImageResource(R.drawable.waiting_for_player_picture);
+                holder.playerRatingBars[i].setRating(0);
             }
         }
     }
