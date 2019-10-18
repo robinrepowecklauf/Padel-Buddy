@@ -26,7 +26,7 @@ public class Player implements IPlayer {
     private int age;
     private SkillLevel skillLevel;
     private float profileRating;
-    private CircleImageView image; //inte i model- ska finnas i vy map<user, circleimageview>
+    private CircleImageView image; // Not in the model, should be in view (map<user, circleimageview>
 
     public Player(String firstname, String lastname, String mail, String phone, String bio, int age, SkillLevel skillLevel) {
         this.firstname = firstname;
@@ -36,7 +36,7 @@ public class Player implements IPlayer {
         this.bio = bio;
         this.age = age;
         this.skillLevel = skillLevel;
-        this.profileRating = 3.3f;
+        this.profileRating = 3.5f; // Hardcoded value at the moment
     }
 
     public String getFirstname() {
