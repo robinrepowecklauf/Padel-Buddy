@@ -26,10 +26,11 @@ public class PadelBuddy implements ICreate {
 
     // TODO Command query?
     public void createAd(String location, Date date, String length) {
-        IGame game = new PadelGame(player, location, date, length);
+        IGame game = new PadelGame(location, date, length);
         game.getPlayers()[0] = player;
         games.add(game);
     }
+
 
     public void removeAd(IGame game) {
         if (games.contains(game)) {

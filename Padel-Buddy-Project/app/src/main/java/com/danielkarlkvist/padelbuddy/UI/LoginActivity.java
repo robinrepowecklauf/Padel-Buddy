@@ -5,7 +5,9 @@ import android.os.Bundle;
 
 import com.danielkarlkvist.padelbuddy.MainActivity;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
+import com.danielkarlkvist.padelbuddy.Services.ITestData;
 import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button danielButton;
     private Button robinButton;
     private Button marcusButton;
+
+    private static PadelBuddy padelBuddy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,33 +43,35 @@ public class LoginActivity extends AppCompatActivity {
         danielButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TestFactory.setCurrentUser(1);
+                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(1));
                 startMainActivity();
             }
         });
         robinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TestFactory.setCurrentUser(2);
+                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(2));
                 startMainActivity();
             }
         });
         marcusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TestFactory.setCurrentUser(3);
+                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(3));
                 startMainActivity();
             }
         });
     }
 
     private void startMainActivity() {
-        TestFactory.createPadelBuddy();
-        TestFactory.createTestGames();
+        TestFactory.createTestGames(padelBuddy);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    public static PadelBuddy getPadelbuddy(){
+        return padelBuddy;
+    }
 }
 
 
