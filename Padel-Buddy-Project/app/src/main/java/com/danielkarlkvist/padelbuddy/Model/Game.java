@@ -21,7 +21,7 @@ import java.util.Date;
 
     Game(IPlayer player, int amountOfPlayers, String location, Date date, String gameLength) {
         this.players = new Player[amountOfPlayers];
-        players[0] = player; //Detta gör att alla games hamnar i kommande matcher
+        this.players[0] = player;
         this.location = location;
         this.date = date;
         this.result = result;
