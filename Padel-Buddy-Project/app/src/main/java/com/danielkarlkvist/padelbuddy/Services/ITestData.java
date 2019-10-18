@@ -4,7 +4,5 @@ import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 
 public interface ITestData {
 
-    void createTestGame(PadelBuddy padelBuddy);
-
-    void createTestPlayers();
+    void createTestGames(PadelBuddy padelBuddy);
 }
