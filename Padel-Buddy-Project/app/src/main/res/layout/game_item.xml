@@ -52,6 +52,13 @@
             android:textColor="@color/primaryTextColorOnLightBackground"
             android:textSize="20sp"></TextView>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_date_range_black_24dp"
+            android:layout_toStartOf="@id/date_textview"
+            android:layout_alignBottom="@+id/location_textview"/>
+
         <TextView
             android:id="@+id/date_textview"
             android:layout_width="wrap_content"
@@ -62,14 +69,23 @@
             android:text="Date"
             android:textColor="@color/primaryTextColorOnLightBackground"
             android:textSize="15sp"></TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_timer_black_24dp"
+            android:layout_alignBottom="@+id/skilllevel_textview"
+            android:layout_toStartOf="@id/game_length_textview"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/game_length_textview"
             android:layout_alignBottom="@+id/skilllevel_textview"
-            android:layout_below="@id/date_textview"
             android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/margin_padding_size_small"
             android:text="60/90min"
+            android:textColor="@color/primaryTextColorOnLightBackground"
             />
 
         <GridLayout
