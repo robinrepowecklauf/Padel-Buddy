@@ -7,13 +7,20 @@ import java.util.Date;
 import static org.junit.Assert.*;
 
 public class GameTest {
-/*
+
+    Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
+    Player badplayer2 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
+    Player badplayer3 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
+    Player medelplayer2 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
+    Player medelplayer3 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
+    Player advancedplayer5 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
+    Player advancedplayer6 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
+    IGame game = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "90");
+
         @Test
         public void addPlayer_onePlayerIsAdded_ReturnsTrue() {
-            Player player1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Avancerad);
-            Player player2 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Nybörjare);
-            IGame game = new PadelGame(player1, "Gltk", new Date(2019, 11, 05), "60");
-            game.addPlayer(player2);
+            IGame game = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "60");
+            game.addPlayer(badplayer2);
             IPlayer[] players = game.getPlayers();
             assertTrue(players[0].getFirstname()=="Fredrik");
             assertTrue(players[1].getFirstname()=="Axel");
@@ -21,58 +28,46 @@ public class GameTest {
             assertTrue(players[3]==null);
         }
 
-        */
-
     @Test
-    public void GetAverageSkillevel_averageiscorrect_ReturnsTrue(){
-        Player player1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2.0);
-
-
-        Player player2 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
-        Player player3 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-        Player player4 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-        IGame game1 = new PadelGame(player1, "Gltk", new Date(2019, 11, 05), "90");
-        game1.addPlayer(player2);
-        game1.addPlayer(player3);
-        game1.addPlayer(player4);
-
-        Player player5 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
-        Player player6 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
-        Player player7 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
-        IGame game2 = new PadelGame(player1, "Gltk", new Date(2019, 11, 05), "90");
-
-        game2.addPlayer(player5);
-        game2.addPlayer(player6);
-        game2.addPlayer(player7);
-
-        Player player10 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
-        Player player11 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
-        Player player12 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
-        IGame game3 = new PadelGame(player1, "Gltk", new Date(2019, 11, 05), "90");
-
-
-        game3.addPlayer(player10);
-        game3.addPlayer(player11);
-        game3.addPlayer(player12);
-
-
-        Player player13 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-        Player player14 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-        Player player15 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-        IGame game4 = new PadelGame(player1, "Gltk", new Date(2019, 11, 05), "90");
-
-
-        game4.addPlayer(player13);
-        game4.addPlayer(player14);
-        game4.addPlayer(player15);
-
-        assertTrue(game1.getAverageSkillLevel()=="Medel");
-        assertTrue(game2.getAverageSkillLevel()=="Medel");
-        assertTrue(game3.getAverageSkillLevel()=="Avancerad");
-        assertTrue(game4.getAverageSkillLevel()=="Nybörjare");
+    public void addPlayer_gameIsFull_ReturnsTrue() {
 
     }
-    /*
+
+
+
+    @Test
+    public void GetAverageSkillevel_gameWithOnePlayer_ReturnsTrue(){
+       assertTrue(game.getAverageSkillLevel()=="Nybörjare");
+    }
+
+    @Test
+    public void GetAverageSkillevel_threeOfSame_ReturnsTrue(){
+        game.addPlayer(badplayer2);
+        game.addPlayer(badplayer3);
+        game.addPlayer(medelplayer2);
+        assertTrue(game.getAverageSkillLevel()=="Nybörjare");
+    }
+
+    @Test
+    public void GetAverageSkillevel_twoOfEach_ReturnsTrue(){
+        game.addPlayer(badplayer2);
+        game.addPlayer(medelplayer2);
+        game.addPlayer(medelplayer3);
+        assertTrue(game.getAverageSkillLevel()=="Medel");
+    }
+
+    @Test
+    public void GetAverageSkillevel_twoAdvancedtwoBad_ReturnsTrue(){
+        game.addPlayer(badplayer2);
+        game.addPlayer(advancedplayer5);
+        game.addPlayer(advancedplayer6);
+        assertTrue(game.getAverageSkillLevel()=="Medel");
+    }
+
+
+
+/*
+
     public void isFinishedGame_gameisfinished_ReturnsTrue() {
         Player player1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Medel);
         IGame game1 = new PadelGame(player1, "Gltk", new Date(2019, 11, 05),"90");
