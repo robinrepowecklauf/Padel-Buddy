@@ -9,20 +9,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragment;
-import com.danielkarlkvist.padelbuddy.Controller.GamesFragment;
-import com.danielkarlkvist.padelbuddy.Controller.GameRecyclerViewFragment;
-import com.danielkarlkvist.padelbuddy.Controller.ProfileFragment;
-import com.danielkarlkvist.padelbuddy.Controller.ITimePickerDialogListener;
-import com.danielkarlkvist.padelbuddy.Model.Game;
-import com.danielkarlkvist.padelbuddy.Model.IPlayer;
+import com.danielkarlkvist.padelbuddy.UI.CreateAdFragment;
+import com.danielkarlkvist.padelbuddy.UI.GamesFragment;
+import com.danielkarlkvist.padelbuddy.UI.GameRecyclerViewFragment;
+import com.danielkarlkvist.padelbuddy.UI.ProfileFragment;
+import com.danielkarlkvist.padelbuddy.UI.ITimePickerDialogListener;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
+import com.danielkarlkvist.padelbuddy.Services.ITestFactory;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements ITimePickerDialogListener {
 
@@ -43,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
     private Fragment selectedFragmentController = null;
 
     private PadelBuddy padelBuddy;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
             // region bottomNavigationViewListener
@@ -91,8 +86,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
         padelBuddy = new PadelBuddy();
-
-        createRandomGames();
+        ITestFactory.createTestGames(padelBuddy);
 
         initializeBottomNavigationViewControllers();
         initializeBottomNavigationView();
@@ -101,18 +95,17 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
     /**
      * Creates random games for showing purposes
      */
-
-    private void createRandomGames() {
+    /*  private void createRandomGames() {
         Random rand = new Random();
-        for (int i = 0; i < 2; i++) {
-            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31),rand.nextInt(24), rand.nextInt(61)),"60/90");
+        for (int i = 0; i < 15; i++) {
+            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)));
         }
 
-        List<Game> testGames = padelBuddy.getGames();
-        List<IPlayer> testPlayers = padelBuddy.testPlayers;
+        List<? extends IGame> testGames = padelBuddy.getGames();
+        List<IPlayer> testPlayers = PadelBuddy.testPlayers;
 
         for (int j = 0; j < testGames.size(); j++) {
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 0; i++) {
                 List<IPlayer> players = Arrays.asList(testGames.get(j).getPlayers());
                 int random = rand.nextInt(4);
                 while (players.contains(testPlayers.get(random))) {
@@ -121,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
                 testGames.get(j).addPlayer(testPlayers.get(random));
             }
         }
-    }
+    } */
 
     /**
      * Instantiates the main Fragments in the app

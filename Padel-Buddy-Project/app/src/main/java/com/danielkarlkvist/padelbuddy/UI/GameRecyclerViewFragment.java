@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy.Controller;
+package com.danielkarlkvist.padelbuddy.UI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.danielkarlkvist.padelbuddy.Model.Game;
+import com.danielkarlkvist.padelbuddy.Model.IGame;
 
 import java.util.List;
 
@@ -32,9 +32,9 @@ public class GameRecyclerViewFragment extends Fragment implements ITopScrollable
 
     private int fragmentId;
     private int recyclerViewId;
-    private List<Game> games;
+    private List<? extends IGame> games;
 
-    public GameRecyclerViewFragment(int fragmentId, int recyclerViewId, List<Game> games) {
+    public GameRecyclerViewFragment(int fragmentId, int recyclerViewId, List<? extends IGame> games) {
         this.fragmentId = fragmentId;
         this.recyclerViewId = recyclerViewId;
         this.games = games;

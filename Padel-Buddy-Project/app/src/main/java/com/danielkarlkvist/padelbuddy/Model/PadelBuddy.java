@@ -1,27 +1,22 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import com.danielkarlkvist.padelbuddy.Services.ITestFactory;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class PadelBuddy implements ICreate {
 
-    private List<Game> games = new ArrayList<>();
+    private List<IGame> games = new ArrayList<>();
     private Player player;
-    public List<IPlayer> testPlayers = new ArrayList<>();
 
     public PadelBuddy() {
-        this.player = player;
-        player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, SkillLevel.Nybörjare);
-        testPlayers.add(new Player("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "0704549972", "lorem ipsum", 15, SkillLevel.Avancerad));
-        testPlayers.add(new Player("Carl-Johan", "Björnson", "tes@gmail.com", "1", "lorem ", 14, SkillLevel.Medel));
-        testPlayers.add(new Player("Marcus", "Creutz", "test@gail.com", "2", "lorem ", 13, SkillLevel.Nybörjare));
-        testPlayers.add(new Player("Fredrik", "Axelsson", "tet@gmail.com", "3", "lorem ", 12, SkillLevel.Avancerad));
+
+        this.player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, SkillLevel.Nybörjare);
+
     }
 
-    public List<Game> getGames() {
+
+    public List<IGame> getGames() {
         return games;
     }
 
@@ -36,7 +31,7 @@ public class PadelBuddy implements ICreate {
         games.add(game);
     }
 
-    public void removeAd(Game game) {
+    public void removeAd(IGame game) {
         if (games.contains(game)) {
             games.remove(game);
         }
@@ -73,9 +68,9 @@ public class PadelBuddy implements ICreate {
     }
 
 
-    public List<Game> getPlayedGames() {
-        List<Game> playedGames = new ArrayList<>();
-        for (Game game : games) {
+    public List<IGame> getPlayedGames() {
+        List<IGame> playedGames = new ArrayList<>();
+        for (IGame game : games) {
             if (game.isFinishedGame()) {
                 playedGames.add(game);
             }

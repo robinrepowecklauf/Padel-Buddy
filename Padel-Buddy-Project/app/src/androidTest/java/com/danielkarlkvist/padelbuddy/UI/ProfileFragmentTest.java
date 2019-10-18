@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy.Controller;
+package com.danielkarlkvist.padelbuddy.UI;
 
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;

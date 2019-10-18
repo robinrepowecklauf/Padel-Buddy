@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy.Controller;
+package com.danielkarlkvist.padelbuddy.UI;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -28,7 +28,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * The CreateAdFragment class defines the Fragment where a user can create a game ad.
+ * The CreateAdFragment class defines the Fragment where a user can createTestData a game ad.
  *
  * @author Carl-Johan Björnson
  *
