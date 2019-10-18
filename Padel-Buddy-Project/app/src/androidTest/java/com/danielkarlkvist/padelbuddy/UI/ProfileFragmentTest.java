@@ -60,7 +60,7 @@ public class ProfileFragmentTest {
     @Before
     public void setUp() throws Exception {
         padelBuddy = new PadelBuddy();
-        user = padelBuddy.getPlayer();
+        user = padelBuddy.getUser();
         profile = new ProfileFragment(user);
         activityRule.getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, profile, "Profile").commit();
     }

@@ -7,11 +7,11 @@ import java.util.List;
 public class PadelBuddy implements ICreate {
 
     private List<IGame> games = new ArrayList<>();
-    private IPlayer player;
+    private IPlayer user;
 
-    public PadelBuddy(IPlayer player) {
-        this.player = player;
-        //this.player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, SkillLevel.Nybörjare);
+    public PadelBuddy(IPlayer user) {
+        this.user = user;
+        //this.user = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, SkillLevel.Nybörjare);
 
     }
 
@@ -20,14 +20,13 @@ public class PadelBuddy implements ICreate {
         return games;
     }
 
-    public IPlayer getPlayer() {
-        return player;
+    public IPlayer getUser() {
+        return user;
     }
 
     // TODO Command query?
     public void createAd(String location, Date date, String length) {
-        IGame game = new PadelGame(location, date, length);
-        game.getPlayers()[0] = player;
+        IGame game = new PadelGame(user, location, date, length);
         games.add(game);
     }
 
@@ -40,20 +39,20 @@ public class PadelBuddy implements ICreate {
         // TODO Error message? FancyToast Library?? Finns i slack
     }
 
-    public List<IGame> getAvailableGames() {
+    public List<IGame> getAvailableGames(List<IGame> games) {
         List<IGame> availableGames = new ArrayList<>();
         int arrayLength = games.get(0).getPlayers().length;
 
         for (IGame game : games){
             for (int i=0; i<arrayLength; i++){
-                if (game.getPlayers()[i] == player){
+                if (game.getPlayers()[i] == user){
                     break;
                 }
                 availableGames.add(game);
             }
         }
-        //Hardcoded game where Daniel is not a player. should be removed when we create games without daniel in Service.
-        //availableGames.add(createAd(new Player("Calle","balle","lingon","skalle","hejsan",12,2), "PDL Trollhättan", new Date(), "60 min"););
+        //Hardcoded game where Daniel is not a user. should be removed when we create games without daniel in Service.
+        availableGames.add(new PadelGame(new Player("Calle","balle","lingon","skalle","hejsan",12,2), "PDL Trollhättan", new Date(), "60 min"));
         return availableGames;
     }
 

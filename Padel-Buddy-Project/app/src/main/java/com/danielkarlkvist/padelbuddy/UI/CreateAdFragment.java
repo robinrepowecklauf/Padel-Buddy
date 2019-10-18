@@ -89,8 +89,8 @@ public class CreateAdFragment extends Fragment {
 
         setButtonListeners();
 
-        userFirstNameTextView.setText(iCreate.getPlayer().getFirstname());
-        userProfileRatingBar.setRating(iCreate.getPlayer().getProfileRating());
+        userFirstNameTextView.setText(iCreate.getUser().getFirstname());
+        userProfileRatingBar.setRating(iCreate.getUser().getProfileRating());
 
         return rootView;
     }
