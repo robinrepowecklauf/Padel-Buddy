@@ -21,7 +21,7 @@ import java.util.Date;
 
     Game(IPlayer player, int amountOfPlayers, String location, Date date, String gameLength) {
         this.players = new Player[amountOfPlayers];
-        this.players[0] = player;
+        this.players[0] = player; //This makes all the games appear in upcoming games
         this.location = location;
         this.date = date;
         this.result = result;
