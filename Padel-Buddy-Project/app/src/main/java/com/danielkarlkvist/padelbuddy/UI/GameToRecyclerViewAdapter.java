@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy.Controller;
+package com.danielkarlkvist.padelbuddy.UI;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.danielkarlkvist.padelbuddy.Model.Game;
+import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.R;
 
@@ -29,7 +29,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameAdViewHolder> {
 
-    private List<Game> games;
+    private List<? extends IGame> games;
 
     /**
      * The ViewHolder which should be updated to represent the contents of a Game.
@@ -75,7 +75,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         }
     }
 
-    GameToRecyclerViewAdapter(List<Game> games) {
+    GameToRecyclerViewAdapter(List<? extends IGame> games) {
         this.games = games;
     }
 
@@ -91,7 +91,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
     // Called by RecyclerView to display the data from Game at the specified position.
     @Override
     public void onBindViewHolder(@NonNull GameAdViewHolder holder, int position) {
-        Game currentGame = games.get(position);
+        IGame currentGame = games.get(position);
         // Set location
         holder.locationTextView.setText(currentGame.getLocation());
         // Set date
@@ -116,6 +116,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             } else {
                 holder.playerNameTextViews[i].setText("Tillgänglig");
                 holder.playerImagesViews[i].setImageResource(R.drawable.waiting_for_player_picture);
+                holder.playerRatingBars[i].setVisibility(View.INVISIBLE);
             }
         }
     }

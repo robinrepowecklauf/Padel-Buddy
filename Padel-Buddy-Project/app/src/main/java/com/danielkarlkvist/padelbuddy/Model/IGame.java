@@ -14,4 +14,6 @@ public interface IGame {
 
     IPlayer[] getPlayers();
 
+    String getGameLength();
+
 }

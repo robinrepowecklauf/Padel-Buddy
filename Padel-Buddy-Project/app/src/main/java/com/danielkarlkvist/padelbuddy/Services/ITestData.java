@@ -1,8 +1,8 @@
 package com.danielkarlkvist.padelbuddy.Services;
 
-import java.util.List;
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 
 public interface ITestData {
 
-    List create();
+    void createTestGames(PadelBuddy padelBuddy);
 }

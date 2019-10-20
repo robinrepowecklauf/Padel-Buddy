@@ -12,74 +12,47 @@ import java.util.Date;
  * @since 2019-09-05
  */
 
-public class Game implements IGame{
-    private IPlayer[] players = new Player[4];
+ abstract class Game implements IGame{
+    private IPlayer[] players;
     private String location;
     private Date date;
     private String gameLength;
     private Tuple<Integer, Integer> result;
 
-    Game(Player player, String location, Date date, String gameLength) {
-        this.players[0] = player;
+    Game(IPlayer player, int amountOfPlayers, String location, Date date, String gameLength) {
+        this.players = new Player[amountOfPlayers];
+        this.players[0] = player; //This makes all the games appear in upcoming games
         this.location = location;
         this.date = date;
         this.result = result;
         this.gameLength = gameLength;
     }
 
-    // TODO decide return type
     public String getAverageSkillLevel() {
-        int[] skillLevelsAsNumber = new int[4];
+        double skillLevelSum = 0;
         int amountOfPlayers = 0;
-        for (int i = 0; i < skillLevelsAsNumber.length; i++) {
-            if (players[i] != null) {
-                int skillLevelAsNumber = getIntFromSkillLevel(players[i].getSkillLevel());
-                skillLevelsAsNumber[i] = skillLevelAsNumber;
+        for (IPlayer player : players) {
+            if (player != null) {
+                skillLevelSum += player.getSkillLevel();
                 amountOfPlayers++;
             }
         }
 
-        int averageSkillLevelNumber = getAverageSkillLevelNumber(skillLevelsAsNumber, amountOfPlayers);
+        double averageSkillLevelNumber = (skillLevelSum/amountOfPlayers + 0.5);
 
-        return getSkillLevelFromInt(averageSkillLevelNumber).toString();
+        return getAverageSkillLevelFromInt((int) averageSkillLevelNumber);
     }
 
-    private int getAverageSkillLevelNumber(int[] skillLevelNumbers, int amountOfPlayers) {
-        double sum = 0;
-        for (Integer skillLevelNumber : skillLevelNumbers) {
-            sum += skillLevelNumber;
-        }
-
-        double average = (sum / amountOfPlayers + 0.5);
-
-        return (int) average;
-    }
-
-    private int getIntFromSkillLevel(SkillLevel skillLevel) {
-        switch (skillLevel) {
-            case Nybörjare:
-                return 1;
-            case Medel:
-                return 2;
-            case Avancerad:
-                return 3;
-
-                default:
-                    return 2;
-        }
-    }
-
-    private SkillLevel getSkillLevelFromInt(int skillLevelNumber) {
-        switch (skillLevelNumber) {
+    private String getAverageSkillLevelFromInt(int averageSkillLevelNumber) {
+        switch (averageSkillLevelNumber) {
             case 1:
-                return SkillLevel.Nybörjare;
+                return "Nybörjare";
             case 2:
-                return SkillLevel.Medel;
+                return "Medel";
             case 3:
-                return SkillLevel.Avancerad;
-
+                return "Avancerad";
                 default:
-                    return SkillLevel.Medel;
+                    return "Medel";
         }
     }
 
@@ -91,14 +64,10 @@ public class Game implements IGame{
         return result != null;
     }
 
-    /**
-     * Set both scores of each team
-     * @param score1
-     * @param score2
-     */
-    public void setResult(int score1, int score2) {
+
+   /* public void setResult(int score1, int score2) {
         this.result = new Tuple(score1, score2);
-    }
+    } */
 
     /**
      * Get the players currently in the game
@@ -121,7 +90,7 @@ public class Game implements IGame{
     /**
      * Set the location of the game
      *
-     * @param location
+     * @param location where the game will ge played
      */
     public void setLocation(String location) {
         this.location = location;
@@ -134,9 +103,7 @@ public class Game implements IGame{
      */
     public String getDateAsString() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm");
-        String formattedDate = simpleDateFormat.format(date);
-
-        return formattedDate;
+        return simpleDateFormat.format(date);
     }
 
 
@@ -149,7 +116,7 @@ public class Game implements IGame{
     /**
      * Set the date when the game should be played
      *
-     * @param date
+     * @param date which date the game is being played
      */
     public void setDate(Date date) {
         this.date = date;

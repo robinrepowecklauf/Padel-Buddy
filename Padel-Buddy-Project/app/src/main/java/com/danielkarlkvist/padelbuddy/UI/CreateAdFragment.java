@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy.Controller;
+package com.danielkarlkvist.padelbuddy.UI;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,7 +29,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * The CreateAdFragment class defines the Fragment where a user can create a game ad.
+ * The CreateAdFragment class defines the Fragment where a user can createTestData a game ad.
  *
  * @author Carl-Johan Björnson
  *
@@ -89,8 +90,8 @@ public class CreateAdFragment extends Fragment {
 
         setButtonListeners();
 
-        userFirstNameTextView.setText(iCreate.getPlayer().getFirstname());
-        userProfileRatingBar.setRating(iCreate.getPlayer().getProfileRating());
+        userFirstNameTextView.setText(iCreate.getUser().getFirstname());
+        userProfileRatingBar.setRating(iCreate.getUser().getProfileRating());
 
         return rootView;
     }
@@ -220,10 +221,24 @@ public class CreateAdFragment extends Fragment {
         chosenGameLengthTextview.setText(length);
     }
 
-    public void createAd(){
-        iCreate.createAd(padelArenaSpinner.getSelectedItem().toString(), stringToDate(dateAndTimeString(chosenDateTextView.getText().toString(),chosenTimeTextview.getText().toString())), chosenGameLengthTextview.getText().toString());
+    private void createAd(){
+        if(checkInputValues()) {
+            iCreate.createAd(padelArenaSpinner.getSelectedItem().toString(), stringToDate(dateAndTimeString(chosenDateTextView.getText().toString(), chosenTimeTextview.getText().toString())), chosenGameLengthTextview.getText().toString());
+        }
+        else{
+            Toast.makeText(getContext(),"VÄLJ TID!",Toast.LENGTH_SHORT).show();
+        }
     }
 
+    private boolean checkInputValues(){
+        boolean isValid = true;
+        String s1 = chosenDateTextView.getText().toString();
+        String s2 = chosenGameLengthTextview.getText().toString();
+        if (s1.equals("")|| s2.equals("")){
+            isValid = false;
+        }
+        return isValid;
+    }
     private String dateAndTimeString(String dateString, String timeString ){
         StringBuilder sb = new StringBuilder();
         sb.append(dateString);
