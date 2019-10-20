@@ -76,8 +76,24 @@ public class PadelBuddyTest {
     public void getUpcomingGames_OneExists_ReturnsTrue() {
         padelBuddy.createAd("Göteborg", new Date(), "90");
         List<IGame> upcomingGames = padelBuddy.getUpcomingGames();
-
         assertNotNull(upcomingGames.get(0));
         assertSame(upcomingGames.get(0), padelBuddy.getGames().get(0));
+    }
+
+
+
+    @Test
+    public void JoinGame_UserisInUpcomingGame_ReturnsTrue(){
+        padelBuddy.getGames().add(game1);
+        padelBuddy.joinGame(game1);
+        assertTrue(padelBuddy.getUpcomingGames().contains(game1));
+    }
+
+    @Test
+    public void JoinGame_GameIsTurnUnavailable_ReturnsTrue() {
+        padelBuddy.getGames().add(game1);
+        assertTrue(padelBuddy.getAvailableGames().contains(game1));
+        padelBuddy.joinGame(game1);
+        assertTrue(!padelBuddy.getAvailableGames().contains(game1));
     }
 }
