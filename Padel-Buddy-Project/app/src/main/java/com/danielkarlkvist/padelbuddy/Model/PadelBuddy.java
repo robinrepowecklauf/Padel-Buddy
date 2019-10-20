@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static java.lang.Boolean.TRUE;
-
 public class PadelBuddy implements ICreate {
 
     private List<IGame> games = new ArrayList<>();
@@ -36,6 +34,8 @@ public class PadelBuddy implements ICreate {
     public void removeAd(IGame game) {
         if (games.contains(game)) {
             games.remove(game);
+        } else {
+            System.out.println("Game does not exist");
         }
 
         // TODO Error message? FancyToast Library?? Finns i slack
@@ -46,13 +46,13 @@ public class PadelBuddy implements ICreate {
         int arrayLength = games.get(0).getPlayers().length;
         boolean gameAvailable = true;
 
-        for (IGame game : games){
-            for (int i=0; i<arrayLength; i++){
-                if (game.getPlayers()[i] == user){
+        for (IGame game : games) {
+            for (int i = 0; i < arrayLength; i++) {
+                if (game.getPlayers()[i] == user) {
                     gameAvailable = false;
                 }
             }
-            if(gameAvailable){
+            if (gameAvailable) {
                 availableGames.add(game);
             }
             gameAvailable = true;
@@ -65,7 +65,7 @@ public class PadelBuddy implements ICreate {
     public List<IGame> getUpcomingGames() {
         List<IGame> upcomingGames = new ArrayList<>();
         for (IGame game : games) {
-            for (IPlayer player: game.getPlayers()) {
+            for (IPlayer player : game.getPlayers()) {
                 if (player == user && !game.isFinishedGame()) {
                     upcomingGames.add(game);
                 }
@@ -75,11 +75,10 @@ public class PadelBuddy implements ICreate {
         return upcomingGames;
     }
 
-
     public List<IGame> getPlayedGames() {
         List<IGame> playedGames = new ArrayList<>();
         for (IGame game : games) {
-            for (IPlayer player: game.getPlayers()) {
+            for (IPlayer player : game.getPlayers()) {
                 if (player == user && game.isFinishedGame()) {
                     playedGames.add(game);
                 }
