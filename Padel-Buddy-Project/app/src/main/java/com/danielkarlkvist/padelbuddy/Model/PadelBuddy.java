@@ -41,7 +41,7 @@ public class PadelBuddy implements ICreate {
 
     public List<IGame> getAvailableGames() {
         List<IGame> availableGames = new ArrayList<>();
-        int arrayLength = games.get(0).getPlayers().length;
+        int arrayLength = 4;
 
         for (IGame game : games){
             for (int i=0; i<arrayLength; i++){

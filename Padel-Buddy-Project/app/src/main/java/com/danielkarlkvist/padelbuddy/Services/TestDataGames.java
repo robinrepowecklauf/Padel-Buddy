@@ -1,5 +1,8 @@
 package com.danielkarlkvist.padelbuddy.Services;
 
+import android.content.Context;
+import android.graphics.BitmapFactory;
+
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.Player;
@@ -13,15 +16,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 class TestDataGames implements ITestData {
 
     private Random rand = new Random();
     private List<IPlayer> players = new ArrayList<>();
+    private Context context;
 
     @Override
-    public void createTestGames(PadelBuddy padelBuddy) {
+    public void createTestGames(PadelBuddy padelBuddy, Context context) {
+        this.context = context;
 
         for (int i = 0; i < 15; i++) {
             padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)), "10år");
@@ -43,20 +46,20 @@ class TestDataGames implements ITestData {
 
     private void createTestPlayers() {
         Player player = new Player("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "0704549972", "lorem ipsum", 15, SkillLevel.Avancerad);
-        bindPlayerImage(player, R.drawable.profile_picture);
+        bindPlayerImage(player, R.drawable.loket);
         players.add(player);
         player = new Player("Carl-Johan", "Björnson", "tes@gmail.com", "1", "lorem ", 14, SkillLevel.Medel);
-        bindPlayerImage(player, R.drawable.no_profile_picture);
+        bindPlayerImage(player, R.drawable.profile_picture);
         players.add(player);
         player = new Player("Marcus", "Creutz", "test@gail.com", "2", "lorem ", 13, SkillLevel.Nybörjare);
-        bindPlayerImage(player, R.drawable.profile_picture);
+        bindPlayerImage(player, R.drawable.linda);
         players.add(player);
         player = new Player("Fredrik", "Axelsson", "tet@gmail.com", "3", "lorem ", 12, SkillLevel.Avancerad);
-        bindPlayerImage(player, R.drawable.profile_picture);
+        bindPlayerImage(player, R.drawable.mikael);
         players.add(player);
     }
 
     private void bindPlayerImage(IPlayer player, int image) {
-        PlayerImageBinder.bind(player, image);
+        PlayerImageBinder.bind(player, BitmapFactory.decodeResource(context.getResources(), image));
     }
 }

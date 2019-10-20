@@ -26,7 +26,6 @@ public class Player implements IPlayer {
     private int age;
     private SkillLevel skillLevel;
     private float profileRating;
-    private CircleImageView image; // Not in the model, should be in view (map<user, circleimageview>
 
     public Player(String firstname, String lastname, String mail, String phone, String bio, int age, SkillLevel skillLevel) {
         this.firstname = firstname;
@@ -75,16 +74,7 @@ public class Player implements IPlayer {
         return 3;
     }
 
-    public void setImage(CircleImageView image) {
-        this.image = image;
-    }
-
     public SkillLevel getSkillLevel() {
         return skillLevel;
-    }
-
-    @Override
-    public CircleImageView getImage() {
-        return image;
     }
 }

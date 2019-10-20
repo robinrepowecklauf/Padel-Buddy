@@ -16,8 +16,6 @@ public interface IPlayer {
 
     void setLastname(String lastname);
 
-    void setImage(CircleImageView image);
-
     void setBio(String bio);
 
     int getGamesPlayed();
@@ -26,5 +24,4 @@ public interface IPlayer {
 
     SkillLevel getSkillLevel();
 
-    CircleImageView getImage();
 }

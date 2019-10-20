@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.danielkarlkvist.padelbuddy.MainActivity;
-import com.danielkarlkvist.padelbuddy.Model.IPlayer;
-import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        TestFactory.initialize(getApplicationContext());
         initializeViews();
         initializeButtonListeners();
     }
@@ -60,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void startMainActivity() {
-        TestFactory.createPadelBuddy();
+        TestFactory.initialize(getApplicationContext());
         TestFactory.createTestGames();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
