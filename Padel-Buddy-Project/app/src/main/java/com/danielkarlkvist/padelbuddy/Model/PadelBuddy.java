@@ -1,5 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
+import android.net.IpPrefix;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -84,7 +86,20 @@ public class PadelBuddy implements ICreate {
         return playedGames;
     }
 
-    public void joinGame (IGame game){
-        game.addPlayer(user);
+    public void joinGame(IGame game) {
+        IPlayer[] players = game.getPlayers();
+        int arrayLength = players.length;
+        boolean available = true;
+
+        for (int i = 0; i < arrayLength; i++) {
+            if (players[i] == user){
+                available = false;
+            }
+        }
+
+        if(available){
+            game.addPlayer(user);
+        }
+
     }
 }
