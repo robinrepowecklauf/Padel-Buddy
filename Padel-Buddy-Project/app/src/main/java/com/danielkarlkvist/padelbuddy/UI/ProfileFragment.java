@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -192,7 +193,13 @@ public class ProfileFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             userCircleImageView.setImageURI(data.getData());
-            //PlayerImageBinder.bind();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getActivity().getContentResolver(), data.getData());
+                PlayerImageBinder.bind(user, bitmap);
+            } catch (Exception e) {
+                PlayerImageBinder.bind(user, BitmapFactory.decodeResource(getResources(), R.drawable.no_profile_picture));
+                Toast.makeText(getContext(), "Could not import image.", Toast.LENGTH_LONG);
+            }
         }
     }
 
