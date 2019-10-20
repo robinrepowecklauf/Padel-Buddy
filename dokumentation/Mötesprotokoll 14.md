@@ -1,6 +1,6 @@
 # Meeting Agenda
 Group: Padel Buddy  
-Date: 20/10-19 12:00-13:00  
+Date: 20/10-19 19:00-20:00  
 Chair: Carl-Johan Björnson  
 Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Fredrik Lilliecreutz & Carl-Johan Björnson
 
@@ -24,7 +24,7 @@ Robin, Daniel:
 Robin:
 - Uppdaterat UI-paketets UML.
 
-Fredrik & Marus:
+Fredrik & Marcus:
 - Refaktoriserade testerna. Ändrade metoden som räknar ut genomsnittlig skicklighetsnivå (getAverageSkillLevel), istället för att varje player har en enum som skillLevel används nu en double. Ändrade alla hårdkodade användares skillLevel, så att den nya metoden kan användas.
 
 Fredrik, Marcus & Daniel:
@@ -32,6 +32,21 @@ Fredrik, Marcus & Daniel:
 
 Marcus & Daniel:
 - Skapade en static PadelBuddy och IPlayer i TestFactory för att koppla hårdkodade testanvändare till applikationen.
+
+Carl-Johan: 
+- I klassen PadelBuddy finns nu metoderna leaveGame() & joinGame() som antingen lägger till eller tar bort user från en match.
+- GameRecyclerViewFragment har nu attributet boolean joinable, vilekt avgör vilken knapp som ska synas på matchannonsen. Antingen "Gå med" eller "lämna match". 
+- TestDataGames skapar nu games där användaren inte är en utav spelarna. Detta för att det ska finnas matcher att gå med i. 
+- La till metoden checkInputValues i CreateAdFragment.java, som kollar om användaren har valt en tid och längd för match innan annonsen skapas. Skapade även metoden stringToDate(), som tar in en String och retunerar ett Date med datument som strängen representerar.
+- Skapade Interfacet ICreate som implementeras av klassen Padelbuddy.java. Detta gör att man från klassen CreateAdFragment.java kan tycka på en knapp som kallar på metoden createAd() i Padelbuddy.java. 
+- Ändrade så att LoginActivity har en statisk padelbuddy, istället för att applikationen ska hämta ett PadelBuddy-objekt från Service-paketet. Hämtar nu endast en user. 
+
+Carl-Johan och Fredrik: 
+- La in passande ikoner i game_item.xml
+- Skapade interfacet IGame som är en abstraktion av klassen games. 
+- Försökt implementer pliancy på knappar. 
+- Carl-Johan skrev metoden getAvailableGames() i klassen PadelBuddy.java. Fredrik hittade buggar i denna metod och åtgärdade detta med den nuvarande versionen av metoden, som nu faktiskt fungerar. 
+
  
 ## Discussion items (35 min)
 
