@@ -58,7 +58,7 @@ public class PadelBuddy implements ICreate {
             gameAvailable = true;
         }
         //Hardcoded game where Daniel is not a user. should be removed when we create games without daniel in Service.
-       // availableGames.add(new PadelGame(new Player("Calle","balle","lingon","skalle","hejsan",12,2), "PDL Trollhättan", new Date(), "60"));
+        availableGames.add(new PadelGame(new Player("Calle","balle","lingon","skalle","hejsan",12,2), "PDL Trollhättan", new Date(), "60"));
         return availableGames;
     }
 

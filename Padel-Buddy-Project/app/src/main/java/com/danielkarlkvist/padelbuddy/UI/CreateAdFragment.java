@@ -12,6 +12,7 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -220,10 +221,24 @@ public class CreateAdFragment extends Fragment {
         chosenGameLengthTextview.setText(length);
     }
 
-    public void createAd(){
-        iCreate.createAd(padelArenaSpinner.getSelectedItem().toString(), stringToDate(dateAndTimeString(chosenDateTextView.getText().toString(),chosenTimeTextview.getText().toString())), chosenGameLengthTextview.getText().toString());
+    private void createAd(){
+        if(checkInputValues()) {
+            iCreate.createAd(padelArenaSpinner.getSelectedItem().toString(), stringToDate(dateAndTimeString(chosenDateTextView.getText().toString(), chosenTimeTextview.getText().toString())), chosenGameLengthTextview.getText().toString());
+        }
+        else{
+            Toast.makeText(getContext(),"VÄLJ TID!",Toast.LENGTH_SHORT).show();
+        }
     }
 
+    private boolean checkInputValues(){
+        boolean isValid = true;
+        String s1 = chosenDateTextView.getText().toString();
+        String s2 = chosenGameLengthTextview.getText().toString();
+        if (s1.equals("")|| s2.equals("")){
+            isValid = false;
+        }
+        return isValid;
+    }
     private String dateAndTimeString(String dateString, String timeString ){
         StringBuilder sb = new StringBuilder();
         sb.append(dateString);
