@@ -31,9 +31,9 @@ import java.util.Date;
     public String getAverageSkillLevel() {
         double skillLevelSum = 0;
         int amountOfPlayers = 0;
-        for (int i=0; i < players.length; i++) {
-            if(players[i] != null) {
-                skillLevelSum += players[i].getSkillLevel();
+        for (IPlayer player : players) {
+            if (player != null) {
+                skillLevelSum += player.getSkillLevel();
                 amountOfPlayers++;
             }
         }
@@ -64,14 +64,10 @@ import java.util.Date;
         return result != null;
     }
 
-    /**
-     * Set both scores of each team
-     * @param score1
-     * @param score2
-     */
-    public void setResult(int score1, int score2) {
-        //this.result = new Tuple(score1, score2);
-    }
+
+   /* public void setResult(int score1, int score2) {
+        this.result = new Tuple(score1, score2);
+    } */
 
     /**
      * Get the players currently in the game
@@ -94,7 +90,7 @@ import java.util.Date;
     /**
      * Set the location of the game
      *
-     * @param location
+     * @param location where the game will ge played
      */
     public void setLocation(String location) {
         this.location = location;
@@ -107,9 +103,7 @@ import java.util.Date;
      */
     public String getDateAsString() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm");
-        String formattedDate = simpleDateFormat.format(date);
-
-        return formattedDate;
+        return simpleDateFormat.format(date);
     }
 
 
@@ -122,7 +116,7 @@ import java.util.Date;
     /**
      * Set the date when the game should be played
      *
-     * @param date
+     * @param date which date the game is being played
      */
     public void setDate(Date date) {
         this.date = date;

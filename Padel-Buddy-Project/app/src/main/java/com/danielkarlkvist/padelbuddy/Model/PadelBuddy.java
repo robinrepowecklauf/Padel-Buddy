@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static java.lang.Boolean.TRUE;
-
 public class PadelBuddy implements ICreate {
 
     private List<IGame> games = new ArrayList<>();
