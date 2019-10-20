@@ -31,26 +31,28 @@ public class GameRecyclerViewFragment extends Fragment implements ITopScrollable
     private RecyclerView.Adapter gameRecyclerViewAdapter;
     private RecyclerView.LayoutManager gameRecyclerViewLayoutManager;
 
+    private boolean joinable;
+
     private int fragmentId;
     private int recyclerViewId;
     private List<? extends IGame> games;
 
-    public GameRecyclerViewFragment(int fragmentId, int recyclerViewId, List<? extends IGame> games, PadelBuddy padelBuddy ) {
+    public GameRecyclerViewFragment(int fragmentId, int recyclerViewId, List<? extends IGame> games, PadelBuddy padelBuddy, boolean joinable) {
         this.fragmentId = fragmentId;
         this.recyclerViewId = recyclerViewId;
         this.games = games;
         this.padelBuddy = padelBuddy;
+        this.joinable = joinable;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(fragmentId, container, false);
-        //padelBuddy = LoginActivity.getPadelbuddy();
         gameRecyclerView = rootView.findViewById(recyclerViewId);
         gameRecyclerView.setHasFixedSize(true);
         gameRecyclerViewLayoutManager = new LinearLayoutManager(getActivity());    //getActivity instead of this when used in fragment?
-        gameRecyclerViewAdapter = new GameToRecyclerViewAdapter(games, padelBuddy);
+        gameRecyclerViewAdapter = new GameToRecyclerViewAdapter(games, padelBuddy,joinable);
         gameRecyclerView.setLayoutManager(gameRecyclerViewLayoutManager);
         gameRecyclerView.setAdapter(gameRecyclerViewAdapter);
 

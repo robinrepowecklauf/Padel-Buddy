@@ -92,14 +92,23 @@ public class PadelBuddy implements ICreate {
         boolean available = true;
 
         for (int i = 0; i < arrayLength; i++) {
-            if (players[i] == user){
+            if (players[i] == user) {
                 available = false;
             }
         }
 
-        if(available){
+        if (available) {
             game.addPlayer(user);
         }
+    }
 
+    public void leaveGame(IGame game) {
+        IPlayer[] players = game.getPlayers();
+        int arrayLength = players.length;
+        for (int i = 0; i < arrayLength; i++){
+            if(players[i] == user){
+                players[i] = null;
+            }
+        }
     }
 }

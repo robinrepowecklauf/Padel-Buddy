@@ -190,6 +190,21 @@
         </GridLayout>
 
         <Button
+            android:id="@+id/leave_game_button"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_below="@+id/players_gridlayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_padding_size_medium"
+            android:background="@drawable/rounded_red_button"
+            android:padding="@dimen/margin_padding_size_small"
+            android:text="Lämna match"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/text_size_small"
+            android:visibility="invisible"
+            />
+
+        <Button
             android:id="@+id/join_game_button"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
@@ -200,7 +215,9 @@
             android:padding="@dimen/margin_padding_size_small"
             android:text="Gå med"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/text_size_small" />
+            android:textSize="@dimen/text_size_small"
+            android:visibility="visible"
+            />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

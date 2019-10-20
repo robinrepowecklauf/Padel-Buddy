@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
                                 homeFragmentController.scrollToTop();
                                 break;
                             } else {
-                                homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home,R.id.home_recyclerview, padelBuddy.getAvailableGames(),padelBuddy);
+                                homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home,R.id.home_recyclerview, padelBuddy.getAvailableGames(),padelBuddy, true);
                                 selectedFragmentController = homeFragmentController;
                                 break;
                             }
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
                             break;
                         default:
                             Log.println(1, "tag", "Selected fragment that doesn't exist.");
-                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames(),padelBuddy);
+                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames(),padelBuddy, true);
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragmentController).commit();
 
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
      * Instantiates the main Fragments in the app
      */
     private void initializeBottomNavigationViewControllers() {
-        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home,R.id.home_recyclerview, padelBuddy.getAvailableGames(),padelBuddy);
+        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home,R.id.home_recyclerview, padelBuddy.getAvailableGames(),padelBuddy, true);
         createAdFragment = new CreateAdFragment(padelBuddy);
         gamesFragment = new GamesFragment(padelBuddy);
         profileFragment = new ProfileFragment(padelBuddy.getUser());

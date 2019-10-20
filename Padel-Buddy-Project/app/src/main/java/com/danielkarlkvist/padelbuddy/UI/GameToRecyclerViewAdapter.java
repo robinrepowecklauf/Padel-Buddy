@@ -33,6 +33,8 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
     private PadelBuddy padelBuddy;
     private List<? extends IGame> games;
 
+    private boolean joinable;
+
     /**
      * The ViewHolder which should be updated to represent the contents of a Game.
      */
@@ -48,6 +50,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         RatingBar[] playerRatingBars = new RatingBar[4];
 
         Button joinGameButton;
+        Button leaveGameButton;
 
         GameAdViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,12 +81,14 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             }
 
             joinGameButton = itemView.findViewById(R.id.join_game_button);
+            leaveGameButton = itemView.findViewById(R.id.leave_game_button);
         }
     }
 
-    GameToRecyclerViewAdapter(List<? extends IGame> games, PadelBuddy padelBuddy) {
+    GameToRecyclerViewAdapter(List<? extends IGame> games, PadelBuddy padelBuddy, boolean joinable) {
         this.games = games;
         this.padelBuddy = padelBuddy;
+        this.joinable = joinable;
     }
 
     // Called when RecyclerView needs a new RecyclerView.ViewHolder of the given type to represent an item.
@@ -133,6 +138,18 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
                 padelBuddy.joinGame(currentGame);
             }
         });
+
+        holder.leaveGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                padelBuddy.leaveGame(currentGame);
+            }
+        });
+
+        if(!joinable){
+            holder.joinGameButton.setVisibility(View.INVISIBLE);
+            holder.leaveGameButton.setVisibility(View.VISIBLE);
+        }
     }
 
     // Returns the total number of items in the data set held by the adapter.

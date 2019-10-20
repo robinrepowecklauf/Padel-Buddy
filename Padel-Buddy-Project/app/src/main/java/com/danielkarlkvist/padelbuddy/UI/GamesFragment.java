@@ -50,8 +50,8 @@ public class GamesFragment extends Fragment implements ITopScrollable {
         gamesTabLayout = rootView.findViewById(R.id.games_tablayout);
         gamesViewPager = rootView.findViewById(R.id.games_viewpager);
 
-        upcomingGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, padelBuddy.getUpcomingGames(),padelBuddy);
-        historyGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, padelBuddy.getPlayedGames(),padelBuddy);
+        upcomingGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, padelBuddy.getUpcomingGames(),padelBuddy, false);
+        historyGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, padelBuddy.getPlayedGames(),padelBuddy, false);
 
         // Create a GamesViewPagerAdapter and add fragments with titles to it
         gamesViewPagerAdapter = new GamesViewPagerAdapter(getChildFragmentManager());
