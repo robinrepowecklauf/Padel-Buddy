@@ -47,6 +47,10 @@ Carl-Johan och Fredrik:
 - Försökt implementer pliancy på knappar. 
 - Carl-Johan skrev metoden getAvailableGames() i klassen PadelBuddy.java. Fredrik hittade buggar i denna metod och åtgärdade detta med den nuvarande versionen av metoden, som nu faktiskt fungerar. 
 
+Fredrik && Daniel Ändrat Game till en abstract klass och skapat subklassen PadelGame och refaktorerat efter denna ändring. Ändrat listorna som används från ArrayList till List. Vi har även kollat på användandet av generiska listor. 
+
+Fredrik: Gjort tester för addPlayer, joingame, leavegame, upcomingGame och getAvailablegames för olika scenarion och felsökt buggar för dessa metoder. 
+
  
 ## Discussion items (35 min)
 
