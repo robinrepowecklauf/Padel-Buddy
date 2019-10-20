@@ -12,8 +12,8 @@ public interface IGame {
 
     String getAverageSkillLevel();
 
-    IPlayer[] getPlayers();
-
     String getGameLength();
+
+    IPlayer[] getPlayers();
 
 }

@@ -40,8 +40,6 @@ import static android.app.Activity.RESULT_OK;
 
 public class ProfileFragment extends Fragment {
 
-    private static final int PERMISSION_CODE = 1001;
-
     private Button editProfileButton;
     private Button editImageButton;
 
@@ -106,7 +104,7 @@ public class ProfileFragment extends Fragment {
                 if (!isInEditingMode) {
                     isInEditingMode = true;
                     editProfile();
-                } else if (!firstnameEditText.getText().toString().equals("") && !lastnameEditText.getText().toString().equals("")){
+                } else if (!firstnameEditText.getText().toString().equals("") && !lastnameEditText.getText().toString().equals("")) {
                     isInEditingMode = false;
                     hideKeyboard(view);
                     saveProfile();
@@ -208,9 +206,7 @@ public class ProfileFragment extends Fragment {
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == PERMISSION_CODE) {
-            pickImageFromGallery();
-        }
+        pickImageFromGallery();
     }
 
     /**
@@ -220,7 +216,7 @@ public class ProfileFragment extends Fragment {
         firstnameEditText.setText(user.getFirstname());
         lastnameEditText.setText(user.getLastname());
         bioEditText.setText(user.getBio());
-     //   userCircularImageView.setImageDrawable(user.getImage().getDrawable());
+        //   userCircularImageView.setImageDrawable(user.getImage().getDrawable());
     }
 
     /**

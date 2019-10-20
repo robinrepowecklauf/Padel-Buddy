@@ -12,7 +12,7 @@ import java.util.Date;
  * @since 2019-09-05
  */
 
- abstract class Game implements IGame{
+abstract class Game implements IGame {
     private IPlayer[] players;
     private String location;
     private Date date;
@@ -38,7 +38,7 @@ import java.util.Date;
             }
         }
 
-        double averageSkillLevelNumber = (skillLevelSum/amountOfPlayers + 0.5);
+        double averageSkillLevelNumber = (skillLevelSum / amountOfPlayers + 0.5);
 
         return getAverageSkillLevelFromInt((int) averageSkillLevelNumber);
     }
@@ -51,16 +51,17 @@ import java.util.Date;
                 return "Medel";
             case 3:
                 return "Avancerad";
-                default:
-                    return "Medel";
+            default:
+                return "Medel";
         }
     }
 
     /**
      * Checks if the Game is finished
+     *
      * @return Returns true if Game has a result
      */
-    public boolean isFinishedGame(){
+    public boolean isFinishedGame() {
         return result != null;
     }
 
@@ -107,7 +108,6 @@ import java.util.Date;
     }
 
 
-
     public String getGameLength() {
         return gameLength;
     }
@@ -130,4 +130,4 @@ import java.util.Date;
             }
         }
     }
-    }
+}
