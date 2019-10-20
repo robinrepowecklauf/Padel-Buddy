@@ -81,19 +81,43 @@ public class PadelBuddyTest {
     }
 
 
-
     @Test
-    public void JoinGame_UserisInUpcomingGame_ReturnsTrue(){
+    public void JoinGame_UserisInUpcomingGame_ReturnsTrue() {
         padelBuddy.getGames().add(game1);
         padelBuddy.joinGame(game1);
         assertTrue(padelBuddy.getUpcomingGames().contains(game1));
     }
 
     @Test
-    public void JoinGame_GameIsTurnUnavailable_ReturnsTrue() {
+    public void JoinGame_GameTurnsUnavailable_ReturnsTrue() {
         padelBuddy.getGames().add(game1);
         assertTrue(padelBuddy.getAvailableGames().contains(game1));
         padelBuddy.joinGame(game1);
         assertTrue(!padelBuddy.getAvailableGames().contains(game1));
+    }
+
+    @Test
+    public void JoinGame_playerAlreadyinGame_ReturnsTrue() {
+        padelBuddy.getGames().add(game1);
+        padelBuddy.joinGame(game1);
+        padelBuddy.joinGame(game1);
+        assertTrue(game1.getPlayers()[1]!=game1.getPlayers()[2]);
+
+    }
+    @Test
+    public void LeaveGame_GameTurnsAvailable_ReturnsTrue() {
+        padelBuddy.getGames().add(game1);
+        padelBuddy.joinGame(game1);
+        padelBuddy.leaveGame(game1);
+        assertTrue(padelBuddy.getAvailableGames().contains(game1));
+
+    }
+
+    @Test
+    public void LeaveGame_playerIsNotInTheGame_ReturnsTrue() {
+        padelBuddy.getGames().add(game1);
+        padelBuddy.leaveGame(game1);
+        assertTrue(padelBuddy.getAvailableGames().contains(game1));
+
     }
 }
