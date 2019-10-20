@@ -1,5 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
+import android.net.IpPrefix;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,8 +13,6 @@ public class PadelBuddy implements ICreate {
 
     public PadelBuddy(IPlayer user) {
         this.user = user;
-        //this.user = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, SkillLevel.Nybörjare);
-
     }
 
 
@@ -57,8 +57,6 @@ public class PadelBuddy implements ICreate {
             }
             gameAvailable = true;
         }
-        //Hardcoded game where Daniel is not a user. should be removed when we create games without daniel in Service.
-        availableGames.add(new PadelGame(new Player("Calle","balle","lingon","skalle","hejsan",12,2), "PDL Trollhättan", new Date(), "60"));
         return availableGames;
     }
 
@@ -86,5 +84,31 @@ public class PadelBuddy implements ICreate {
         }
 
         return playedGames;
+    }
+
+    public void joinGame(IGame game) {
+        IPlayer[] players = game.getPlayers();
+        int arrayLength = players.length;
+        boolean available = true;
+
+        for (int i = 0; i < arrayLength; i++) {
+            if (players[i] == user) {
+                available = false;
+            }
+        }
+
+        if (available) {
+            game.addPlayer(user);
+        }
+    }
+
+    public void leaveGame(IGame game) {
+        IPlayer[] players = game.getPlayers();
+        int arrayLength = players.length;
+        for (int i = 0; i < arrayLength; i++){
+            if(players[i] == user){
+                players[i] = null;
+            }
+        }
     }
 }

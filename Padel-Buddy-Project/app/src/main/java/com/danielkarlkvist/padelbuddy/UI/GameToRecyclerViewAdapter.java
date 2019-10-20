@@ -3,6 +3,7 @@ package com.danielkarlkvist.padelbuddy.UI;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.List;
@@ -28,8 +30,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 
 public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameAdViewHolder> {
-
+    private PadelBuddy padelBuddy;
     private List<? extends IGame> games;
+
+    private boolean joinable;
 
     /**
      * The ViewHolder which should be updated to represent the contents of a Game.
@@ -44,6 +48,9 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         TextView[] playerNameTextViews = new TextView[4];
         ImageView[] playerImagesViews = new ImageView[4];
         RatingBar[] playerRatingBars = new RatingBar[4];
+
+        Button joinGameButton;
+        Button leaveGameButton;
 
         GameAdViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,11 +79,16 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             for (RatingBar ratingBar : playerRatingBars) {
                 ratingBar.setStepSize(0.1f);
             }
+
+            joinGameButton = itemView.findViewById(R.id.join_game_button);
+            leaveGameButton = itemView.findViewById(R.id.leave_game_button);
         }
     }
 
-    GameToRecyclerViewAdapter(List<? extends IGame> games) {
+    GameToRecyclerViewAdapter(List<? extends IGame> games, PadelBuddy padelBuddy, boolean joinable) {
         this.games = games;
+        this.padelBuddy = padelBuddy;
+        this.joinable = joinable;
     }
 
     // Called when RecyclerView needs a new RecyclerView.ViewHolder of the given type to represent an item.
@@ -91,7 +103,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
     // Called by RecyclerView to display the data from Game at the specified position.
     @Override
     public void onBindViewHolder(@NonNull GameAdViewHolder holder, int position) {
-        IGame currentGame = games.get(position);
+        final IGame currentGame = games.get(position);
         // Set location
         holder.locationTextView.setText(currentGame.getLocation());
         // Set date
@@ -118,6 +130,25 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
                 holder.playerImagesViews[i].setImageResource(R.drawable.waiting_for_player_picture);
                 holder.playerRatingBars[i].setVisibility(View.INVISIBLE);
             }
+        }
+
+        holder.joinGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                padelBuddy.joinGame(currentGame);
+            }
+        });
+
+        holder.leaveGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                padelBuddy.leaveGame(currentGame);
+            }
+        });
+
+        if(!joinable){
+            holder.joinGameButton.setVisibility(View.INVISIBLE);
+            holder.leaveGameButton.setVisibility(View.VISIBLE);
         }
     }
 

@@ -1,7 +1,9 @@
 package com.danielkarlkvist.padelbuddy.Services;
 
+import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
+import com.danielkarlkvist.padelbuddy.Model.PadelGame;
 import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.R;
 import com.danielkarlkvist.padelbuddy.UI.PlayerImageBinder;
@@ -19,6 +21,12 @@ class TestDataGames implements ITestData {
 
     @Override
     public void createTestGames(PadelBuddy padelBuddy) {
+
+        for (int i =0; i < 3; i++){
+            padelBuddy.createAd("PDL Trollhättan", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)), "60min");
+            IPlayer[] players = padelBuddy.getGames().get(i).getPlayers();
+            players[0] = null;
+        }
 
         for (int i = 0; i < 3; i++) {
             padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)), "10år");
