@@ -190,6 +190,7 @@
         </GridLayout>
 
         <Button
+            android:id="@+id/join_game_button"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
             android:layout_below="@+id/players_gridlayout"
@@ -197,7 +198,7 @@
             android:layout_marginBottom="@dimen/margin_padding_size_medium"
             android:background="@drawable/rounded_green_button"
             android:padding="@dimen/margin_padding_size_small"
-            android:text="Skicka förfrågan"
+            android:text="Gå med"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/text_size_small" />
 
