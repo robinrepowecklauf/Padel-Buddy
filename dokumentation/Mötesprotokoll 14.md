@@ -22,7 +22,16 @@ Robin, Daniel:
 - Fick bort CircleImageView från player genom att skapa en klass PlayerImageBinder som binder en Player till en bild. 
 
 Robin:
-- Uppdaterat UI-paketets UML. 
+- Uppdaterat UI-paketets UML.
+
+Fredrik & Marus:
+- Refaktoriserade testerna. Ändrade metoden som räknar ut genomsnittlig skicklighetsnivå (getAverageSkillLevel), istället för att varje player har en enum som skillLevel används nu en double. Ändrade alla hårdkodade användares skillLevel, så att den nya metoden kan användas.
+
+Fredrik, Marcus & Daniel:
+- Refatoriserade Factoryn så att den hanterar IGames istället för Games.
+
+Marcus & Daniel:
+- Skapade en static PadelBuddy och IPlayer i TestFactory för att koppla hårdkodade testanvändare till applikationen.
  
 ## Discussion items (35 min)
 
