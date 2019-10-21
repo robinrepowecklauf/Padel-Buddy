@@ -101,8 +101,13 @@ import java.util.Date;
      *
      * @return The date of the game formatted as dd/MM hh:mm
      */
+
+    public Date getDate() {
+        return date;
+    }
+
     public String getDateAsString() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm yyyy");
         return simpleDateFormat.format(date);
     }
 

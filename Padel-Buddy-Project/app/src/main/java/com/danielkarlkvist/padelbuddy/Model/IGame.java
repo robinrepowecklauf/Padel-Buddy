@@ -1,5 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
+import java.util.Date;
+
 public interface IGame {
 
     void addPlayer(IPlayer player);
@@ -15,5 +17,7 @@ public interface IGame {
     IPlayer[] getPlayers();
 
     String getGameLength();
+
+    Date getDate();
 
 }

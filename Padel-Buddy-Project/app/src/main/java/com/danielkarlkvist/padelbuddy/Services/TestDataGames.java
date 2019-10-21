@@ -23,13 +23,13 @@ class TestDataGames implements ITestData {
     public void createTestGames(PadelBuddy padelBuddy) {
 
         for (int i =0; i < 3; i++){
-            padelBuddy.createAd("PDL Trollhättan", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)), "60min");
+            padelBuddy.createAd("PDL Trollhättan", new Date(119, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)), "60min");
             IPlayer[] players = padelBuddy.getGames().get(i).getPlayers();
             players[0] = null;
         }
 
-        for (int i = 0; i < 3; i++) {
-            padelBuddy.createAd("Padel center gbg", new Date(2019, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)), "10år");
+        for (int i = 0; i < 10; i++) {
+            padelBuddy.createAd("Padel center gbg", new Date(119, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)), "10år");
         }
 
         createTestPlayers();
