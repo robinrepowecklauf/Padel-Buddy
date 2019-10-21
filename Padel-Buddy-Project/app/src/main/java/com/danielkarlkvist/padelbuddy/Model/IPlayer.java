@@ -23,5 +23,6 @@ public interface IPlayer {
     float getProfileRating();
 
     double getSkillLevel();
+    void setSkillLevel(double skillLevel);
 
 }
