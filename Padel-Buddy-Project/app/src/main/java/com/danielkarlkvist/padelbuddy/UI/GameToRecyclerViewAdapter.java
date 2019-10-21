@@ -47,6 +47,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         TextView dateTextView;
         TextView skillLevelTextView;
         TextView gameLengthTextView;
+        TextView resultTextView;
 
         TextView[] playerNameTextViews = new TextView[4];
         ImageView[] playerImagesViews = new ImageView[4];
@@ -87,6 +88,8 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             joinGameButton = itemView.findViewById(R.id.join_game_button);
             leaveGameButton = itemView.findViewById(R.id.leave_game_button);
             reportResultButton = itemView.findViewById(R.id.report_result_button);
+
+            resultTextView = itemView.findViewById(R.id.result_textview);
         }
     }
 
@@ -108,7 +111,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
 
     // Called by RecyclerView to display the data from Game at the specified position.
     @Override
-    public void onBindViewHolder(@NonNull GameAdViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final GameAdViewHolder holder, int position) {
         final IGame currentGame = games.get(position);
         // Set location
         holder.locationTextView.setText(currentGame.getLocation());
@@ -145,6 +148,15 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             @Override
             public void onClick(View view) {
                 padelBuddy.leaveGame(currentGame);
+            }
+        });
+
+        holder.reportResultButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.reportResultButton.setVisibility(View.INVISIBLE);
+                holder.resultTextView.setVisibility(View.VISIBLE);
+
             }
         });
 

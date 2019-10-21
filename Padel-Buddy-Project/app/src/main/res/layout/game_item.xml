@@ -234,5 +234,18 @@
             android:visibility="visible"
             />
 
+        <TextView
+            android:id="@+id/result_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/players_gridlayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_padding_size_medium"
+            android:padding="@dimen/margin_padding_size_small"
+            android:text="3-1"
+            android:textSize="@dimen/text_size_xlarge"
+            android:visibility="invisible"
+            />
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
