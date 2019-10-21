@@ -102,8 +102,13 @@ abstract class Game implements IGame {
      *
      * @return The date of the game formatted as dd/MM hh:mm
      */
+
+    public Date getDate() {
+        return date;
+    }
+
     public String getDateAsString() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm yyyy");
         return simpleDateFormat.format(date);
     }
 
@@ -122,6 +127,7 @@ abstract class Game implements IGame {
         this.date = date;
     }
 
+    //same player can join multiple times!!!!
     public void addPlayer(IPlayer player) {
         for (int i = 0; i < players.length; i++) {
             if (players[i] == null) {

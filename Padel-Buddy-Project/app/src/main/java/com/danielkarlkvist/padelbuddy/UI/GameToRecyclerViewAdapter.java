@@ -1,8 +1,12 @@
 package com.danielkarlkvist.padelbuddy.UI;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -10,13 +14,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.danielkarlkvist.padelbuddy.MainActivity;
 import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.List;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * The GameToRecyclerViewAdapter class defines an adapter between a Game and a RecyclerView
@@ -28,8 +32,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 
 public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameAdViewHolder> {
-
+    private PadelBuddy padelBuddy;
     private List<? extends IGame> games;
+    private Context context;
+
+    private boolean joinable;
 
     /**
      * The ViewHolder which should be updated to represent the contents of a Game.
@@ -39,16 +46,19 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         TextView locationTextView;
         TextView dateTextView;
         TextView skillLevelTextView;
-        TextView gameLegnthTextView;
+        TextView gameLengthTextView;
 
         TextView[] playerNameTextViews = new TextView[4];
         ImageView[] playerImagesViews = new ImageView[4];
         RatingBar[] playerRatingBars = new RatingBar[4];
 
+        Button joinGameButton;
+        Button leaveGameButton;
+
         GameAdViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            gameLegnthTextView = itemView.findViewById(R.id.game_length_textview);
+            gameLengthTextView = itemView.findViewById(R.id.game_length_textview);
             locationTextView = itemView.findViewById(R.id.location_textview);
             dateTextView = itemView.findViewById(R.id.date_textview);
 
@@ -72,11 +82,17 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             for (RatingBar ratingBar : playerRatingBars) {
                 ratingBar.setStepSize(0.1f);
             }
+
+            joinGameButton = itemView.findViewById(R.id.join_game_button);
+            leaveGameButton = itemView.findViewById(R.id.leave_game_button);
         }
     }
 
-    GameToRecyclerViewAdapter(List<? extends IGame> games) {
+    GameToRecyclerViewAdapter(List<? extends IGame> games, PadelBuddy padelBuddy, boolean joinable, Context context) {
         this.games = games;
+        this.context = context;
+        this.padelBuddy = padelBuddy;
+        this.joinable = joinable;
     }
 
     // Called when RecyclerView needs a new RecyclerView.ViewHolder of the given type to represent an item.
@@ -91,7 +107,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
     // Called by RecyclerView to display the data from Game at the specified position.
     @Override
     public void onBindViewHolder(@NonNull GameAdViewHolder holder, int position) {
-        IGame currentGame = games.get(position);
+        final IGame currentGame = games.get(position);
         // Set location
         holder.locationTextView.setText(currentGame.getLocation());
         // Set date
@@ -99,25 +115,40 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         // Set skill level
         holder.skillLevelTextView.setText(currentGame.getAverageSkillLevel());
 
-        holder.gameLegnthTextView.setText(currentGame.getGameLength());
+        holder.gameLengthTextView.setText(currentGame.getGameLength());
 
         // Set name and rating for all (4) players
         for (int i = 0; i < currentGame.getPlayers().length; i++) {
             IPlayer player = currentGame.getPlayers()[i];
             if (player != null) {
                 holder.playerNameTextViews[i].setText(player.getFirstname());
-                CircleImageView playerImageView = player.getImage();
-                if(playerImageView != null) {
-                    holder.playerImagesViews[i].setImageDrawable(player.getImage().getDrawable());
-                } else {
-                    holder.playerImagesViews[i].setImageResource(R.drawable.no_profile_picture);
-                }
+                Bitmap playerImage = PlayerImageBinder.getImage(player, context);
+                holder.playerImagesViews[i].setImageBitmap(playerImage);
                 holder.playerRatingBars[i].setRating(player.getProfileRating());
             } else {
                 holder.playerNameTextViews[i].setText("Tillgänglig");
                 holder.playerImagesViews[i].setImageResource(R.drawable.waiting_for_player_picture);
                 holder.playerRatingBars[i].setVisibility(View.INVISIBLE);
             }
+        }
+
+        holder.joinGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                padelBuddy.joinGame(currentGame);
+            }
+        });
+
+        holder.leaveGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                padelBuddy.leaveGame(currentGame);
+            }
+        });
+
+        if(!joinable){
+            holder.joinGameButton.setVisibility(View.INVISIBLE);
+            holder.leaveGameButton.setVisibility(View.VISIBLE);
         }
     }
 

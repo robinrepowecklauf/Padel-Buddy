@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.danielkarlkvist.padelbuddy.Model.IGame;
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 
 import java.util.List;
 
@@ -25,31 +26,33 @@ import java.util.List;
  */
 
 public class GameRecyclerViewFragment extends Fragment implements ITopScrollable {
-
+    private PadelBuddy padelBuddy;
     private RecyclerView gameRecyclerView;
     private RecyclerView.Adapter gameRecyclerViewAdapter;
     private RecyclerView.LayoutManager gameRecyclerViewLayoutManager;
+
+    private boolean joinable;
 
     private int fragmentId;
     private int recyclerViewId;
     private List<? extends IGame> games;
 
-    public GameRecyclerViewFragment(int fragmentId, int recyclerViewId, List<? extends IGame> games) {
+    public GameRecyclerViewFragment(int fragmentId, int recyclerViewId, List<? extends IGame> games, PadelBuddy padelBuddy, boolean joinable) {
         this.fragmentId = fragmentId;
         this.recyclerViewId = recyclerViewId;
         this.games = games;
+        this.padelBuddy = padelBuddy;
+        this.joinable = joinable;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(fragmentId, container, false);
-
         gameRecyclerView = rootView.findViewById(recyclerViewId);
         gameRecyclerView.setHasFixedSize(true);
         gameRecyclerViewLayoutManager = new LinearLayoutManager(getActivity());    //getActivity instead of this when used in fragment?
-        gameRecyclerViewAdapter = new GameToRecyclerViewAdapter(games);
-
+        gameRecyclerViewAdapter = new GameToRecyclerViewAdapter(games, padelBuddy, joinable, getContext());
         gameRecyclerView.setLayoutManager(gameRecyclerViewLayoutManager);
         gameRecyclerView.setAdapter(gameRecyclerViewAdapter);
 
