@@ -47,6 +47,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         TextView dateTextView;
         TextView skillLevelTextView;
         TextView gameLengthTextView;
+        TextView resultTextView;
 
         TextView[] playerNameTextViews = new TextView[4];
         ImageView[] playerImagesViews = new ImageView[4];
@@ -54,6 +55,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
 
         Button joinGameButton;
         Button leaveGameButton;
+        Button reportResultButton;
 
         GameAdViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -85,6 +87,9 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
 
             joinGameButton = itemView.findViewById(R.id.join_game_button);
             leaveGameButton = itemView.findViewById(R.id.leave_game_button);
+            reportResultButton = itemView.findViewById(R.id.report_result_button);
+
+            resultTextView = itemView.findViewById(R.id.result_textview);
         }
     }
 
@@ -106,7 +111,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
 
     // Called by RecyclerView to display the data from Game at the specified position.
     @Override
-    public void onBindViewHolder(@NonNull GameAdViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final GameAdViewHolder holder, int position) {
         final IGame currentGame = games.get(position);
         // Set location
         holder.locationTextView.setText(currentGame.getLocation());
@@ -146,10 +151,25 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             }
         });
 
+        holder.reportResultButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.reportResultButton.setVisibility(View.INVISIBLE);
+                holder.resultTextView.setVisibility(View.VISIBLE);
+
+            }
+        });
+
         if(!joinable){
             holder.joinGameButton.setVisibility(View.INVISIBLE);
             holder.leaveGameButton.setVisibility(View.VISIBLE);
+
+            if(!padelBuddy.isGameDateAfterToday(currentGame)){
+                holder.reportResultButton.setVisibility(View.VISIBLE);
+                holder.leaveGameButton.setVisibility(View.INVISIBLE);
+            }
         }
+
     }
 
     // Returns the total number of items in the data set held by the adapter.

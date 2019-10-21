@@ -20,4 +20,6 @@ public interface IGame {
 
     Date getDate();
 
+    boolean hasNoPlayers(IGame game);
+
 }

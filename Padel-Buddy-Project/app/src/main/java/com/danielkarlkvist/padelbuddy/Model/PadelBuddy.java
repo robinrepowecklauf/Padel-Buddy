@@ -87,7 +87,7 @@ public class PadelBuddy implements ICreate {
         return playedGames;
     }
 
-    private boolean isGameDateAfterToday(IGame game){
+    public boolean isGameDateAfterToday(IGame game){
         Date today = Calendar.getInstance().getTime();
         Date gameDate = game.getDate();
         return gameDate.after(today);
@@ -116,6 +116,9 @@ public class PadelBuddy implements ICreate {
             if(players[i] == user){
                 players[i] = null;
             }
+        }
+        if(game.hasNoPlayers(game)){
+            games.remove(game);
         }
     }
 }
