@@ -107,7 +107,7 @@ import java.util.Date;
     }
 
     public String getDateAsString() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm");
         return simpleDateFormat.format(date);
     }
 

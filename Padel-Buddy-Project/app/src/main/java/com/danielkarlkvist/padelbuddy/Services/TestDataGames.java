@@ -12,6 +12,7 @@ import com.danielkarlkvist.padelbuddy.UI.PlayerImageBinder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -26,10 +27,14 @@ class TestDataGames implements ITestData {
     public void createTestGames(PadelBuddy padelBuddy, Context context) {
         this.context = context;
 
-        for (int i =0; i < 3; i++){
-            padelBuddy.createAd("PDL Trollhättan", new Date(119, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61)), "60min");
-            IPlayer[] players = padelBuddy.getGames().get(i).getPlayers();
-            players[0] = null;
+        //Date today = Calendar.getInstance().getTime();
+        for (int i =0; i < 50; i++){
+            Date gameDate = new Date(119, rand.nextInt(12), rand.nextInt(31), rand.nextInt(24), rand.nextInt(61));
+            //if (gameDate.after(today)) {
+                padelBuddy.createAd("PDL Trollhättan", gameDate, "60min");
+                IPlayer[] players = padelBuddy.getGames().get(i).getPlayers();
+                players[0] = null;
+            //}
         }
 
         for (int i = 0; i < 10; i++) {

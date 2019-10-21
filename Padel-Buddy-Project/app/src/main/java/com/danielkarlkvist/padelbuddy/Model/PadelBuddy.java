@@ -53,7 +53,7 @@ public class PadelBuddy implements ICreate {
                     gameAvailable = false;
                 }
             }
-            if (gameAvailable) {
+            if (gameAvailable && isGameDateAfterToday(game)) {
                 availableGames.add(game);
             }
             gameAvailable = true;
@@ -65,9 +65,7 @@ public class PadelBuddy implements ICreate {
         List<IGame> upcomingGames = new ArrayList<>();
         for (IGame game : games) {
             for (IPlayer player : game.getPlayers()) {
-                Date gameDate = game.getDate();
-                Date today = Calendar.getInstance().getTime();
-                if (player == user && !game.isFinishedGame() && gameDate.after(today)) {
+                if (player == user && !game.isFinishedGame() && isGameDateAfterToday(game)) {
                     upcomingGames.add(game);
                 }
             }
@@ -80,15 +78,19 @@ public class PadelBuddy implements ICreate {
         List<IGame> playedGames = new ArrayList<>();
         for (IGame game : games) {
             for (IPlayer player : game.getPlayers()) {
-                Date gameDate = game.getDate();
-                Date today = Calendar.getInstance().getTime();
-                if (player == user && gameDate.before(today)){
+                if (player == user && !isGameDateAfterToday(game)){
                         playedGames.add(game);
                 }
             }
         }
         System.out.println(Calendar.getInstance().getTime());
         return playedGames;
+    }
+
+    private boolean isGameDateAfterToday(IGame game){
+        Date today = Calendar.getInstance().getTime();
+        Date gameDate = game.getDate();
+        return gameDate.after(today);
     }
 
     public void joinGame(IGame game) {
