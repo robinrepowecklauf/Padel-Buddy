@@ -56,6 +56,20 @@ abstract class Game implements IGame {
         }
     }
 
+    public boolean hasNoPlayers(IGame game) {
+        boolean hasNoPlayers = true;
+        IPlayer[] players = game.getPlayers();
+        int arrayLength = players.length;
+
+        for (int i = 0; i < arrayLength; i++){
+            if(players[i]!= null){
+                hasNoPlayers = false;
+                break;
+            }
+        }
+        return hasNoPlayers;
+    }
+
     /**
      * Checks if the Game is finished
      *
@@ -108,7 +122,7 @@ abstract class Game implements IGame {
     }
 
     public String getDateAsString() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm");
         return simpleDateFormat.format(date);
     }
 

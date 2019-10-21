@@ -1,6 +1,7 @@
 package com.danielkarlkvist.padelbuddy.UI;
 
 import android.app.DatePickerDialog;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -40,6 +42,7 @@ import java.util.Locale;
 public class CreateAdFragment extends Fragment {
     private TextView userFirstNameTextView;
     private RatingBar userProfileRatingBar;
+    private ImageView userImageView;
 
     private RelativeLayout invitation1RelativeLayout;
     private RelativeLayout invitation2RelativeLayout;
@@ -113,6 +116,10 @@ public class CreateAdFragment extends Fragment {
 
         userFirstNameTextView = view.findViewById(R.id.player1_name_textview);
         userProfileRatingBar = view.findViewById(R.id.player1_ratingbar);
+
+        userImageView = view.findViewById(R.id.player1_imageview);
+        Bitmap playerImage = PlayerImageBinder.getImage(iCreate.getUser(), getContext());
+        userImageView.setImageBitmap(playerImage);
 
         invitationButton1 = view.findViewById(R.id.invitation1_button);
         invitation1RelativeLayout = view.findViewById(R.id.invited_player2);
