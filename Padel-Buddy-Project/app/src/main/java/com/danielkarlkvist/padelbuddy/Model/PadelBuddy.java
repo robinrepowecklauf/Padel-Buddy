@@ -87,7 +87,7 @@ public class PadelBuddy implements ICreate {
         return playedGames;
     }
 
-    private boolean isGameDateAfterToday(IGame game){
+    public boolean isGameDateAfterToday(IGame game){
         Date today = Calendar.getInstance().getTime();
         Date gameDate = game.getDate();
         return gameDate.after(today);

@@ -54,6 +54,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
 
         Button joinGameButton;
         Button leaveGameButton;
+        Button reportResultButton;
 
         GameAdViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -85,6 +86,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
 
             joinGameButton = itemView.findViewById(R.id.join_game_button);
             leaveGameButton = itemView.findViewById(R.id.leave_game_button);
+            reportResultButton = itemView.findViewById(R.id.report_result_button);
         }
     }
 
@@ -149,7 +151,13 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         if(!joinable){
             holder.joinGameButton.setVisibility(View.INVISIBLE);
             holder.leaveGameButton.setVisibility(View.VISIBLE);
+
+            if(!padelBuddy.isGameDateAfterToday(currentGame)){
+                holder.reportResultButton.setVisibility(View.VISIBLE);
+                holder.leaveGameButton.setVisibility(View.INVISIBLE);
+            }
         }
+
     }
 
     // Returns the total number of items in the data set held by the adapter.

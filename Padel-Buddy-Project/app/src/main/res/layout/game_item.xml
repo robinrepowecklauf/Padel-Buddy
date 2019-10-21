@@ -190,6 +190,21 @@
         </GridLayout>
 
         <Button
+            android:id="@+id/report_result_button"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_below="@+id/players_gridlayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_padding_size_medium"
+            android:background="#ffae00"
+            android:padding="@dimen/margin_padding_size_small"
+            android:text="Rapportera resultat"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/text_size_small"
+            android:visibility="invisible"
+            />
+
+        <Button
             android:id="@+id/leave_game_button"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
