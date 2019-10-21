@@ -1,7 +1,5 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import java.io.Serializable;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -24,10 +22,10 @@ public class Player implements IPlayer {
     private String phone;
     private String bio;
     private int age;
-    private SkillLevel skillLevel;
+    private double skillLevel;
     private float profileRating;
 
-    public Player(String firstname, String lastname, String mail, String phone, String bio, int age, SkillLevel skillLevel) {
+    public Player(String firstname, String lastname, String mail, String phone, String bio, int age, double skillLevel) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
@@ -74,7 +72,7 @@ public class Player implements IPlayer {
         return 3;
     }
 
-    public SkillLevel getSkillLevel() {
+    public double getSkillLevel() {
         return skillLevel;
     }
 }
