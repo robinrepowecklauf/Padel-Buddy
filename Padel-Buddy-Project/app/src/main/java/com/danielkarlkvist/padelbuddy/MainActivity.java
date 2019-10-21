@@ -99,6 +99,11 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
     /**
      * Instantiates the main Fragments in the app
      */

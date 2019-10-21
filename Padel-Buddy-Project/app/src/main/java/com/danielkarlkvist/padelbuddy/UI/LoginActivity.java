@@ -4,10 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.danielkarlkvist.padelbuddy.MainActivity;
-import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Model.Player;
-import com.danielkarlkvist.padelbuddy.Services.ITestData;
 import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,28 +40,28 @@ public class LoginActivity extends AppCompatActivity {
         danielButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(1));
+                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(1, getApplicationContext()));
                 startMainActivity();
             }
         });
         robinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(2));
+                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(2, getApplicationContext()));
                 startMainActivity();
             }
         });
         marcusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(3));
+                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(3, getApplicationContext()));
                 startMainActivity();
             }
         });
     }
 
     private void startMainActivity() {
-        TestFactory.createTestGames(padelBuddy);
+        TestFactory.createTestGames(padelBuddy, getApplicationContext());
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

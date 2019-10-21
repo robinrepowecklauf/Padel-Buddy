@@ -1,10 +1,13 @@
 package com.danielkarlkvist.padelbuddy.UI;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.InputFilter;
@@ -16,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,6 +44,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class ProfileFragment extends Fragment {
 
+    private static final int IMAGE_PICK_CODE = 1000;
     private static final int PERMISSION_CODE = 1001;
 
     private Button editProfileButton;
@@ -56,7 +61,7 @@ public class ProfileFragment extends Fragment {
     private EditText lastnameEditText;
     private EditText bioEditText;
 
-    private CircleImageView userCircularImageView;
+    private CircleImageView userCircleImageView;
 
     private IPlayer user;
 
@@ -80,9 +85,8 @@ public class ProfileFragment extends Fragment {
         initializeViews(rootView);
         initializeListenerToButton();
 
-
-        Integer playerImage = PlayerImageBinder.getImage(user);
-        userCircularImageView.setImageResource(playerImage);
+        Bitmap playerImage = PlayerImageBinder.getImage(user, getContext());
+        userCircleImageView.setImageBitmap(playerImage);
 
         fullNameTextView.setText(user.getFullName());
         bioTextView.setText(user.getBio());
@@ -117,7 +121,18 @@ public class ProfileFragment extends Fragment {
         editImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pickImageFromGallery();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (getActivity().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                        // Permission not granted, request it
+                        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
+                        // Show popup for runtime permission
+                        requestPermissions(permissions, PERMISSION_CODE);
+                    } else {
+                        pickImageFromGallery();
+                    }
+                } else {
+                    pickImageFromGallery();
+                }
             }
         });
 
@@ -132,7 +147,7 @@ public class ProfileFragment extends Fragment {
         fullNameTextView = view.findViewById(R.id.profile_name);
         bioTextView = view.findViewById(R.id.profile_bio);
         gamesPlayedTextView = view.findViewById(R.id.profile_games_played);
-        userCircularImageView = view.findViewById(R.id.profile_image);
+        userCircleImageView = view.findViewById(R.id.profile_image);
 
         firstnameHintTextView = view.findViewById(R.id.profile_firstname_hint);
         lastnameHintTextView = view.findViewById(R.id.profile_lastname_hint);
@@ -162,17 +177,9 @@ public class ProfileFragment extends Fragment {
      * Open the option to pick images and crop it
      */
     private void pickImageFromGallery() {
-        Intent intent = new Intent(Intent.ACTION_PICK,
-                MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
-        intent.putExtra("crop", "true");
-        intent.putExtra("scale", true);
-        intent.putExtra("outputX", 256);
-        intent.putExtra("outputY", 256);
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        intent.putExtra("return-data", true);
-        startActivityForResult(intent, 1);
+        startActivityForResult(intent, IMAGE_PICK_CODE);
     }
 
     /**
@@ -184,17 +191,14 @@ public class ProfileFragment extends Fragment {
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode != RESULT_OK) {
-            // error
-            return;
-        }
-        if (requestCode == 1) {
-            final Bundle extras = data.getExtras();
-            if (extras != null) {
-                //Get image
-                Bitmap newProfilePic = extras.getParcelable("data");
-                userCircularImageView.setImageBitmap(newProfilePic);
-                user.setImage(userCircularImageView);
+        if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
+            userCircleImageView.setImageURI(data.getData());
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getActivity().getContentResolver(), data.getData());
+                PlayerImageBinder.bind(user, bitmap);
+            } catch (Exception e) {
+                PlayerImageBinder.bind(user, BitmapFactory.decodeResource(getResources(), R.drawable.no_profile_picture));
+                Toast.makeText(getContext(), "Could not import image.", Toast.LENGTH_LONG);
             }
         }
     }
@@ -208,6 +212,15 @@ public class ProfileFragment extends Fragment {
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_CODE: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    pickImageFromGallery();
+                } else {
+                    Toast.makeText(getActivity(), "Permission denied", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
         if (requestCode == PERMISSION_CODE) {
             pickImageFromGallery();
         }
@@ -220,7 +233,7 @@ public class ProfileFragment extends Fragment {
         firstnameEditText.setText(user.getFirstname());
         lastnameEditText.setText(user.getLastname());
         bioEditText.setText(user.getBio());
-     //   userCircularImageView.setImageDrawable(user.getImage().getDrawable());
+        userCircleImageView.setImageBitmap(PlayerImageBinder.getImage(user, getContext()));
     }
 
     /**
