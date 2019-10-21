@@ -15,6 +15,10 @@ public class GameTest {
     private Player medelplayer3 = new Player("Daniel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
     private Player advancedplayer5 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
     private Player advancedplayer6 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
+    private Player advancedplayer7 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
+    private Player defaultplayer = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 10);
+
+
     private IGame game = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "90");
 
     @Test
@@ -72,6 +76,22 @@ public class GameTest {
         game.addPlayer(advancedplayer5);
         game.addPlayer(advancedplayer6);
         assertTrue(game.getAverageSkillLevel() == "Medel");
+    }
+    @Test
+    public void GetAverageSkillevel_ThreeAdvancedOneBad_ReturnsTrue() {
+        game.addPlayer(advancedplayer7);
+        game.addPlayer(advancedplayer5);
+        game.addPlayer(advancedplayer6);
+        assertTrue(game.getAverageSkillLevel() == "Avancerad");
+    }
+
+    @Test
+    public void GetAverageSkillevel_OneDefault_ReturnsTrue() {
+        game.addPlayer(defaultplayer);
+        game.addPlayer(badplayer1);
+        game.addPlayer(badplayer3);
+        System.out.println(game.getAverageSkillLevel());
+        assertTrue(game.getAverageSkillLevel() == "Nybörjare");
     }
 
     @Test
