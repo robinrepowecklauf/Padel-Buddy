@@ -3,6 +3,7 @@ package com.danielkarlkvist.padelbuddy.Model;
 import android.net.IpPrefix;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -64,7 +65,9 @@ public class PadelBuddy implements ICreate {
         List<IGame> upcomingGames = new ArrayList<>();
         for (IGame game : games) {
             for (IPlayer player : game.getPlayers()) {
-                if (player == user && !game.isFinishedGame()) {
+                Date gameDate = game.getDate();
+                Date today = Calendar.getInstance().getTime();
+                if (player == user && !game.isFinishedGame() && gameDate.after(today)) {
                     upcomingGames.add(game);
                 }
             }
@@ -77,12 +80,14 @@ public class PadelBuddy implements ICreate {
         List<IGame> playedGames = new ArrayList<>();
         for (IGame game : games) {
             for (IPlayer player : game.getPlayers()) {
-                if (player == user && game.isFinishedGame()) {
-                    playedGames.add(game);
+                Date gameDate = game.getDate();
+                Date today = Calendar.getInstance().getTime();
+                if (player == user && gameDate.before(today)){
+                        playedGames.add(game);
                 }
             }
         }
-
+        System.out.println(Calendar.getInstance().getTime());
         return playedGames;
     }
 

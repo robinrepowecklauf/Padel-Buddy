@@ -52,7 +52,7 @@ public class GameRecyclerViewFragment extends Fragment implements ITopScrollable
         gameRecyclerView = rootView.findViewById(recyclerViewId);
         gameRecyclerView.setHasFixedSize(true);
         gameRecyclerViewLayoutManager = new LinearLayoutManager(getActivity());    //getActivity instead of this when used in fragment?
-        gameRecyclerViewAdapter = new GameToRecyclerViewAdapter(games, padelBuddy,joinable);
+        gameRecyclerViewAdapter = new GameToRecyclerViewAdapter(games, padelBuddy, joinable, getContext());
         gameRecyclerView.setLayoutManager(gameRecyclerViewLayoutManager);
         gameRecyclerView.setAdapter(gameRecyclerViewAdapter);
 
