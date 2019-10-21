@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">Padel Buddy</string>
     <string name="home">Hem</string>
-    <string name="createAd">Skapa</string>
+    <string name="create">Skapa</string>
+    <string name="createAd">Skapa Annons</string>
     <string name="games">Spel</string>
     <string name="profile">Profil</string>
+    <string name="invite">Bjud in vän</string>
+
+    <string-array name="padel_arenas">
+        <item>Padel Center Göteborg</item>
+        <item>PDL Center Göteborg</item>
+        <item>GLTK Tennisklubb</item>
+        <item>Padelfabriken</item>
+    </string-array>
+
 </resources>

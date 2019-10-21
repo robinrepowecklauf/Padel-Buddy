@@ -1,11 +1,20 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import android.location.Location;
+import de.hdodenhof.circleimageview.CircleImageView;
 
-import java.util.ArrayList;
-import java.util.List;
+/**
+ * The Player class defines a player which holds values that are being accessed from
+ * a user's profile and gameads
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
 
-public class Player {
+// TODO Package-private
+
+public class Player implements IPlayer {
 
     private String firstname;
     private String lastname;
@@ -15,9 +24,8 @@ public class Player {
     private int age;
     private double skillLevel;
     private float profileRating;
-    private int gamesPlayed;
 
-    Player(String firstname, String lastname, String mail, String phone, String bio, int age, double skillLevel, int gamesPlayed) {
+    public Player(String firstname, String lastname, String mail, String phone, String bio, int age, double skillLevel) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.mail = mail;
@@ -25,8 +33,7 @@ public class Player {
         this.bio = bio;
         this.age = age;
         this.skillLevel = skillLevel;
-        this.profileRating = 3.3f;
-        this.gamesPlayed = gamesPlayed;
+        this.profileRating = 3.5f; // Hardcoded value at the moment
     }
 
     public String getFirstname() {
@@ -62,6 +69,10 @@ public class Player {
     }
 
     public int getGamesPlayed() {
-        return gamesPlayed;
+        return 3;
+    }
+
+    public double getSkillLevel() {
+        return skillLevel;
     }
 }
