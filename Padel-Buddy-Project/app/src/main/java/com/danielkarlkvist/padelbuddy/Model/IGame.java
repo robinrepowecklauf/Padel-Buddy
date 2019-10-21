@@ -19,5 +19,6 @@ public interface IGame {
     String getGameLength();
 
     Date getDate();
+    void setResult(int score1, int score2);
 
 }

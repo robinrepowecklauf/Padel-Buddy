@@ -74,21 +74,23 @@ public class GameTest {
         assertTrue(game.getAverageSkillLevel() == "Medel");
     }
 
-
-
-/*
-
+    @Test
     public void isFinishedGame_gameisfinished_ReturnsTrue() {
-        Player player1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Medel);
-        IGame game1 = new PadelGame(player1, "Gltk", new Date(2019, 11, 05),"90");
-        game1.setResult(3,2);
-
-        Player player2 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Medel);
-        IGame game2 = new PadelGame(player2, "Gltk", new Date(2019, 11, 05),"90");
-
+        Player player1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
+        IGame game1 = new PadelGame(player1, "Gltk", new Date(2019, 11, 05), "90");
+        game1.setResult(3, 2);
         assertTrue(game1.isFinishedGame());
-        assertTrue(!game2.isFinishedGame());
-    }*/
+    }
 
+
+    @Test
+    public void isFinishedGame_gameisnotfinished_ReturnsTrue() {
+        Player player2 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
+        IGame game2 = new PadelGame(player2, "Gltk", new Date(2019, 11, 05), "90");
+        assertTrue(!game2.isFinishedGame());
+    }
 }
+
+
+
 

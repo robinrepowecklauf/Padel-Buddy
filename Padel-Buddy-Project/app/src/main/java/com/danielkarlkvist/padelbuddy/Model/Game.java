@@ -65,9 +65,9 @@ import java.util.Date;
     }
 
 
-   /* public void setResult(int score1, int score2) {
+    public void setResult(int score1, int score2) {
         this.result = new Tuple(score1, score2);
-    } */
+    }
 
     /**
      * Get the players currently in the game

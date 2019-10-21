@@ -12,7 +12,7 @@ public class PadelBuddyTest {
 
     private PadelBuddy padelBuddy = new PadelBuddy(new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 2));
     private Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-    private IGame game1 = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "60");
+    private IGame game1 = new PadelGame(badplayer1, "Gltk", new Date(2018, 11, 05), "60");
     private IGame game2 = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "60");
 
 
@@ -74,7 +74,7 @@ public class PadelBuddyTest {
 
     @Test
     public void getUpcomingGames_OneExists_ReturnsTrue() {
-        padelBuddy.createAd("Göteborg", new Date(), "90");
+        padelBuddy.createAd("Göteborg", new Date(119, 10, 30, 15, 30), "90");
         List<IGame> upcomingGames = padelBuddy.getUpcomingGames();
         assertNotNull(upcomingGames.get(0));
         assertSame(upcomingGames.get(0), padelBuddy.getGames().get(0));
@@ -101,9 +101,19 @@ public class PadelBuddyTest {
         padelBuddy.getGames().add(game1);
         padelBuddy.joinGame(game1);
         padelBuddy.joinGame(game1);
-        assertTrue(game1.getPlayers()[1]!=game1.getPlayers()[2]);
+        assertTrue(game1.getPlayers()[1] != game1.getPlayers()[2]);
 
     }
+
+    @Test
+    public void JoinGame_playerUserIsInGame_ReturnsTrue() {
+        padelBuddy.getGames().add(game1);
+        padelBuddy.joinGame(game1);
+        assertTrue(game1.getPlayers()[1].getFirstname() == padelBuddy.getUser().getFirstname());
+
+    }
+
+
     @Test
     public void LeaveGame_GameTurnsAvailable_ReturnsTrue() {
         padelBuddy.getGames().add(game1);
@@ -119,5 +129,36 @@ public class PadelBuddyTest {
         padelBuddy.leaveGame(game1);
         assertTrue(padelBuddy.getAvailableGames().contains(game1));
 
+    }
+
+    @Test
+    public void GetPlayedGames_GameHasaResultbutNoDate_ReturnsTrue() {
+        padelBuddy.getGames().add(game1);
+        padelBuddy.joinGame(game1);
+        game1.setResult(2, 4);
+        assertTrue(!(padelBuddy.getPlayedGames().contains(game1)));
+    }
+
+    @Test
+    public void GetPlayedGames_HasResultAndNoUser_ReturnsTrue() {
+        padelBuddy.getGames().add(game1);
+        game1.setResult(2, 4);
+        assertTrue(!(padelBuddy.getPlayedGames().contains(game1)));
+    }
+
+    @Test
+    public void GetPlayedGames_HasUserButNoResult_ReturnsTrue() {
+        padelBuddy.getGames().add(game1);
+        padelBuddy.joinGame(game1);
+        assertTrue(!(padelBuddy.getPlayedGames().contains(game1)));
+    }
+
+    @Test
+    public void GetPlayedGames_HasResultUserValidDate_ReturnsTrue() {
+        IGame game3 = new PadelGame(badplayer1, "Gltk", new Date(118, 11, 05), "60");
+        padelBuddy.getGames().add(game3);
+        padelBuddy.joinGame(game3);
+        game1.setResult(2, 4);
+        assertTrue((padelBuddy.getPlayedGames().contains(game3)));
     }
 }
