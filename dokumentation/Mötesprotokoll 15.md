@@ -20,20 +20,9 @@ Fredrik:
 Carl-Johan: 
  
 ## Discussion items (35 min)
-- Tider för veckan.
-- Spintplanering, vad ska göras under sista veckan?
-## Outcomes and assignments (5 min)
 
-Tider för veckan.
-- Fullbokat med grupprum. Arbetstider finns i kalendern. 
-Sprintplanering.
-- Iterator pattern. 
-- Skriva klart RAD, SDD och Rapporten.
-- Implemetera förslag från peer review. 
-- Skapa en presentation för redovisning. 
-- Skriva kommentarer i kodbasen samt tester.
-- Refaktorera. 
+## Outcomes and assignments (5 min)
 
 
 ## Wrap up
-- Nästa möte: Tisdag 22/10 08:15-09:15.
+- Nästa möte: Torsdag 24/10 08:15-09:15.
