@@ -32,12 +32,15 @@ import java.util.Date;
         double skillLevelSum = 0;
         int amountOfPlayers = 0;
         for (IPlayer player : players) {
-            if(player.getSkillLevel()>3){
-                player.setSkillLevel(2);
-            }
+
             if (player != null) {
-                skillLevelSum += player.getSkillLevel();
-                amountOfPlayers++;
+                if(player.getSkillLevel()>3.0){
+                    player.setSkillLevel(2.0);
+                }
+                else{
+                    skillLevelSum += player.getSkillLevel();
+                    amountOfPlayers++;
+                }
             }
         }
 
