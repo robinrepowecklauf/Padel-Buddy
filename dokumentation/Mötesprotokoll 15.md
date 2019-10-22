@@ -15,7 +15,7 @@ Robin:
 - GUI-tester funkar nu med LoginActivity-klassen som startsida.
 - Refaktorerat i modellen
 
-Daniel:
+Daniel: Påbörjat att skriva nya testgames och testplayers i services-paketet som ska ge fler varianter av games som man kan testa med. Tidigare har det endast funnits games med ett hårdkodat antal(2 eller 3) spelare i.
 
 Marcus & Daniel:
 - Tog bort CircleImageView ifrån spelare, detta resulterade i en hel del refaktorering. Nu skickas en Context runt för för att få en bitmap av en drawable bild. Detta skapar en del beroenden till till Context i olika filer, vilket är en code smell.
@@ -25,7 +25,7 @@ Marcus & Robin:
 - Skrev in fler User stories i RAD: “Kommande matcher”-flik, “Tidigare matcher”-flik, Gå med i matchannons, Utbyggbar, Factory pattern, Välj användare, Iterator pattern, “Förfrågningar”-flik, “Turneringar”-flik, Turnering, “Vänner”-flik, Chatt
 
 
-Fredrik: Utökat testerna för Paddelbuddy och Game samt felsökt buggar för dessa klasser. Har ändrat i metoden getAverageSkillLevel. 
+Fredrik: Utökat testerna för Padelbuddy och Game samt felsökt buggar för dessa klasser. Har ändrat i metoden getAverageSkillLevel. 
 
 Carl-Johan: 
 - Fixat så att feeden med available Games endast innehåller matcher vars datum är efter dagens datum. Detta genom att jämföra matchens datum med dagens datum. 
