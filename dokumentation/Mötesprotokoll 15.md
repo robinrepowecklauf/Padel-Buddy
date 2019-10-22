@@ -13,7 +13,13 @@ Robin:
 
 Daniel:
 
-Marcus:
+Marcus & Daniel:
+- Tog bort CircleImageView ifrån spelare, detta resulterade i en hel del refaktorering. Nu skickas en Context runt för för att få en bitmap av en drawable bild. Detta skapar en del beroenden till till Context i olika filer, vilket är en code smell.
+
+Marcus & Robin:
+- Uppdaterade User stories i RAD: Flikar, Design, Min profil, Se matchannons, Hårdkodade spel & spelare, Skapa matchannons.
+- Skrev in fler User stories i RAD: “Kommande matcher”-flik, “Tidigare matcher”-flik, Gå med i matchannons, Utbyggbar, Factory pattern, Välj användare, Iterator pattern, “Förfrågningar”-flik, “Turneringar”-flik, Turnering, “Vänner”-flik, Chatt
+
 
 Fredrik:
 
