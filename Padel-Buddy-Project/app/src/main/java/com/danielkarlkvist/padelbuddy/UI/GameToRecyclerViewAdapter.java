@@ -2,7 +2,6 @@ package com.danielkarlkvist.padelbuddy.UI;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.danielkarlkvist.padelbuddy.MainActivity;
 import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
@@ -31,7 +29,7 @@ import java.util.List;
  * @since 2019-10-05
  */
 
-public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameAdViewHolder> {
+public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameViewHolder> {
     private PadelBuddy padelBuddy;
     private List<? extends IGame> games;
     private Context context;
@@ -42,7 +40,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
      * The ViewHolder which should be updated to represent the contents of a Game.
      */
 
-    static class GameAdViewHolder extends RecyclerView.ViewHolder {
+    static class GameViewHolder extends RecyclerView.ViewHolder {
         TextView locationTextView;
         TextView dateTextView;
         TextView skillLevelTextView;
@@ -57,7 +55,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         Button leaveGameButton;
         Button reportResultButton;
 
-        GameAdViewHolder(@NonNull View itemView) {
+        GameViewHolder(@NonNull View itemView) {
             super(itemView);
 
             gameLengthTextView = itemView.findViewById(R.id.game_length_textview);
@@ -103,15 +101,14 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
     // Called when RecyclerView needs a new RecyclerView.ViewHolder of the given type to represent an item.
     @NonNull
     @Override
-    public GameAdViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public GameViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.game_item, parent, false);
-        GameAdViewHolder gameAdViewHolder = new GameAdViewHolder(view);
-        return gameAdViewHolder;
+        return new GameViewHolder(view);
     }
 
     // Called by RecyclerView to display the data from Game at the specified position.
     @Override
-    public void onBindViewHolder(@NonNull final GameAdViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final GameViewHolder holder, int position) {
         final IGame currentGame = games.get(position);
         // Set location
         holder.locationTextView.setText(currentGame.getLocation());
