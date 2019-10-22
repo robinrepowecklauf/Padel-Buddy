@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory;
 
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Model.PadelGame;
 import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.R;
 import com.danielkarlkvist.padelbuddy.UI.PlayerImageBinder;
