@@ -25,7 +25,7 @@ Marcus & Robin:
 - Skrev in fler User stories i RAD: “Kommande matcher”-flik, “Tidigare matcher”-flik, Gå med i matchannons, Utbyggbar, Factory pattern, Välj användare, Iterator pattern, “Förfrågningar”-flik, “Turneringar”-flik, Turnering, “Vänner”-flik, Chatt
 
 
-Fredrik:
+Fredrik: Utökat testerna för Paddelbuddy och Game samt felsökt buggar för dessa klasser. Har ändrat i metoden getAverageSkillLevel. 
 
 Carl-Johan: 
 - Fixat så att feeden med available Games endast innehåller matcher vars datum är efter dagens datum. Detta genom att jämföra matchens datum med dagens datum. 
