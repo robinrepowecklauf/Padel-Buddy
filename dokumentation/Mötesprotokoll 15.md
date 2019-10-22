@@ -9,7 +9,11 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Fredrik Li
 
 ## Reports (15 min) from previous meeting
 
-Robin:
+Robin: 
+- Skivit JUnittest för metoden getUpComingGames()
+- Uppdaterat Model-paketets UML
+- GUI-tester funkar nu med LoginActivity-klassen som startsida.
+- Refaktorerat i modellen
 
 Daniel:
 
