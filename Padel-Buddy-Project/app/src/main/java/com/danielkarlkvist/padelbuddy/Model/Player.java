@@ -22,6 +22,8 @@ public class Player implements IPlayer {
     private String phone;
     private String bio;
     private int age;
+
+
     private double skillLevel;
     private float profileRating;
 
@@ -35,6 +37,10 @@ public class Player implements IPlayer {
         this.skillLevel = skillLevel;
         this.profileRating = 3.5f; // Hardcoded value at the moment
     }
+    public void setSkillLevel(double skillLevel) {
+        this.skillLevel = skillLevel;
+    }
+
 
     public String getFirstname() {
         return firstname;
