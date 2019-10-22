@@ -63,7 +63,7 @@ public class ProfileFragmentTest {
 
     @Before
     public void setUp() throws Exception {
-        padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(1));
+        padelBuddy = new PadelBuddy(TestFactory.getUser(1);
         profile = new ProfileFragment(padelBuddy.getUser());
         onView(withId(R.id.test_daniel_button)).perform(click());
         activityRule.finishActivity();
