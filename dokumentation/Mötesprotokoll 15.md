@@ -35,9 +35,21 @@ Carl-Johan:
 - Nu kan en användare alltså både gå med och lämna en match samt att matchen då visas i rätt flik. 
  
 ## Discussion items (35 min)
+- Uppdelning av arbete.
+- Sätta deadlines.
 
 ## Outcomes and assignments (5 min)
+Uppdelning av arbete:
+- Robin och Fredrik ska implementera iterator-pattern. 
+- Marcus ska skriva tester.
+- Daniel och Carl-Johan ska arbeta med SDD och RAD.
+- Daniel ska göra klart Service-paketet. 
 
+Deadlines:
+- Implementering av Iterator samt Service-paketet, 23 okt. Ingen ny kod ska skrivas efter detta. 
+- Tester, 22 okt. 
+- RAD och SDD, 24 okt. 
+- Inlämning av projekt, 25 okt.
 
 ## Wrap up
 - Nästa möte: Torsdag 24/10 08:15-09:15.
