@@ -124,6 +124,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
                 holder.playerNameTextViews[i].setText(player.getFirstname());
                 Bitmap playerImage = PlayerImageBinder.getImage(player, context);
                 holder.playerImagesViews[i].setImageBitmap(playerImage);
+                holder.playerRatingBars[i].setVisibility(View.VISIBLE);
                 holder.playerRatingBars[i].setRating(player.getProfileRating());
             } else {
                 holder.playerNameTextViews[i].setText("Tillgänglig");

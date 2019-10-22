@@ -40,21 +40,21 @@ public class LoginActivity extends AppCompatActivity {
         danielButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(1, getApplicationContext()));
+                padelBuddy = new PadelBuddy(TestFactory.getUser(1, getApplicationContext()));
                 startMainActivity();
             }
         });
         robinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(2, getApplicationContext()));
+                padelBuddy = new PadelBuddy(TestFactory.getUser(2, getApplicationContext()));
                 startMainActivity();
             }
         });
         marcusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(3, getApplicationContext()));
+                padelBuddy = new PadelBuddy(TestFactory.getUser(3, getApplicationContext()));
                 startMainActivity();
             }
         });
