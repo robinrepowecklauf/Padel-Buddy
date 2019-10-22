@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.danielkarlkvist.padelbuddy.MainActivity;
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,12 +19,13 @@ public class LoginActivity extends AppCompatActivity {
     private Button robinButton;
     private Button marcusButton;
 
+    private static PadelBuddy padelBuddy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        TestFactory.initialize(getApplicationContext());
         initializeViews();
         initializeButtonListeners();
     }
@@ -38,33 +40,35 @@ public class LoginActivity extends AppCompatActivity {
         danielButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TestFactory.setCurrentUser(1);
+                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(1, getApplicationContext()));
                 startMainActivity();
             }
         });
         robinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TestFactory.setCurrentUser(2);
+                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(2, getApplicationContext()));
                 startMainActivity();
             }
         });
         marcusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TestFactory.setCurrentUser(3);
+                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(3, getApplicationContext()));
                 startMainActivity();
             }
         });
     }
 
     private void startMainActivity() {
-        TestFactory.initialize(getApplicationContext());
-        TestFactory.createTestGames();
+        TestFactory.createTestGames(padelBuddy, getApplicationContext());
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    public static PadelBuddy getPadelbuddy(){
+        return padelBuddy;
+    }
 }
 
 

@@ -6,8 +6,8 @@ import androidx.test.runner.AndroidJUnit4;
 
 import com.danielkarlkvist.padelbuddy.MainActivity;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.R;
+import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 
 import org.junit.After;
 import org.junit.Before;
@@ -41,15 +41,19 @@ public class ProfileFragmentTest {
 
     private ProfileFragment profile;
     private PadelBuddy padelBuddy;
-    private Player user;
 
     /**
      * Provides functional testing of a MainActivity
      */
 
     @Rule
-    public ActivityTestRule<MainActivity> activityRule =
+    public ActivityTestRule<LoginActivity> activityRule =
+            new ActivityTestRule<>(LoginActivity.class);
+
+    @Rule
+    public ActivityTestRule<MainActivity> mainActivityActivityTestRule =
             new ActivityTestRule<>(MainActivity.class);
+
 
     /**
      * Initializes the fragment to test and allows to read and manipulate all id's in the given fragment
@@ -59,10 +63,14 @@ public class ProfileFragmentTest {
 
     @Before
     public void setUp() throws Exception {
-        padelBuddy = new PadelBuddy();
-        user = padelBuddy.getPlayer();
-        profile = new ProfileFragment(user);
-        activityRule.getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, profile, "Profile").commit();
+        padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(1));
+        profile = new ProfileFragment(padelBuddy.getUser());
+        onView(withId(R.id.test_daniel_button)).perform(click());
+        activityRule.finishActivity();
+    }
+
+    public void initializeFragmentToTest() {
+        mainActivityActivityTestRule.getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, profile, "Profile").commit();
     }
 
     /**
@@ -76,17 +84,20 @@ public class ProfileFragmentTest {
 
     }
 
+
     @Test
     public void doesProfileExist_Exists_ReturnsTrue() throws Exception {
-        try{
+        initializeFragmentToTest();
+        try {
             assertNotNull(onView(withId(R.id.profile_fragment)));
         } catch (Exception e) {
-            System.out.println("Error message + " + e.getMessage() + " Profile Fragment does not exist");
+            System.out.println("Error message + " + e.getStackTrace().toString() + " Profile Fragment does not exist");
         }
     }
 
     @Test
     public void isProfileInEditMode_IsInEditMode_ReturnsTrue() throws Exception {
+        initializeFragmentToTest();
         assertNotNull(onView(withId(R.id.edit_profile_button)));
 
         onView(withId(R.id.edit_profile_button)).check(matches(isClickable()));
@@ -99,85 +110,93 @@ public class ProfileFragmentTest {
 
     @Test
     public void firstnameValidator_ValidInput_ReturnsTrue() throws Exception {
+        initializeFragmentToTest();
         String newFirstnameToBeSet = "Robin";
         onView(withId(R.id.edit_profile_button)).perform(click());
         onView(withId(R.id.profile_firstname_edit)).perform(clearText());
         onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + user.getLastname())));
+        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + padelBuddy.getUser().getLastname())));
     }
 
     @Test
     public void firstnameValidator_SwedishLetters_ReturnsTrue() throws Exception {
+        initializeFragmentToTest();
         String newFirstnameToBeSet = "åäö";
         onView(withId(R.id.edit_profile_button)).perform(click());
         onView(withId(R.id.profile_firstname_edit)).perform(clearText());
         onView(withId(R.id.profile_firstname_edit)).perform(replaceText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + user.getLastname())));
+        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + padelBuddy.getUser().getLastname())));
     }
 
     @Test
     public void firstnameValidator_SpecialCharacterUsed_ReturnsFalse() throws Exception {
+        initializeFragmentToTest();
         String newFirstnameToBeSet = "*?!";
         onView(withId(R.id.edit_profile_button)).perform(click());
         onView(withId(R.id.profile_firstname_edit)).perform(clearText());
         onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertNotEquals(newFirstnameToBeSet, user.getFirstname());
+        assertNotEquals(newFirstnameToBeSet, padelBuddy.getUser().getFirstname());
     }
 
     @Test
     public void firstnameValidator_EmptyString_ReturnsFalse() throws Exception {
+        initializeFragmentToTest();
         String newFirstnameToBeSet = "";
         onView(withId(R.id.edit_profile_button)).perform(click());
         onView(withId(R.id.profile_firstname_edit)).perform(clearText());
         onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertNotEquals(newFirstnameToBeSet, user.getFirstname());
+        assertNotEquals(newFirstnameToBeSet, padelBuddy.getUser().getFirstname());
     }
 
     @Test
     public void firstnameValidator_NullFirstname_ReturnsFalse() throws Exception {
+        initializeFragmentToTest();
         onView(withId(R.id.edit_profile_button)).perform(click());
         onView(withId(R.id.profile_firstname_edit)).perform(clearText());
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertNotEquals(null, user.getFirstname());
+        assertNotEquals(null, padelBuddy.getUser().getFirstname());
     }
 
     @Test
     public void bioValidator_ValidInput_ReturnsTrue() throws Exception {
-        String newBioToBeSet = "lorem ipsum dolores sit amet";
+        initializeFragmentToTest();
+        String newBioToBeSet = "lorem ipsum Dolores sit amet";
         onView(withId(R.id.edit_profile_button)).perform(click());
         onView(withId(R.id.profile_bio_edit)).perform(clearText());
         onView(withId(R.id.profile_bio_edit)).perform(typeText(newBioToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertEquals(newBioToBeSet, user.getBio());
+        assertEquals(newBioToBeSet, padelBuddy.getUser().getBio());
     }
 
     @Test
     public void bioValidator_EmptyBio_ReturnsTrue() throws Exception {
+        initializeFragmentToTest();
         String newBioToBeSet = "";
         onView(withId(R.id.edit_profile_button)).perform(click());
         onView(withId(R.id.profile_bio_edit)).perform(clearText());
         onView(withId(R.id.profile_bio_edit)).perform(typeText(newBioToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertEquals(newBioToBeSet, user.getBio());
+        assertEquals(newBioToBeSet, padelBuddy.getUser().getBio());
     }
 
     @Test
     public void bioValidator_NullBio_ReturnsFalse() throws Exception {
+        initializeFragmentToTest();
         onView(withId(R.id.edit_profile_button)).perform(click());
         onView(withId(R.id.profile_bio_edit)).perform(clearText());
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertNotEquals(null, user.getBio());
+        assertNotEquals(null, padelBuddy.getUser().getBio());
     }
 }
