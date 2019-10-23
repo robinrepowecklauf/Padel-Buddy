@@ -125,7 +125,7 @@ public class PadelBuddy implements ICreate {
             }
         }
 
-        if (game.hasNoPlayers(game)) {
+        if (!game.hasPlayers()) {
             games.remove(game);
         }
     }

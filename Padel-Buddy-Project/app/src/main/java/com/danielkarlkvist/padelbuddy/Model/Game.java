@@ -91,19 +91,18 @@ abstract class Game implements IGame {
         }
     }
 
-    // TODO change to hasPlayers
-    public boolean hasNoPlayers(IGame game) {
-        boolean hasNoPlayers = true;
-        IPlayer[] players = game.getPlayers();
-        int arrayLength = players.length;
+    public boolean hasPlayers() {
+        boolean hasPlayers = false;
+        int amountOfPlayers = players.length;
 
-        for (int i = 0; i < arrayLength; i++) {
+        for (int i = 0; i < amountOfPlayers; i++) {
             if (players[i] != null) {
-                hasNoPlayers = false;
+                hasPlayers = true;
                 break;
             }
         }
-        return hasNoPlayers;
+
+        return hasPlayers;
     }
 
     /**

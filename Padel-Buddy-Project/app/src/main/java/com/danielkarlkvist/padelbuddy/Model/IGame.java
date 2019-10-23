@@ -28,5 +28,5 @@ public interface IGame {
 
     boolean isFinishedGame();
 
-    boolean hasNoPlayers(IGame game);
+    boolean hasPlayers();
 }
