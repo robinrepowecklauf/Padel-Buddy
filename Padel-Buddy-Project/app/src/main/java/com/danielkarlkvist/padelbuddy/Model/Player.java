@@ -1,63 +1,71 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import android.location.Location;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class Player {
-
-    private String firstname;
-    private String lastname;
-    private String mail;
-    private String phone;
-    private String bio;
-    private int age;
+/**
+ * The Player class defines a player which holds values that are being accessed from
+ * a user's profile and gameads
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
+// TODO Package-private
+class Player implements IPlayer {
+    private String firstName;
+    private String lastName;
+    private String mail;    // TODO maybe remove?
+    private String biography;
+    private int age;        // TODO show age in profile?
     private double skillLevel;
     private float profileRating;
 
-    Player(String firstname, String lastname, String mail, String phone, String bio, int age, double skillLevel) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    Player(String firstName, String lastName, String mail, String biography, int age, double skillLevel) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.mail = mail;
-        this.phone = phone;
-        this.bio = bio;
+        this.biography = biography;
         this.age = age;
         this.skillLevel = skillLevel;
-        this.profileRating = 3.3f;
+        this.profileRating = 3.5f; // Hardcoded value at the moment
     }
 
-    public String getFirstname() {
-        return firstname;
+    // region Getters and Setters
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getFullName() {
-        return firstname + " " + lastname;
+        return firstName + " " + lastName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public String getBiography() {
+        return biography;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
+    public double getSkillLevel() {
+        return skillLevel;
     }
 
     public float getProfileRating() {
         return profileRating;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setBiography(String biography) {
+        this.biography = biography;
+    }
+    // endregion Getters and Setters
 
     public int getGamesPlayed() {
         return 3;

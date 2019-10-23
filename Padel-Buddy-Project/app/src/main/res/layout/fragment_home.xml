@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout for the home tab. Is being
+     used by the GameRecyclerViewFragment.
+
+     @Authors Carl-Johan Björnson, Daniel Karlkvist & Fredrik Lilliecreutz.
+
+     -->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,12 +20,12 @@
         android:layout_marginLeft="@dimen/margin_padding_size_medium"
         android:layout_marginBottom="2dp"
         android:text="@string/app_name"
-        android:textSize="30sp"
+        android:textSize="@dimen/text_size_tab_title"
         android:fontFamily="@font/octin_prison"
         android:textColor="#FFFFFF" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/home_recyclerview"
         style="@style/game_recyclerview"
         android:layout_below="@+id/topbar_textview" />
 

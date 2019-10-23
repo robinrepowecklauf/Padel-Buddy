@@ -1,73 +1,132 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-// singleton class
-public class PadelBuddy {
+/**
+ * The PadelBuddy class defines TODO ...
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
+public class PadelBuddy implements ICreate {
+    private List<IGame> games = new ArrayList<>();
+    private IPlayer user;
 
-    private static PadelBuddy instance = null;
-
-    private ArrayList<Game> games = new ArrayList<>();
-    private Player player;
-
-    private PadelBuddy(Player player) {
-        this.player = player;
+    public PadelBuddy(IPlayer user) {
+        this.user = user;
     }
 
-    public static PadelBuddy getInstance() {
-        if (instance == null) {
-            Player player = new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 1);
-            instance = new PadelBuddy(player);
-        }
+    // region Getters and Setters
+    public List<IGame> getGames() {
+        List<IGame> games = new ArrayList<>();
 
-        return instance;
-    }
+        games.addAll(this.games);
 
-    public ArrayList<Game> getGames() {
         return games;
     }
 
-    public Player getPlayer() {
-        return player;
+    public IPlayer getUser() {
+        return user;
     }
+    // endregion Getters and Setters
 
-    // TODO Command query?
-    public void createAd(String location, Date date) {
-        Game game = new Game(player, location, date);
-        game.getPlayers()[0] = player;
+    public void createAd(String location, Date date, String length) {
+        IGame game = new PadelGame(user, location, date, length);
         games.add(game);
     }
 
-    public void removeAd(Game game) {
+    public void removeAd(IGame game) {
         if (games.contains(game)) {
             games.remove(game);
         }
-
-        // TODO Error message? FancyToast Library?? Finns i slack
     }
 
-    public ArrayList<Game> getUpcomingGames() {
-        ArrayList<Game> upcomingGames = new ArrayList<>();
-        for (Game game : games) {
-            if (!game.isFinishedGame()) {
-                upcomingGames.add(game);
+    // TODO remove filled games
+    public List<IGame> getJoinableGames() {
+        List<IGame> availableGames = new ArrayList<>();
+        int arrayLength = games.get(0).getPlayers().length;
+        boolean gameAvailable = true;
+
+        for (IGame game : games) {
+            for (int i = 0; i < arrayLength; i++) {
+                if (game.getPlayers()[i] == user) {
+                    gameAvailable = false;
+                }
+            }
+            if (gameAvailable && isGameDateAfterToday(game)) {
+                availableGames.add(game);
+            }
+            gameAvailable = true;
+        }
+        return availableGames;
+    }
+
+    public List<IGame> getUpcomingGames() {
+        List<IGame> upcomingGames = new ArrayList<>();
+        for (IGame game : games) {
+            for (IPlayer player : game.getPlayers()) {
+                if (player == user && !game.isFinishedGame() && isGameDateAfterToday(game)) {
+                    upcomingGames.add(game);
+                }
             }
         }
 
         return upcomingGames;
     }
 
-
-    public ArrayList<Game> getPlayedGames() {
-        ArrayList<Game> playedGames = new ArrayList<>();
-        for (Game game : games) {
-            if (game.isFinishedGame()) {
-                playedGames.add(game);
+    public List<IGame> getPlayedGames() {
+        List<IGame> playedGames = new ArrayList<>();
+        for (IGame game : games) {
+            for (IPlayer player : game.getPlayers()) {
+                if (player == user && !isGameDateAfterToday(game)) {
+                    playedGames.add(game);
+                }
             }
         }
 
         return playedGames;
+    }
+
+    public boolean isGameDateAfterToday(IGame game) {
+        Date today = Calendar.getInstance().getTime();
+        Date gameDate = game.getDate();
+
+        return gameDate.after(today);
+    }
+
+    public void joinGame(IGame game) {
+        IPlayer[] players = game.getPlayers();
+        int arrayLength = players.length;
+        boolean available = true;
+
+        for (int i = 0; i < arrayLength; i++) {
+            if (players[i] == user) {
+                available = false;
+            }
+        }
+
+        if (available) {
+            game.addPlayer(user);
+        }
+    }
+
+    public void leaveGame(IGame game) {
+        IPlayer[] players = game.getPlayers();
+        int arrayLength = players.length;
+
+        for (int i = 0; i < arrayLength; i++) {
+            if (players[i] == user) {
+                players[i] = null;
+            }
+        }
+
+        if (!game.hasPlayers()) {
+            games.remove(game);
+        }
     }
 }

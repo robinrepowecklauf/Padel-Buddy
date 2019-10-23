@@ -3,56 +3,75 @@ package com.danielkarlkvist.padelbuddy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.danielkarlkvist.padelbuddy.Controller.CreateAdFragmentController;
-import com.danielkarlkvist.padelbuddy.Controller.GamesFragmentController;
-import com.danielkarlkvist.padelbuddy.Controller.HomeFragmentController;
-import com.danielkarlkvist.padelbuddy.Controller.ProfileFragmentController;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
+import com.danielkarlkvist.padelbuddy.Model.PlayerFactory;
+import com.danielkarlkvist.padelbuddy.Services.TestFactory;
+import com.danielkarlkvist.padelbuddy.UI.CreateAdFragment;
+import com.danielkarlkvist.padelbuddy.UI.GamesFragment;
+import com.danielkarlkvist.padelbuddy.UI.GameRecyclerViewFragment;
+import com.danielkarlkvist.padelbuddy.UI.LoginActivity;
+import com.danielkarlkvist.padelbuddy.UI.ProfileFragment;
+import com.danielkarlkvist.padelbuddy.UI.ITimePickerDialogListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
-import java.util.Date;
+/**
+ * The MainActivity class is the base of the project.
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
+public class MainActivity extends AppCompatActivity implements ITimePickerDialogListener {
+    // Has the tab controllers as instance variables so the waiting_for_player_picture always gets saved
+    private GameRecyclerViewFragment homeFragmentController;
+    private CreateAdFragment createAdFragment;
+    private GamesFragment gamesFragment;
+    private ProfileFragment profileFragment;
+    private Fragment selectedFragmentController = null;
 
-public class MainActivity extends AppCompatActivity {
-
-    // Has the tab controllers as instance variables so the information always gets saved
-    private HomeFragmentController homeFragmentController;
-    private CreateAdFragmentController createAdFragmentController;
-    private GamesFragmentController gamesFragmentController;
-    private ProfileFragmentController profileFragmentController;
+    private static PadelBuddy padelBuddy;
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
             // region bottomNavigationViewListener
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                    Fragment selectedFragmentController = null;
-
                     switch (menuItem.getItemId()) {
                         case R.id.nav_home:
-                            selectedFragmentController = homeFragmentController;
-                            break;
+                            if (selectedFragmentController == homeFragmentController) {
+                                homeFragmentController.scrollToTop();
+                                break;
+                            } else {
+                                homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getJoinableGames(), padelBuddy, true);
+                                selectedFragmentController = homeFragmentController;
+                                break;
+                            }
                         case R.id.nav_create:
-                            selectedFragmentController = createAdFragmentController;
+                            selectedFragmentController = createAdFragment;
                             break;
                         case R.id.nav_games:
-                            selectedFragmentController = gamesFragmentController;
-                            break;
+                            if (selectedFragmentController == gamesFragment) {
+                                gamesFragment.scrollToTop();
+                                break;
+                            } else {
+                                selectedFragmentController = gamesFragment;
+                                break;
+                            }
                         case R.id.nav_profile:
-                            selectedFragmentController = profileFragmentController;
+                            selectedFragmentController = profileFragment;
                             break;
                         default:
                             Log.println(1, "tag", "Selected fragment that doesn't exist.");
-                            selectedFragmentController = new HomeFragmentController();
+                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames(), padelBuddy, true);
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragmentController).commit();
 
@@ -61,38 +80,60 @@ public class MainActivity extends AppCompatActivity {
             };
     // endregion bottomNavigationViewListener
 
+    public static void setPadelBuddy(int userId, Context context) {
+        padelBuddy = new PadelBuddy(TestFactory.getUser(userId, context));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  // Always portrait mode
 
-        createRandomGames();
+        if (padelBuddy == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        } else {
+            TestFactory.createTestGames(padelBuddy, getApplicationContext());
 
-        initializeBottomNavigationViewControllers();
-        initializeBottomNavigationView();
+            initializeBottomNavigationViewControllers();
+            initializeBottomNavigationView();
+        }
     }
 
-    private void createRandomGames() {
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019,0,10,15, 30));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 2, 2,8,00));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2019, 1, 4,15,15));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2015, 7, 7,10,20));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 9, 3,9,30));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date(2018, 12, 25,23,50));
-        PadelBuddy.getInstance().createAd("Padel center gbg", new Date());
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    /**
+     * Instantiates the main Fragments in the app
+     */
     private void initializeBottomNavigationViewControllers() {
-        homeFragmentController = new HomeFragmentController();
-        createAdFragmentController = new CreateAdFragmentController();
-        gamesFragmentController = new GamesFragmentController();
-        profileFragmentController = new ProfileFragmentController();
+        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getJoinableGames(), padelBuddy, true);
+        createAdFragment = new CreateAdFragment(padelBuddy);
+        gamesFragment = new GamesFragment(padelBuddy);
+        profileFragment = new ProfileFragment(padelBuddy.getUser());
     }
 
+    /**
+     * Instantiates the BottomNavigationView
+     */
     private void initializeBottomNavigationView() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavigationViewListener);
         bottomNavigationView.setSelectedItemId(R.id.nav_home);  // Sets the current selected tab as Home when the app opens
+    }
+
+    /**
+     * Put the text in CreateAdFragment
+     *
+     * @param time   current time
+     * @param length current length
+     */
+    @Override
+    public void applyTexts(String time, String length) {
+        createAdFragment.applyTexts(time, length);
     }
 }
