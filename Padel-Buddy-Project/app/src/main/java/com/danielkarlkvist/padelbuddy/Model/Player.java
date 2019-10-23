@@ -10,21 +10,19 @@ package com.danielkarlkvist.padelbuddy.Model;
  * @since 2019-09-05
  */
 // TODO Package-private
-public class Player implements IPlayer {
+class Player implements IPlayer {
     private String firstName;
     private String lastName;
     private String mail;    // TODO maybe remove?
-    private String phone;   // TODO remove?
     private String biography;
     private int age;        // TODO show age in profile?
     private double skillLevel;
     private float profileRating;
 
-    public Player(String firstName, String lastName, String mail, String phone, String biography, int age, double skillLevel) {
+    Player(String firstName, String lastName, String mail, String biography, int age, double skillLevel) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
-        this.phone = phone;
         this.biography = biography;
         this.age = age;
         this.skillLevel = skillLevel;

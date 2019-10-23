@@ -14,7 +14,6 @@ import java.util.List;
  * @since 2019-09-05
  */
 public class PadelBuddy implements ICreate {
-
     private List<IGame> games = new ArrayList<>();
     private IPlayer user;
 
@@ -47,6 +46,7 @@ public class PadelBuddy implements ICreate {
         }
     }
 
+    // TODO remove filled games
     public List<IGame> getJoinableGames() {
         List<IGame> availableGames = new ArrayList<>();
         int arrayLength = games.get(0).getPlayers().length;
