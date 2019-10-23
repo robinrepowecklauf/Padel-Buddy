@@ -113,10 +113,14 @@ abstract class Game implements IGame {
     public boolean isFinishedGame() {
         return result != null;
     }
-
-    // TODO same player can join multiple times!!!!
+    
     public void addPlayer(IPlayer player) {
         for (int i = 0; i < players.length; i++) {
+            // player should not be able to join multiple times
+            if (players[i] == player) {
+                break;
+            }
+
             if (players[i] == null) {
                 players[i] = player;
                 break;
