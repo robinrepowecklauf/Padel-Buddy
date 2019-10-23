@@ -1,7 +1,5 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import android.net.IpPrefix;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,6 +16,10 @@ public class PadelBuddy implements ICreate {
 
 
     public List<IGame> getGames() {
+        List<IGame> games = new ArrayList<>();
+
+        games.addAll(this.games);
+
         return games;
     }
 
@@ -78,8 +80,8 @@ public class PadelBuddy implements ICreate {
         List<IGame> playedGames = new ArrayList<>();
         for (IGame game : games) {
             for (IPlayer player : game.getPlayers()) {
-                if (player == user && !isGameDateAfterToday(game)){
-                        playedGames.add(game);
+                if (player == user && !isGameDateAfterToday(game)) {
+                    playedGames.add(game);
                 }
             }
         }
@@ -87,7 +89,7 @@ public class PadelBuddy implements ICreate {
         return playedGames;
     }
 
-    public boolean isGameDateAfterToday(IGame game){
+    public boolean isGameDateAfterToday(IGame game) {
         Date today = Calendar.getInstance().getTime();
         Date gameDate = game.getDate();
         return gameDate.after(today);
@@ -112,12 +114,12 @@ public class PadelBuddy implements ICreate {
     public void leaveGame(IGame game) {
         IPlayer[] players = game.getPlayers();
         int arrayLength = players.length;
-        for (int i = 0; i < arrayLength; i++){
-            if(players[i] == user){
+        for (int i = 0; i < arrayLength; i++) {
+            if (players[i] == user) {
                 players[i] = null;
             }
         }
-        if(game.hasNoPlayers(game)){
+        if (game.hasNoPlayers(game)) {
             games.remove(game);
         }
     }
