@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
+import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 import com.danielkarlkvist.padelbuddy.UI.CreateAdFragment;
 import com.danielkarlkvist.padelbuddy.UI.GamesFragment;
 import com.danielkarlkvist.padelbuddy.UI.GameRecyclerViewFragment;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
     private ProfileFragment profileFragment;
     private Fragment selectedFragmentController = null;
 
-    private PadelBuddy padelBuddy = LoginActivity.getPadelbuddy();
+    private static PadelBuddy padelBuddy;
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavigationViewListener =
             // region bottomNavigationViewListener
@@ -77,6 +79,10 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
             };
     // endregion bottomNavigationViewListener
 
+    public static void setPadelBuddy(int userId, Context context) {
+        padelBuddy = new PadelBuddy(TestFactory.getUser(userId, context));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         } else {
-            padelBuddy = LoginActivity.getPadelbuddy();
+            TestFactory.createTestGames(padelBuddy, getApplicationContext());
 
             initializeBottomNavigationViewControllers();
             initializeBottomNavigationView();

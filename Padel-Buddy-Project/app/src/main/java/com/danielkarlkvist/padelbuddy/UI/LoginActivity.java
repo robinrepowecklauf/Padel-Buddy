@@ -27,12 +27,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button robinButton;
     private Button marcusButton;
 
-    private static PadelBuddy padelBuddy;
-
-    public static PadelBuddy getPadelbuddy() {
-        return padelBuddy;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,28 +46,27 @@ public class LoginActivity extends AppCompatActivity {
         danielButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.getUser(1, getApplicationContext()));
+                MainActivity.setPadelBuddy(1, getApplicationContext());
                 startMainActivity();
             }
         });
         robinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.getUser(2, getApplicationContext()));
+                MainActivity.setPadelBuddy(2, getApplicationContext());
                 startMainActivity();
             }
         });
         marcusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.getUser(3, getApplicationContext()));
+                MainActivity.setPadelBuddy(3, getApplicationContext());
                 startMainActivity();
             }
         });
     }
 
     private void startMainActivity() {
-        TestFactory.createTestGames(padelBuddy, getApplicationContext());
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
