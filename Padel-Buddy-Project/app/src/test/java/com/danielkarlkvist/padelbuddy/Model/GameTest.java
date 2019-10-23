@@ -8,13 +8,13 @@ import static org.junit.Assert.*;
 
 public class GameTest {
 
-    private Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-    private Player badplayer2 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-    private Player badplayer3 = new Player("Marcus", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-    private Player medelplayer2 = new Player("Carl", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
-    private Player medelplayer3 = new Player("Daniel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
-    private Player advancedplayer5 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
-    private Player advancedplayer6 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
+    private Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private Player badplayer2 = new Player("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private Player badplayer3 = new Player("Marcus", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private Player medelplayer2 = new Player("Carl", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
+    private Player medelplayer3 = new Player("Daniel", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
+    private Player advancedplayer5 = new Player("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
+    private Player advancedplayer6 = new Player("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
     private IGame game = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "90");
 
     @Test

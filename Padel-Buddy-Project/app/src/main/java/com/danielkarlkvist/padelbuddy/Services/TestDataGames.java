@@ -5,7 +5,7 @@ import android.graphics.BitmapFactory;
 
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Model.Player;
+import com.danielkarlkvist.padelbuddy.Model.PlayerFactory;
 import com.danielkarlkvist.padelbuddy.R;
 import com.danielkarlkvist.padelbuddy.UI.PlayerImageBinder;
 
@@ -85,7 +85,7 @@ class TestDataGames implements ITestData {
                 randomAmountOfPlayersInGame = rand.nextInt(bound) + 1;
             }
 
-            IPlayer[] removedPlayers = new Player[randomAmountOfPlayersInGame];
+            IPlayer[] removedPlayers = new IPlayer[randomAmountOfPlayersInGame];
 
             for (int j = 0; j < randomAmountOfPlayersInGame; j++) {
                 IPlayer player = getRandomPlayer();
@@ -101,59 +101,59 @@ class TestDataGames implements ITestData {
     }
 
     private void createTestPlayers() {
-        Player player = new Player("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "0704549972", "lorem ipsum", 12, 2);
+        IPlayer player = PlayerFactory.createPlayer("Robin", "Repo Wecklauf", "robinrepowecklauf@gmail.com", "lorem ipsum", 12, 2);
         bindPlayerImage(player, R.drawable.loket);
         players.add(player);
 
-        player = new Player("Daniel", "Karlkvist", "gmail@danielkarlkvist.com", "0704529972", "lorem ipsum dipsum dolores sit amet", 20, 2);
+        player = PlayerFactory.createPlayer("Daniel", "Karlkvist", "gmail@danielkarlkvist.com", "lorem ipsum dipsum dolores sit amet", 20, 2);
         bindPlayerImage(player, R.drawable.profile_picture);
         players.add(player);
 
-        player = new Player("Carl-Johan", "Björnson", "calleballe@live.se", "1", "lorem ", 35, 1);
+        player = PlayerFactory.createPlayer("Carl-Johan", "Björnson", "calleballe@live.se", "lorem ", 35, 1);
         bindPlayerImage(player, R.drawable.profile_picture);
         players.add(player);
 
-        player = new Player("Marcus", "Creutz", "test@gail.com", "2", "lorem ", 99, 1);
+        player = PlayerFactory.createPlayer("Marcus", "Creutz", "test@gail.com", "lorem ", 99, 1);
         bindPlayerImage(player, R.drawable.linda);
         players.add(player);
 
-        player = new Player("Fredrik", "Axelsson", "emailrandomizer@fredrik.com", "3", "lorem ", 77, 3);
+        player = PlayerFactory.createPlayer("Fredrik", "Axelsson", "emailrandomizer@fredrik.com", "lorem ", 77, 3);
         bindPlayerImage(player, R.drawable.mikael);
         players.add(player);
 
-        player = new Player("Johan", "Karlsson", "anotheremail@hello.com", "3", "lorem ", 1010, 2);
+        player = PlayerFactory.createPlayer("Johan", "Karlsson", "anotheremail@hello.com", "lorem ", 1010, 2);
         bindPlayerImage(player, R.drawable.mikael);
         players.add(player);
 
-        player = new Player("Björne", "Innebandysson", "sdkljjsdklskss@gmail.com", "3", "lorem ", 1, 3);
+        player = PlayerFactory.createPlayer("Björne", "Innebandysson", "sdkljjsdklskss@gmail.com", "lorem ", 1, 3);
         bindPlayerImage(player, R.drawable.innebandysson);
         players.add(player);
 
-        player = new Player("Repo", "Weckrobin", "tet@jsjsjsjsjsjs.com", "3", "lorem ", 1 + 2, 3);
+        player = PlayerFactory.createPlayer("Repo", "Weckrobin", "tet@jsjsjsjsjsjs.com", "lorem ", 1 + 2, 3);
         bindPlayerImage(player, R.drawable.linda);
         players.add(player);
 
-        player = new Player("Mac", "Ish", "ttetetetetet@gmail.com", "3", "lorem ", 3 + 4, 1);
+        player = PlayerFactory.createPlayer("Mac", "Ish", "ttetetetetet@gmail.com", "lorem ", 3 + 4, 1);
         bindPlayerImage(player, R.drawable.loket);
         players.add(player);
 
-        player = new Player("Danne", "Fantom", "tet@gmail.com", "3", "lorem ", 5, 2);
+        player = PlayerFactory.createPlayer("Danne", "Fantom", "tet@gmail.com", "lorem ", 5, 2);
         bindPlayerImage(player, R.drawable.profile_picture);
         players.add(player);
 
-        player = new Player("Gammel", "Kröken", "teteessadsad@gmail.com", "3", "lorem ", 55, 3);
+        player = PlayerFactory.createPlayer("Gammel", "Kröken", "teteessadsad@gmail.com", "lorem ", 55, 3);
         bindPlayerImage(player, R.drawable.linda);
         players.add(player);
 
-        player = new Player("Ettganska", "LångtnamnxDDD", "sssssssssssssss@gmail.com", "3", "lorem ", 555, 3);
+        player = PlayerFactory.createPlayer("Ettganska", "LångtnamnxDDD", "sssssssssssssss@gmail.com", "lorem ", 555, 3);
         bindPlayerImage(player, R.drawable.blom);
         players.add(player);
 
-        player = new Player("Åsa-Nisse", "Nisse-Åsa", "s@b.com", "3", "lorem ", 12, 2);
+        player = PlayerFactory.createPlayer("Åsa-Nisse", "Nisse-Åsa", "s@b.com", "lorem ", 12, 2);
         bindPlayerImage(player, R.drawable.blom);
         players.add(player);
 
-        player = new Player("Krokodil", "Flakdärbak", "full@patet.com", "3", "lorem ", 12, 3);
+        player = PlayerFactory.createPlayer("Krokodil", "Flakdärbak", "full@patet.com", "lorem ", 12, 3);
         bindPlayerImage(player, R.drawable.krokodil);
         players.add(player);
     }

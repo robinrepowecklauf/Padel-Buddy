@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 
 public class PadelBuddyTest {
 
-    private PadelBuddy padelBuddy = new PadelBuddy(new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 2));
-    private Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
+    private PadelBuddy padelBuddy = new PadelBuddy(new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 2));
+    private Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
     private IGame game1 = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "60");
     private IGame game2 = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "60");
 
