@@ -10,11 +10,10 @@ Padel is a racquet sport and is typically seen as a combination of squash and te
 2. Open the project in Android Studios.
 3. Go into "Tools" > "AVD Manager".
 4. Press "Create Virtual Device...".
-5. Pick "Pixel 3", press "Next".
-6. Go into "x86 Images".
-7. Scroll down to "Marshmallow | 23 | x86_64 | Android 6.0 (Google APIs)", press "Next".
+5. Pick "Pixel 3 XL", press "Next".
+7. Press "Download" on the first recommended system image: "Q | 29 | x86 | Android 10 (Google APIs)", press "Next".
 8. Press "Finish".
-9. Choose "Pixel 3 API 23" next to "MainActivity" at the top in Android Studios.
+9. Choose "Pixel 3 XL API 29" next to "MainActivity" at the top in Android Studios.
 10. Run the program.
 
 ## Workflow
