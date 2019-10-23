@@ -2,11 +2,15 @@ package com.danielkarlkvist.padelbuddy.Model;
 
 import java.util.Date;
 
+/**
+ * The IGame interface defines TODO ...
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
 public interface IGame {
-
-    void addPlayer(IPlayer player);
-
-    boolean isFinishedGame();
 
     String getDateAsString();
 
@@ -18,8 +22,11 @@ public interface IGame {
 
     Date getDate();
 
-    boolean hasNoPlayers(IGame game);
-
     IPlayer[] getPlayers();
 
+    void addPlayer(IPlayer player);
+
+    boolean isFinishedGame();
+
+    boolean hasNoPlayers(IGame game);
 }

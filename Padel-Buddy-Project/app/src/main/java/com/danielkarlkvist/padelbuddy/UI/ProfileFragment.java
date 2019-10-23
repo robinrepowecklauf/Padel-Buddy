@@ -41,9 +41,7 @@ import static android.app.Activity.RESULT_OK;
  * @version 1.0
  * @since 2019-09-05
  */
-
 public class ProfileFragment extends Fragment {
-
     private static final int IMAGE_PICK_CODE = 1000;
     private static final int PERMISSION_CODE = 1001;
 
@@ -51,15 +49,15 @@ public class ProfileFragment extends Fragment {
     private Button editImageButton;
 
     private TextView fullNameTextView;
-    private TextView firstnameHintTextView;
-    private TextView lastnameHintTextView;
+    private TextView firstNameHintTextView;
+    private TextView lastNameHintTextView;
     private TextView bioHintTextView;
     private TextView gamesPlayedTextView;
     private TextView bioTextView;
 
-    private EditText firstnameEditText;
-    private EditText lastnameEditText;
-    private EditText bioEditText;
+    private EditText firstNameEditText;
+    private EditText lastNameEditText;
+    private EditText biographyEditText;
 
     private CircleImageView userCircleImageView;
 
@@ -75,24 +73,22 @@ public class ProfileFragment extends Fragment {
     /**
      * Puts the current waiting_for_player_picture of a user into TextViews which is visible in the profile-view
      */
-
     @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
         initializeViews(rootView);
-        initializeListenerToButton();
+        initializeButtonListeners();
 
         Bitmap playerImage = PlayerImageBinder.getImage(user, getContext());
         userCircleImageView.setImageBitmap(playerImage);
 
         fullNameTextView.setText(user.getFullName());
-        bioTextView.setText(user.getBio());
+        bioTextView.setText(user.getBiography());
 
-        firstnameEditText.setFilters(new InputFilter[]{filter});
-        lastnameEditText.setFilters(new InputFilter[]{filter});
+        firstNameEditText.setFilters(new InputFilter[]{filter});
+        lastNameEditText.setFilters(new InputFilter[]{filter});
 
         gamesPlayedTextView.setText("Antal spelade matcher: " + (user.getGamesPlayed()));
 
@@ -100,17 +96,17 @@ public class ProfileFragment extends Fragment {
     }
 
     /**
-     * Add listener to buttons and checks that the user's firstnameEditText and lastnameEditText is not empty
+     * Add listener to buttons and checks that the user's firstNameEditText and lastNameEditText is not empty
      * when pressing "Spara"
      */
-    private void initializeListenerToButton() {
+    private void initializeButtonListeners() {
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!isInEditingMode) {
                     isInEditingMode = true;
                     editProfile();
-                } else if (!firstnameEditText.getText().toString().equals("") && !lastnameEditText.getText().toString().equals("")) {
+                } else if (!firstNameEditText.getText().toString().equals("") && !lastNameEditText.getText().toString().equals("")) {
                     isInEditingMode = false;
                     hideKeyboard(view);
                     saveProfile();
@@ -135,7 +131,6 @@ public class ProfileFragment extends Fragment {
                 }
             }
         });
-
     }
 
     /**
@@ -149,15 +144,15 @@ public class ProfileFragment extends Fragment {
         gamesPlayedTextView = view.findViewById(R.id.profile_games_played);
         userCircleImageView = view.findViewById(R.id.profile_image);
 
-        firstnameHintTextView = view.findViewById(R.id.profile_firstname_hint);
-        lastnameHintTextView = view.findViewById(R.id.profile_lastname_hint);
+        firstNameHintTextView = view.findViewById(R.id.profile_firstname_hint);
+        lastNameHintTextView = view.findViewById(R.id.profile_lastname_hint);
         bioHintTextView = view.findViewById(R.id.profile_bio_hint);
 
         editProfileButton = view.findViewById(R.id.edit_profile_button);
 
-        firstnameEditText = view.findViewById(R.id.profile_firstname_edit);
-        lastnameEditText = view.findViewById(R.id.profile_lastname_edit);
-        bioEditText = view.findViewById(R.id.profile_bio_edit);
+        firstNameEditText = view.findViewById(R.id.profile_firstname_edit);
+        lastNameEditText = view.findViewById(R.id.profile_lastname_edit);
+        biographyEditText = view.findViewById(R.id.profile_bio_edit);
         editImageButton = view.findViewById(R.id.pick_new_image_button);
     }
 
@@ -170,7 +165,7 @@ public class ProfileFragment extends Fragment {
         editUserInformation();
         changeVisibilityForEditMode();
 
-        placeCursorAfterText(firstnameEditText);
+        placeCursorAfterText(firstNameEditText);
     }
 
     /**
@@ -221,10 +216,9 @@ public class ProfileFragment extends Fragment {
      * Places the current waiting_for_player_picture of the user into EditText so it can be edited
      */
     private void editUserInformation() {
-        firstnameEditText.setText(user.getFirstname());
-        lastnameEditText.setText(user.getLastname());
-        bioEditText.setText(user.getBio());
-     //   userCircularImageView.setImageDrawable(user.getImage().getDrawable());
+        firstNameEditText.setText(user.getFirstName());
+        lastNameEditText.setText(user.getLastName());
+        biographyEditText.setText(user.getBiography());
     }
 
     /**
@@ -234,13 +228,13 @@ public class ProfileFragment extends Fragment {
         fullNameTextView.setVisibility(View.INVISIBLE);
         bioTextView.setVisibility(View.INVISIBLE);
 
-        firstnameHintTextView.setVisibility(View.VISIBLE);
-        lastnameHintTextView.setVisibility(View.VISIBLE);
+        firstNameHintTextView.setVisibility(View.VISIBLE);
+        lastNameHintTextView.setVisibility(View.VISIBLE);
         bioHintTextView.setVisibility(View.VISIBLE);
 
-        firstnameEditText.setVisibility(View.VISIBLE);
-        lastnameEditText.setVisibility(View.VISIBLE);
-        bioEditText.setVisibility(View.VISIBLE);
+        firstNameEditText.setVisibility(View.VISIBLE);
+        lastNameEditText.setVisibility(View.VISIBLE);
+        biographyEditText.setVisibility(View.VISIBLE);
         editImageButton.setVisibility(View.VISIBLE);
     }
 
@@ -248,14 +242,14 @@ public class ProfileFragment extends Fragment {
      * Hides the editable texts and input hints and shows all standard static TextViews
      */
     private void changeVisibilityForStandardMode() {
-        firstnameEditText.setVisibility(View.INVISIBLE);
-        lastnameEditText.setVisibility(View.INVISIBLE);
+        firstNameEditText.setVisibility(View.INVISIBLE);
+        lastNameEditText.setVisibility(View.INVISIBLE);
         editImageButton.setVisibility(View.INVISIBLE);
 
-        bioEditText.setVisibility(View.INVISIBLE);
+        biographyEditText.setVisibility(View.INVISIBLE);
 
-        firstnameHintTextView.setVisibility(View.INVISIBLE);
-        lastnameHintTextView.setVisibility(View.INVISIBLE);
+        firstNameHintTextView.setVisibility(View.INVISIBLE);
+        lastNameHintTextView.setVisibility(View.INVISIBLE);
         bioHintTextView.setVisibility(View.INVISIBLE);
 
 
@@ -267,12 +261,12 @@ public class ProfileFragment extends Fragment {
      * Updates the user's name and biography
      */
     private void placeNewUserInformation() {
-        user.setFirstname(firstnameEditText.getText().toString());
-        user.setLastname(lastnameEditText.getText().toString());
+        user.setFirstName(firstNameEditText.getText().toString());
+        user.setLastName(lastNameEditText.getText().toString());
         fullNameTextView.setText(user.getFullName());
 
-        user.setBio(bioEditText.getText().toString());
-        bioTextView.setText(user.getBio());
+        user.setBiography(biographyEditText.getText().toString());
+        bioTextView.setText(user.getBiography());
     }
 
     /**

@@ -34,11 +34,9 @@ import java.util.Locale;
  * The CreateAdFragment class defines the Fragment where a user can createTestData a game ad.
  *
  * @author Carl-Johan Björnson
- *
  * @version 1.0
  * @since 2019-10-11
  */
-
 public class CreateAdFragment extends Fragment {
     private TextView userFirstNameTextView;
     private RatingBar userProfileRatingBar;
@@ -61,8 +59,8 @@ public class CreateAdFragment extends Fragment {
 
     private Button timeButton;
 
-    private TextView chosenTimeTextview;
-    private TextView chosenGameLengthTextview;
+    private TextView chosenTimeTextView;
+    private TextView chosenGameLengthTextView;
 
     private ICreate iCreate;
 
@@ -73,14 +71,13 @@ public class CreateAdFragment extends Fragment {
     }
 
     /**
-     *  Creates the view.
+     * Creates the view.
      *
      * @param inflater
      * @param container
      * @param savedInstanceState
      * @return
      */
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -93,7 +90,7 @@ public class CreateAdFragment extends Fragment {
 
         setButtonListeners();
 
-        userFirstNameTextView.setText(iCreate.getUser().getFirstname());
+        userFirstNameTextView.setText(iCreate.getUser().getFirstName());
         userProfileRatingBar.setRating(iCreate.getUser().getProfileRating());
 
         return rootView;
@@ -111,8 +108,8 @@ public class CreateAdFragment extends Fragment {
         chosenDateTextView = view.findViewById(R.id.chosen_date_textview);
 
         timeButton = view.findViewById(R.id.time_button);
-        chosenTimeTextview = view.findViewById(R.id.chosen_start_time_textview);
-        chosenGameLengthTextview = view.findViewById(R.id.chosen_game_length_textview);
+        chosenTimeTextView = view.findViewById(R.id.chosen_start_time_textview);
+        chosenGameLengthTextView = view.findViewById(R.id.chosen_game_length_textview);
 
         userFirstNameTextView = view.findViewById(R.id.player1_name_textview);
         userProfileRatingBar = view.findViewById(R.id.player1_ratingbar);
@@ -133,9 +130,8 @@ public class CreateAdFragment extends Fragment {
     }
 
     /**
-     *  Assigns Listeners to all buttons.
+     * Assigns Listeners to all buttons.
      */
-
     private void setButtonListeners() {
         player2RemoveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,7 +164,6 @@ public class CreateAdFragment extends Fragment {
                 invitation2RelativeLayout.setVisibility(View.VISIBLE);
             }
         });
-
 
         timeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -203,16 +198,15 @@ public class CreateAdFragment extends Fragment {
             }, year, month, day);
 
             datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
-            calendar.add(Calendar.DATE, + 31);                           // Allows user to book one month ahead
+            calendar.add(Calendar.DATE, +31);                           // Allows user to book one month ahead
             datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
             datePickerDialog.show();
         }
     };
 
     /**
-     *  Creates and opens Dialog to chose time for the game ad.
+     * Creates and opens Dialog to choose time for the game ad.
      */
-
     public void openDialog() {
         TimePickerDialog timePickerDialog = new TimePickerDialog();
         timePickerDialog.show(getFragmentManager(), "timePickerDialog");
@@ -220,42 +214,45 @@ public class CreateAdFragment extends Fragment {
 
     /**
      * Applies chosen time and game length to the game ad.
+     *
      * @param time
      * @param length
      */
     public void applyTexts(String time, String length) {
-        chosenTimeTextview.setText(time);
-        chosenGameLengthTextview.setText(length);
+        chosenTimeTextView.setText(time);
+        chosenGameLengthTextView.setText(length);
     }
 
-    private void createAd(){
-        if(checkInputValues()) {
-            iCreate.createAd(padelArenaSpinner.getSelectedItem().toString(), stringToDate(dateAndTimeString(chosenDateTextView.getText().toString(), chosenTimeTextview.getText().toString())), chosenGameLengthTextview.getText().toString());
-        }
-        else{
-            Toast.makeText(getContext(),"VÄLJ TID!",Toast.LENGTH_SHORT).show();
+    private void createAd() {
+        if (checkInputValues()) {
+            iCreate.createAd(padelArenaSpinner.getSelectedItem().toString(), stringToDate(dateAndTimeString(chosenDateTextView.getText().toString(), chosenTimeTextView.getText().toString())), chosenGameLengthTextView.getText().toString());
+        } else {
+            Toast.makeText(getContext(), "VÄLJ TID!", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private boolean checkInputValues(){
+    private boolean checkInputValues() {
         boolean isValid = true;
         String s1 = chosenDateTextView.getText().toString();
-        String s2 = chosenGameLengthTextview.getText().toString();
-        if (s1.equals("")|| s2.equals("")){
+        String s2 = chosenGameLengthTextView.getText().toString();
+
+        if (s1.equals("") || s2.equals("")) {
             isValid = false;
         }
+
         return isValid;
     }
-    private String dateAndTimeString(String dateString, String timeString ){
+
+    private String dateAndTimeString(String dateString, String timeString) {
         StringBuilder sb = new StringBuilder();
         sb.append(dateString);
         sb.append(" ");
         sb.append(timeString);
+
         return sb.toString();
     }
 
-    private Date stringToDate (String dateString)  {
-
+    private Date stringToDate(String dateString) {
         DateFormat df = new SimpleDateFormat("yyyy/MM/dd hh:mm", Locale.ENGLISH);
         Date date = null;
         try {
@@ -265,7 +262,6 @@ public class CreateAdFragment extends Fragment {
         }
 
         return date;
-
     }
 }
 

@@ -22,8 +22,8 @@ public class GameTest {
         IGame game = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "60");
         game.addPlayer(badplayer2);
         IPlayer[] players = game.getPlayers();
-        assertTrue(players[0].getFirstname() == "Fredrik");
-        assertTrue(players[1].getFirstname() == "Axel");
+        assertTrue(players[0].getFirstName() == "Fredrik");
+        assertTrue(players[1].getFirstName() == "Axel");
         assertTrue(players[2] == null);
         assertTrue(players[3] == null);
     }
@@ -38,10 +38,10 @@ public class GameTest {
         game.addPlayer(medelplayer2);//Carl
         game.addPlayer(medelplayer3); //Daniel
         IPlayer[] players = game.getPlayers();
-        assertTrue(players[0].getFirstname() == "Fredrik");
-        assertTrue(players[1].getFirstname() == "Axel");
-        assertTrue(players[2].getFirstname() == "Marcus");
-        assertTrue(players[3].getFirstname() == "Carl");
+        assertTrue(players[0].getFirstName() == "Fredrik");
+        assertTrue(players[1].getFirstName() == "Axel");
+        assertTrue(players[2].getFirstName() == "Marcus");
+        assertTrue(players[3].getFirstName() == "Carl");
     }
 
 

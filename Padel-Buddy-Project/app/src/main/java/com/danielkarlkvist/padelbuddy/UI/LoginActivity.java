@@ -14,12 +14,24 @@ import android.widget.Button;
 
 import com.danielkarlkvist.padelbuddy.R;
 
+/**
+ * The LoginActivity class defines TODO ...
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
 public class LoginActivity extends AppCompatActivity {
     private Button danielButton;
     private Button robinButton;
     private Button marcusButton;
 
     private static PadelBuddy padelBuddy;
+
+    public static PadelBuddy getPadelbuddy() {
+        return padelBuddy;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +76,6 @@ public class LoginActivity extends AppCompatActivity {
         TestFactory.createTestGames(padelBuddy, getApplicationContext());
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    }
-
-    public static PadelBuddy getPadelbuddy(){
-        return padelBuddy;
     }
 }
 

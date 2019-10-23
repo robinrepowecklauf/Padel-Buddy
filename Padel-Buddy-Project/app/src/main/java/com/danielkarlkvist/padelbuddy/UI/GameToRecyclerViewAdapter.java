@@ -28,7 +28,6 @@ import java.util.List;
  * @version 1.0
  * @since 2019-10-05
  */
-
 public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameViewHolder> {
     private PadelBuddy padelBuddy;
     private List<? extends IGame> games;
@@ -39,7 +38,6 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
     /**
      * The ViewHolder which should be updated to represent the contents of a Game.
      */
-
     static class GameViewHolder extends RecyclerView.ViewHolder {
         TextView locationTextView;
         TextView dateTextView;
@@ -98,6 +96,12 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         this.joinable = joinable;
     }
 
+    // Returns the total number of items in the data set held by the adapter.
+    @Override
+    public int getItemCount() {
+        return games.size();
+    }
+
     // Called when RecyclerView needs a new RecyclerView.ViewHolder of the given type to represent an item.
     @NonNull
     @Override
@@ -123,7 +127,7 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         for (int i = 0; i < currentGame.getPlayers().length; i++) {
             IPlayer player = currentGame.getPlayers()[i];
             if (player != null) {
-                holder.playerNameTextViews[i].setText(player.getFirstname());
+                holder.playerNameTextViews[i].setText(player.getFirstName());
                 Bitmap playerImage = PlayerImageBinder.getImage(player, context);
                 holder.playerImagesViews[i].setImageBitmap(playerImage);
                 holder.playerRatingBars[i].setVisibility(View.VISIBLE);
@@ -158,21 +162,15 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             }
         });
 
-        if(!joinable){
+        if (!joinable) {
             holder.joinGameButton.setVisibility(View.INVISIBLE);
             holder.leaveGameButton.setVisibility(View.VISIBLE);
 
-            if(!padelBuddy.isGameDateAfterToday(currentGame)){
+            if (!padelBuddy.isGameDateAfterToday(currentGame)) {
                 holder.reportResultButton.setVisibility(View.VISIBLE);
                 holder.leaveGameButton.setVisibility(View.INVISIBLE);
             }
         }
 
-    }
-
-    // Returns the total number of items in the data set held by the adapter.
-    @Override
-    public int getItemCount() {
-        return games.size();
     }
 }

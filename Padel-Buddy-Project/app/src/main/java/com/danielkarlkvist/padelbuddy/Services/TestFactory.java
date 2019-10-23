@@ -1,6 +1,5 @@
 package com.danielkarlkvist.padelbuddy.Services;
 
-
 import android.content.Context;
 import android.graphics.BitmapFactory;
 
@@ -10,7 +9,14 @@ import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.R;
 import com.danielkarlkvist.padelbuddy.UI.PlayerImageBinder;
 
-
+/**
+ * The TestFactory class defines TODO ...
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
 public class TestFactory {
 
     private TestFactory() {
@@ -45,5 +51,4 @@ public class TestFactory {
         TestDataGames testDataGames = new TestDataGames();
         testDataGames.createTestGames(padelBuddy, context);
     }
-
 }

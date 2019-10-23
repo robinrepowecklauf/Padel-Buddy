@@ -117,7 +117,7 @@ public class ProfileFragmentTest {
         onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + padelBuddy.getUser().getLastname())));
+        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + padelBuddy.getUser().getLastName())));
     }
 
     @Test
@@ -129,7 +129,7 @@ public class ProfileFragmentTest {
         onView(withId(R.id.profile_firstname_edit)).perform(replaceText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + padelBuddy.getUser().getLastname())));
+        onView(withId(R.id.profile_name)).check(matches(withText(newFirstnameToBeSet + " " + padelBuddy.getUser().getLastName())));
     }
 
     @Test
@@ -141,7 +141,7 @@ public class ProfileFragmentTest {
         onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertNotEquals(newFirstnameToBeSet, padelBuddy.getUser().getFirstname());
+        assertNotEquals(newFirstnameToBeSet, padelBuddy.getUser().getFirstName());
     }
 
     @Test
@@ -153,7 +153,7 @@ public class ProfileFragmentTest {
         onView(withId(R.id.profile_firstname_edit)).perform(typeText(newFirstnameToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertNotEquals(newFirstnameToBeSet, padelBuddy.getUser().getFirstname());
+        assertNotEquals(newFirstnameToBeSet, padelBuddy.getUser().getFirstName());
     }
 
     @Test
@@ -163,7 +163,7 @@ public class ProfileFragmentTest {
         onView(withId(R.id.profile_firstname_edit)).perform(clearText());
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertNotEquals(null, padelBuddy.getUser().getFirstname());
+        assertNotEquals(null, padelBuddy.getUser().getFirstName());
     }
 
     @Test
@@ -175,7 +175,7 @@ public class ProfileFragmentTest {
         onView(withId(R.id.profile_bio_edit)).perform(typeText(newBioToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertEquals(newBioToBeSet, padelBuddy.getUser().getBio());
+        assertEquals(newBioToBeSet, padelBuddy.getUser().getBiography());
     }
 
     @Test
@@ -187,7 +187,7 @@ public class ProfileFragmentTest {
         onView(withId(R.id.profile_bio_edit)).perform(typeText(newBioToBeSet));
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertEquals(newBioToBeSet, padelBuddy.getUser().getBio());
+        assertEquals(newBioToBeSet, padelBuddy.getUser().getBiography());
     }
 
     @Test
@@ -197,6 +197,6 @@ public class ProfileFragmentTest {
         onView(withId(R.id.profile_bio_edit)).perform(clearText());
         onView(withId(R.id.edit_profile_button)).perform(click());
 
-        assertNotEquals(null, padelBuddy.getUser().getBio());
+        assertNotEquals(null, padelBuddy.getUser().getBiography());
     }
 }

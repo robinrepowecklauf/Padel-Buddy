@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 import com.danielkarlkvist.padelbuddy.UI.CreateAdFragment;
 import com.danielkarlkvist.padelbuddy.UI.GamesFragment;
 import com.danielkarlkvist.padelbuddy.UI.GameRecyclerViewFragment;
@@ -20,17 +19,15 @@ import com.danielkarlkvist.padelbuddy.UI.ProfileFragment;
 import com.danielkarlkvist.padelbuddy.UI.ITimePickerDialogListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+/**
+ * The MainActivity class is the base of the project.
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
 public class MainActivity extends AppCompatActivity implements ITimePickerDialogListener {
-
-    /**
-     * The MainActivity class is the base of the project.
-     *
-     * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
-     * Carl-Johan Björnson och Fredrik Lilliecreutz
-     * @version 1.0
-     * @since 2019-09-05
-     */
-
     // Has the tab controllers as instance variables so the waiting_for_player_picture always gets saved
     private GameRecyclerViewFragment homeFragmentController;
     private CreateAdFragment createAdFragment;
@@ -45,14 +42,13 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
                     switch (menuItem.getItemId()) {
                         case R.id.nav_home:
                             if (selectedFragmentController == homeFragmentController) {
                                 homeFragmentController.scrollToTop();
                                 break;
                             } else {
-                                homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home,R.id.home_recyclerview, padelBuddy.getAvailableGames(),padelBuddy, true);
+                                homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getJoinableGames(), padelBuddy, true);
                                 selectedFragmentController = homeFragmentController;
                                 break;
                             }
@@ -72,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
                             break;
                         default:
                             Log.println(1, "tag", "Selected fragment that doesn't exist.");
-                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames(),padelBuddy, true);
+                            selectedFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getGames(), padelBuddy, true);
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragmentController).commit();
 
@@ -108,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
      * Instantiates the main Fragments in the app
      */
     private void initializeBottomNavigationViewControllers() {
-        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home,R.id.home_recyclerview, padelBuddy.getAvailableGames(),padelBuddy, true);
+        homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getJoinableGames(), padelBuddy, true);
         createAdFragment = new CreateAdFragment(padelBuddy);
         gamesFragment = new GamesFragment(padelBuddy);
         profileFragment = new ProfileFragment(padelBuddy.getUser());

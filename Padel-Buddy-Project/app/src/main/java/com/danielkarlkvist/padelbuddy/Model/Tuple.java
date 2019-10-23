@@ -8,9 +8,7 @@ package com.danielkarlkvist.padelbuddy.Model;
  * @version 1.0
  * @since 2019-09-05
  */
-
 class Tuple<X, Y> {
-
     private final X x;
     private final Y y;
 

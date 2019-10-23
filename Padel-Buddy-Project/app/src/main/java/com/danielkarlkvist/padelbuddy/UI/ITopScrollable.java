@@ -9,7 +9,6 @@ package com.danielkarlkvist.padelbuddy.UI;
  * @version 1.0
  * @since 2019-10-09
  */
-
 interface ITopScrollable {
 
     void scrollToTop();

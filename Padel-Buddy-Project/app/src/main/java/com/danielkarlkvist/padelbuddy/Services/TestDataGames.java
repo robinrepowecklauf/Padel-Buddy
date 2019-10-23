@@ -9,69 +9,26 @@ import com.danielkarlkvist.padelbuddy.Model.Player;
 import com.danielkarlkvist.padelbuddy.R;
 import com.danielkarlkvist.padelbuddy.UI.PlayerImageBinder;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * The TestDataGames class defines TODO ...
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
 class TestDataGames implements ITestData {
-
     private Random rand = new Random();
     private List<IPlayer> players = new ArrayList<>();
     private List<String> locations = new ArrayList<>();
     private Context context;
 
-    private final int amountOfTimeLengths = 2;
-
-    @Override
-    public void createTestGames(PadelBuddy padelBuddy, Context context) {
-        this.context = context;
-
-        createTestPlayers();
-        createTestLocations();
-
-        for (int i = 0; i < 200; i++){
-            padelBuddy.createAd(getRandomLocation(), getRandomDate(), getRandomTimeLength());
-            IPlayer[] players = padelBuddy.getGames().get(i).getPlayers();
-            players[0] = null;
-        }
-
-        for (int i = 0; i < 20; i++){
-            padelBuddy.createAd(getRandomLocation(), getRandomDate(), getRandomTimeLength());
-        }
-
-        for (int i = 0; i < padelBuddy.getGames().size(); i++) {
-            int bound = padelBuddy.getGames().get(i).getPlayers().length;
-
-            int randomAmountOfPlayersInGame;
-            if (padelBuddy.getGames().get(i).getPlayers()[0] != null) {
-                randomAmountOfPlayersInGame = rand.nextInt(bound);
-            } else {
-                randomAmountOfPlayersInGame = rand.nextInt(bound) + 1;
-            }
-
-            IPlayer[] removedPlayers = new Player[randomAmountOfPlayersInGame];
-
-            for (int j = 0; j < randomAmountOfPlayersInGame; j++) {
-                IPlayer player = getRandomPlayer();
-
-                players.remove(player);
-                removedPlayers[j] = player;
-
-                padelBuddy.getGames().get(i).addPlayer(player);
-            }
-            addToPlayers(removedPlayers);
-        }
-    }
-
-    private void addToPlayers(IPlayer[] removedPlayers) {
-        for (IPlayer player: removedPlayers) {
-            players.add(player);
-        }
-    }
+    private final int amountOfTimeLengths = 2;  // TODO create local variable
 
     private IPlayer getRandomPlayer() {
         int random = rand.nextInt(players.size());
@@ -99,6 +56,48 @@ class TestDataGames implements ITestData {
         }
 
         return "90 min";
+    }
+
+    @Override
+    public void createTestGames(PadelBuddy padelBuddy, Context context) {
+        this.context = context;
+
+        createTestPlayers();
+        createTestLocations();
+
+        for (int i = 0; i < 200; i++) {
+            padelBuddy.createAd(getRandomLocation(), getRandomDate(), getRandomTimeLength());
+            IPlayer[] players = padelBuddy.getGames().get(i).getPlayers();
+            players[0] = null;
+        }
+
+        for (int i = 0; i < 20; i++) {
+            padelBuddy.createAd(getRandomLocation(), getRandomDate(), getRandomTimeLength());
+        }
+
+        for (int i = 0; i < padelBuddy.getGames().size(); i++) {
+            int bound = padelBuddy.getGames().get(i).getPlayers().length;
+
+            int randomAmountOfPlayersInGame;
+            if (padelBuddy.getGames().get(i).getPlayers()[0] != null) {
+                randomAmountOfPlayersInGame = rand.nextInt(bound);
+            } else {
+                randomAmountOfPlayersInGame = rand.nextInt(bound) + 1;
+            }
+
+            IPlayer[] removedPlayers = new Player[randomAmountOfPlayersInGame];
+
+            for (int j = 0; j < randomAmountOfPlayersInGame; j++) {
+                IPlayer player = getRandomPlayer();
+
+                players.remove(player);
+                removedPlayers[j] = player;
+
+                padelBuddy.getGames().get(i).addPlayer(player);
+            }
+
+            addToPlayers(removedPlayers);
+        }
     }
 
     private void createTestPlayers() {
@@ -130,11 +129,11 @@ class TestDataGames implements ITestData {
         bindPlayerImage(player, R.drawable.innebandysson);
         players.add(player);
 
-        player = new Player("Repo", "Weckrobin", "tet@jsjsjsjsjsjs.com", "3", "lorem ", 1+2, 3);
+        player = new Player("Repo", "Weckrobin", "tet@jsjsjsjsjsjs.com", "3", "lorem ", 1 + 2, 3);
         bindPlayerImage(player, R.drawable.linda);
         players.add(player);
 
-        player = new Player("Mac", "Ish", "ttetetetetet@gmail.com", "3", "lorem ", 3+4, 1);
+        player = new Player("Mac", "Ish", "ttetetetetet@gmail.com", "3", "lorem ", 3 + 4, 1);
         bindPlayerImage(player, R.drawable.loket);
         players.add(player);
 
@@ -159,6 +158,10 @@ class TestDataGames implements ITestData {
         players.add(player);
     }
 
+    private void bindPlayerImage(IPlayer player, int image) {
+        PlayerImageBinder.bind(player, BitmapFactory.decodeResource(context.getResources(), image));
+    }
+
     private void createTestLocations() {
         locations.add("Padel center");
         locations.add("PDL Trollhättan");
@@ -171,7 +174,9 @@ class TestDataGames implements ITestData {
         locations.add("Björnes innepadelklubb");
     }
 
-    private void bindPlayerImage(IPlayer player, int image) {
-        PlayerImageBinder.bind(player, BitmapFactory.decodeResource(context.getResources(), image));
+    private void addToPlayers(IPlayer[] removedPlayers) {
+        for (IPlayer player : removedPlayers) {
+            players.add(player);    // TODO replace with addAll
+        }
     }
 }
