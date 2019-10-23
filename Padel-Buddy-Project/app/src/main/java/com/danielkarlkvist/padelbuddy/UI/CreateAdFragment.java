@@ -31,7 +31,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * The CreateAdFragment class defines the Fragment where a user can createTestData a game ad.
+ * The CreateAdFragment class defines the Fragment where a user can create a game ad.
  *
  * @author Carl-Johan Björnson
  * @version 1.0

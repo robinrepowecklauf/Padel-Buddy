@@ -1,7 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
 /**
- * The IGame interface defines TODO ...
+ * The IPlayer interface defines the methods that should be able to run of a Player outside of the Model
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz

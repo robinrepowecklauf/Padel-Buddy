@@ -1,8 +1,7 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
 /**
- * The Player class defines a player which holds values that are being accessed from
- * a user's profile and gameads
+ * The Player class defines a player which holds values that represents a player
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
@@ -13,7 +12,7 @@ package com.danielkarlkvist.padelbuddy.Model;
 class Player implements IPlayer {
     private String firstName;
     private String lastName;
-    private String mail;    // TODO maybe remove?
+    private String mail;
     private String biography;
     private int age;        // TODO show age in profile?
     private double skillLevel;
@@ -67,6 +66,7 @@ class Player implements IPlayer {
     }
     // endregion Getters and Setters
 
+    // TODO replace with getPlayedGames.size() from PadelBuddy
     public int getGamesPlayed() {
         return 3;
     }
