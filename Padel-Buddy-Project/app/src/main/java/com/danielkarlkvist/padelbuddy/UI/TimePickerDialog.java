@@ -22,9 +22,7 @@ import com.danielkarlkvist.padelbuddy.R;
  * @version 1.0
  * @since 2019-10-11
  */
-
-public class TimePickerDialog extends AppCompatDialogFragment{
-
+public class TimePickerDialog extends AppCompatDialogFragment {
     private TimePicker timePicker;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
@@ -33,10 +31,10 @@ public class TimePickerDialog extends AppCompatDialogFragment{
 
     /**
      * Builds the Dialog and instantiate the components.
+     *
      * @param savedInstanceState
      * @return Dialog with the arguments supplied to this builder.
      */
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -75,10 +73,10 @@ public class TimePickerDialog extends AppCompatDialogFragment{
 
     /**
      * Returns the checked RadioButton.
+     *
      * @param view
      * @return Checked RadioButton
      */
-
     private RadioButton getCheckedRadioButton(View view) {
         int radioId = radioGroup.getCheckedRadioButtonId();
         radioButton = view.findViewById(radioId);
@@ -86,10 +84,10 @@ public class TimePickerDialog extends AppCompatDialogFragment{
     }
 
     /**
-     *  Creates the listener and assigns the MainActivity.
+     * Creates the listener and assigns the MainActivity.
+     *
      * @param context, In our case the MainActivity.
      */
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

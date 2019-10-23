@@ -2,7 +2,6 @@ package com.danielkarlkvist.padelbuddy.UI;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.danielkarlkvist.padelbuddy.MainActivity;
 import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
@@ -30,8 +28,7 @@ import java.util.List;
  * @version 1.0
  * @since 2019-10-05
  */
-
-public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameAdViewHolder> {
+public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecyclerViewAdapter.GameViewHolder> {
     private PadelBuddy padelBuddy;
     private List<? extends IGame> games;
     private Context context;
@@ -41,12 +38,12 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
     /**
      * The ViewHolder which should be updated to represent the contents of a Game.
      */
-
-    static class GameAdViewHolder extends RecyclerView.ViewHolder {
+    static class GameViewHolder extends RecyclerView.ViewHolder {
         TextView locationTextView;
         TextView dateTextView;
         TextView skillLevelTextView;
         TextView gameLengthTextView;
+        TextView resultTextView;
 
         TextView[] playerNameTextViews = new TextView[4];
         ImageView[] playerImagesViews = new ImageView[4];
@@ -54,8 +51,9 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
 
         Button joinGameButton;
         Button leaveGameButton;
+        Button reportResultButton;
 
-        GameAdViewHolder(@NonNull View itemView) {
+        GameViewHolder(@NonNull View itemView) {
             super(itemView);
 
             gameLengthTextView = itemView.findViewById(R.id.game_length_textview);
@@ -85,6 +83,9 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
 
             joinGameButton = itemView.findViewById(R.id.join_game_button);
             leaveGameButton = itemView.findViewById(R.id.leave_game_button);
+            reportResultButton = itemView.findViewById(R.id.report_result_button);
+
+            resultTextView = itemView.findViewById(R.id.result_textview);
         }
     }
 
@@ -95,18 +96,23 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         this.joinable = joinable;
     }
 
+    // Returns the total number of items in the data set held by the adapter.
+    @Override
+    public int getItemCount() {
+        return games.size();
+    }
+
     // Called when RecyclerView needs a new RecyclerView.ViewHolder of the given type to represent an item.
     @NonNull
     @Override
-    public GameAdViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public GameViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.game_item, parent, false);
-        GameAdViewHolder gameAdViewHolder = new GameAdViewHolder(view);
-        return gameAdViewHolder;
+        return new GameViewHolder(view);
     }
 
     // Called by RecyclerView to display the data from Game at the specified position.
     @Override
-    public void onBindViewHolder(@NonNull GameAdViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final GameViewHolder holder, int position) {
         final IGame currentGame = games.get(position);
         // Set location
         holder.locationTextView.setText(currentGame.getLocation());
@@ -121,9 +127,10 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
         for (int i = 0; i < currentGame.getPlayers().length; i++) {
             IPlayer player = currentGame.getPlayers()[i];
             if (player != null) {
-                holder.playerNameTextViews[i].setText(player.getFirstname());
+                holder.playerNameTextViews[i].setText(player.getFirstName());
                 Bitmap playerImage = PlayerImageBinder.getImage(player, context);
                 holder.playerImagesViews[i].setImageBitmap(playerImage);
+                holder.playerRatingBars[i].setVisibility(View.VISIBLE);
                 holder.playerRatingBars[i].setRating(player.getProfileRating());
             } else {
                 holder.playerNameTextViews[i].setText("Tillgänglig");
@@ -146,15 +153,24 @@ public class GameToRecyclerViewAdapter extends RecyclerView.Adapter<GameToRecycl
             }
         });
 
-        if(!joinable){
+        holder.reportResultButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.reportResultButton.setVisibility(View.INVISIBLE);
+                holder.resultTextView.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        if (!joinable) {
             holder.joinGameButton.setVisibility(View.INVISIBLE);
             holder.leaveGameButton.setVisibility(View.VISIBLE);
-        }
-    }
 
-    // Returns the total number of items in the data set held by the adapter.
-    @Override
-    public int getItemCount() {
-        return games.size();
+            if (!padelBuddy.isGameDateAfterToday(currentGame)) {
+                holder.reportResultButton.setVisibility(View.VISIBLE);
+                holder.leaveGameButton.setVisibility(View.INVISIBLE);
+            }
+        }
+
     }
 }

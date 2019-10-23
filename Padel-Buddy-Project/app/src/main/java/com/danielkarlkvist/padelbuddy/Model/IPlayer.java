@@ -1,22 +1,22 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
+/**
+ * The IGame interface defines TODO ...
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
 public interface IPlayer {
 
-    String getFirstname();
+    String getFirstName();
 
-    String getLastname();
+    String getLastName();
 
     String getFullName();
 
-    String getBio();
-
-    void setFirstname(String firstname);
-
-    void setLastname(String lastname);
-
-    void setBio(String bio);
+    String getBiography();
 
     int getGamesPlayed();
 
@@ -24,4 +24,9 @@ public interface IPlayer {
     double getSkillLevel();
     void setSkillLevel(double skillLevel);
 
+    void setFirstName(String firstName);
+
+    void setLastName(String lastName);
+
+    void setBiography(String biography);
 }

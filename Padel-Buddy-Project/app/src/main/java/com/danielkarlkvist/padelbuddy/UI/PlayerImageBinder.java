@@ -3,15 +3,21 @@ package com.danielkarlkvist.padelbuddy.UI;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 
-import com.danielkarlkvist.padelbuddy.BuildConfig;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
 import com.danielkarlkvist.padelbuddy.R;
 
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The PlayerImageBinder class defines TODO ...
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
 public class PlayerImageBinder {
     private static Map<IPlayer, Bitmap> playerImages = new HashMap<>();
 

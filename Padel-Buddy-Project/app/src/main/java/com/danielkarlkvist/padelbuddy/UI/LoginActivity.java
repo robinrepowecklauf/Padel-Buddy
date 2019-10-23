@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.danielkarlkvist.padelbuddy.MainActivity;
-import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,12 +12,18 @@ import android.widget.Button;
 
 import com.danielkarlkvist.padelbuddy.R;
 
+/**
+ * The LoginActivity class defines TODO ...
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
 public class LoginActivity extends AppCompatActivity {
     private Button danielButton;
     private Button robinButton;
     private Button marcusButton;
-
-    private static PadelBuddy padelBuddy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,34 +44,29 @@ public class LoginActivity extends AppCompatActivity {
         danielButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(1, getApplicationContext()));
+                MainActivity.setPadelBuddy(1, getApplicationContext());
                 startMainActivity();
             }
         });
         robinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(2, getApplicationContext()));
+                MainActivity.setPadelBuddy(2, getApplicationContext());
                 startMainActivity();
             }
         });
         marcusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                padelBuddy = new PadelBuddy(TestFactory.setCurrentUser(3, getApplicationContext()));
+                MainActivity.setPadelBuddy(3, getApplicationContext());
                 startMainActivity();
             }
         });
     }
 
     private void startMainActivity() {
-        TestFactory.createTestGames(padelBuddy, getApplicationContext());
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    }
-
-    public static PadelBuddy getPadelbuddy(){
-        return padelBuddy;
     }
 }
 
