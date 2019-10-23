@@ -8,15 +8,15 @@ import static org.junit.Assert.*;
 
 public class GameTest {
 
-    private Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-    private Player badplayer2 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-    private Player badplayer3 = new Player("Marcus", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-    private Player medelplayer2 = new Player("Carl", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
-    private Player medelplayer3 = new Player("Daniel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
-    private Player advancedplayer5 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
-    private Player advancedplayer6 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
-    private Player advancedplayer7 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
-    private Player defaultplayer = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 10);
+    private IPlayer badplayer1 = PlayerFactory.createPlayer("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private IPlayer badplayer2 = PlayerFactory.createPlayer("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private IPlayer badplayer3 = PlayerFactory.createPlayer("Marcus", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private IPlayer medelplayer2 = PlayerFactory.createPlayer("Carl", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
+    private IPlayer medelplayer3 = PlayerFactory.createPlayer("Daniel", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
+    private IPlayer advancedplayer5 = PlayerFactory.createPlayer("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
+    private IPlayer advancedplayer6 = PlayerFactory.createPlayer("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
+    private IPlayer advancedplayer7 = PlayerFactory.createPlayer("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
+    private IPlayer defaultplayer = PlayerFactory.createPlayer("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 10);
 
 
     private IGame game = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "90");
@@ -96,7 +96,7 @@ public class GameTest {
 
     @Test
     public void isFinishedGame_gameisfinished_ReturnsTrue() {
-        Player player1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
+        IPlayer player1 = PlayerFactory.createPlayer("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
         IGame game1 = new PadelGame(player1, "Gltk", new Date(2019, 11, 05), "90");
         game1.setResult(3, 2);
         assertTrue(game1.isFinishedGame());
@@ -105,14 +105,14 @@ public class GameTest {
 
     @Test
     public void isFinishedGame_gameisnotfinished_ReturnsTrue() {
-        Player player2 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
+        IPlayer player2 = PlayerFactory.createPlayer("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
         IGame game2 = new PadelGame(player2, "Gltk", new Date(2019, 11, 05), "90");
         assertTrue(!game2.isFinishedGame());
     }
 
     @Test
     public void getDateAsString_ReturnsTrue() {
-        IPlayer player1 = new Player("Marcus", "Axelsson", "marcus@gmail.se", "0761362709", "Hej hopp", 20, 2.0);
+        IPlayer player1 = PlayerFactory.createPlayer("Marcus", "Axelsson", "marcus@gmail.se", "Hej hopp", 20, 2.0);
         IGame game1 = new PadelGame(player1, "Gltk", new Date(119, 10, 05, 12, 58), "90");
         String s = game1.getDateAsString();
         assertTrue(game1.getDateAsString().equals("05 nov 12:58 2019"));
