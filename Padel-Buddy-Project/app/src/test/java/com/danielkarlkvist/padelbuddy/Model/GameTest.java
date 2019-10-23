@@ -115,8 +115,8 @@ public class GameTest {
         IPlayer player1 = PlayerFactory.createPlayer("Marcus", "Axelsson", "marcus@gmail.se", "Hej hopp", 20, 2.0);
         IGame game1 = new PadelGame(player1, "Gltk", new Date(119, 10, 05, 12, 58), "90");
         String s = game1.getDateAsString();
-        assertTrue(game1.getDateAsString().equals("05 nov 12:58 2019"));
-        assertFalse(game1.getDateAsString().equals("06 jan 13:56 2020"));
+        assertTrue(game1.getDateAsString().equals("05 nov 12:58"));
+        assertFalse(game1.getDateAsString().equals("06 jan 13:56"));
     }
 }
 
