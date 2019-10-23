@@ -46,23 +46,25 @@ public class PadelBuddy implements ICreate {
         }
     }
 
-    // TODO remove filled games
     public List<IGame> getJoinableGames() {
         List<IGame> availableGames = new ArrayList<>();
-        int arrayLength = games.get(0).getPlayers().length;
+        int amountOfPlayers = games.get(0).getPlayers().length;
         boolean gameAvailable = true;
 
         for (IGame game : games) {
-            for (int i = 0; i < arrayLength; i++) {
-                if (game.getPlayers()[i] == user) {
+            for (int i = 0; i < amountOfPlayers; i++) {
+                if (game.getPlayers()[i] == user || game.isFilled()) {
                     gameAvailable = false;
                 }
             }
+
             if (gameAvailable && isGameDateAfterToday(game)) {
                 availableGames.add(game);
             }
+
             gameAvailable = true;
         }
+
         return availableGames;
     }
 

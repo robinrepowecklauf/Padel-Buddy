@@ -29,4 +29,6 @@ public interface IGame {
     boolean isFinishedGame();
 
     boolean hasPlayers();
+
+    boolean isFilled();
 }
