@@ -111,6 +111,14 @@ abstract class Game implements IGame {
         return hasPlayers;
     }
 
+    public boolean isFilled() {
+        if (players[players.length - 1] == null) {
+            return false;
+        }
+
+        return true;
+    }
+
     /**
      * Checks if the Game is finished
      *
