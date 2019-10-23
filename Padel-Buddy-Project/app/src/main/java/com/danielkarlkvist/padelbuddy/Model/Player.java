@@ -28,6 +28,9 @@ class Player implements IPlayer {
         this.skillLevel = skillLevel;
         this.profileRating = 3.5f; // Hardcoded value at the moment
     }
+    public void setSkillLevel(double skillLevel) {
+        this.skillLevel = skillLevel;
+    }
 
     // region Getters and Setters
     public String getFirstName() {

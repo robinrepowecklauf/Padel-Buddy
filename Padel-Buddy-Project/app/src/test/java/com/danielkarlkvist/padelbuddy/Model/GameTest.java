@@ -8,13 +8,17 @@ import static org.junit.Assert.*;
 
 public class GameTest {
 
-    private Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
-    private Player badplayer2 = new Player("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
-    private Player badplayer3 = new Player("Marcus", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
-    private Player medelplayer2 = new Player("Carl", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
-    private Player medelplayer3 = new Player("Daniel", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
-    private Player advancedplayer5 = new Player("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
-    private Player advancedplayer6 = new Player("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
+    private IPlayer badplayer1 = PlayerFactory.createPlayer("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private IPlayer badplayer2 = PlayerFactory.createPlayer("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private IPlayer badplayer3 = PlayerFactory.createPlayer("Marcus", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private IPlayer medelplayer2 = PlayerFactory.createPlayer("Carl", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
+    private IPlayer medelplayer3 = PlayerFactory.createPlayer("Daniel", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
+    private IPlayer advancedplayer5 = PlayerFactory.createPlayer("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
+    private IPlayer advancedplayer6 = PlayerFactory.createPlayer("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
+    private IPlayer advancedplayer7 = PlayerFactory.createPlayer("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
+    private IPlayer defaultplayer = PlayerFactory.createPlayer("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 10);
+
+
     private IGame game = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "90");
 
     @Test
@@ -73,22 +77,49 @@ public class GameTest {
         game.addPlayer(advancedplayer6);
         assertTrue(game.getAverageSkillLevel() == "Medel");
     }
+    @Test
+    public void GetAverageSkillevel_ThreeAdvancedOneBad_ReturnsTrue() {
+        game.addPlayer(advancedplayer7);
+        game.addPlayer(advancedplayer5);
+        game.addPlayer(advancedplayer6);
+        assertTrue(game.getAverageSkillLevel() == "Avancerad");
+    }
 
+    @Test
+    public void GetAverageSkillevel_OneDefault_ReturnsTrue() {
+        game.addPlayer(defaultplayer);
+        game.addPlayer(badplayer1);
+        game.addPlayer(badplayer3);
+        System.out.println(game.getAverageSkillLevel());
+        assertTrue(game.getAverageSkillLevel() == "Nybörjare");
+    }
 
-
-/*
-
+    @Test
     public void isFinishedGame_gameisfinished_ReturnsTrue() {
-        Player player1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Medel);
-        IGame game1 = new PadelGame(player1, "Gltk", new Date(2019, 11, 05),"90");
-        game1.setResult(3,2);
-
-        Player player2 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, SkillLevel.Medel);
-        IGame game2 = new PadelGame(player2, "Gltk", new Date(2019, 11, 05),"90");
-
+        IPlayer player1 = PlayerFactory.createPlayer("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
+        IGame game1 = new PadelGame(player1, "Gltk", new Date(2019, 11, 05), "90");
+        game1.setResult(3, 2);
         assertTrue(game1.isFinishedGame());
-        assertTrue(!game2.isFinishedGame());
-    }*/
+    }
 
+
+    @Test
+    public void isFinishedGame_gameisnotfinished_ReturnsTrue() {
+        IPlayer player2 = PlayerFactory.createPlayer("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
+        IGame game2 = new PadelGame(player2, "Gltk", new Date(2019, 11, 05), "90");
+        assertTrue(!game2.isFinishedGame());
+    }
+
+    @Test
+    public void getDateAsString_ReturnsTrue() {
+        IPlayer player1 = PlayerFactory.createPlayer("Marcus", "Axelsson", "marcus@gmail.se", "Hej hopp", 20, 2.0);
+        IGame game1 = new PadelGame(player1, "Gltk", new Date(119, 10, 05, 12, 58), "90");
+        String s = game1.getDateAsString();
+        assertTrue(game1.getDateAsString().equals("05 nov 12:58 2019"));
+        assertFalse(game1.getDateAsString().equals("06 jan 13:56 2020"));
+    }
 }
+
+
+
 
