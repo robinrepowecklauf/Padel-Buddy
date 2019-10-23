@@ -2,7 +2,17 @@ package com.danielkarlkvist.padelbuddy.Model;
 
 import java.util.Date;
 
-public class PadelGame extends Game {
+/**
+ * The PadelGame class defines TODO ...
+ *
+ * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
+ * Carl-Johan Björnson och Fredrik Lilliecreutz
+ * @version 1.0
+ * @since 2019-09-05
+ */
+class PadelGame extends Game {
 
-    PadelGame(IPlayer player, String location, Date date, String gameLength){super(player, 4, location, date, gameLength);}
+    PadelGame(IPlayer player, String location, Date date, String gameLength) {
+        super(player, 4, location, date, gameLength);
+    }
 }

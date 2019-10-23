@@ -8,13 +8,13 @@ import static org.junit.Assert.*;
 
 public class GameTest {
 
-    private Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-    private Player badplayer2 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-    private Player badplayer3 = new Player("Marcus", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
-    private Player medelplayer2 = new Player("Carl", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
-    private Player medelplayer3 = new Player("Daniel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 2);
-    private Player advancedplayer5 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
-    private Player advancedplayer6 = new Player("Axel", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 3);
+    private Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private Player badplayer2 = new Player("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private Player badplayer3 = new Player("Marcus", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
+    private Player medelplayer2 = new Player("Carl", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
+    private Player medelplayer3 = new Player("Daniel", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
+    private Player advancedplayer5 = new Player("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
+    private Player advancedplayer6 = new Player("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
     private IGame game = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "90");
 
     @Test
@@ -22,8 +22,8 @@ public class GameTest {
         IGame game = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "60");
         game.addPlayer(badplayer2);
         IPlayer[] players = game.getPlayers();
-        assertTrue(players[0].getFirstname() == "Fredrik");
-        assertTrue(players[1].getFirstname() == "Axel");
+        assertTrue(players[0].getFirstName() == "Fredrik");
+        assertTrue(players[1].getFirstName() == "Axel");
         assertTrue(players[2] == null);
         assertTrue(players[3] == null);
     }
@@ -38,10 +38,10 @@ public class GameTest {
         game.addPlayer(medelplayer2);//Carl
         game.addPlayer(medelplayer3); //Daniel
         IPlayer[] players = game.getPlayers();
-        assertTrue(players[0].getFirstname() == "Fredrik");
-        assertTrue(players[1].getFirstname() == "Axel");
-        assertTrue(players[2].getFirstname() == "Marcus");
-        assertTrue(players[3].getFirstname() == "Carl");
+        assertTrue(players[0].getFirstName() == "Fredrik");
+        assertTrue(players[1].getFirstName() == "Axel");
+        assertTrue(players[2].getFirstName() == "Marcus");
+        assertTrue(players[3].getFirstName() == "Carl");
     }
 
 

@@ -24,7 +24,6 @@ import java.util.List;
  * @version 1.0
  * @since 2019-10-11
  */
-
 public class GameRecyclerViewFragment extends Fragment implements ITopScrollable {
     private PadelBuddy padelBuddy;
     private RecyclerView gameRecyclerView;
@@ -45,6 +44,14 @@ public class GameRecyclerViewFragment extends Fragment implements ITopScrollable
         this.joinable = joinable;
     }
 
+    RecyclerView getGameRecyclerView() {
+        return gameRecyclerView;
+    }
+
+    RecyclerView.LayoutManager getGameRecyclerViewLayoutManager() {
+        return gameRecyclerViewLayoutManager;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,17 +70,8 @@ public class GameRecyclerViewFragment extends Fragment implements ITopScrollable
      * Makes the user able to scroll to the top of the page if they click
      * on the BottomNavigationView icon that they are already inside of
      */
-
     @Override
     public void scrollToTop() {
         gameRecyclerViewLayoutManager.smoothScrollToPosition(gameRecyclerView, null, 0);
-    }
-
-    public RecyclerView getGameRecyclerView() {
-        return gameRecyclerView;
-    }
-
-    public RecyclerView.LayoutManager getGameRecyclerViewLayoutManager() {
-        return gameRecyclerViewLayoutManager;
     }
 }

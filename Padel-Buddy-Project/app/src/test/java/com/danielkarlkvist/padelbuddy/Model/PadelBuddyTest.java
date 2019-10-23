@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 
 public class PadelBuddyTest {
 
-    private PadelBuddy padelBuddy = new PadelBuddy(new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "0701234567", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 2));
-    private Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "123", "lorem ", 14, 1);
+    private PadelBuddy padelBuddy = new PadelBuddy(new Player("Daniel", "Karlkvist", "danielkarlkvist@gmail.com", "Bla bla bla jflkhadfbjkldasjkbfbabfabdfjsdaf", 20, 2));
+    private Player badplayer1 = new Player("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 1);
     private IGame game1 = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "60");
     private IGame game2 = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "60");
 
@@ -53,7 +53,7 @@ public class PadelBuddyTest {
         // padelBuddy.createAd()
         padelBuddy.getGames().add(game1);
         padelBuddy.getGames().add(game2);
-        assertTrue(padelBuddy.getAvailableGames().size() == 2);
+        assertTrue(padelBuddy.getJoinableGames().size() == 2);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class PadelBuddyTest {
         padelBuddy.createAd("Göteborg", new Date(), "90");
         padelBuddy.createAd("Göteborg", new Date(), "90");
         assertTrue(padelBuddy.getGames().size() == 2);
-        assertTrue(padelBuddy.getAvailableGames().size() == 0);
+        assertTrue(padelBuddy.getJoinableGames().size() == 0);
 
     }
 
@@ -69,7 +69,7 @@ public class PadelBuddyTest {
     public void getAvailableGames_CreateOneGame_ReturnsTrue() {
         padelBuddy.getGames().add(game1);
         assertTrue(padelBuddy.getGames().size() == 1);
-        assertTrue(padelBuddy.getAvailableGames().size() == 1);
+        assertTrue(padelBuddy.getJoinableGames().size() == 1);
     }
 
     @Test
@@ -91,9 +91,9 @@ public class PadelBuddyTest {
     @Test
     public void JoinGame_GameTurnsUnavailable_ReturnsTrue() {
         padelBuddy.getGames().add(game1);
-        assertTrue(padelBuddy.getAvailableGames().contains(game1));
+        assertTrue(padelBuddy.getJoinableGames().contains(game1));
         padelBuddy.joinGame(game1);
-        assertTrue(!padelBuddy.getAvailableGames().contains(game1));
+        assertTrue(!padelBuddy.getJoinableGames().contains(game1));
     }
 
     @Test
@@ -109,7 +109,7 @@ public class PadelBuddyTest {
         padelBuddy.getGames().add(game1);
         padelBuddy.joinGame(game1);
         padelBuddy.leaveGame(game1);
-        assertTrue(padelBuddy.getAvailableGames().contains(game1));
+        assertTrue(padelBuddy.getJoinableGames().contains(game1));
 
     }
 
@@ -117,7 +117,7 @@ public class PadelBuddyTest {
     public void LeaveGame_playerIsNotInTheGame_ReturnsTrue() {
         padelBuddy.getGames().add(game1);
         padelBuddy.leaveGame(game1);
-        assertTrue(padelBuddy.getAvailableGames().contains(game1));
+        assertTrue(padelBuddy.getJoinableGames().contains(game1));
 
     }
 }

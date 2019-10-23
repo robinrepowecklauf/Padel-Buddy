@@ -10,12 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.danielkarlkvist.padelbuddy.Model.IGame;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.List;
 
 /**
  * The GameRecyclerViewFragment class defines a RecyclerView for games
@@ -25,9 +22,7 @@ import java.util.List;
  * @version 1.0
  * @since 2019-10-11
  */
-
 public class GamesFragment extends Fragment implements ITopScrollable {
-
     private TabLayout gamesTabLayout;
     private ViewPager gamesViewPager;
 
@@ -50,8 +45,8 @@ public class GamesFragment extends Fragment implements ITopScrollable {
         gamesTabLayout = rootView.findViewById(R.id.games_tablayout);
         gamesViewPager = rootView.findViewById(R.id.games_viewpager);
 
-        upcomingGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, padelBuddy.getUpcomingGames(),padelBuddy, false);
-        historyGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, padelBuddy.getPlayedGames(),padelBuddy, false);
+        upcomingGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, padelBuddy.getUpcomingGames(), padelBuddy, false);
+        historyGameFragment = new GameRecyclerViewFragment(R.layout.games_game_tab, R.id.games_recyclerview, padelBuddy.getPlayedGames(), padelBuddy, false);
 
         // Create a GamesViewPagerAdapter and add fragments with titles to it
         gamesViewPagerAdapter = new GamesViewPagerAdapter(getChildFragmentManager());
@@ -71,7 +66,6 @@ public class GamesFragment extends Fragment implements ITopScrollable {
      * Makes the user able to scroll to the top of the page if they click
      * on the BottomNavigationView that they are already inside of
      */
-
     @Override
     public void scrollToTop() {
         GameRecyclerViewFragment temp;
@@ -80,9 +74,6 @@ public class GamesFragment extends Fragment implements ITopScrollable {
                 temp = (GameRecyclerViewFragment) gamesViewPagerAdapter.getItem(i);
                 temp.getGameRecyclerViewLayoutManager().smoothScrollToPosition(temp.getGameRecyclerView(), null, 0);
             }
-
         }
     }
-
-
 }
