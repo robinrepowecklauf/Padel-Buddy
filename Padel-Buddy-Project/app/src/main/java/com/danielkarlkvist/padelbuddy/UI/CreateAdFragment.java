@@ -31,7 +31,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * The CreateAdFragment class defines the Fragment where a user can createTestData a game ad.
+ * The CreateAdFragment class defines the Fragment where a user can create a game ad.
  *
  * @author Carl-Johan Björnson
  * @version 1.0
@@ -96,11 +96,6 @@ public class CreateAdFragment extends Fragment {
         return rootView;
     }
 
-    /**
-     * Initializes the view and all xml components.
-     *
-     * @param view
-     */
     private void initializeViews(View view) {
         padelArenaSpinner = view.findViewById(R.id.padelarena_spinner);
 
@@ -129,9 +124,6 @@ public class CreateAdFragment extends Fragment {
         createAdButton = view.findViewById(R.id.create_ad_button);
     }
 
-    /**
-     * Assigns Listeners to all buttons.
-     */
     private void setButtonListeners() {
         player2RemoveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -198,7 +190,7 @@ public class CreateAdFragment extends Fragment {
             }, year, month, day);
 
             datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
-            calendar.add(Calendar.DATE, +31);                           // Allows user to book one month ahead
+            calendar.add(Calendar.DATE, 31);                           // Allows user to book one month ahead
             datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
             datePickerDialog.show();
         }

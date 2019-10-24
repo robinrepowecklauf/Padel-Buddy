@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * The abstract class Game defines TODO ...
+ * The abstract class Game holds properties and methods which represents a general game
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
@@ -62,6 +62,7 @@ abstract class Game implements IGame {
     }
     // endregion Getters and Setters
 
+    // JavaDoc in IGame
     public String getAverageSkillLevel() {
         double skillLevelSum = 0;
         int amountOfPlayers = 0;
@@ -84,6 +85,7 @@ abstract class Game implements IGame {
         return getAverageSkillLevelAsString((int) averageSkillLevelNumber);
     }
 
+    // Converts the skill level from an int to the corresponding String
     private String getAverageSkillLevelAsString(int averageSkillLevelNumber) {
         switch (averageSkillLevelNumber) {
             case 1:
@@ -97,6 +99,7 @@ abstract class Game implements IGame {
         }
     }
 
+    // JavaDoc in IGame
     public boolean hasPlayers() {
         boolean hasPlayers = false;
         int amountOfPlayers = players.length;
@@ -111,7 +114,8 @@ abstract class Game implements IGame {
         return hasPlayers;
     }
 
-    public boolean isFilled() {
+    // JavaDoc in IGame
+    public boolean isFilledWithPlayers() {
         if (players[players.length - 1] == null) {
             return false;
         }
@@ -119,15 +123,12 @@ abstract class Game implements IGame {
         return true;
     }
 
-    /**
-     * Checks if the Game is finished
-     *
-     * @return Returns true if Game has a result
-     */
+    // JavaDoc in IGame
     public boolean isFinishedGame() {
         return result != null;
     }
-    
+
+    // JavaDoc in IGame
     public void addPlayer(IPlayer player) {
         for (int i = 0; i < players.length; i++) {
             // player should not be able to join multiple times

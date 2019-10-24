@@ -13,7 +13,7 @@ import android.widget.Button;
 import com.danielkarlkvist.padelbuddy.R;
 
 /**
- * The LoginActivity class defines TODO ...
+ * The LoginActivity class is the activity where the user will register or log in
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz

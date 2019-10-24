@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * The PadelBuddy class defines TODO ...
+ * The PadelBuddy class represents the TODO ...
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
@@ -35,17 +35,37 @@ public class PadelBuddy implements ICreate {
     }
     // endregion Getters and Setters
 
+    /**
+     * Creates a game(PadelGame) and adds it to the games list
+     *
+     * @param location
+     * @param date
+     * @param length
+     */
     public void createAd(String location, Date date, String length) {
         IGame game = new PadelGame(user, location, date, length);
         games.add(game);
     }
 
+    /**
+     * Removes a game from the list if the game is in the list
+     *
+     * @param game
+     */
     public void removeAd(IGame game) {
         if (games.contains(game)) {
             games.remove(game);
         }
     }
 
+    /**
+     * Returns the games that the user can join,
+     * i.e games that the user hasn't already joined before,
+     * games that aren't already filled with the max amount of players
+     * and games which the date hasn't passed
+     *
+     * @return Returns a new list of games the player can join
+     */
     public List<IGame> getJoinableGames() {
         List<IGame> availableGames = new ArrayList<>();
         int amountOfPlayers = games.get(0).getPlayers().length;
@@ -53,7 +73,7 @@ public class PadelBuddy implements ICreate {
 
         for (IGame game : games) {
             for (int i = 0; i < amountOfPlayers; i++) {
-                if (game.getPlayers()[i] == user || game.isFilled()) {
+                if (game.getPlayers()[i] == user || game.isFilledWithPlayers()) {
                     gameAvailable = false;
                 }
             }
@@ -68,6 +88,11 @@ public class PadelBuddy implements ICreate {
         return availableGames;
     }
 
+    /**
+     * Returns the games user's upcoming games
+     *
+     * @return Returns a new list of the user's upcoming games
+     */
     public List<IGame> getUpcomingGames() {
         List<IGame> upcomingGames = new ArrayList<>();
         for (IGame game : games) {

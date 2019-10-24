@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The PlayerImageBinder class defines TODO ...
+ * The PlayerImageBinder class contains all of the players and their corresponding image bitmap
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
@@ -21,10 +21,23 @@ import java.util.Map;
 public class PlayerImageBinder {
     private static Map<IPlayer, Bitmap> playerImages = new HashMap<>();
 
+    /**
+     * Binds a player to an image
+     *
+     * @param player
+     * @param image
+     */
     public static void bind(IPlayer player, Bitmap image) {
         playerImages.put(player, image);
     }
 
+    /**
+     * Finds the image of the chosen player
+     *
+     * @param player
+     * @param context
+     * @return Returns the chosen player's bitmap image
+     */
     public static Bitmap getImage(IPlayer player, Context context) {
         if (player != null) {
             Bitmap image = playerImages.get(player);

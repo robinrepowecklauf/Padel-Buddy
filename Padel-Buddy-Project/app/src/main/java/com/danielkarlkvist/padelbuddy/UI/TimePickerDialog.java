@@ -29,6 +29,12 @@ public class TimePickerDialog extends AppCompatDialogFragment {
     private ITimePickerDialogListener listener;
     private View view;
 
+    private RadioButton getCheckedRadioButton(View view) {
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        radioButton = view.findViewById(radioId);
+        return radioButton;
+    }
+
     /**
      * Builds the Dialog and instantiate the components.
      *
@@ -69,18 +75,6 @@ public class TimePickerDialog extends AppCompatDialogFragment {
         timePicker.setIs24HourView(true);
 
         return builder.create();
-    }
-
-    /**
-     * Returns the checked RadioButton.
-     *
-     * @param view
-     * @return Checked RadioButton
-     */
-    private RadioButton getCheckedRadioButton(View view) {
-        int radioId = radioGroup.getCheckedRadioButtonId();
-        radioButton = view.findViewById(radioId);
-        return radioButton;
     }
 
     /**

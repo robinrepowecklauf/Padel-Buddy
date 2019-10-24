@@ -11,5 +11,9 @@ package com.danielkarlkvist.padelbuddy.UI;
  */
 interface ITopScrollable {
 
+    /**
+     * Scrolls to the top of the page if the user click
+     * on the BottomNavigationView icon that they are already inside of
+     */
     void scrollToTop();
 }
