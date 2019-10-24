@@ -16,8 +16,6 @@ Robin, Fredrik och Daniel:
 Robin:
 - Uppdaterat UML för paketet UI, och lade till den delen i SDD. Har även varit med och uppdaterat en stor del av avsnitt 3 i SDD och RAD (där macish får skriva exakt vad).
 
-- Hjälpt Fredrik att fixa till testerna nu när vi kör mutate-by-copy med listan av games i Padel Buddy.
-
 Daniel: 
 - Skapade en PlayerFactory för att kunna göra Player till en package-private klass.
 - Skrivit klart nya testgames och testplayers i services-paketet som ska ge fler varianter av games som man kan testa med. Tidigare har det endast funnits games med ett hårdkodat antal(2 eller 3) spelare i.
