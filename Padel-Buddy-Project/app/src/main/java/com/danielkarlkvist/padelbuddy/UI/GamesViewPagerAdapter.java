@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The GamesViewPagerAdapter class defines
+ * The GamesViewPagerAdapter class defines an adapter between a ViewPager and a Fragment
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
@@ -44,7 +44,7 @@ public class GamesViewPagerAdapter extends FragmentPagerAdapter {
      * Add new tab-fragments. Used in GamesFragment to createTestData tabs
      *
      * @param fragment current fragment
-     * @param title title of the new fragment
+     * @param title    title of the new fragment
      */
     public void addFragment(Fragment fragment, String title) {
         tabFragments.add(fragment);

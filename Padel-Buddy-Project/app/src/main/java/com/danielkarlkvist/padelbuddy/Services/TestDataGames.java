@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * The TestDataGames class defines TODO ...
+ * The TestDataGames class defines methods and values to create hard coded test games (& players)
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz

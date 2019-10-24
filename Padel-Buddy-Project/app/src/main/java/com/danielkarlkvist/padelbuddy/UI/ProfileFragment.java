@@ -70,9 +70,6 @@ public class ProfileFragment extends Fragment {
         this.user = user;
     }
 
-    /**
-     * Puts the current waiting_for_player_picture of a user into TextViews which is visible in the profile-view
-     */
     @SuppressLint("SetTextI18n")
     @Nullable
     @Override
@@ -95,10 +92,7 @@ public class ProfileFragment extends Fragment {
         return rootView;
     }
 
-    /**
-     * Add listener to buttons and checks that the user's firstNameEditText and lastNameEditText is not empty
-     * when pressing "Spara"
-     */
+    // Add listener to buttons and checks that the user's firstNameEditText and lastNameEditText is not empty when pressing "Spara"
     private void initializeButtonListeners() {
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,11 +127,6 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    /**
-     * Initalizes all components that defines the profile-view
-     *
-     * @param view is the current view of the app
-     */
     private void initializeViews(View view) {
         fullNameTextView = view.findViewById(R.id.profile_name);
         bioTextView = view.findViewById(R.id.profile_bio);
@@ -156,9 +145,7 @@ public class ProfileFragment extends Fragment {
         editImageButton = view.findViewById(R.id.pick_new_image_button);
     }
 
-    /**
-     * Puts the profile in Edit Mode
-     */
+    // Puts the profile in Edit Mode
     private void editProfile() {
         editProfileButton.setText("Spara");
 
@@ -168,23 +155,14 @@ public class ProfileFragment extends Fragment {
         placeCursorAfterText(firstNameEditText);
     }
 
-    /**
-     * Open the option to pick images and crop it
-     */
+    // Open the option to pick images and crop it
     private void pickImageFromGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         startActivityForResult(intent, IMAGE_PICK_CODE);
     }
 
-    /**
-     * Handle result of picked image
-     *
-     * @param requestCode
-     * @param resultCode
-     * @param data
-     */
-    @Override
+    // Handle result of picked image
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             userCircleImageView.setImageURI(data.getData());
@@ -198,13 +176,6 @@ public class ProfileFragment extends Fragment {
         }
     }
 
-    /**
-     * Handle result runtime permission
-     *
-     * @param requestCode
-     * @param permissions
-     * @param grantResults
-     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == PERMISSION_CODE) {
@@ -212,18 +183,14 @@ public class ProfileFragment extends Fragment {
         }
     }
 
-    /**
-     * Places the current waiting_for_player_picture of the user into EditText so it can be edited
-     */
+    // Places the current waiting_for_player_picture of the user into EditText so it can be edited
     private void editUserInformation() {
         firstNameEditText.setText(user.getFirstName());
         lastNameEditText.setText(user.getLastName());
         biographyEditText.setText(user.getBiography());
     }
 
-    /**
-     * Hides the static TextViews and shows all editable texts and input hints necessary to edit the profile
-     */
+    // Hides the static TextViews and shows all editable texts and input hints necessary to edit the profile
     private void changeVisibilityForEditMode() {
         fullNameTextView.setVisibility(View.INVISIBLE);
         bioTextView.setVisibility(View.INVISIBLE);
@@ -238,9 +205,7 @@ public class ProfileFragment extends Fragment {
         editImageButton.setVisibility(View.VISIBLE);
     }
 
-    /**
-     * Hides the editable texts and input hints and shows all standard static TextViews
-     */
+    // Hides the editable texts and input hints and shows all standard static TextViews
     private void changeVisibilityForStandardMode() {
         firstNameEditText.setVisibility(View.INVISIBLE);
         lastNameEditText.setVisibility(View.INVISIBLE);
@@ -257,9 +222,7 @@ public class ProfileFragment extends Fragment {
         bioTextView.setVisibility(View.VISIBLE);
     }
 
-    /**
-     * Updates the user's name and biography
-     */
+    // Updates the user's name and biography
     private void placeNewUserInformation() {
         user.setFirstName(firstNameEditText.getText().toString());
         user.setLastName(lastNameEditText.getText().toString());
@@ -269,9 +232,7 @@ public class ProfileFragment extends Fragment {
         bioTextView.setText(user.getBiography());
     }
 
-    /**
-     * Puts the profile in Standard Mode
-     */
+    // Puts the profile in Standard Mode
     private void saveProfile() {
         editProfileButton.setText("Ändra");
 
@@ -279,21 +240,11 @@ public class ProfileFragment extends Fragment {
         changeVisibilityForStandardMode();
     }
 
-    /**
-     * Places the cursor after any editable text
-     *
-     * @param editText is any editable text
-     */
     private void placeCursorAfterText(EditText editText) {
         int textLength = editText.getText().toString().length();
         editText.setSelection(textLength);
     }
 
-    /**
-     * Hides the keyboard
-     *
-     * @param view the current view of the app
-     */
     private void hideKeyboard(View view) {
         if (view != null) {
             InputMethodManager inputManager = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -303,10 +254,7 @@ public class ProfileFragment extends Fragment {
         }
     }
 
-    /**
-     * A filter that block a specific String of characters 'blockCharacterSet' from
-     * the user to put in as firstname and lastname
-     */
+    // A filter that block a specific String of characters 'blockCharacterSet' from the user to put in as firstname and lastname
     private InputFilter filter = new InputFilter() {
         @Override
         public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {

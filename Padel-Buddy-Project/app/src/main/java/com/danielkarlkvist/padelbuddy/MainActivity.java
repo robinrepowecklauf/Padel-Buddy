@@ -12,14 +12,13 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
-import com.danielkarlkvist.padelbuddy.Model.PlayerFactory;
 import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 import com.danielkarlkvist.padelbuddy.UI.CreateAdFragment;
 import com.danielkarlkvist.padelbuddy.UI.GamesFragment;
 import com.danielkarlkvist.padelbuddy.UI.GameRecyclerViewFragment;
+import com.danielkarlkvist.padelbuddy.UI.ITimePickerDialogListener;
 import com.danielkarlkvist.padelbuddy.UI.LoginActivity;
 import com.danielkarlkvist.padelbuddy.UI.ProfileFragment;
-import com.danielkarlkvist.padelbuddy.UI.ITimePickerDialogListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
@@ -126,12 +125,6 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
         bottomNavigationView.setSelectedItemId(R.id.nav_home);  // Sets the current selected tab as Home when the app opens
     }
 
-    /**
-     * Put the text in CreateAdFragment
-     *
-     * @param time   current time
-     * @param length current length
-     */
     @Override
     public void applyTexts(String time, String length) {
         createAdFragment.applyTexts(time, length);

@@ -66,10 +66,6 @@ public class GameRecyclerViewFragment extends Fragment implements ITopScrollable
         return rootView;
     }
 
-    /**
-     * Makes the user able to scroll to the top of the page if they click
-     * on the BottomNavigationView icon that they are already inside of
-     */
     @Override
     public void scrollToTop() {
         gameRecyclerViewLayoutManager.smoothScrollToPosition(gameRecyclerView, null, 0);

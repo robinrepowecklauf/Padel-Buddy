@@ -10,7 +10,7 @@ import com.danielkarlkvist.padelbuddy.R;
 import com.danielkarlkvist.padelbuddy.UI.PlayerImageBinder;
 
 /**
- * The TestFactory class defines TODO ...
+ * The TestFactory class is the entry from outside of the model to create randomized hard coded games and players
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
@@ -23,6 +23,13 @@ public class TestFactory {
 
     }
 
+    /**
+     * Creates and gets the user at the specified int value
+     *
+     * @param i
+     * @param context
+     * @return
+     */
     public static IPlayer getUser(int i, Context context) {
         IPlayer user;
 

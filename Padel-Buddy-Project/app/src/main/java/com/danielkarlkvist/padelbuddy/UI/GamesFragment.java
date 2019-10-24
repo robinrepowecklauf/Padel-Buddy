@@ -15,7 +15,7 @@ import com.danielkarlkvist.padelbuddy.R;
 import com.google.android.material.tabs.TabLayout;
 
 /**
- * The GameRecyclerViewFragment class defines a RecyclerView for games
+ * The GamesFragment class defines a tab layout for upcoming and recently played games
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
@@ -62,10 +62,6 @@ public class GamesFragment extends Fragment implements ITopScrollable {
         return rootView;
     }
 
-    /**
-     * Makes the user able to scroll to the top of the page if they click
-     * on the BottomNavigationView that they are already inside of
-     */
     @Override
     public void scrollToTop() {
         GameRecyclerViewFragment temp;
