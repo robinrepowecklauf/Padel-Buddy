@@ -32,7 +32,9 @@ Marcus:
 
 ## Outcomes and assignments (5 min)
 Vad finns kvar att göra innan inlämning:
-- 
+- Kodbasen fin-fin-slipas på fredag.
+- Dokumenten ska färdigställas.
+- Förberedelse av presentation.
 
 ## Wrap up
 Nu kör vi!
