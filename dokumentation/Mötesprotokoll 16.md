@@ -10,6 +10,11 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Fredrik Li
 ## Reports (15 min) from previous meeting
 
 Robin: 
+- Försök till implementation av Iterator-pattern, men beslutet togs efter 4h att det skulle ta för lång tid att implementera det med den kodbas vi har nu, så vi körde på mutate-by-copy istället för listan med games i Padel Buddy.
+
+- Uppdaterat UML för paketet UI, och lade till den delen i SDD. Har även varit med och uppdaterat en stor del av avsnitt 3 i SDD och RAD (där macish får skriva exakt vad).
+
+- Hjälpt Fredrik att fixa till testerna nu när vi kör mutate-by-copy med listan av games i Padel Buddy.
 
 Daniel: 
 - Skapade en PlayerFactory för att kunna göra Player till en package-private klass.
@@ -31,6 +36,9 @@ Fredrik:
 
 Carl-Johan: 
 - Skrivit på SDD.
+- Dragit en del skämt.
+- Svarat på tilltal.
+- Sagt hej.
 
 Marcus:
 - Skapat test för getDateAsString()
