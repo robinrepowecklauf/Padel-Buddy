@@ -20,6 +20,11 @@ Carl-Johan:
 - Skrivit på SDD.
 
 Marcus:
+- Skapat test för getDateAsString()
+- Lagt till en ny icon för fliken spel
+- Lagt till all implementerad design i RAD och skrivit om dessa vyer
+- Uppdaterat beskrivning av skissvyerna
+- Beskrivit klassernas ansvarsområden i domänmodellen (RAD)
 
  
 ## Discussion items (35 min)
