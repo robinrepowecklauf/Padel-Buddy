@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements ITimePickerDialog
         homeFragmentController = new GameRecyclerViewFragment(R.layout.fragment_home, R.id.home_recyclerview, padelBuddy.getJoinableGames(), padelBuddy, true);
         createAdFragment = new CreateAdFragment(padelBuddy);
         gamesFragment = new GamesFragment(padelBuddy);
-        profileFragment = new ProfileFragment(padelBuddy.getUser());
+        profileFragment = new ProfileFragment(padelBuddy);
     }
 
     /**

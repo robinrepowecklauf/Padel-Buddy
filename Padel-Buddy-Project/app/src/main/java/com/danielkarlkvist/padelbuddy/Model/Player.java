@@ -68,9 +68,4 @@ class Player implements IPlayer {
         this.biography = biography;
     }
     // endregion Getters and Setters
-
-    // TODO replace with getPlayedGames.size() from PadelBuddy
-    public int getGamesPlayed() {
-        return 3;
-    }
 }

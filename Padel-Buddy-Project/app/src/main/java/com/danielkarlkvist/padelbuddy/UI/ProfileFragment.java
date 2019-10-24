@@ -25,7 +25,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.danielkarlkvist.padelbuddy.MainActivity;
 import com.danielkarlkvist.padelbuddy.Model.IPlayer;
+import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -61,13 +63,15 @@ public class ProfileFragment extends Fragment {
 
     private CircleImageView userCircleImageView;
 
+    private PadelBuddy padelBuddy;
     private IPlayer user;
 
     private boolean isInEditingMode = false;
     private String blockCharacterSet = "!#€%&/()=?`^¡”¥¢‰{}≠¿1234567890+¨',_©®™℅[]<>@$*:;.~|•√π÷×¶∆°£ ";
 
-    public ProfileFragment(IPlayer user) {
-        this.user = user;
+    public ProfileFragment(PadelBuddy padelBuddy) {
+        this.padelBuddy = padelBuddy;
+        this.user = padelBuddy.getUser();
     }
 
     @SuppressLint("SetTextI18n")
@@ -87,7 +91,8 @@ public class ProfileFragment extends Fragment {
         firstNameEditText.setFilters(new InputFilter[]{filter});
         lastNameEditText.setFilters(new InputFilter[]{filter});
 
-        gamesPlayedTextView.setText("Antal spelade matcher: " + (user.getGamesPlayed()));
+        int amountOfPlayedGames = padelBuddy.getPlayedGames().size();
+        gamesPlayedTextView.setText("Antal spelade matcher: " + amountOfPlayedGames);
 
         return rootView;
     }

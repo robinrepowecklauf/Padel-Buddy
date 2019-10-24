@@ -18,10 +18,10 @@ public interface IPlayer {
 
     String getBiography();
 
-    int getGamesPlayed();
-
     float getProfileRating();
+
     double getSkillLevel();
+
     void setSkillLevel(double skillLevel);
 
     void setFirstName(String firstName);
