@@ -8,7 +8,6 @@ package com.danielkarlkvist.padelbuddy.Model;
  * @version 1.0
  * @since 2019-09-05
  */
-// TODO Package-private
 class Player implements IPlayer {
     private String firstName;
     private String lastName;

@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * The PadelBuddy class represents the TODO ...
+ * The PadelBuddy class is the entry to the model and contains the user of the app as well as all games and methods to sort games
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
@@ -106,6 +106,11 @@ public class PadelBuddy implements ICreate {
         return upcomingGames;
     }
 
+    /**
+     * Finds the games where the user is in and the date has passed
+     *
+     * @return Returs the user's played games
+     */
     public List<IGame> getPlayedGames() {
         List<IGame> playedGames = new ArrayList<>();
         for (IGame game : games) {
@@ -119,6 +124,12 @@ public class PadelBuddy implements ICreate {
         return playedGames;
     }
 
+    /**
+     * Checks if a the chosen games date has passed
+     *
+     * @param game
+     * @return Returns true if the game date has passed
+     */
     public boolean isGameDateAfterToday(IGame game) {
         Date today = Calendar.getInstance().getTime();
         Date gameDate = game.getDate();
@@ -126,12 +137,17 @@ public class PadelBuddy implements ICreate {
         return gameDate.after(today);
     }
 
+    /**
+     * Adds the user to a specific game
+     *
+     * @param game
+     */
     public void joinGame(IGame game) {
         IPlayer[] players = game.getPlayers();
-        int arrayLength = players.length;
+        int amountOfPlayers = players.length;
         boolean available = true;
 
-        for (int i = 0; i < arrayLength; i++) {
+        for (int i = 0; i < amountOfPlayers; i++) {
             if (players[i] == user) {
                 available = false;
             }
@@ -142,11 +158,15 @@ public class PadelBuddy implements ICreate {
         }
     }
 
+    /**
+     * Removes the user from a specific game
+     * @param game
+     */
     public void leaveGame(IGame game) {
         IPlayer[] players = game.getPlayers();
-        int arrayLength = players.length;
+        int amountOfPlayers = players.length;
 
-        for (int i = 0; i < arrayLength; i++) {
+        for (int i = 0; i < amountOfPlayers; i++) {
             if (players[i] == user) {
                 players[i] = null;
             }
