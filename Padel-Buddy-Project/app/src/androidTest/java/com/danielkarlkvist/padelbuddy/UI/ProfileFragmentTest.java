@@ -6,6 +6,7 @@ import androidx.test.runner.AndroidJUnit4;
 
 import com.danielkarlkvist.padelbuddy.MainActivity;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
+import com.danielkarlkvist.padelbuddy.Model.PlayerFactory;
 import com.danielkarlkvist.padelbuddy.R;
 import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 
@@ -63,7 +64,7 @@ public class ProfileFragmentTest {
 
     @Before
     public void setUp() throws Exception {
-        padelBuddy = new PadelBuddy(TestFactory.getUser(1);
+        padelBuddy = new PadelBuddy(PlayerFactory.createPlayer("r", "r", "s", "a", 1, 2));
         profile = new ProfileFragment(padelBuddy.getUser());
         onView(withId(R.id.test_daniel_button)).perform(click());
         activityRule.finishActivity();

@@ -10,6 +10,7 @@ import com.danielkarlkvist.padelbuddy.R;
 import com.danielkarlkvist.padelbuddy.UI.PlayerImageBinder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
