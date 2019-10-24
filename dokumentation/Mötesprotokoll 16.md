@@ -12,6 +12,19 @@ Participants: Marcus Axelsson, Robin Repo Wecklauf, Daniel Karlkvist, Fredrik Li
 Robin: 
 
 Daniel: 
+- Skapade en PlayerFactory för att kunna göra Player till en package-private klass.
+- Skrivit klart nya testgames och testplayers i services-paketet som ska ge fler varianter av games som man kan testa med. Tidigare har det endast funnits games med ett hårdkodat antal(2 eller 3) spelare i.
+- Formatterat filer och rensat onödiga beroenden.
+- Ändrat i getGames-metoden i PadelBuddy så den returnerar en kopia av listan, istället för listan i PadelBuddy(mutate-by-copy).
+- Bytt namn på hasNoPlayers-metoden till hasPlayers och även ändrat logiken i den för att passa namnet.
+- Ändrat addPlayer-metoden så en spelare inte kan gå med i samma match flera gånger.
+- Lade till en isFilled-metod i Game som kollar om en match har fyllt alla sina platser.
+- Ändrat getJoinableGames-metoden så den kollar om en match är fylld med spelare.
+- Skrivit i SDD och RAD.
+- Skrivit JavaDoc.
+
+Daniel & Carl-Johan:
+- Flyttade på det statiska PadelBuddy-objektet från LoginActivity till MainActivity som tog bort beroendet mellan UI och Services paketen.
 
 Fredrik: 
 - Skrivit SDD. Anpassat tester efter ändringar i kod. 
