@@ -1,4 +1,4 @@
-package com.danielkarlkvist.padelbuddy.Controller;
+package com.danielkarlkvist.padelbuddy.UI;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -22,26 +22,30 @@ import com.danielkarlkvist.padelbuddy.R;
  * @version 1.0
  * @since 2019-10-11
  */
-
 public class TimePickerDialog extends AppCompatDialogFragment {
-
-    private TimePicker timePicker1;
+    private TimePicker timePicker;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
-    private ExampleDialogListener listener;
+    private ITimePickerDialogListener listener;
     private View view;
+
+    private RadioButton getCheckedRadioButton(View view) {
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        radioButton = view.findViewById(radioId);
+        return radioButton;
+    }
 
     /**
      * Builds the Dialog and instantiate the components.
+     *
      * @param savedInstanceState
      * @return Dialog with the arguments supplied to this builder.
      */
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        view = inflater.inflate(R.layout.test_time_picker, null);
+        view = inflater.inflate(R.layout.time_picker_dialog, null);
 
         builder.setView(view)
                 .setTitle("Välj tid för matchens start och längd")
@@ -55,7 +59,7 @@ public class TimePickerDialog extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        String time = "" + timePicker1.getHour() + ":" + timePicker1.getMinute();
+                        String time = "" + timePicker.getHour() + ":" + timePicker.getMinute();
 
                         radioButton = getCheckedRadioButton(view);
 
@@ -67,47 +71,26 @@ public class TimePickerDialog extends AppCompatDialogFragment {
         radioGroup = view.findViewById(R.id.length_radiogroup);
         radioButton = getCheckedRadioButton(view);
 
-        timePicker1 = view.findViewById(R.id.timePicker1);
-        timePicker1.setIs24HourView(true);
+        timePicker = view.findViewById(R.id.timePicker1);
+        timePicker.setIs24HourView(true);
 
         return builder.create();
     }
 
     /**
-     * Returns the checked RadioButton.
-     * @param view
-     * @return Checked RadioButton
-     */
-
-    private RadioButton getCheckedRadioButton(View view) {
-        int radioId = radioGroup.getCheckedRadioButtonId();
-        radioButton = view.findViewById(radioId);
-        return radioButton;
-    }
-
-    /**
-     *  Creates the listener and assigns the MainActivity.
+     * Creates the listener and assigns the MainActivity.
+     *
      * @param context, In our case the MainActivity.
      */
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
         try {
-            listener = (ExampleDialogListener) context;
+            listener = (ITimePickerDialogListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString() +
-                    "must implement ExampleDialogListener");
+                    "must implement ITimePickerDialogListener");
         }
-    }
-
-    /**
-     * The ExampleDialogListener Interface lets the ExampleDialog apply text to the Activity which implements it.
-     *
-     */
-
-    public interface ExampleDialogListener {
-        void applyTexts(String time, String length);
     }
 }

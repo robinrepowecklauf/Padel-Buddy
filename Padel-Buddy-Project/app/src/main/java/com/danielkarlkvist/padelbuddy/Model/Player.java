@@ -1,85 +1,84 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 /**
- * The Player class defines a player which holds values that are being accessed from
- * a user's profile and gameads
+ * The Player class defines a player which holds values that represents a player
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
  * @version 1.0
  * @since 2019-09-05
  */
-
-public class Player {
-
-    private String firstname;
-    private String lastname;
+class Player implements IPlayer {
+    private String firstName;
+    private String lastName;
     private String mail;
-    private String phone;
-    private String bio;
-    private int age;
-    private SkillLevel skillLevel;
+    private String biography;
+    private int age;        // TODO show age in profile?
+    private double skillLevel;
     private float profileRating;
-    private CircleImageView image;
 
-    Player(String firstname, String lastname, String mail, String phone, String bio, int age, SkillLevel skillLevel) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    Player(String firstName, String lastName, String mail, String biography, int age, double skillLevel) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.mail = mail;
-        this.phone = phone;
-        this.bio = bio;
+        this.biography = biography;
         this.age = age;
         this.skillLevel = skillLevel;
-        this.profileRating = 3.3f;
+        this.profileRating = 3.5f; // Hardcoded value at the moment
     }
 
-    public String getFirstname() {
-        return firstname;
+    // region Getters and Setters
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getFullName() {
-        return firstname + " " + lastname;
+        return firstName + " " + lastName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public String getBiography() {
+        return biography;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public double getSkillLevel() {
+        if (skillLevel > 3) {
+            return 3;
+        }
+
+        return skillLevel;
     }
 
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
+    public String getSkillLevelAsString() {
+        switch ((int)skillLevel) {
+            case 1:
+                return "Nybörjare";
+            case 2:
+                return "Medel";
+            case 3:
+                return "Avancerad";
+            default:
+                return "Medel";
+        }
     }
 
     public float getProfileRating() {
         return profileRating;
     }
 
-    public int getGamesPlayed() {
-        return 3;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setImage(CircleImageView image) {
-        this.image = image;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public SkillLevel getSkillLevel() {
-        return skillLevel;
+    public void setBiography(String biography) {
+        this.biography = biography;
     }
-
-    public CircleImageView getImage() {
-        return image;
-    }
+    // endregion Getters and Setters
 }

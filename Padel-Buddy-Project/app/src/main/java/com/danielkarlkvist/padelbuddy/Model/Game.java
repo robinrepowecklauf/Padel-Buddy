@@ -1,159 +1,139 @@
 package com.danielkarlkvist.padelbuddy.Model;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
- * The ProfileFragment class represents all waiting_for_player_picture about a game
+ * The abstract class Game holds properties and methods which represents a general game
  *
  * @author Robin Repo Wecklauf, Marcus Axelsson, Daniel Karlkvist
  * Carl-Johan Björnson och Fredrik Lilliecreutz
  * @version 1.0
  * @since 2019-09-05
  */
-
-public class Game {
-    private Player[] players = new Player[4];
+abstract class Game implements IGame {
+    private IPlayer[] players;
     private String location;
     private Date date;
+    private String gameLength;
     private Tuple<Integer, Integer> result;
 
-    Game(Player player, String location, Date date) {
+    Game(IPlayer player, int amountOfPlayers, String location, Date date, String gameLength) {
+        this.players = new Player[amountOfPlayers];
         this.players[0] = player;
         this.location = location;
         this.date = date;
         this.result = result;
+        this.gameLength = gameLength;
     }
 
-    // TODO decide return type
-    public String getAverageSkillLevel() {
-        int[] skillLevelsAsNumber = new int[4];
-        int amountOfPlayers = 0;
-        for (int i = 0; i < skillLevelsAsNumber.length; i++) {
-            if (players[i] != null) {
-                int skillLevelAsNumber = getIntFromSkillLevel(players[i].getSkillLevel());
-                skillLevelsAsNumber[i] = skillLevelAsNumber;
-                amountOfPlayers++;
-            }
-        }
-
-        int averageSkillLevelNumber = getAverageSkillLevelNumber(skillLevelsAsNumber, amountOfPlayers);
-
-        return getSkillLevelFromInt(averageSkillLevelNumber).toString();
-    }
-
-    private int getAverageSkillLevelNumber(int[] skillLevelNumbers, int amountOfPlayers) {
-        int sum = 0;
-        for (Integer skillLevelNumber : skillLevelNumbers) {
-            sum += skillLevelNumber;
-        }
-
-        double average = sum / amountOfPlayers + 0.5;
-
-        return (int) average;
-    }
-
-    private int getIntFromSkillLevel(SkillLevel skillLevel) {
-        switch (skillLevel) {
-            case Nybörjare:
-                return 1;
-            case Medel:
-                return 2;
-            case Avancerad:
-                return 3;
-
-                default:
-                    return 2;
-        }
-    }
-
-    private SkillLevel getSkillLevelFromInt(int skillLevelNumber) {
-        switch (skillLevelNumber) {
-            case 1:
-                return SkillLevel.Nybörjare;
-            case 2:
-                return SkillLevel.Medel;
-            case 3:
-                return SkillLevel.Avancerad;
-
-                default:
-                    return SkillLevel.Medel;
-        }
-    }
-
-    /**
-     * Checks if the Game is finished
-     * @return Returns true if Game has a result
-     */
-    public boolean isFinishedGame(){
-        return result != null;
-    }
-
-    /**
-     * Set both scores of each team
-     * @param score1
-     * @param score2
-     */
-    public void setResult(int score1, int score2) {
-        this.result = new Tuple(score1, score2);
-    }
-
-    /**
-     * Get the players currently in the game
-     *
-     * @return Players in the game
-     */
-    public Player[] getPlayers() {
+    // region Getters and Setters
+    public IPlayer[] getPlayers() {
         return players;
     }
 
-    /**
-     * Get the location of the game
-     *
-     * @return The location of the game
-     */
     public String getLocation() {
         return location;
     }
 
-    /**
-     * Set the location of the game
-     *
-     * @param location
-     */
-    public void setLocation(String location) {
-        this.location = location;
+    public Date getDate() {
+        return date;
     }
 
-    /**
-     * Get the date when the game should be played formatted as dd/MM hh:mm
-     *
-     * @return The date of the game formatted as dd/MM hh:mm
-     */
     public String getDateAsString() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM hh:mm");
-        String formattedDate = simpleDateFormat.format(date);
-
-        return formattedDate;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM hh:mm");
+        return simpleDateFormat.format(date);
     }
 
-    /**
-     * Set the date when the game should be played
-     *
-     * @param date
-     */
+    public String getGameLength() {
+        return gameLength;
+    }
+
+    public Tuple<Integer, Integer> getResult() {
+        return result;
+    }
+
     public void setDate(Date date) {
         this.date = date;
     }
 
-    public void addPlayer(Player player) {
+    public void setResult(int score1, int score2) {
+        this.result = new Tuple(score1, score2);
+    }
+    // endregion Getters and Setters
+
+    // JavaDoc in IGame
+    public String getAverageSkillLevel() {
+        double skillLevelSum = 0;
+        int amountOfPlayers = 0;
+
+        for (IPlayer player : players) {
+            if (player != null) {
+                skillLevelSum += player.getSkillLevel();
+                amountOfPlayers++;
+            }
+        }
+
+        double averageSkillLevelNumber = (skillLevelSum / amountOfPlayers + 0.5);
+
+        return getAverageSkillLevelAsString((int) averageSkillLevelNumber);
+    }
+
+    // Converts the skill level from an int to the corresponding String
+    private String getAverageSkillLevelAsString(int averageSkillLevelNumber) {
+        switch (averageSkillLevelNumber) {
+            case 1:
+                return "Nybörjare";
+            case 2:
+                return "Medel";
+            case 3:
+                return "Avancerad";
+            default:
+                return "Medel";
+        }
+    }
+
+    // JavaDoc in IGame
+    public boolean hasPlayers() {
+        boolean hasPlayers = false;
+        int amountOfPlayers = players.length;
+
+        for (int i = 0; i < amountOfPlayers; i++) {
+            if (players[i] != null) {
+                hasPlayers = true;
+                break;
+            }
+        }
+
+        return hasPlayers;
+    }
+
+    // JavaDoc in IGame
+    public boolean isFilledWithPlayers() {
+        if (players[players.length - 1] == null) {
+            return false;
+        }
+
+        return true;
+    }
+
+    // JavaDoc in IGame
+    public boolean isFinishedGame() {
+        return result != null;
+    }
+
+    // JavaDoc in IGame
+    public void addPlayer(IPlayer player) {
         for (int i = 0; i < players.length; i++) {
+            // player should not be able to join multiple times
+            if (players[i] == player) {
+                break;
+            }
+
             if (players[i] == null) {
                 players[i] = player;
                 break;
             }
         }
     }
-    }
+}
