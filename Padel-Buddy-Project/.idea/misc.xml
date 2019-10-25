@@ -6,4 +6,13 @@
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
+  <component name="QAPlugAnalysisUIOptions">
+    <option name="AUTOSCROLL_TO_SOURCE" value="true" />
+    <option name="FILTER_RESOLVED_ITEMS" value="false" />
+    <option name="SHOW_SONAR_WAY" value="false" />
+    <option name="SPLITTER_PROPORTION" value="0.6297134" />
+  </component>
+  <component name="SuppressionsComponent">
+    <option name="suppComments" value="[]" />
+  </component>
 </project>
