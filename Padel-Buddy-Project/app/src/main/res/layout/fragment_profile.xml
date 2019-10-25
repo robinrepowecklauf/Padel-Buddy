@@ -211,7 +211,7 @@
                 android:layout_below="@id/profile_bio_edit"
                 android:layout_marginLeft="@dimen/margin_padding_size_medium"
                 android:layout_marginTop="@dimen/margin_padding_size_medium"
-                android:text="Omdöme:"
+                android:text="Omdöme: "
                 android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textStyle="bold" />
 

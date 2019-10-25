@@ -68,15 +68,9 @@ abstract class Game implements IGame {
         int amountOfPlayers = 0;
 
         for (IPlayer player : players) {
-
             if (player != null) {
-                if(player.getSkillLevel()>3.0){
-                    player.setSkillLevel(2.0);
-                }
-                else{
-                    skillLevelSum += player.getSkillLevel();
-                    amountOfPlayers++;
-                }
+                skillLevelSum += player.getSkillLevel();
+                amountOfPlayers++;
             }
         }
 

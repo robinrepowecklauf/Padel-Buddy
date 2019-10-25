@@ -22,7 +22,7 @@ public interface IPlayer {
 
     double getSkillLevel();
 
-    void setSkillLevel(double skillLevel);
+    String getSkillLevelAsString();
 
     void setFirstName(String firstName);
 

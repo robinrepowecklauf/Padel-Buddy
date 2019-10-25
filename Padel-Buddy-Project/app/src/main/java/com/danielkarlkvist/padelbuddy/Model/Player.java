@@ -26,9 +26,6 @@ class Player implements IPlayer {
         this.skillLevel = skillLevel;
         this.profileRating = 3.5f; // Hardcoded value at the moment
     }
-    public void setSkillLevel(double skillLevel) {
-        this.skillLevel = skillLevel;
-    }
 
     // region Getters and Setters
     public String getFirstName() {
@@ -48,7 +45,24 @@ class Player implements IPlayer {
     }
 
     public double getSkillLevel() {
+        if (skillLevel > 3) {
+            return 3;
+        }
+
         return skillLevel;
+    }
+
+    public String getSkillLevelAsString() {
+        switch ((int)skillLevel) {
+            case 1:
+                return "Nybörjare";
+            case 2:
+                return "Medel";
+            case 3:
+                return "Avancerad";
+            default:
+                return "Medel";
+        }
     }
 
     public float getProfileRating() {

@@ -98,6 +98,9 @@ public class ProfileFragment extends Fragment {
         int amountOfPlayedGames = padelBuddy.getPlayedGames().size();
         gamesPlayedTextView.setText("Antal spelade matcher: " + amountOfPlayedGames);
 
+        String skillLevel = padelBuddy.getUser().getSkillLevelAsString();
+        skillLevelTextView.setText("Skicklighetsnivå: " + skillLevel);
+
         profileRatingBar.setRating(user.getProfileRating());
 
         return rootView;
