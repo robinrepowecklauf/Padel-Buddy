@@ -16,6 +16,11 @@ Padel is a racquet sport and is typically seen as a combination of squash and te
 9. Choose "Pixel 3 XL API 29" next to "MainActivity" at the top in Android Studios.
 10. Run the program.
 
+## Error
+If you are getting: *error: class BuildConfig is public, should be declared in a file named BuildConfig.java* when running the program,
+1. Go into "Build", press "Clean Project".
+2. Run the program again and it should work.
+
 ## Workflow
 1. Choose a User Story.
 2. Plan the implementation - see how well it accords with the design and domain model.
