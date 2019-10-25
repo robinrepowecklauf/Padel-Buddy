@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,12 +57,15 @@ public class ProfileFragment extends Fragment {
     private TextView bioHintTextView;
     private TextView gamesPlayedTextView;
     private TextView bioTextView;
+    private TextView skillLevelTextView;
 
     private EditText firstNameEditText;
     private EditText lastNameEditText;
     private EditText biographyEditText;
 
     private CircleImageView userCircleImageView;
+
+    private RatingBar profileRatingBar;
 
     private PadelBuddy padelBuddy;
     private IPlayer user;
@@ -93,6 +97,8 @@ public class ProfileFragment extends Fragment {
 
         int amountOfPlayedGames = padelBuddy.getPlayedGames().size();
         gamesPlayedTextView.setText("Antal spelade matcher: " + amountOfPlayedGames);
+
+        profileRatingBar.setRating(user.getProfileRating());
 
         return rootView;
     }
@@ -148,6 +154,9 @@ public class ProfileFragment extends Fragment {
         lastNameEditText = view.findViewById(R.id.profile_lastname_edit);
         biographyEditText = view.findViewById(R.id.profile_bio_edit);
         editImageButton = view.findViewById(R.id.pick_new_image_button);
+
+        profileRatingBar = view.findViewById(R.id.profile_rating_bar);
+        skillLevelTextView = view.findViewById(R.id.profile_skill_level);
     }
 
     // Puts the profile in Edit Mode

@@ -215,6 +215,14 @@
                 android:textColor="@color/primaryTextColorOnLightBackground"
                 android:textStyle="bold" />
 
+            <RatingBar
+                style="@style/game_ad_ratingbar"
+                android:id="@+id/profile_rating_bar"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:layout_toEndOf="@+id/profile_rating"
+                android:layout_below="@id/profile_bio_edit"
+                />
+
             <TextView
                 android:id="@+id/profile_skill_level"
                 android:layout_width="wrap_content"
