@@ -41,7 +41,7 @@ public class TestFactory {
                 PlayerImageBinder.bind(user, BitmapFactory.decodeResource(context.getResources(), R.drawable.blom));
                 break;
             case 2:
-                user = PlayerFactory.createPlayer("Robin", "Axelsson", "robin@gmail.com", "Jag älskar Padel Buddy :D. Padel Buddy är drömmen. Padel Buddy är livet. Grabbarna som skapat Padel Buddy borde få en 5:a i betyg. Är absolut inte biased! mvh Robin repo wecklauf, inte Daniel", 20, 3);
+                user = PlayerFactory.createPlayer("Robin", "Axelsson", "robin@gmail.com", "Grabbarna som skapat Padel Buddy borde få en 5:a i betyg mvh Robin repo wecklauf, inte Daniel", 20, 3);
                 PlayerImageBinder.bind(user, BitmapFactory.decodeResource(context.getResources(), R.drawable.loket));
                 break;
             case 3:

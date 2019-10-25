@@ -29,8 +29,6 @@ class TestDataGames implements ITestData {
     private List<String> locations = new ArrayList<>();
     private Context context;
 
-    private final int amountOfTimeLengths = 2;  // TODO create local variable
-
     private IPlayer getRandomPlayer() {
         int random = rand.nextInt(players.size());
 
@@ -50,6 +48,7 @@ class TestDataGames implements ITestData {
     }
 
     private String getRandomTimeLength() {
+        int amountOfTimeLengths = 2;    // TODO should not be a hardcoded value
         int random = rand.nextInt(amountOfTimeLengths);
 
         if (random == 0) {
