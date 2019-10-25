@@ -18,44 +18,42 @@ public class GameTest {
     private IPlayer advancedplayer7 = PlayerFactory.createPlayer("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 3);
     private IPlayer defaultplayer = PlayerFactory.createPlayer("Axel", "Axelsson", "test@gmail.com", "lorem ", 14, 10);
 
-
     private IGame game = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "90");
 
     @Test
-    public void addPlayer_onePlayerIsAdded_ReturnsTrue() {
-        IGame game = new PadelGame(badplayer1, "Gltk", new Date(2019, 11, 05), "60");
+    public void addPlayer_OnePlayerIsAdded_ReturnsTrue() {
         game.addPlayer(badplayer2);
         IPlayer[] players = game.getPlayers();
-        assertTrue(players[0].getFirstName() == "Fredrik");
-        assertTrue(players[1].getFirstName() == "Axel");
-        assertTrue(players[2] == null);
-        assertTrue(players[3] == null);
+        assertNotNull(players[0]);
+        assertNotNull(players[1]);
+        assertNull(players[2]);
+        assertNull(players[3]);
+        assertEquals(players[1], badplayer2);
     }
 
     /**
      * Fredrik creates the game and is therefore on index zero
      */
     @Test
-    public void addPlayer_gameIsFull_ReturnsTrue() {
+    public void addPlayer_GameIsFull_ReturnsTrue() {
         game.addPlayer(badplayer2);//Axel
         game.addPlayer(badplayer3);//Marcus
         game.addPlayer(medelplayer2);//Carl
         game.addPlayer(medelplayer3); //Daniel
         IPlayer[] players = game.getPlayers();
-        assertTrue(players[0].getFirstName() == "Fredrik");
-        assertTrue(players[1].getFirstName() == "Axel");
-        assertTrue(players[2].getFirstName() == "Marcus");
-        assertTrue(players[3].getFirstName() == "Carl");
+        assertNotNull(players[0]);
+        assertNotNull(players[1]);
+        assertNotNull(players[2]);
+        assertNotNull(players[3]);
     }
 
-
     @Test
-    public void GetAverageSkillevel_gameWithOnePlayer_ReturnsTrue() {
+    public void getAverageSkillLevel_GameWithOneSkillLevel_ReturnsTrue() {
         assertTrue(game.getAverageSkillLevel() == "Nybörjare");
     }
 
     @Test
-    public void GetAverageSkillevel_threeOfSame_ReturnsTrue() {
+    public void getAverageSkillLevel_ThreeOfSame_ReturnsTrue() {
         game.addPlayer(badplayer2);
         game.addPlayer(badplayer3);
         game.addPlayer(medelplayer2);
@@ -63,7 +61,7 @@ public class GameTest {
     }
 
     @Test
-    public void GetAverageSkillevel_twoOfEach_ReturnsTrue() {
+    public void getAverageSkillLevel_TwoOfEach_ReturnsTrue() {
         game.addPlayer(badplayer2);
         game.addPlayer(medelplayer2);
         game.addPlayer(medelplayer3);
@@ -71,14 +69,15 @@ public class GameTest {
     }
 
     @Test
-    public void GetAverageSkillevel_twoAdvancedtwoBad_ReturnsTrue() {
+    public void getAverageSkillLevel_TwoAdvancedAndTwoBad_ReturnsTrue() {
         game.addPlayer(badplayer2);
         game.addPlayer(advancedplayer5);
         game.addPlayer(advancedplayer6);
         assertTrue(game.getAverageSkillLevel() == "Medel");
     }
+
     @Test
-    public void GetAverageSkillevel_ThreeAdvancedOneBad_ReturnsTrue() {
+    public void getAverageSkillLevel_ThreeAdvancedAndOneBad_ReturnsTrue() {
         game.addPlayer(advancedplayer7);
         game.addPlayer(advancedplayer5);
         game.addPlayer(advancedplayer6);
@@ -86,37 +85,34 @@ public class GameTest {
     }
 
     @Test
-    public void GetAverageSkillevel_OneDefault_ReturnsTrue() {
+    public void getAverageSkillLevel_OneDefault_ReturnsTrue() {
         game.addPlayer(defaultplayer);
         game.addPlayer(badplayer1);
         game.addPlayer(badplayer3);
-        System.out.println(game.getAverageSkillLevel());
-        assertTrue(game.getAverageSkillLevel() == "Nybörjare");
+        assertTrue(game.getAverageSkillLevel() == "Medel");
     }
 
     @Test
-    public void isFinishedGame_gameisfinished_ReturnsTrue() {
+    public void isFinishedGame_GameIsFinished_ReturnsTrue() {
         IPlayer player1 = PlayerFactory.createPlayer("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
         IGame game1 = new PadelGame(player1, "Gltk", new Date(2019, 11, 05), "90");
         game1.setResult(3, 2);
         assertTrue(game1.isFinishedGame());
     }
 
-
     @Test
-    public void isFinishedGame_gameisnotfinished_ReturnsTrue() {
+    public void isFinishedGame_GameIsNotFinished_ReturnsFalse() {
         IPlayer player2 = PlayerFactory.createPlayer("Fredrik", "Axelsson", "test@gmail.com", "lorem ", 14, 2);
         IGame game2 = new PadelGame(player2, "Gltk", new Date(2019, 11, 05), "90");
-        assertTrue(!game2.isFinishedGame());
+        assertFalse(game2.isFinishedGame());
     }
 
     @Test
-    public void getDateAsString_ReturnsTrue() {
+    public void getDateAsString_CorrectOutput_ReturnsTrue() {
         IPlayer player1 = PlayerFactory.createPlayer("Marcus", "Axelsson", "marcus@gmail.se", "Hej hopp", 20, 2.0);
-        IGame game1 = new PadelGame(player1, "Gltk", new Date(119, 10, 05, 12, 58), "90");
+        IGame game1 = new PadelGame(player1, "Gltk", new Date(119, 10, 5, 12, 58), "90");
         String s = game1.getDateAsString();
-        assertTrue(game1.getDateAsString().equals("05 nov 12:58"));
-        assertFalse(game1.getDateAsString().equals("06 jan 13:56"));
+        assertEquals(s, "05 Nov 12:58");
     }
 }
 

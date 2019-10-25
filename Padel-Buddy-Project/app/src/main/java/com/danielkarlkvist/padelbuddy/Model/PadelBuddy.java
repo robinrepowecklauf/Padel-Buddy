@@ -160,6 +160,7 @@ public class PadelBuddy implements ICreate {
 
     /**
      * Removes the user from a specific game
+     *
      * @param game
      */
     public void leaveGame(IGame game) {

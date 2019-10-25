@@ -53,7 +53,7 @@ class Player implements IPlayer {
     }
 
     public String getSkillLevelAsString() {
-        switch ((int)skillLevel) {
+        switch ((int) skillLevel) {
             case 1:
                 return "Nybörjare";
             case 2:

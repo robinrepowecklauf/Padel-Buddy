@@ -8,7 +8,6 @@ import com.danielkarlkvist.padelbuddy.MainActivity;
 import com.danielkarlkvist.padelbuddy.Model.PadelBuddy;
 import com.danielkarlkvist.padelbuddy.Model.PlayerFactory;
 import com.danielkarlkvist.padelbuddy.R;
-import com.danielkarlkvist.padelbuddy.Services.TestFactory;
 
 import org.junit.After;
 import org.junit.Before;

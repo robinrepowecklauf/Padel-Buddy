@@ -26,6 +26,7 @@ public interface IGame {
     String getAverageSkillLevel();
 
     Date getDate();
+
     void setResult(int score1, int score2);
 
     IPlayer[] getPlayers();
