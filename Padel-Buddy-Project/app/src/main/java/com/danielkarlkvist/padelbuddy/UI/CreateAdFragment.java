@@ -199,7 +199,7 @@ public class CreateAdFragment extends Fragment {
     /**
      * Creates and opens Dialog to choose time for the game ad.
      */
-    public void openDialog() {
+    private void openDialog() {
         TimePickerDialog timePickerDialog = new TimePickerDialog();
         timePickerDialog.show(getFragmentManager(), "timePickerDialog");
     }
