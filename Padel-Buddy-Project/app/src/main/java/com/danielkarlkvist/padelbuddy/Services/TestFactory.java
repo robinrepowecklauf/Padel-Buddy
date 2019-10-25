@@ -18,8 +18,6 @@ import com.danielkarlkvist.padelbuddy.UI.PlayerImageBinder;
  * @since 2019-09-05
  */
 public class TestFactory {
-    private static TestFactory testFactory;
-    private static IPlayer user;
 
     private TestFactory() {
 
