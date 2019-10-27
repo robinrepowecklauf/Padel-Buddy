@@ -43,7 +43,7 @@ public class TestFactory {
                 PlayerImageBinder.bind(user, BitmapFactory.decodeResource(context.getResources(), R.drawable.loket));
                 break;
             case 3:
-                user = PlayerFactory.createPlayer("Marcus", "Repo Weckaluf", "weklauf@gmail.com", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ", 20, 2);
+                user = PlayerFactory.createPlayer("Marcus", "Repo Weckaluf", "weklauf@gmail.com", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ", 20, 2);
                 PlayerImageBinder.bind(user, BitmapFactory.decodeResource(context.getResources(), R.drawable.linda));
                 break;
             default:

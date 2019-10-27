@@ -170,7 +170,7 @@ class TestDataGames implements ITestData {
         locations.add("Padel mästarna");
         locations.add("Padel pros");
         locations.add("Pro padels");
-        locations.add("Björnes innepadelklubb");
+        //locations.add("Björnes innepadelklubb");
     }
 
     private void addToPlayers(IPlayer[] removedPlayers) {
